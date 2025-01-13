@@ -611,19 +611,31 @@ h6 {
 
 .bannerBg{
   background: url("/card/banner-bg.png");
-  // background: red;
   width: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 800px;
 }
-.cardBorderBg{
-  background: url("/card/borderbg.png");
+.bannerBuyBg{
+  background: url("/crypto/howtobuybg.png");
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1000px;
+}
+.stepBgCard{
+  background: url("/crypto/buystepcard.png");
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
  
 
-  
-  // background: red;
+}
+.cardBorderBg{
+  background: url("/card/borderbg.png");
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -631,16 +643,12 @@ h6 {
   // height: 800px;
 }
 .cardBorderWithoutBg{
-
   background: url("/card/withoutborderbg.png");
-
-  
-  // background: red;
   width: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  // height: 800px;
+  
 }
 .cardBorderBgBorder{
   background: url("/card/whiteborderbg.png");

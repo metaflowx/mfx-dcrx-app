@@ -568,6 +568,23 @@ h6 {
   height: 800px;
 }
 
+.bannerBuyBg {
+  background: url("/crypto/howtobuybg.png");
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1000px;
+}
+
+.stepBgCard {
+  background: url("/crypto/buystepcard.png");
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .cardBorderBg {
   background: url("/card/borderbg.png");
   width: 100%;

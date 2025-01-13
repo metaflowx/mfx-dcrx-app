@@ -1,0 +1,34 @@
+import * as React from 'react';
+import { StepCardProps } from './types';
+
+export const StepCard: React.FC<StepCardProps> = ({ number, iconSrc, description, arrowSrc }) => (
+  <div className="flex flex-col stepBgCard items-start pt-5 pb-12 px-6 w-full rounded-2xl max-md:mt-2.5 relative">
+    <div className='absolute right-0 top-12'>
+    <img
+        loading="lazy"
+        src={number}
+        alt=""
+        className="object-contain shrink-0 my-auto aspect-[0.98] w-[84px]"
+      />
+    </div>
+    <div className="flex pt-8 mr-0 text-9xl tracking-tighter text-sky-500 whitespace-nowrap max-md:text-4xl">
+      <img
+        loading="lazy"
+        src={iconSrc}
+        alt=""
+        className="object-contain shrink-0 my-auto aspect-[0.98] w-[84px]"
+      />
+     
+    </div>
+    <div className="mt-5 text-lg text-white w-[289px] max-md:mt-10">
+        <h4 style={{fontFamily:"Geist"}} className='text-[24px] pb-2 font-semibold'>Fiat Gateway Integration</h4>
+     <h6 style={{fontFamily:"Geist"}} className='font-normal text-[16px]'> {description}</h6>
+    </div>
+    <img
+      loading="lazy"
+      src={arrowSrc}
+      alt=""
+      className="object-contain mt-6 w-44 max-w-full aspect-[14.71]"
+    />
+  </div>
+);

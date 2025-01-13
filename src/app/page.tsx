@@ -1,7 +1,11 @@
 import { FAQ } from "@/components/faq/FAQ";
 import Banner from "@/components/home/Banner";
+
 import FeaturedIn from "@/components/home/FeaturedIn";
+
+import { DecryptoXLanding } from "@/components/home/howtobuy/DecryptoXLanding";
 import OfferSection from "@/components/home/OfferSection";
+
 import ProblemSection from "@/components/home/ProblemSection";
 import SolutionSection from "@/components/home/SolutionSection";
 import TeamSection from "@/components/home/Team";
@@ -21,6 +25,7 @@ const Home = () => {
     <PageBox>
       <Banner/>
       <FeaturedIn />
+      <DecryptoXLanding />
      
       <ProblemSection />
       <SolutionSection />
