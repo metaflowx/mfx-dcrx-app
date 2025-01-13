@@ -1,0 +1,10 @@
+export interface SocialIconProps {
+    src: string;
+    alt: string;
+    className: string;
+  }
+  
+  export interface QuickLinkProps {
+    text: string;
+    className?: string;
+  }
