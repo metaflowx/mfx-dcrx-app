@@ -33,7 +33,7 @@ const Home = () => {
       <OfferSection />
       <TeamSection />
       <Tokenomics />
-      {/* <FAQ/> */}
+      <FAQ/>
       <HomeSection1 id="hero" />
 
       {/* <HomeSection2 id="services" />

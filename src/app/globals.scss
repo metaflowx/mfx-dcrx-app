@@ -663,6 +663,20 @@ h6 {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.faqbg{
+  background: url("/crypto/faqbg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.accordianBg{
+  background: url("/crypto/accordianbg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none !important;
+  border-radius: 0px !important;
+}
 .cardBorderWithoutBg{
   background: url("/card/withoutborderbg.png");
   width: 100%;
