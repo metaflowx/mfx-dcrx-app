@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import CommonHeading from "../common/CommonHeading";
 
 interface TeamMember {
   name: string;
@@ -59,11 +60,15 @@ const TeamSection: React.FC = () => {
 
   return (
     <section className="bg-black text-white py-16 w-full">
-      <div className="max-w-6xl mx-auto px-4">
+      <div style={{fontFamily:"Geist"}} className="max-w-6xl mx-auto px-4 text-center">
         {/* Section Header */}
-        <h2 className="text-center text-3xl font-bold text-cyan-400">Our Team</h2>
-        <p className="text-center mt-2 text-gray-400">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        <CommonHeading heading="Our Team" fontSize={"text-[40px] "} />
+      
+        <p  className="text-center mt-2 text-white text-[40px] font-bold">
+          Lorem Ipsum is simply dummy text of the 
+        </p>
+        <p className="text-center  text-white text-[40px] font-bold">
+          printing and typesetting industry.
         </p>
 
         {/* Team Grid */}

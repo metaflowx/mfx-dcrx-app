@@ -1,16 +1,28 @@
 // components/ProblemSection.tsx
 import React from "react";
+import CommonHeading from "../common/CommonHeading";
 
 const ProblemSection: React.FC = () => {
   return (
     <section className="bg-black text-white py-12 w-full">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-lg text-blue-500 font-semibold mb-4">Problem</h2>
-        <h1 className="text-4xl font-bold mb-8">
-          The existing crypto trading landscape is{" "}
-          <span className="text-blue-500">fundamentally broken.</span>
+      <div style={{fontFamily:"Geist",
+         
+
+
+        }} className="max-w-7xl mx-auto px-6 text-center pt-[180px]">
+          <div className="mb-4">
+            <CommonHeading heading={"Problem"} fontSize="text-[42px]" />
+          </div>
+       
+        <h1 className="text-[62px] font-bold ">
+          The existing crypto trading landscape {" "}
+         
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <p className="text-[62px] font-bold mb-8">
+        is 
+        <span className="text-[#1B429A] ml-2">fundamentally broken.</span>
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-1">
           {[
             {
               title: "Counterparty Risks",
@@ -35,18 +47,23 @@ const ProblemSection: React.FC = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className="cardBorderBgBorder  p-6 rounded-lg shadow-md text-center"
+              className="cardBorderBgBorder p-2  rounded-lg shadow-md text-center"
             >
-              <div className="text-blue-500 text-3xl mb-4">💲</div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-300">{item.description}</p>
+              <div className="flex justify-center items-center mb-4 mt-4">
+                <img src="/crypto/dollarsymbol.png" style={{width:"89px",height:"92px"}} />
+              </div>
+              <h3 className="text-xl gradient-text font-bold py-6">{item.title}</h3>
+              <p className="text-sm text-gray-300 pb-12 font-bold">{item.description}</p>
             </div>
           ))}
         </div>
-        <div className="bg-[#0b0b0b] mt-12 py-4 rounded-lg">
-          <p className="text-gray-300">
+        <div className="borderBg mt-12 p-[45px]">
+          <p className="text-white text-[20px] text-center font-medium">
             By design, DecryptoX solves the problem of liquidity fragmentation
-            and introduces a truly decentralized, efficient trading
+            and introduces a 
+          </p>
+          <p className="text-white text-[20px] text-center font-medium">
+            truly decentralized, efficient trading
             infrastructure.
           </p>
         </div>

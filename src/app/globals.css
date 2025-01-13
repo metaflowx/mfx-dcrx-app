@@ -585,9 +585,30 @@ h6 {
   background-repeat: no-repeat;
 }
 
+.borderBg {
+  background: url("/crypto/borderbg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .cardBorderBg {
   background: url("/card/borderbg.png");
   width: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.newsLetterbg {
+  background: url("/crypto/newsbg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.newsLetterbgBorder {
+  background: url("/crypto/newsbgborder.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -643,6 +664,14 @@ h6 {
   background-size: contain !important;
   background-repeat: no-repeat !important;
   padding: 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #0097FF 2%, #5EB9F8 49%, #2B9AE6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .btn__radius_left {

@@ -4,6 +4,7 @@ import Banner from "@/components/home/Banner";
 import FeaturedIn from "@/components/home/FeaturedIn";
 
 import { DecryptoXLanding } from "@/components/home/howtobuy/DecryptoXLanding";
+import Newsletter from "@/components/home/NewsLetter";
 import OfferSection from "@/components/home/OfferSection";
 
 import ProblemSection from "@/components/home/ProblemSection";
@@ -38,6 +39,8 @@ const Home = () => {
       {/* <HomeSection2 id="services" />
       <HomeSection3 id="experiences" />
       <HomeSection4 id="skills" /> */}
+
+      <Newsletter />
      
      
     </PageBox>

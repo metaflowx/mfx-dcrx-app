@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import ConstrainedBox from '../core/constrained-box';
 
 
 
@@ -7,21 +8,27 @@ const Banner = () => {
   const[coinType,setCoinType]=useState("ETH")
  
   return (
-    <div className="min-h-screen bannerBg  text-white flex items-center justify-center">
-      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center gap-[15rem] px-4">
+    <div style={{fontFamily:"Geist"}} className="min-h-screen bannerBg  text-white flex items-center justify-center">
+        <ConstrainedBox >
+
+      <div className=" flex flex-col lg:flex-row items-center ">
         {/* Left Section */}
         <div className="text-center lg:text-left">
           <h1 className="text-[80px] font-bold">Join Decryptox:</h1>
-          <p className="text-xl text-blue-300 mt-2">Be a Part of the Decentralized Revolution!</p>
-          <p className="mt-4">
+          <p className="text-[30px] text-[#2B9AE6] font-bold mt-2">Be a Part of the Decentralized Revolution!</p>
+          <p className="mt-4 font-medium text-[24px]">
             Unlock a world of financial freedom where you own your assets,
             control your data, and trade with confidence.
           </p>
           <div className="flex gap-4 mt-6 justify-center lg:justify-start">
-            <button className="bg-blue-500 px-6 py-2 rounded-full hover:bg-blue-600">
+            <button
+             style={{
+              background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
+            }}
+            className="w-[238px] h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black">
               White Paper
             </button>
-            <button className="border border-blue-500 px-6 py-2 rounded-full hover:bg-blue-600 hover:text-white">
+            <button style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-[238px] h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
               Light Paper
             </button>
           </div>
@@ -92,6 +99,7 @@ const Banner = () => {
           <p className="text-center text-[#2B9AE6] text-[16px] mt-4">Don’t have a wallet?</p>
         </div>
       </div>
+        </ConstrainedBox>
     </div>
   );
 };
