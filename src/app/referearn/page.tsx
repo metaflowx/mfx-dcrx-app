@@ -1,3 +1,5 @@
+
+import { FAQRefer } from "@/components/faq/FAQRefer";
 import dynamic from "next/dynamic";
 
 const PageBox = dynamic(() => import("@/components/core/PageBox"));
@@ -15,6 +17,7 @@ const Home = () => {
       <HomeSection2 />
       <HomeSection3 />
       <HomeSection4 />
+      <FAQRefer />
     
       
     </PageBox>
