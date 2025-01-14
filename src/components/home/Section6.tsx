@@ -6,11 +6,11 @@ import SectionTitle from "@/components/common/SectionTitle";
 import SocialButton from "./ui/SocialButton";
 import socialLinks from "@/data/socialLinks";
 
-const HomeSection6 = ({ id }: { id: string }) => {
+const HomeSection6 = () => {
   return (
     <ResponsiveBox
       classNames="dark:bg-[var(--dialogColor)] bg-[var(--dialogColor)] min-h-screen items-center justify-center  items-center justify-center"
-      id={id}
+     
     >
       <ConstrainedBox classNames="p-4 py-16">
         <SectionTitle>Get in Touch</SectionTitle>

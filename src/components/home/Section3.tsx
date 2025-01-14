@@ -7,7 +7,7 @@
 
 
 
-export default function HomeSection3({ id }: { id: string }) {
+export default function HomeSection3() {
   return (
     <main className="min-h-screen bg-black text-white p-8 md:p-16 w-full">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">

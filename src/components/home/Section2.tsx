@@ -3,9 +3,9 @@
 
 import Image from "next/image";
 
-const HomeSection2 = ({ id }: { id: string }) => {
+const HomeSection2 = () => {
   return (
-    <div className="bg-[#0c1b2e] w-full min-h-screen flex items-center justify-center" id={id}>
+    <div className="bg-[#0c1b2e] w-full min-h-screen flex items-center justify-center" >
       <div className="max-w-5xl w-full bg-[#102338] p-8 rounded-lg shadow-lg">
         <h1 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold text-[#38b6ff] mb-6">
           How can you benefit from Decryptox referral program?

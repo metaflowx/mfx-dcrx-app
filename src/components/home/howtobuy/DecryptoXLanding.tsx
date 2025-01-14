@@ -36,9 +36,9 @@ const steps = [
   }
 ];
 
-export const DecryptoXLanding: React.FC = () => {
+export const DecryptoXLanding= ({ id }: { id: string }) => {
   return (
-    <div className="flex bannerBuyBg flex-col pt-32 pr-10 rounded-none max-md:pt-24 max-md:pr-5 relative">
+    <div id={id} className="flex bannerBuyBg flex-col pt-32 pr-10 rounded-none max-md:pt-24 max-md:pr-5 relative">
        <div className='absolute left-0 bottom-14'>
        <img
           loading="lazy"

@@ -4,11 +4,11 @@ import SectionTitle from "@/components/common/SectionTitle";
 import ProjectList from "./ui/ProjectList";
 import projects from "@/data/projects";
 
-const HomeSection5 = ({ id }: { id: string }) => {
+const HomeSection5 = () => {
   return (
     <ResponsiveBox
       classNames="dark:bg-[var(--bgColor)] bg-[var(--bgColor)]  min-h-screen items-center justify-center"
-      id={id}
+     
     >
       <ConstrainedBox classNames="p-4 py-16">
         <SectionTitle>Recent Works</SectionTitle>

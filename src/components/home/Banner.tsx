@@ -4,11 +4,11 @@ import ConstrainedBox from '../core/constrained-box';
 
 
 
-const Banner = () => {
+const Banner = ({ id }: { id: string }) => {
   const[coinType,setCoinType]=useState("ETH")
  
   return (
-    <div style={{fontFamily:"Geist"}} className="min-h-screen bannerBg  text-white flex items-center justify-center">
+    <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg  text-white flex items-center justify-center">
         <ConstrainedBox >
 
       <div className=" flex flex-col lg:flex-row items-center ">

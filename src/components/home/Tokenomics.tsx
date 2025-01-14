@@ -3,9 +3,9 @@ import React from 'react';
 import ConstrainedBox from '../core/constrained-box';
 import CommonHeading from '../common/CommonHeading';
 
-const Tokenomics: React.FC = () => {
+const Tokenomics = ({ id }: { id: string }) => {
   return (
-    <div className='bg-[#000] w-full'>
+    <div className='bg-[#000] w-full' id={id}>
 
     <ConstrainedBox>
 

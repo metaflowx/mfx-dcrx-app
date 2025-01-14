@@ -1,8 +1,8 @@
 
 
-export default function HomeSection4({ id }: { id: string }) {
+export default function HomeSection4() {
   return (
-    <main className=" relative overflow-hidden bg-[#0066FF] w-full" id={id}>
+    <main className=" relative overflow-hidden bg-[#0066FF] w-full" >
       {/* Particle effect background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,102,255,0)_0%,rgba(0,102,255,0.7)_100%)]"></div>
       

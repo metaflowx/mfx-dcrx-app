@@ -6,6 +6,7 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+// import { useRouter } from "next/router";
 
 interface INavItem {
   name: string;
@@ -19,6 +20,7 @@ const FloatingNavbar = ({
   navItems: INavItem[];
   className?: string;
 }) => {
+  // const router=useRouter()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -46,7 +48,9 @@ const FloatingNavbar = ({
           )}
         >
           {/* Logo Section */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 cursor-pointer" 
+          // onClick={()=>router.push("/")}
+          >
             <img
               src="/crypto/logo.png"
               alt="Logo"

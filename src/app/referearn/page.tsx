@@ -5,10 +5,18 @@ const ReferEarn = dynamic(
   () => import("@/components/referearn/MainSection")
 );
 
+const HomeSection2 = dynamic(() => import("@/components/home/Section2"));
+const HomeSection3 = dynamic(() => import("@/components/home/Section3"));
+const HomeSection4 = dynamic(() => import("@/components/home/Section4"));
 const Home = () => {
   return (
     <PageBox>
       <ReferEarn />
+      <HomeSection2 />
+      <HomeSection3 />
+      <HomeSection4 />
+    
+      
     </PageBox>
   );
 };
