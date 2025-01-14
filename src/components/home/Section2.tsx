@@ -1,49 +1,51 @@
-
-
-
 import Image from "next/image";
+import ConstrainedBox from "../core/constrained-box";
 
 const HomeSection2 = () => {
   return (
-    <div className="bg-[#0c1b2e] w-full min-h-screen flex items-center justify-center" >
-      <div className="max-w-5xl w-full bg-[#102338] p-8 rounded-lg shadow-lg">
-        <h1 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold text-[#38b6ff] mb-6">
-          How can you benefit from Decryptox referral program?
-        </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-          {/* Left Section: Image */}
-          <div className="flex justify-center">
-            <div className="relative w-64 h-64 lg:w-72 lg:h-72 bg-gradient-to-b from-[#0c1b2e] to-[#153244] rounded-xl shadow-lg">
-              <Image
-                src="/referral-image.jpg"
-                alt="Referral Program"
-                layout="fill"
-                className="object-cover rounded-xl"
-              />
+    <div className="bg-[#1F2937] w-full min-h-screen flex items-center justify-center relative">
+      <div className="absolute left-0 top-0">
+        <img src="/crypto/watchlefttopbg.png" alt="Referral Program" className="w-[400px]" />
+      </div>
+      <div className="absolute left-0 bottom-0">
+        <img src="/crypto/watchleftbg.png" alt="Referral Program" className="w-[505px] opacity-[0.4]" />
+      </div>
+      <ConstrainedBox>
+        <div>
+          <h1 style={{fontFamily:"Geist",lineHeight:"52px"}} className="text-center text-xl md:text-2xl lg:text-[52px] font-semibold text-[#38b6ff] mb-8">
+            How can you benefit from Decryptox referral program?
+          </h1>
+          <div className="grid grid-cols-12 gap-10 items-center mt-[3rem]">
+            {/* Left Section: Image */}
+            <div className="col-span-12 lg:col-span-5 flex justify-center">
+              <div className="relative rounded-xl shadow-lg">
+                <img src="/crypto/watch.png" alt="Referral Program" className="w-[526px]" />
+              </div>
             </div>
-          </div>
 
-          {/* Right Section: Text Content */}
-          <div className="text-white space-y-6">
-            {["Dummy text of the printing", "Dummy text of the printing", "Dummy text of the printing"].map(
-              (title, index) => (
-                <div key={index}>
-                  <h2 className="text-lg md:text-xl font-semibold text-[#38b6ff]">
+            {/* Right Section: Text Content */}
+            <div className="col-span-12 lg:col-span-7 text-white space-y-6">
+              {[
+                "Dummy text of the printing",
+                "Dummy text of the printing",
+                "Dummy text of the printing",
+              ].map((title, index) => (
+                <div style={{fontFamily:"Geist"}} key={index}>
+                  <h2 className="text-[43px]  font-bold text-[#2B9AE6] pb-[10px]">
                     {title}
                   </h2>
-                  <p className="text-sm md:text-base text-gray-300">
+                  <p className="text-[27px] font-normal text-white">
                     Lorem Ipsum has been the industry's standard dummy text
                     ever since the 1500s.
                   </p>
                 </div>
-              )
-            )}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </ConstrainedBox>
     </div>
   );
 };
 
 export default HomeSection2;
-

@@ -1,4 +1,5 @@
 import React from 'react';
+import ConstrainedBox from '../core/constrained-box';
 
 const HomeSection1= ({ id }: { id: string }) => {
   return (
@@ -23,26 +24,28 @@ const HomeSection1= ({ id }: { id: string }) => {
       </div>
 
       {/* Steps Section */}
-      <div className="mt-12 w-full max-w-4xl">
-        <h2 className="text-[56px] font-bold mb-8 text-[#2B9AE6]" style={{fontFamily:"Geist, serif",fontWeight:700}} >
+      <ConstrainedBox>
+
+      <div className="mt-12 w-full ">
+        <h2 className="text-[56px] font-bold mb-8 text-[#2B9AE6] text-center" style={{fontFamily:"Geist, serif",fontWeight:700}} >
           Refer a friend in four easy steps
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-9">
           {Array.from({ length: 4 }, (_, index) => (
             <div
               key={index}
               className="cardBorderWithoutBg p-6 rounded-md text-center"
             >
-              <h3 className="text-4xl font-bold mb-4">{`0${index + 1}.`}</h3>
-              <h4 className="text-lg font-semibold mb-2">Dummy text printing</h4>
-              <p className="text-gray-300 text-sm">
-                Lorem Ipsum has been the industry's standard dummy text ever since
-                the 1500s.
+              <h3 style={{fontFamily:"Geist"}} className="text-[90px] font-bold mb-1 text-[#2B9AE6]">{`0${index + 1}.`}</h3>
+              <h4 style={{fontFamily:"Outfit"}} className="text-[28px] font-bold mb-2">Dummy text printing</h4>
+              <p style={{fontFamily:"Geist"}} className="text-white text-[18px] font-semibold text-center pb-10">
+               Lorem Ipsum has been the industry's standard dummy 
               </p>
             </div>
           ))}
         </div>
       </div>
+      </ConstrainedBox>
     </div>
   );
 };
