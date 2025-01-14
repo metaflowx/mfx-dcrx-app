@@ -34,7 +34,7 @@ const Home = () => {
       <Tokenomics />
       <TeamSection />
       <FAQ/>
-      <HomeSection1 id="hero" />
+      {/* <HomeSection1 id="hero" /> */}
 
       {/* <HomeSection2 id="services" />
       <HomeSection3 id="experiences" />
