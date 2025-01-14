@@ -19,17 +19,17 @@ export const navMenus: INavItem[] = [
   },
   {
     name: "HOW TO BUY",
-    link: "/#services",
+    link: "/#howtobuy",
     icon: faBriefcase,
   },
   {
     name: "FEATURES",
-    link: "/#experiences",
+    link: "/#features",
     icon: faTimeline,
   },
   {
     name: "TOKENOMICS",
-    link: "/#skills",
+    link: "/#tokenomics",
     icon: faAward,
   },
   {
@@ -44,17 +44,13 @@ export const navMenus: INavItem[] = [
   },
   {
     name: "Our Team",
-    link: "/payment",
+    link: "/#team",
     icon: faCreditCard,
   },
   {
     name: "Refer & Earn",
-    link: "/payment",
+    link: "/referearn",
     icon: faCreditCard,
   },
-  {
-    name: "$1M Giveaway",
-    link: "/payment",
-    icon: faCreditCard,
-  },
+  
 ];
