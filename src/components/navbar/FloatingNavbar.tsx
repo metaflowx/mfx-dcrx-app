@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-// import { useRouter } from "next/router";
 
 interface INavItem {
   name: string;
@@ -20,7 +20,7 @@ const FloatingNavbar = ({
   navItems: INavItem[];
   className?: string;
 }) => {
-  // const router=useRouter()
+  const pathname = usePathname(); // Get current pathname
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -48,8 +48,8 @@ const FloatingNavbar = ({
           )}
         >
           {/* Logo Section */}
-          <div className="flex items-center space-x-4 cursor-pointer" 
-          // onClick={()=>router.push("/")}
+          <div
+            className="flex items-center space-x-4 cursor-pointer"
           >
             <img
               src="/crypto/logo.png"
@@ -64,7 +64,10 @@ const FloatingNavbar = ({
               <Link
                 key={idx}
                 href={navItem.link}
-                className="text-white text-[14px] font-semibold tracking-wider hover:text-[#0be1db] transition"
+                className={cn(
+                  "text-white text-[14px] font-semibold tracking-wider hover:text-[#0be1db] transition",
+                  pathname === navItem.link && "text-[#0be1db]"
+                )}
               >
                 {navItem.name}
               </Link>
@@ -102,19 +105,15 @@ const FloatingNavbar = ({
               </div>
             </div>
             <button
-            onClick={toggleDrawer}
-            className="block xl:hidden text-white text-xl focus:outline-none"
-          >
-           
-           <FontAwesomeIcon
-          icon={faBars}
-          className="text-xl/6 font-semibold text-[var(--textColor)]"
-        />
-          </button>
+              onClick={toggleDrawer}
+              className="block xl:hidden text-white text-xl focus:outline-none"
+            >
+              <FontAwesomeIcon
+                icon={faBars}
+                className="text-xl/6 font-semibold text-[var(--textColor)]"
+              />
+            </button>
           </div>
-
-          
-         
         </motion.div>
       </AnimatePresence>
 
@@ -145,7 +144,10 @@ const FloatingNavbar = ({
                   key={idx}
                   href={navItem.link}
                   onClick={toggleDrawer}
-                  className="text-white text-lg font-semibold tracking-wider hover:text-[#0be1db] transition"
+                  className={cn(
+                    "text-white text-lg font-semibold tracking-wider hover:text-[#0be1db] transition",
+                    pathname === navItem.link && "text-[#0be1db]"
+                  )}
                 >
                   {navItem.name}
                 </Link>
@@ -162,8 +164,6 @@ const FloatingNavbar = ({
                 >
                   Buy Now
                 </button>
-
-                
               </div>
             </div>
           </motion.div>

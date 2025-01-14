@@ -8,7 +8,6 @@ const quickLinks = [
   { text: "Roadmap" },
   { text: "White Paper" },
   { text: "Light Paper" },
-  { text: "$1M Giveaway", className: "grow shrink w-[89px]" },
   { text: "Refer & Earn" }
 ];
 
