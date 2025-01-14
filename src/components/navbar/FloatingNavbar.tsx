@@ -51,11 +51,18 @@ const FloatingNavbar = ({
           <div
             className="flex items-center space-x-4 cursor-pointer"
           >
-            <img
+            <Link
+               
+                href={"/"}
+                
+              >
+                <img
               src="/crypto/logo.png"
               alt="Logo"
               className="h-[50px]" // Adjust the logo height as per the design
             />
+              </Link>
+           
           </div>
 
           {/* Navigation Items for Large Screens */}
