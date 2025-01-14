@@ -31,8 +31,8 @@ const Home = () => {
       <ProblemSection />
       <SolutionSection />
       <OfferSection />
-      <TeamSection />
       <Tokenomics />
+      <TeamSection />
       <FAQ/>
       <HomeSection1 id="hero" />
 
