@@ -726,7 +726,24 @@ h6 {
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
-
+.refferFriendBg{
+  background-image: url("/crypto/referfriendbg.png");
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.refferFriendInputMainBg{
+  background-image: url("/crypto/inputboxreferbg.png") !important;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+.refferCommonMainBg{
+  background-image: url("/crypto/refercommonbg.png") !important;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
 .inputBg{
   background-image: url("/card/inputbg.png");
   background-position: center !important;

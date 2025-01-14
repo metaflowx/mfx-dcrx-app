@@ -11,7 +11,7 @@ const quickLinks = [
   { text: "Refer & Earn" }
 ];
 
-const socialIcons = [
+export const socialIcons = [
   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/080206190345f632fbd2fd0d0026a09eccff7a5ed9ee28fada45fa7896214cda?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 1", className: "aspect-square w-[17px] stroke-[0.426px] stroke-white" },
   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/ed64a4448b4ee9f0042cc3876441e4e3f78a9c50818e2873f1662623bb34c6bb?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 2", className: "aspect-[0.57] w-[13px]" },
   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/1a12f6cb982e41d362806b61ceacdd46c33f92a070702cffe27dd03185dd0763?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 3", className: "aspect-[1.29] w-[22px]" },

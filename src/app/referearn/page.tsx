@@ -1,5 +1,6 @@
 
 import { FAQRefer } from "@/components/faq/FAQRefer";
+import ReferralSection from "@/components/home/referral-system/ReferralSection";
 import dynamic from "next/dynamic";
 
 const PageBox = dynamic(() => import("@/components/core/PageBox"));
@@ -14,11 +15,12 @@ const Home = () => {
   return (
     <PageBox>
       <ReferEarn />
+     
       <HomeSection2 />
       <HomeSection3 />
       <HomeSection4 />
       <FAQRefer />
-    
+      <ReferralSection />
       
     </PageBox>
   );
