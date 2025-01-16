@@ -7,7 +7,8 @@ import { navMenus } from "@/data/navMenus";
 import { Footer } from "@/components/footer/Footer";
 import { headers } from "next/headers";
 import ContextProvider from "./context";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],

@@ -8,13 +8,13 @@ const Banner = ({ id }: { id: string }) => {
   const[coinType,setCoinType]=useState("ETH")
  
   return (
-    <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg  text-white flex items-center justify-center">
+    <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg   text-white flex items-center justify-center">
         <ConstrainedBox >
 
-      <div className=" flex flex-col lg:flex-row items-center ">
+      <div className=" flex flex-col lg:flex-row items-center sm:mt-[85px] ">
         {/* Left Section */}
         <div className="text-center lg:text-left">
-          <h1 className="text-[80px] font-bold">Join Decryptox:</h1>
+          <h1 className="sm:text-[40px] md:text-[60px] lg:text-[80px] font-bold">Join Decryptox:</h1>
           <p className="text-[30px] text-[#2B9AE6] font-bold mt-2">Be a Part of the Decentralized Revolution!</p>
           <p className="mt-4 font-medium text-[24px]">
             Unlock a world of financial freedom where you own your assets,
@@ -38,7 +38,7 @@ const Banner = ({ id }: { id: string }) => {
         <div style={{
           background:"url(/card/payment.png)"
         }} 
-        className="cardBorderBgPayment px-[90px] py-[30px] ">
+        className="cardBorderBgPayment sm:px-[20px] md:px-[90px] py-[30px] ">
           <h2 style={{fontFamily: "Geist, serif"}} className="text-[49px] font-bold mb-4 text-center">Buy DCRX</h2>
           <div className="grid grid-cols-4 text-center mb-4">
             <div className='timerBg'>

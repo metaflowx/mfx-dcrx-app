@@ -1,60 +1,108 @@
+"use client";
 
-import React from 'react';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination,Scrollbar, A11y } from 'swiper/modules';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-import ConstrainedBox from '../core/constrained-box';
+import ConstrainedBox from "../core/constrained-box";
+import CommonSlider from "./CommonSlider";
 
-const OfferSection = () => {
+const OfferSection: React.FC = () => {
+  const cardData = Array(8).fill({
+    title: "Dummy text printing",
+    description: "Lorem Ipsum has been the industry's standard dummy.",
+    image: "/crypto/dollarsymbol.png",
+  });
+
+  // const cardData = [
+  //   {
+  //     title: "Counterparty Risks",
+  //     description:
+  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+  //   },
+  //   {
+  //     title: "Decentralization",
+  //     description:
+  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+  //   },
+  //   {
+  //     title: "Liquidity",
+  //     description:
+  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+  //   },
+  //   {
+  //     title: "Capital Efficiency",
+  //     description:
+  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+  //   },
+  // ];
+
   return (
-    <section style={{fontFamily:"Geist"}} className="bg-[#000] text-white py-16 w-full">
+    <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-16 w-full">
       <ConstrainedBox classNames="p-4">
+        <div className="max-w-8xl mx-auto text-center">
+          <h2 className="text-[59px] font-bold mb-4">
+            What We Offer at <span className="text-[#2B9AE6]">DecryptoX</span>
+          </h2>
+          <p className="text-white text-center font-medium text-[22px]">
+            We’re creating an ecosystem where users can truly own their trading experience
+            without intermediaries.
+          </p>
+          <p className="text-white text-center font-medium text-[22px]">
+            Powered by blockchain, DecryptoX delivers all the advantages of centralized platforms
+            but with the freedom
+          </p>
+          <p className="text-white text-center font-medium text-[22px]">
+            and security that only decentralization can provide.
+          </p>
 
-      <div className="max-w-8xl mx-auto text-center">
-        <h2 className="text-[59px] font-bold mb-4">
-          What We Offer at <span className="text-[#2B9AE6]">DecryptoX</span>
-        </h2>
-        <p className="text-white text-center font-medium text-[22px]" >
-          We’re creating an ecosystem where users can truly own their trading experience
-          without intermediaries. 
-        </p>
-        <p className="text-white text-center font-medium text-[22px]">
-        Powered by blockchain, DecryptoX delivers all the
-          advantages of centralized platforms but with the freedom 
-        </p>
-        <p className="text-white text-center font-medium text-[22px]">
-        and security that
-        only decentralization can provide.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
-          {Array(5)
-            .fill(null)
-            .map((_, idx) => (
-              <div
-                key={idx}
-
-                className="cardBorderBg rounded-xl py-[40px] shadow-md hover:shadow-lg transition-all"
-              >
-                <div className="flex justify-center items-center mb-4">
-                <div className="flex justify-center items-center  mt-4">
-                <img src="/crypto/dollarsymbol.png" style={{width:"89px",height:"91px"}} />
-              </div>
-                </div>
-                <h3 style={{fontFamily:"Geist"}} className="text-[20px] text-center font-bold mb-2">Dummy text printing</h3>
-                <p style={{fontFamily:"Geist"}} className="text-[18px] text-white text-center pb-10 pt-3">
-                    Lorem Ipsum has been the industry's standard dummy.
-                  </p>
-              </div>
-            ))}
+          {/* Swiper Integration */}
+        
+             
         </div>
-        <div className="mt-12 flex justify-center">
-          <div className="flex space-x-2">
-            <div className="w-3 h-3 bg-accent rounded-full"></div>
-            <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
-            <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
-            <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
-          </div>
-        </div>
-      </div>
+      
       </ConstrainedBox>
+      <div  className="w-full mx-auto px-6 text-center ">
+         <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={1}
+            slidesPerView={1}
+            navigation={false}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 5 },
+            }}
+            style={{ overflow: "hidden" }} // Ensure no scrollbars
+            className="mt-8"
+          >
+            {cardData.map((item, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="cardBorderBg  py-[55px] px-[60px] shadow-md hover:shadow-lg transition-all">
+                  <div className="flex justify-center items-center mb-4">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      style={{ width: "89px", height: "91px" }}
+                    />
+                  </div>
+                  <h3 style={{ fontFamily: "Geist" }} className="text-[20px] text-center font-bold mb-2">
+                    {item.title}
+                  </h3>
+                  <p style={{ fontFamily: "Geist" }} className="text-[18px] text-white text-center pb-10 pt-3">
+                    {item.description}
+                  </p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+      
+       </div>
     </section>
   );
 };
