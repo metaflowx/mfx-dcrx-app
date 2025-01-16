@@ -725,6 +725,15 @@ h6 {
   display: inline-block;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
 .btn__radius_left {
   border-radius: 100% 70% 70% 100%;
 }

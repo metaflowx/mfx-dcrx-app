@@ -8,6 +8,7 @@ import Newsletter from "@/components/home/NewsLetter";
 import OfferSection from "@/components/home/OfferSection";
 
 import ProblemSection from "@/components/home/ProblemSection";
+import Roadmap from "@/components/home/roadmap/Roadmap";
 import SolutionSection from "@/components/home/SolutionSection";
 import TeamSection from "@/components/home/Team";
 import Tokenomics from "@/components/home/Tokenomics";
@@ -27,6 +28,7 @@ const Home = () => {
       <SolutionSection />
       <OfferSection />
       <Tokenomics id="tokenomics" />
+      <Roadmap />
       <TeamSection id="team" />
       <FAQ id="faq"/>
      
