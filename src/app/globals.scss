@@ -757,6 +757,31 @@ h6 {
   background-repeat: no-repeat !important;
   padding: 20px;
 }
+
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination-bullet {
+  height: 11px !important;
+  width: 11px !important;
+  background: #21355E;
+}
+.swiper-pagination-bullet-active{
+  background:  url("/coin-icon/activebg.png") !important;
+  object-fit: contain;
+    height: 18px !important;
+    width: 18px !important;
+    background-position: center;
+    background-size: cover !important;
+}
 .gradient-text {
   background: linear-gradient(to right, #0097FF 2%, #5EB9F8 49%, #2B9AE6 100%);
           -webkit-background-clip: text;
