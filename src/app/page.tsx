@@ -28,7 +28,7 @@ const Home = () => {
       <SolutionSection />
       <OfferSection />
       <Tokenomics id="tokenomics" />
-      <Roadmap />
+      <Roadmap id="roadmap" />
       <TeamSection id="team" />
       <FAQ id="faq"/>
      

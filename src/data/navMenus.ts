@@ -34,7 +34,7 @@ export const navMenus: INavItem[] = [
   },
   {
     name: "ROADMAP",
-    link: "/#projects",
+    link: "/#roadmap",
     icon: faLaptopCode,
   },
   {

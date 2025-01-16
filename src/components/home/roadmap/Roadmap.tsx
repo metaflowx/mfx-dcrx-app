@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import RoadmapCard from "./RoadmapCard";
 
-const Roadmap = () => {
+const Roadmap = ({id}:{id:string}) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [activePhaseId, setActivePhaseId] = useState<number>(1); // State for active phase ID
 console.log(">>>>>>>>>>>>>>activePhaseId",activePhaseId);
@@ -72,7 +72,7 @@ console.log(">>>>>>>>>>>>>>activePhaseId",activePhaseId);
   ];
 
   return (
-    <div className="bg-[#141414] text-white pt-[100px] pb-[150px] w-full">
+    <div className="bg-[#141414] text-white pt-[100px] pb-[150px] w-full" id={id}>
       {/* Vision Section */}
       <div style={{fontFamily:"Plus Jakarta Sans"}} className="text-center mb-16">
         <h2  className="text-[37px] font-bold text-[#2B9AE6]">Our Vision</h2>
