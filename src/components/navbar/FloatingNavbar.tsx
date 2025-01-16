@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import ConnectButton from "../ConnectWallet";
 
 interface INavItem {
   name: string;
@@ -91,14 +92,15 @@ const FloatingNavbar = ({
             <img src="/crypto/x.png" alt="X" className="h-[27px] hidden lg:block" />
 
             {/* Buy Now Button */}
-            <button
+            <ConnectButton />
+            {/* <button
               style={{
                 background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
               }}
               className="text-black w-[237px] hidden sm:block h-[60px] rounded-[13px] text-[21px] font-bold shadow-md hover:opacity-90"
             >
               Buy Now
-            </button>
+            </button> */}
 
             {/* Language Selector */}
             <div className="relative flex justify-center items-center">
@@ -162,6 +164,7 @@ const FloatingNavbar = ({
 
               {/* Additional Items */}
               <div className="flex flex-col space-y-4 mt-8">
+              <ConnectButton />
                 <button
                   style={{
                     background:

@@ -5,6 +5,8 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { navMenus } from "@/data/navMenus";
 import { Footer } from "@/components/footer/Footer";
+import { headers } from "next/headers";
+import ContextProvider from "./context";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -87,16 +89,21 @@ const ScrollToTop = dynamic(() => import("@/components/common/ScrollToTop"));
 const isDebug = process.env.NODE_ENV === "development";
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
+  const headersObj =  headers();
+  const cookies = headersObj.get('cookie')
   return (
     <html lang="en" className={poppins.className}>
       {isDebug ? null : <GoogleAnalytics />}
 
       <body className={isDebug ? "debug-screens" : ""}>
-        {isDebug ? <WebVitals /> : null}
+      <ContextProvider cookies={cookies}>
+      {isDebug ? <WebVitals /> : null}
         <FloatingNavbar className="app_nav" navItems={navMenus} />
         <main>{children}</main>
         <Footer />
         <ScrollToTop />
+      </ContextProvider>
+       
       </body>
     </html>
   );
