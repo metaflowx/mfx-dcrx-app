@@ -1,7 +1,12 @@
+"use client"
 import * as React from 'react';
 import { FeatureItem } from './FeatureItem';
 import { StepCard } from './StepCard';
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from 'swiper/modules';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const features = [
   { iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/a60c2bb3dcf452cfbf4fbf6bbda5ddefebb4bc3dc08468890f29e65741f61e81?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", text: "Lorem Ipsum is simply dummy text" },
   { iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/5d01415a31ee4a7ef77f3c3ecbdd4b31565e40b58dc8f33c69fbdc4d49fa0ca8?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", text: "Lorem Ipsum is simply dummy text" },
@@ -38,7 +43,7 @@ const steps = [
 
 export const DecryptoXLanding= ({ id }: { id: string }) => {
   return (
-    <div id={id} className="flex bannerBuyBg flex-col pt-32 pr-10 rounded-none max-md:pt-24 max-md:pr-5 relative pb-10">
+    <div id={id} className="flex bannerBuyBg h-auto lg:h-[1000px] flex-col pt-32 px-10 rounded-none max-md:pt-24 max-md:pr-5 relative pb-30">
        <div className='absolute left-0 bottom-14'>
        <img
           loading="lazy"
@@ -80,7 +85,31 @@ export const DecryptoXLanding= ({ id }: { id: string }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap gap-5 justify-between items-start  max-md:max-w-full absolute right-[30px] bottom-[-165px]">
+      <div className="lg:hidden">
+      <Swiper
+      modules={[Navigation, Pagination]}
+      spaceBetween={20}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      breakpoints={{
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 4 },
+      }}
+      className="mySwiper"
+    >
+      {steps.map((step, index) => (
+        <SwiperSlide key={index}>
+           <div key={index} className="flex flex-col w-full">
+                  <StepCard {...step} />
+                </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+        </div>
+
+      <div className="hidden lg:flex flex-wrap gap-5 justify-between items-start  max-md:max-w-full absolute right-[30px] bottom-[-165px]">
        
         <div className="flex flex-col self-end   max-md:max-w-full">
           <div className="self-center text-6xl font-bold leading-none text-sky-500 max-md:text-4xl">

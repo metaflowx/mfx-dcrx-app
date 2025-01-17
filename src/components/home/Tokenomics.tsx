@@ -7,15 +7,15 @@ const Tokenomics = ({ id }: { id: string }) => {
   return (
     <div className='bg-[#000] w-full' id={id}>
 
-    <ConstrainedBox>
+    <ConstrainedBox classNames='px-4 sm:px-4 md:px-0 lg:px-0'>
 
     <div className="bg-black text-white py-12  w-full">
       <div className=" mx-auto flex flex-col lg:flex-row items-center justify-between">
         {/* Left Section */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 ">
         <CommonHeading heading='TOKENOMICS' fontSize="text-[40px]" />
           
-          <h3 style={{fontFamily:"Plus Jakarta Sans",lineHeight:"54px"}} className="text-3xl lg:text-[40px] font-bold mt-4">
+          <h3 style={{fontFamily:"Plus Jakarta Sans",lineHeight:"54px"}} className="text-[20px] lg:text-[40px] font-bold mt-4">
             Revolutionizing Decentralized Finance with Purpose-Driven Utility
           </h3>
           <div style={{fontFamily:"Plus Jakarta Sans"}} className="mt-6">
@@ -38,7 +38,7 @@ const Tokenomics = ({ id }: { id: string }) => {
               <span >Total Supply:</span> 59.9 Billion DCRX
             </p>
           </div>
-          <div className="flex gap-4 mt-8">
+          <div className="xs:block sm:flex gap-4 mt-8">
           <button
              style={{
               background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
@@ -46,7 +46,7 @@ const Tokenomics = ({ id }: { id: string }) => {
             className="w-[238px] h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black">
               White Paper
             </button>
-            <button style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-[238px] h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
+            <button style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
               Light Paper
             </button>
           </div>

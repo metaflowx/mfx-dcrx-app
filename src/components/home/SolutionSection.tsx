@@ -1,10 +1,12 @@
 import React from "react";
 import CommonHeading from "../common/CommonHeading";
+import ConstrainedBox from "../core/constrained-box";
 
 const SolutionSection: React.FC = () => {
   return (
     <div style={{fontFamily:"Geist"}} className="bg-[#000] text-white py-16 w-full">
-      <div className="max-w-7xl mx-auto px-4">
+     <ConstrainedBox>
+     <div className="px-4">
         <div className="text-center mb-12">
        
             <CommonHeading heading={" THE SOLUTION"} fontSize="text-[42px]" />
@@ -22,7 +24,7 @@ const SolutionSection: React.FC = () => {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* Left Section - Cards */}
-          <div className="md:col-span-6">
+          <div className="md:col-span-12 lg:col-span-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {Array.from({ length: 4 }).map((_, index) => (
                 <div
@@ -48,7 +50,7 @@ const SolutionSection: React.FC = () => {
           </div>
 
           {/* Right Section - Image */}
-          <div className="md:col-span-6 flex justify-center">
+          <div className="md:col-span-12 lg:col-span-6 flex justify-center">
             <img
               src="/card/group-icon.png"
               alt="Group Icon"
@@ -57,6 +59,7 @@ const SolutionSection: React.FC = () => {
           </div>
         </div>
       </div>
+     </ConstrainedBox>
     </div>
   );
 };

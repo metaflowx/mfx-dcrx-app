@@ -65,10 +65,10 @@ const TeamSection = ({ id }: { id: string }) => {
         {/* Section Header */}
         <CommonHeading heading="Our Team" fontSize={"text-[40px] "} />
       
-        <p  className="text-center mt-2 text-white text-[40px] font-bold">
+        <p  className="text-center mt-2 text-white sm:text-[25px] md:text-[40px] font-bold leading-snug">
           Lorem Ipsum is simply dummy text of the 
         </p>
-        <p className="text-center  text-white text-[40px] font-bold">
+        <p className="text-center  text-white sm:text-[25px] md:text-[40px] font-bold leading-snug">
           printing and typesetting industry.
         </p>
 
