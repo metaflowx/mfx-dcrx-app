@@ -1,6 +1,7 @@
 import React from "react";
 import CommonHeading from "../common/CommonHeading";
 import ConstrainedBox from "../core/constrained-box";
+import ImageRotation from "./ui/ImageRotation";
 
 const SolutionSection: React.FC = () => {
   return (
@@ -51,11 +52,12 @@ const SolutionSection: React.FC = () => {
 
           {/* Right Section - Image */}
           <div className="md:col-span-12 lg:col-span-6 flex justify-center">
-            <img
+            <ImageRotation />
+            {/* <img
               src="/card/group-icon.png"
               alt="Group Icon"
               className="max-w-full h-auto"
-            />
+            /> */}
           </div>
         </div>
       </div>
