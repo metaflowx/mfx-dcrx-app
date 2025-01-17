@@ -10,7 +10,7 @@ const HomeSection2 = () => {
       <div className="absolute left-0 bottom-0">
         <img src="/crypto/watchleftbg.png" alt="Referral Program" className="w-[505px] opacity-[0.4]" />
       </div>
-      <ConstrainedBox>
+      <ConstrainedBox classNames="px-4">
         <div>
           <h1 style={{fontFamily:"Geist",lineHeight:"52px"}} className="text-center text-xl md:text-2xl lg:text-[52px] font-semibold text-[#38b6ff] mb-8">
             How can you benefit from Decryptox referral program?

@@ -18,7 +18,7 @@ const faqData: FAQData = {
 export const FAQRefer = () => {
   return (
     <div className="flex faqbg flex-col text-white rounded-none w-full" >
-      <div className="flex relative flex-col px-20 w-full py-[80px] max-md:pl-5 max-md:max-w-full">
+      <div className="flex relative flex-col   py-[80px]  w-full">
         
         <div className="flex relative flex-col items-center px-20 pt-12 pb-32  max-md:px-5 max-md:pb-24 max-md:max-w-full">
           <div className="flex flex-col mb-0 w-full max-w-[1517px] max-md:mb-2.5 max-md:max-w-full">
