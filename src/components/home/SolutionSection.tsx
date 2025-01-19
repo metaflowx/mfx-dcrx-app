@@ -1,7 +1,8 @@
 import React from "react";
 import CommonHeading from "../common/CommonHeading";
 import ConstrainedBox from "../core/constrained-box";
-import ImageRotation from "./ui/ImageRotation";
+import { ImageRotation } from "./ui/ImageRotation";
+
 
 const SolutionSection: React.FC = () => {
   return (

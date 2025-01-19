@@ -1,176 +1,61 @@
-"use client"
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 
-interface CryptoIcon {
-  title: string;
-  fill: string;
-  path: string;
-  scale?: number;
-}
 
-const cryptoIcons: CryptoIcon[] = [
-  {
-    title: "Bitcoin",
-    fill: "#F7931A",
-    path: "M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z",
-    scale: 1.2
-  },
-  {
-    title: "Ethereum",
-    fill: "#627EEA",
-    path: "M11.944 17.97L4.58 13.62 11.943 24l7.37-10.38-7.372 4.35h.003zM12.056 0L4.69 12.223l7.365 4.354 7.365-4.35L12.056 0z",
-    scale: 1.2
-  },
-  {
-    title: "Litecoin",
-    fill: "#A6A9AA",
-    path: "M12 0a12 12 0 1012 12A12 12 0 0012 0zm-.2617 3.6777h2.584a.3425.3425 0 01.33.4356l-2.0312 6.918 1.9062-.582-.4082 1.3847-1.9238.5605-1.248 4.213h6.6757a.3425.3425 0 01.3282.4374l-.582 2a.4586.4586 0 01-.4395.3301H6.7324l1.7227-5.8223-1.9063.5801.42-1.3613 1.9101-.58 2.4219-8.1798a.4557.4557 0 01.4375-.334Z"
-  },
-  {
-    title: "Ripple",
-    fill: "#0085C0",
-    path: "M20.55 14.65c-.846-.486-1.805-.632-2.752-.666-.79-.023-1.974-.541-1.974-1.985 0-1.072.868-1.94 1.985-1.985.947-.034 1.906-.18 2.752-.666A5.018 5.018 0 0022.4 2.502 5.04 5.04 0 0015.53.674a4.993 4.993 0 00-2.504 4.343c0 .97.35 1.861.79 2.696.372.699.553 1.996-.71 2.73-.948.54-2.132.202-2.719-.745-.496-.801-1.094-1.545-1.94-2.03C6.045 6.28 2.977 7.104 1.6 9.495A5.018 5.018 0 003.44 16.34a5.025 5.025 0 005.008 0c.846-.485 1.444-1.23 1.94-2.03.406-.654 1.433-1.489 2.718-.744.948.541 1.241 1.737.711 2.73-.44.823-.79 1.725-.79 2.695A5.011 5.011 0 0018.034 24a5.011 5.011 0 005.008-5.008 4.982 4.982 0 00-2.492-4.343z"
-  },
-  {
-    title: "Solana",
-    fill: "#9945FF",
-    path: "m23.8764 18.0313-3.962 4.1393a.9201.9201 0 0 1-.306.2106.9407.9407 0 0 1-.367.0742H.4599a.4689.4689 0 0 1-.2522-.0733.4513.4513 0 0 1-.1696-.1962.4375.4375 0 0 1-.0314-.2545.4438.4438 0 0 1 .117-.2298l3.9649-4.1393a.92.92 0 0 1 .3052-.2102.9407.9407 0 0 1 .3658-.0746H23.54a.4692.4692 0 0 1 .2523.0734.4531.4531 0 0 1 .1697.196.438.438 0 0 1 .0313.2547.4442.4442 0 0 1-.1169.2297z",
-    scale: 1.1
-  },
-  {
-    title: "Polygon",
-    fill: "#7B3FE4",
-    path: "m17.82 16.342 5.692-3.287A.98.98 0 0 0 24 12.21V5.635a.98.98 0 0 0-.488-.846l-5.693-3.286a.98.98 0 0 0-.977 0L11.15 4.789a.98.98 0 0 0-.489.846v11.747L6.67 19.686l-3.992-2.304v-4.61l3.992-2.304 2.633 1.52V8.896L7.158 7.658a.98.98 0 0 0-.977 0L.488 10.945a.98.98 0 0 0-.488.846v6.573a.98.98 0 0 0 .488.847l5.693 3.286a.981.981 0 0 0 .977 0l5.692-3.286a.98.98 0 0 0 .489-.846V6.618l.072-.041 3.92-2.263 3.99 2.305v4.609l-3.99 2.304-2.63-1.517v3.092l2.14 1.236a.981.981 0 0 0 .978 0v-.001Z"
-  },
-  {
-    title: "Chainlink",
-    fill: "#375BD2",
-    path: "M12 0L9.798 1.266l-6 3.468L1.596 6v12l2.202 1.266 6.055 3.468L12.055 24l2.202-1.266 5.945-3.468L22.404 18V6l-2.202-1.266-6-3.468zM6 15.468V8.532l6-3.468 6 3.468v6.936l-6 3.468z"
-  },
-  {
-    title: "Dogecoin",
-    fill: "#C2A633",
-    path: "M12.288 7.908h-1.715v3.38h2.697v1.415h-2.697v3.38h1.799c.462 0 3.794.052 3.789-3.933-.005-3.984-3.232-4.242-3.873-4.242zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.472 18.481H8.126v-5.778H6.594v-1.415h1.532V5.511h3.73c.882 0 6.727-.183 6.727 6.594-.001 6.888-6.111 6.376-6.111 6.376z"
-  },
-  {
-    title: "Stellar",
-    fill: "#7D00FF",
-    path: "M12.283 1.851A10.154 10.154 0 001.846 12.002c0 .259.01.516.03.773A1.847 1.847 0 01.872 14.56L0 15.005v2.074l2.568-1.309.832-.424.82-.417 14.71-7.496 1.653-.842L24 4.85V2.776l-3.387 1.728-2.89 1.473-13.955 7.108a8.376 8.376 0 01-.07-1.086 8.313 8.313 0 0112.366-7.247l1.654-.843.247-.126a10.154 10.154 0 00-5.682-1.932zM24 6.925L5.055 16.571l-1.653.844L0 19.15v2.072L3.378 19.5l2.89-1.473 13.97-7.117a8.474 8.474 0 01.07 1.092A8.313 8.313 0 017.93 19.248l-.101.054-1.793.914a10.154 10.154 0 0016.119-8.214c0-.26-.01-.522-.03-.78a1.848 1.848 0 011.003-1.785L24 8.992Z"
-  },
-  {
-    title: "Dash",
-    fill: "#008DE4",
-    path: "M3.21 9.967C.922 9.967.595 11.457.38 12.36.093 13.538 0 14.02 0 14.02h8.947c2.29 0 2.617-1.492 2.832-2.394.285-1.178.379-1.66.379-1.66zM15.72 2.26H6.982L6.26 6.307l7.884.01c3.885 0 5.03 1.41 4.997 3.748-.019 1.196-.537 3.225-.762 3.884-.598 1.753-1.827 3.749-6.435 3.744l-7.666-.004-.725 4.052h8.718c3.075 0 4.38-.36 5.767-.995 3.071-1.426 4.9-4.455 5.633-8.41C24.76 6.448 23.403 2.26 15.72 2.26z"
-  }
-];
-
-const ImageRotation = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const iconsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const radius = 200;
-    const totalIcons = cryptoIcons.length;
+import {IconCloud} from "@/components/ui/icon-cloud";
+export function ImageRotation() {
+  const slugs = [
+    "bitcoin",
+    "ethereum",
+    "litecoin",
+    "dogecoin",
+    "ripple",
+    "cardano",
+    "solana",
+    "polkadot",
+    "binance",
+    "tether",
+    "usd-coin",
+    "shiba",
+    "chainlink",
+    "uniswap",
+    "avalanche",
+    "polygon",
+    "terra",
+    "vechain",
+    "cosmos",
+    "filecoin",
+    "bitcoin",
+    "ethereum",
+    "litecoin",
+    "dogecoin",
+    "ripple",
+    "cardano",
+    "solana",
+    "polkadot",
+    "binance",
+    "tether",
+    "usd-coin",
+    "shiba",
+    "chainlink",
+    "uniswap",
+    "avalanche",
+    "polygon",
     
-    // Position icons in a circle
-    iconsRef.current.forEach((icon, index) => {
-      if (!icon) return;
-      
-      const angle = (index / totalIcons) * Math.PI * 2 - Math.PI / 2; // Start from top
-      const x = Math.cos(angle) * radius;
-      const y = Math.sin(angle) * radius;
+  ];
 
-      gsap.set(icon, {
-        x: x + radius,
-        y: y + radius,
-      });
-    });
-
-    // Create rotation animation
-    gsap.to(containerRef.current, {
-      rotation: 360,
-      duration: 40,
-      repeat: -1,
-      ease: "none"
-    });
-
-    // Counter-rotate icons to keep them upright
-    iconsRef.current.forEach((icon) => {
-      if (!icon) return;
-      gsap.to(icon, {
-        rotation: -360,
-        duration: 40,
-        repeat: -1,
-        ease: "none"
-      });
-    });
-
-    // Add hover effects
-    iconsRef.current.forEach((icon) => {
-      if (!icon) return;
-
-      icon.addEventListener('mouseenter', () => {
-        gsap.to(icon, {
-          scale: 1.3,
-          duration: 0.3,
-          filter: 'brightness(1.2)'
-        });
-      });
-
-      icon.addEventListener('mouseleave', () => {
-        gsap.to(icon, {
-          scale: 1,
-          duration: 0.3,
-          filter: 'brightness(1)'
-        });
-      });
-    });
-  }, []);
+  const images = slugs.map(
+    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`,
+  );
 
   return (
-    <div className="canvas-container">
-      <div
-        ref={containerRef}
-        style={{
-          position: 'relative',
-          width: '600px',
-          height: '600px',
-          margin: '0 auto',
-        }}
-      >
-        {cryptoIcons.map((icon, index) => (
-          <div
-            key={icon.title}
-            ref={el => iconsRef.current[index] = el}
-            style={{
-              position: 'absolute',
-              width: '60px',
-              height: '60px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transition: 'filter 0.3s ease',
-              transform: `scale(${icon.scale || 1})`,
-              cursor: 'pointer'
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              style={{ fill: icon.fill }}
-              width="100%"
-              height="100%"
-            >
-              <title>{icon.title}</title>
-              <path d={icon.path} />
-            </svg>
-          </div>
-        ))}
-      </div>
+    <div className="relative flex size-full m items-center justify-center overflow-hidden rounded-lg bg-background">
+      <IconCloud images={images} />
     </div>
   );
-};
+}
 
-export default ImageRotation;
+
+
+
+
+
+
