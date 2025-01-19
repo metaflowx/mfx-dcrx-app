@@ -744,6 +744,7 @@ h6 {
   background-size: contain !important;
   background-repeat: no-repeat !important;
 }
+
 .inputBg{
   background-image: url("/card/inputbg.png");
   background-position: center !important;
@@ -756,6 +757,13 @@ h6 {
   background-size: contain !important;
   background-repeat: no-repeat !important;
   padding: 20px;
+}
+.mainReferBg{
+  // background-image: url("/crypto/referfriendbg.png");
+  background-position: bottom !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background: #000 !important;
 }
 
 .swiper-pagination {
@@ -906,9 +914,28 @@ h6 {
     max-width: 1080px;
   }
 }
+@media screen and (max-width: 1024px) {
+  
+  .refferCommonMainBg{
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+  }
+  .refferCommonMainBg1{
+    background-position: bottom !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
 
 @media screen and (max-width: 900px) {
   .constrained-width {
     max-width: 100%;
+  }
+  .refferCommonMainBg{
+ 
+    background-position: bottom !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
   }
 }

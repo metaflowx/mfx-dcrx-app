@@ -13,7 +13,7 @@ const HomeSection3 = dynamic(() => import("@/components/home/Section3"));
 const HomeSection4 = dynamic(() => import("@/components/home/Section4"));
 const Home = () => {
   return (
-    <PageBox>
+    <PageBox >
       <ReferEarn />
      
       <HomeSection2 />

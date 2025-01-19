@@ -715,6 +715,13 @@ h6 {
   padding: 20px;
 }
 
+.mainReferBg {
+  background-position: bottom !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background: #000 !important;
+}
+
 .swiper-pagination {
   position: absolute;
   text-align: center;
@@ -854,8 +861,25 @@ h6 {
     max-width: 1080px;
   }
 }
+@media screen and (max-width: 1024px) {
+  .refferCommonMainBg {
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+  }
+  .refferCommonMainBg1 {
+    background-position: bottom !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
 @media screen and (max-width: 900px) {
   .constrained-width {
     max-width: 100%;
+  }
+  .refferCommonMainBg {
+    background-position: bottom !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
   }
 }/*# sourceMappingURL=globals.css.map */

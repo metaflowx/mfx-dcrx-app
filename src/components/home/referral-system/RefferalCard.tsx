@@ -1,35 +1,45 @@
+import CommonButton from "@/components/common/CommonButton";
 import React from "react";
 
 interface CardProps {
   title: string;
   value: string;
-  subValues: { label: string; value: string }[];
+  subValues: { label: string; value: string;images:any }[];
   hasButton?: boolean;
+  symbol:string,
+  earnsymbol:string
 }
 
-const RefferalCard: React.FC<CardProps> = ({ title, value, subValues, hasButton }) => {
+const RefferalCard: React.FC<CardProps> = ({ title, value, subValues, hasButton,symbol ,earnsymbol}) => {
   return (
-    <div className="refferCommonMainBg rounded-lg p-[120px] shadow-md text-white">
-      <h3 className="text-blueAccent text-lg font-semibold">{title}</h3>
+    <div style={{fontFamily:"Geist"}} className="refferCommonMainBg rounded-lg py-[40px] px-[40px] shadow-md text-white">
+      <h3 style={{fontFamily:"Geist"}} className="text-blueAccent text-[21px] font-bold text-[#2B9AE6]">{title}</h3>
       <div className="flex items-center justify-between mt-3">
-        <span className="text-4xl font-bold">{value}</span>
-        <div className="relative w-12 h-12">
-          <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gradient-to-r from-blueAccent to-white opacity-20"></div>
-          <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gradient-to-r from-blueAccent to-blueAccent"></div>
+        <p style={{fontFamily:"Gemunu Libre"}} className="text-[80px] font-bold">{value}
+
+          <span className="text-[21px]">{symbol}</span>
+        </p>
+        {earnsymbol && (
+
+        <div className="relative ">
+        <img src={earnsymbol} className="w-[90px] h-[89px] " />
+         
         </div>
+        )}
       </div>
       <div className="mt-4 space-y-2 text-sm">
         {subValues.map((item, index) => (
-          <div key={index} className="flex justify-between">
-            <span>{item.label}</span>
-            <span>{item.value}</span>
+          <div  key={index} className="flex justify-between font-bold text-[21px]">
+           <div className="flex items-center">
+            <img src={item.images} className="w-[21px] h-[18px] " />
+           <p style={{fontFamily:"Geist"}} className="text-[21px] font-bold ml-2">{item.label}</p>
+           </div>
+            <span  style={{fontFamily:"Gemunu Libre"}}>{item.value}</span>
           </div>
         ))}
       </div>
       {hasButton && (
-        <button className="mt-4 w-full bg-gradient-to-r from-blueAccent to-blue-500 hover:from-blue-500 hover:to-blueAccent text-sm text-white py-2 rounded-lg">
-          Buy Now
-        </button>
+       <CommonButton btnName="Buy Now" width="w-full" />
       )}
     </div>
   );

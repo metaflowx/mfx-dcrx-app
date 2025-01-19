@@ -5,24 +5,31 @@ const RefferalDashboard = () => {
     {
       title: "Total Referrals",
       value: "00",
+      symbol:"",
+      earn:"/refer/earn.png",
       subValues: [
-        { label: "Today", value: "00" },
-        { label: "Yesterday", value: "00" },
-        { label: "Last Week", value: "00" },
+        { label: "Today", value: "00",images:"/refer/today.png" },
+        { label: "Yesterday", value: "00",images:"/refer/yesterday.png" },
+        { label: "Last Week", value: "00",images:"/refer/lastweek.png" },
+
       ],
     },
     {
       title: "Total Earnings",
-      value: "00 $DCRX",
+      value: "00",
+      symbol:"$DCRX",
+      earn:"/refer/earn.png",
       subValues: [
-        { label: "Today", value: "00 $DCRX" },
-        { label: "Yesterday", value: "00 $DCRX" },
-        { label: "Last Week", value: "00 $DCRX" },
+        { label: "Today", value: "00 $DCRX",images:"/refer/today.png" },
+        { label: "Yesterday", value: "00 $DCRX",images:"/refer/yesterday.png" },
+        { label: "Last Week", value: "00 $DCRX",images:"/refer/lastweek.png" },
       ],
     },
     {
       title: "Your Wallet Balance",
-      value: "00 $DCRX",
+      value: "00",
+      symbol:"$DCRX",
+      earn:"",
       subValues: [],
       hasButton: true,
     },
@@ -30,7 +37,7 @@ const RefferalDashboard = () => {
   ];
 
   return (
-    <div className=" py-10">
+    <div className="w-full py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 px-4">
         {data.map((item, index) => (
           <RefferalCard
@@ -39,6 +46,8 @@ const RefferalDashboard = () => {
             value={item.value}
             subValues={item.subValues}
             hasButton={item.hasButton}
+            symbol={item.symbol}
+            earnsymbol={item.earn}
           />
         ))}
       </div>
