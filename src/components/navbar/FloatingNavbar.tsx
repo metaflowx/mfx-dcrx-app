@@ -53,28 +53,28 @@ const FloatingNavbar = ({
             className="flex items-center space-x-4 cursor-pointer"
           >
             <Link
-               
-                href={"/"}
-                
-              >
-                <img
-              src="/crypto/logo.png"
-              alt="Logo"
-              className="h-[50px]" // Adjust the logo height as per the design
-            />
-              </Link>
-           
+
+              href={"/"}
+
+            >
+              <img
+                src="/crypto/logo.png"
+                alt="Logo"
+                className="h-[50px]" // Adjust the logo height as per the design
+              />
+            </Link>
+
           </div>
 
           {/* Navigation Items for Large Screens */}
-          <div className="hidden xl:flex space-x-8">
+          <div className="hidden xl:flex space-x-5">
             {navItems.map((navItem: INavItem, idx: number) => (
               <Link
                 key={idx}
                 href={navItem.link}
                 className={cn(
-                  "text-white text-[14px] font-semibold tracking-wider hover:text-[#0be1db] transition",
-                  pathname === navItem.link && "text-[#0be1db]"
+                  "text-white text-[12px]  tracking-wider hover:text-[#2b9ae6] transition",
+                  pathname === navItem.link && "text-[#2b9ae6]"
                 )}
               >
                 {navItem.name}
@@ -83,13 +83,13 @@ const FloatingNavbar = ({
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4">
             <img
               src="/crypto/telegram.png"
               alt="Telegram"
-              className="h-[27px] hidden lg:block"
+              className="h-[24px] hidden lg:block"
             />
-            <img src="/crypto/x.png" alt="X" className="h-[27px] hidden lg:block" />
+            <img src="/crypto/x.png" alt="X" className="h-[24px] hidden lg:block" />
 
             {/* Buy Now Button */}
             <ConnectButton />
@@ -154,8 +154,8 @@ const FloatingNavbar = ({
                   href={navItem.link}
                   onClick={toggleDrawer}
                   className={cn(
-                    "text-white text-lg font-semibold tracking-wider hover:text-[#0be1db] transition",
-                    pathname === navItem.link && "text-[#0be1db]"
+                    "text-white text-lg font-semibold tracking-wider hover:text-[#2b9ae6] transition",
+                    pathname === navItem.link && "text-[#2b9ae6]"
                   )}
                 >
                   {navItem.name}
@@ -164,7 +164,7 @@ const FloatingNavbar = ({
 
               {/* Additional Items */}
               <div className="flex flex-col space-y-4 mt-8">
-              <ConnectButton />
+                <ConnectButton />
                 <button
                   style={{
                     background:

@@ -38,19 +38,24 @@ export const navMenus: INavItem[] = [
     icon: faLaptopCode,
   },
   {
-    name: "FAQs",
+    name: "FAQS",
     link: "/#faq",
     icon: faEnvelope,
   },
   {
-    name: "Our Team",
+    name: "OUR TEAM",
     link: "/#team",
     icon: faCreditCard,
   },
   {
-    name: "Refer & Earn",
+    name: "REFER & EARN",
     link: "/referearn",
     icon: faCreditCard,
   },
+  // {
+  //   name: "$1M GIVEAWAY",
+  //   link: "/referearn",
+  //   icon: faCreditCard,
+  // },
   
 ];

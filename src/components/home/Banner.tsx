@@ -1,11 +1,15 @@
 "use client"
 import React, { useState } from 'react'
 import ConstrainedBox from '../core/constrained-box';
+import { useAppKit, useAppKitAccount } from '@reown/appkit/react';
 
 
 
 const Banner = ({ id }: { id: string }) => {
   const[coinType,setCoinType]=useState("ETH")
+
+  const { address, isConnected, } = useAppKitAccount()
+  const { open, close } = useAppKit()
  
   return (
     <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg   text-white flex items-center justify-center">
@@ -82,20 +86,33 @@ const Banner = ({ id }: { id: string }) => {
           <p className='text-white text-[15px] pt-4'>{`${coinType} you pay`}</p>
           <div className="mt-2 flex items-center justify-between">
 
-            <input
+           <div className='input___border'>
+           <input
               type="text"
               placeholder="0"
               className=" h-[38px] inputBg text-white px-4 py-2"
             />
-            <input
+           </div>
+
+           <div className='input___border'>
+           <input
               type="text"
               placeholder="0"
               className=" h-[38px] inputBg text-white px-4 py-2 "
             />
+           </div>
+            
           </div>
-          <button className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">
-            Connect Wallet
-          </button>
+          {!address ?
+               <button onClick={async()=>open()}  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">
+               Connect Wallet
+             </button>
+             :
+             <button onClick={async()=>{}}  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">
+             Buy Now
+           </button>
+          }
+
           <p className="text-center text-[#2B9AE6] text-[16px] mt-4">Don’t have a wallet?</p>
         </div>
       </div>

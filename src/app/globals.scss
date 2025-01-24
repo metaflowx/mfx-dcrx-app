@@ -746,10 +746,18 @@ h6 {
 }
 
 .inputBg{
-  background-image: url("/card/inputbg.png");
-  background-position: center !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
+  // background-image: url("/card/inputbg.png");
+  // background-position: center !important;
+  // background-size: contain !important;
+  // background-repeat: no-repeat !important;
+  background-color: #111827;
+  outline: none;
+  border-radius: 4px;
+}
+.input___border{
+background: linear-gradient(180deg, #50555f, transparent, transparent, #50555f);
+padding:1px;
+border-radius: 4px;
 }
 .timerBg{
   background-image: url("/card/firsttimer.png");
