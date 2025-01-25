@@ -79,7 +79,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
     <div
       ref={containerRef}
       style={{
-        width: "800px", // Increase size
+        width: "800px",
       
         position: "relative",
         perspective: "1000px",
