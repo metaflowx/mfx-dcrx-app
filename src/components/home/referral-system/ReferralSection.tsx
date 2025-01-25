@@ -13,7 +13,7 @@ const ReferralSection: React.FC = () => {
     { range: "$10k and above", bonus: "10% bonus" },
   ];
   return (
-    <section  className="mainReferBg text-white py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full">
+    <section  className="mainReferBg text-white py-[10px] md:py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full">
       <ConstrainedBox>
 
       <div className="w-full">

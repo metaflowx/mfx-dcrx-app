@@ -23,7 +23,7 @@ export const socialIcons = [
 export const Footer: React.FC = () => {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col items-center px-20 pt-14 pb-7 w-full bg-black max-md:px-5 max-md:max-w-full">
+      <div className="flex flex-col items-center px-20 pt-3 md:pt-14 pb-7 w-full bg-black max-md:px-5 max-md:max-w-full">
         <div className="flex flex-col w-full max-w-[1521px] max-md:max-w-full">
           <div className="max-md:mr-2.5 max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col">

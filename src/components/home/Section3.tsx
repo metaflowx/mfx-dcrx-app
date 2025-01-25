@@ -17,7 +17,7 @@ export default function HomeSection3() {
       <div className=" flex flex-col md:flex-row items-center justify-between gap-12 w-full">
         {/* Left Content Section */}
         <div className="flex-1 space-y-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0EA5E9]">
+          <h1 className="text-2xl md:text-5xl font-bold leading-snug text-[#0EA5E9]">
             Referral program <br /> agreement
           </h1>
           
