@@ -20,11 +20,11 @@ export const FAQ = ({ id }: { id: string }) => {
   return (
     <div className="flex faqbg flex-col text-white rounded-none w-full" id={id}>
       <ConstrainedBox classNames="px-4">
-      <div className="flex relative flex-col  w-full py-[80px]  max-md:max-w-full">
+      <div className="flex relative flex-col  w-full py-[0px] md:py-[80px]  max-md:max-w-full">
         
-        <div className="flex relative flex-col items-center  pt-12 pb-32   max-md:pb-24 max-md:max-w-full">
+        <div className="flex relative flex-col items-center  pt-4 pb-32   max-md:pb-24 max-md:max-w-full">
           <div className="flex flex-col mb-0 w-full max-w-[1517px] max-md:mb-2.5 max-md:max-w-full">
-            <div className="self-center text-6xl font-bold leading-none text-center max-md:max-w-full max-md:text-4xl">
+            <div className="self-center text-6xl font-bold leading-none text-center max-md:max-w-full max-md:text-2xl">
               <span className="text-sky-500">Frequently</span> Asked Questions
             </div>
             <div className="self-center mt-8 text-2xl lg:text-5xl font-bold leading-none text-center max-md:max-w-full">

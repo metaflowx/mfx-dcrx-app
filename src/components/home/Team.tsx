@@ -60,7 +60,7 @@ const TeamSection = ({ id }: { id: string }) => {
   ];
 
   return (
-    <section className="bg-black text-white py-16 w-full" id={id}>
+    <section className="bg-black text-white  py-1 md:py-16 w-full" id={id}>
       <div style={{fontFamily:"Geist"}} className="max-w-6xl mx-auto px-4 text-center">
         {/* Section Header */}
         <CommonHeading heading="Our Team" fontSize={"text-[40px] "} />

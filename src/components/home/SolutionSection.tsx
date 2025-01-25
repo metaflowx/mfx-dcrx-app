@@ -9,15 +9,15 @@ const SolutionSection: React.FC = () => {
     <div style={{fontFamily:"Geist"}} className="bg-[#000] text-white py-16 w-full">
      <ConstrainedBox>
      <div className="px-4">
-        <div className="text-center mb-12">
+        <div className=" mb-12">
        
-            <CommonHeading heading={" THE SOLUTION"} fontSize="text-[42px]" />
+            <CommonHeading heading={" THE SOLUTION"} fontSize="text-[42px] text-left md:text-center w-full " />
          
-          <h1 style={{lineHeight:"59px"}} className="text-[59px] font-bold mb-4">DecryptoX</h1>
-          <p className="text-white text-center text-[24px] font-medium">
+          <h1 style={{lineHeight:"59px"}} className="text-[39px] md:text-[59px] text-left md:text-center font-bold mb-4">DecryptoX</h1>
+          <p className="text-white text-left md:text-center text-[18px] md:text-[24px] font-medium">
             Powered by state channel technology to enable real-time cross-
           </p>
-          <p className="text-white text-center text-[24px] font-medium">
+          <p className="text-white text-left md:text-center text-[18px] md:text-[24px] font-medium">
           chain
           trading without the need for brokers to bridge assets.
           </p>
@@ -54,11 +54,7 @@ const SolutionSection: React.FC = () => {
           {/* Right Section - Image */}
           <div className="md:col-span-12 lg:col-span-6 flex justify-center">
             <ImageRotation />
-            {/* <img
-              src="/card/group-icon.png"
-              alt="Group Icon"
-              className="max-w-full h-auto"
-            /> */}
+           
           </div>
         </div>
       </div>

@@ -80,10 +80,11 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       ref={containerRef}
       style={{
         width: "800px", // Increase size
-        height: "800px",
+      
         position: "relative",
         perspective: "1000px",
       }}
+      className="h-[381px] md:h-[800px]"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}

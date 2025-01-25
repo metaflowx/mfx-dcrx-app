@@ -120,12 +120,12 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-12 w-full">
+    <section className="bg-black text-white py-[10px] md:py-12 w-full">
       <div
         style={{
           fontFamily: "Geist",
         }}
-        className="max-w-7xl mx-auto px-6 text-center pt-[180px]"
+        className="max-w-7xl mx-auto px-6 text-left md:text-center pt-[10px] md:pt-[180px]"
       >
         <div className="mb-4">
           <CommonHeading heading={"Problem"} fontSize="text-[42px]" />

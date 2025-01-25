@@ -43,7 +43,7 @@ const steps = [
 
 export const DecryptoXLanding= ({ id }: { id: string }) => {
   return (
-    <div id={id} className="flex bannerBuyBg h-auto lg:h-[1000px] flex-col pt-32 px-10 rounded-none max-md:pt-24 max-md:pr-5 relative pb-30">
+    <div id={id} className="flex bannerBuyBg h-auto lg:h-[1000px] flex-col pt-32 px-10 rounded-none max-md:pt-[14px] max-md:pr-5 relative pb-30">
        <div className='absolute left-0 bottom-14'>
        <img
           loading="lazy"
@@ -55,15 +55,15 @@ export const DecryptoXLanding= ({ id }: { id: string }) => {
       <div className="self-center w-full max-w-[1618px] max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">
           <div className="flex flex-col w-[41%] max-md:ml-0 max-md:w-full">
-            <div style={{fontFamily:"Geist",}} className="text-6xl font-bold text-white leading-[65px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
+            <div style={{fontFamily:"Geist",}} className="text-[20px] md:text-6xl font-bold text-white leading-snug md:leading-[65px] max-md:mt-1 max-md:max-w-full">
               <span className="text-sky-500">What is DecryptoX</span>
               <br />
               Home to the most secure, exciting, and innovative web3 projects
             </div>
           </div>
           <div className="flex flex-col ml-5 w-[59%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col mt-1.5 w-full text-xl font-bold text-white max-md:mt-10 max-md:max-w-full">
-              <div style={{fontFamily:"Geist",lineHeight:"47px"}} className="text-[23.5px] font-medium leading-10 max-md:max-w-full ">
+            <div className="flex flex-col mt-0 md:mt-1.5 w-full text-xl font-bold text-white max-md:max-w-full">
+              <div style={{fontFamily:"Geist",}} className="text-[16.5px] md:text-[23.5px]  font-medium leading-snug md:leading-10 max-md:max-w-full ">
                 We're creating an ecosystem where users can truly own their
                 trading experience without intermediaries. Powered by
                 blockchain, DecryptoX delivers all the advantages of centralized

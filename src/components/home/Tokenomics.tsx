@@ -13,28 +13,28 @@ const Tokenomics = ({ id }: { id: string }) => {
       <div className=" mx-auto flex flex-col lg:flex-row items-center justify-between">
         {/* Left Section */}
         <div className="lg:w-1/2 ">
-        <CommonHeading heading='TOKENOMICS' fontSize="text-[40px]" />
+        <CommonHeading heading='TOKENOMICS' fontSize="text-[30px] md:text-[40px]" />
           
-          <h3 style={{fontFamily:"Plus Jakarta Sans",lineHeight:"54px"}} className="text-[20px] lg:text-[40px] font-bold mt-4">
+          <h3 style={{fontFamily:"Plus Jakarta Sans",}} className="text-[20px] lg:text-[40px] leading-snug font-bold mt-4">
             Revolutionizing Decentralized Finance with Purpose-Driven Utility
           </h3>
           <div style={{fontFamily:"Plus Jakarta Sans"}} className="mt-6">
             <p className="text-3xl lg:text-[40px] font-bold">
-              <span className="text-3xl lg:text-[40px] font-bold">Symbol:</span> $DCRX
+              <span className="text-[30px] md:text-[40px] font-bold">Symbol:</span> $DCRX
             </p>
-            <p className="text-3xl lg:text-[40px] font-bold mt-[40px]">
+            <p className="text-[25px] md:text-[40px] font-bold mt-[40px]">
               Initial Value:
             </p>
-            <p className="text-3xl lg:text-[40px] font-bold mt-[10px]">
+            <p className="text-[20px] md:text-[40px] font-bold mt-[10px]">
               1 $DCRX = $0.012
             </p>
-            <p className="text-3xl lg:text-[28px] font-bold mt-[10px]">
+            <p className="text-[25] md:text-[28px] font-bold mt-[10px]">
               <span >Type:</span> Utility Token
             </p>
-            <p style={{fontFamily:"Outfit"}} className="text-[25px] font-normal mt-[20px]">
+            <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[25px] font-normal mt-[20px]">
               <span >Network:</span> Ethereum Smart Chain
             </p>
-            <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[25px] font-normal">
+            <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[20px] md:text-[25px] font-normal">
               <span >Total Supply:</span> 59.9 Billion DCRX
             </p>
           </div>
@@ -43,10 +43,10 @@ const Tokenomics = ({ id }: { id: string }) => {
              style={{
               background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
             }}
-            className="w-[238px] h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black">
+            className="w-full md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black">
               White Paper
             </button>
-            <button style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
+            <button style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-full md:w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
               Light Paper
             </button>
           </div>
@@ -59,8 +59,8 @@ const Tokenomics = ({ id }: { id: string }) => {
            <img src="/crypto/supply.png" alt="supply" />
            
            <div className="text-center mt-4">
-            <p style={{fontFamily:"Plus Jakarta Sans"}} className="text-[#2B9AE6] text-[37px] font-bold">Total Supply</p>
-            <p style={{fontFamily:"Plus Jakarta Sans",lineHeight:"37px"}}  className="text-[37px] font-bold text-white">59,900,000,000</p>
+            <p style={{fontFamily:"Plus Jakarta Sans"}} className="text-[#2B9AE6] text-[27px] md:text-[37px] font-bold">Total Supply</p>
+            <p style={{fontFamily:"Plus Jakarta Sans",lineHeight:"37px"}}  className="text-[27px] md:text-[37px] font-bold text-white">59,900,000,000</p>
           </div>
           </div>
          

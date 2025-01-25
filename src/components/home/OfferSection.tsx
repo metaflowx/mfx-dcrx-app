@@ -17,45 +17,24 @@ const OfferSection: React.FC = () => {
     image: "/crypto/dollarsymbol.png",
   });
 
-  // const cardData = [
-  //   {
-  //     title: "Counterparty Risks",
-  //     description:
-  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-  //   },
-  //   {
-  //     title: "Decentralization",
-  //     description:
-  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-  //   },
-  //   {
-  //     title: "Liquidity",
-  //     description:
-  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-  //   },
-  //   {
-  //     title: "Capital Efficiency",
-  //     description:
-  //       "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-  //   },
-  // ];
+ 
 
   return (
-    <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-16 w-full">
+    <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
       <ConstrainedBox classNames="p-4">
-        <div className="max-w-8xl mx-auto text-center">
-          <h2 className="text-[59px] font-bold mb-4">
+        <div className="max-w-8xl mx-auto text-left md:text-center">
+          <h2 className="text-[39px] md:text-[59px] font-bold mb-4">
             What We Offer at <span className="text-[#2B9AE6]">DecryptoX</span>
           </h2>
-          <p className="text-white text-center font-medium text-[22px]">
+          <p className="text-white text-left md:text-center  font-medium text-[18px] md:text-[22px]">
             We’re creating an ecosystem where users can truly own their trading experience
             without intermediaries.
           </p>
-          <p className="text-white text-center font-medium text-[22px]">
+          <p className="text-white  font-medium text-[18px] md:text-[22px]">
             Powered by blockchain, DecryptoX delivers all the advantages of centralized platforms
             but with the freedom
           </p>
-          <p className="text-white text-center font-medium text-[22px]">
+          <p className="text-white font-medium text-[18px] md:text-[22px]">
             and security that only decentralization can provide.
           </p>
 

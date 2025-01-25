@@ -1,4 +1,4 @@
-import shortenString from "@/hooks/shortenString";
+
 import { useAppKit, useAppKitAccount, useDisconnect } from "@reown/appkit/react";
 import Link from "next/link";
 import React from "react";
@@ -19,6 +19,7 @@ const ConnectButton: React.FC<ConnectButtonProps> = ({ label = "Buy Now" }) => {
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     display: "block",
     transition: "opacity 0.3s ease-in-out",
+
   };
   const { address, isConnected, } = useAppKitAccount()
   const { disconnect } = useDisconnect()
@@ -41,6 +42,7 @@ const ConnectButton: React.FC<ConnectButtonProps> = ({ label = "Buy Now" }) => {
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
           display: "block",
           transition: "opacity 0.3s ease-in-out",
+          whiteSpace:"pre"
         }} onClick={async () => open()} href={""}>{label}</Link>
         :
         <appkit-account-button

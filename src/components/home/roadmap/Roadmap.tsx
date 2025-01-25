@@ -5,7 +5,7 @@ import RoadmapCard from "./RoadmapCard";
 const Roadmap = ({id}:{id:string}) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [activePhaseId, setActivePhaseId] = useState<number>(1); // State for active phase ID
-console.log(">>>>>>>>>>>>>>activePhaseId",activePhaseId);
+
 
   // Handle slider navigation
   const scrollSlider = (direction: "left" | "right") => {
@@ -72,18 +72,18 @@ console.log(">>>>>>>>>>>>>>activePhaseId",activePhaseId);
   ];
 
   return (
-    <div className="bg-[#141414] text-white pt-[100px] pb-[150px] w-full" id={id}>
+    <div className="bg-[#141414] text-white pt-[10px] mb:pt-[100px] pb-[10px] md:pb-[150px] w-full" id={id}>
       {/* Vision Section */}
-      <div style={{fontFamily:"Plus Jakarta Sans"}} className="text-center mb-16">
+      <div style={{fontFamily:"Plus Jakarta Sans"}} className="text-left md:text-center mb-[15px] md:mb-16 px-4">
         <h2  className="text-[37px] font-bold text-[#2B9AE6]">Our Vision</h2>
-        <p className="text-[30px] mt-4 font-bold">
+        <p className="text-[20px] md:text-[30px] mt-4 font-bold leading-snug">
         DecryptoX is not just a platform—it's an evolving ecosystem. <br /> We’re here to empower users by offering an ever-growing suite of <br /> tools and options that cater to traders, lenders, borrowers, and <br /> investors alike
         </p>
       </div>
       <RoadmapCard activePhaseId={activePhaseId} setActivePhaseId={setActivePhaseId} />
 
       {/* Custom Slider */}
-      <div className="relative w-full mt-4">
+      <div className="hidden md:block relative w-full mt-4">
         {/* Slider Buttons */}
         <button
           onClick={() => scrollSlider("left")}

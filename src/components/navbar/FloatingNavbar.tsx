@@ -103,7 +103,7 @@ const FloatingNavbar = ({
             </button> */}
 
             {/* Language Selector */}
-            <div className="relative flex justify-center items-center">
+            <div className="hidden sm:flex relative  justify-center items-center">
               <div className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] w-[71px] h-[33px] cursor-pointer">
                 <img
                   src="/crypto/american.png"
@@ -137,7 +137,7 @@ const FloatingNavbar = ({
             className="fixed top-0 right-0 h-screen w-3/4 bg-[#0f1923] z-50 shadow-lg"
           >
             {/* Close Button */}
-            <div className="flex justify-end p-4">
+            <div className="flex justify-end py-4 px-1">
               <button
                 onClick={toggleDrawer}
                 className="text-white text-2xl focus:outline-none"
@@ -162,19 +162,11 @@ const FloatingNavbar = ({
                 </Link>
               ))}
 
-              {/* Additional Items */}
-              <div className="flex flex-col space-y-4 mt-8">
+             
+              {/* <div className="flex flex-col space-y-4 mt-8">
                 <ConnectButton />
-                <button
-                  style={{
-                    background:
-                      "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
-                  }}
-                  className="text-black w-[237px] h-[60px] rounded-[13px] text-[21px] font-bold shadow-md hover:opacity-90"
-                >
-                  Buy Now
-                </button>
-              </div>
+               
+              </div> */}
             </div>
           </motion.div>
         )}
