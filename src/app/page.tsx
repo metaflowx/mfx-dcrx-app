@@ -12,6 +12,7 @@ import Roadmap from "@/components/home/roadmap/Roadmap";
 import SolutionSection from "@/components/home/SolutionSection";
 import TeamSection from "@/components/home/Team";
 import Tokenomics from "@/components/home/Tokenomics";
+import WalletModal from "@/components/Modal";
 import dynamic from "next/dynamic";
 
 const PageBox = dynamic(() => import("@/components/core/PageBox"));
@@ -20,6 +21,7 @@ const PageBox = dynamic(() => import("@/components/core/PageBox"));
 const Home = () => {
   return (
     <PageBox>
+      <WalletModal />
       <Banner id="about" />
       <FeaturedIn />
       <DecryptoXLanding id="howtobuy" />
