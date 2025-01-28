@@ -39,8 +39,9 @@ const Banner = ({ id }: { id: string }) => {
         </div>
 
         {/* Right Section */}
+        <div className='jsborderBg'>
         <div 
-        className="cardBorderBgPayment sm:px-[20px] md:px-[90px] py-[30px] ">
+        className="jscardBorderBgPayment  sm:px-[20px] md:px-[90px] py-[30px] ">
           <h2 style={{fontFamily: "Geist, serif"}} className="text-[39px] md:text-[49px] font-bold mb-4 text-center">Buy DCRX</h2>
           <div className="grid grid-cols-4 text-center mb-4">
             <div className='timerBg'>
@@ -112,6 +113,7 @@ const Banner = ({ id }: { id: string }) => {
           }
 
           <p className="text-center text-[#2B9AE6] text-[16px] mt-4">Don’t have a wallet?</p>
+        </div>
         </div>
       </div>
         </ConstrainedBox>

@@ -4,6 +4,7 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Gemunu+Libre:wght@200..800&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 @layer base {
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
@@ -11,6 +12,7 @@
 }
 
 @layer utilities {
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -180,11 +182,9 @@
   --whiteColor100: rgba(255, 255, 255, 1);
   --whiteColor: rgba(255, 255, 255, 1);
 
-  --primaryGrad: linear-gradient(
-    118.18deg,
-    var(--primaryColor) 0.99%,
-    var(--secondaryColor) 100%
-  );
+  --primaryGrad: linear-gradient(118.18deg,
+      var(--primaryColor) 0.99%,
+      var(--secondaryColor) 100%);
 
   --boxShadow: 0px 4px 12px -6px rgba(0, 0, 0, 0.1),
     0px -4px 12px -6px rgba(0, 0, 0, 0.1), -4px 0px 12px -6px rgba(0, 0, 0, 0.1),
@@ -209,7 +209,7 @@ body {
 body {
   background-color: var(--bgColor);
   font-family: Poppins, system-ui, -apple-system,
-    Helvetica Neue,Geist,
+    Helvetica Neue, Geist,
     sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -610,41 +610,46 @@ h6 {
   }
 }
 
-.bannerBg{
+.bannerBg {
   background: url("/card/banner-bg.png");
   width: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  
+
 }
-.bannerBuyBg{
+
+.bannerBuyBg {
   background: url("/crypto/howtobuybg.png");
   width: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
- 
-}
-.stepBgCard{
-  background: url("/crypto/buystepcard.png");
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
- 
 
 }
-.borderBg{
+
+.stepBgCard {
+  // background: url("/crypto/buystepcard.png");
+  // width: 100%;
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  background: linear-gradient(180deg, #103784, #010102);
+
+
+}
+
+.borderBg {
   background: url("/crypto/borderbg.png");
 
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
- 
+
 
 }
-.cardBorderBg{
+
+.cardBorderBg {
   background: url("/card/borderbg.png");
   width: 100%;
   background-position: center;
@@ -652,25 +657,29 @@ h6 {
   background-repeat: no-repeat;
   // height: 800px;
 }
-.newsLetterbg{
+
+.newsLetterbg {
   background: url("/crypto/newsbg.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.newsLetterbgBorder{
+
+.newsLetterbgBorder {
   background: url("/crypto/newsbgborder.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.faqbg{
+
+.faqbg {
   background: url("/crypto/faqbg.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.accordianBg{
+
+.accordianBg {
   background: url("/crypto/accordianbg.png");
   background-position: center;
   background-size: cover;
@@ -678,74 +687,116 @@ h6 {
   border: none !important;
   border-radius: 0px !important;
 }
-.cardBorderWithoutBg{
+
+.cardBorderWithoutBg {
   background: url("/card/withoutborderbg.png");
   width: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  
+  // background: linear-gradient(0deg, #17486B, #17486bed, rgba(1, 11, 31, 0));
+
 }
-.cardBorderBgBorder{
-  background: url("/card/whiteborderbg.png");
-  width: 100%;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
- 
+
+.cardBorderBgBorder {
+  // background: url("/card/whiteborderbg.png");
+  // width: 100%;
+  // background-position: center;
+  // background-size: contain;
+  // background-repeat: no-repeat;
+
+  background: linear-gradient(0deg, #010B1F, rgba(1, 11, 31, 0));
+  margin: 1px;
+  border-radius: 0px;
+
 }
-.cardBorderBgPayment{
-  background-image: url("/card/payment.png");
-  background-position: center !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
- 
+
+.jscardBorderBgPayment {
+  // background-image: url("/card/payment.png");
+  // background-position: center !important;
+  // background-size: contain !important;
+  // background-repeat: no-repeat !important;
+  background: linear-gradient(0deg, #010B1F, #010b1f00);
+  border-radius: 18px;
+  margin: 1px;
 }
-.coinBgBtn{
+
+
+.jsborderBg {
+  // background: linear-gradient(0deg, #fff, #ffffff00);
+  // border-radius: 20px;
+  // padding:1px;
+  border: double 2px transparent;
+  border-radius: 20px;
+  background-image: linear-gradient(0deg, #fff, #ffffff00, #ffffff00, #ffffff00);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.jsborderprob {
+  border: double 2px transparent;
+  border-radius: 0px;
+  background-image: linear-gradient(0deg, #fff, #ffffff00, #ffffff00, #ffffff00);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+
+
+
+
+
+.coinBgBtn {
   background-image: url("/card/coinbgcard.png");
   background-position: center !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
- 
+
 }
-.coinBgValue{
+
+.coinBgValue {
   background-image: url("/card/valueshown.png");
   background-position: center !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
 }
-.teamCardBg{
+
+.teamCardBg {
   background-image: url("/crypto/teamcardbg.png");
   background-position: bottom !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
-.referBg{
+
+.referBg {
   background-image: url("/crypto/referafriednbg.png");
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
-.refferFriendBg{
+
+.refferFriendBg {
   background-image: url("/crypto/referfriendbg.png");
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
-.refferFriendInputMainBg{
+
+.refferFriendInputMainBg {
   background-image: url("/crypto/inputboxreferbg.png") !important;
   background-position: center !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
 }
-.refferCommonMainBg{
+
+.refferCommonMainBg {
   background-image: url("/crypto/refercommonbg.png") !important;
   background-position: center !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
 }
 
-.inputBg{
+.inputBg {
   // background-image: url("/card/inputbg.png");
   // background-position: center !important;
   // background-size: contain !important;
@@ -754,19 +805,23 @@ h6 {
   outline: none;
   border-radius: 4px;
 }
-.input___border{
-background: linear-gradient(180deg, #50555f, transparent, transparent, #50555f);
-padding:1px;
-border-radius: 4px;
+
+.input___border {
+  background: linear-gradient(180deg, #50555f, transparent, transparent, #50555f);
+  padding: 1px;
+  border-radius: 4px;
 }
-.timerBg{
+
+.timerBg {
   background-image: url("/card/firsttimer.png");
   background-position: center !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   padding: 20px;
+  // background-color: linear-gradient(180deg, #ffffff12, #0000007d, #ffffff0f);
 }
-.mainReferBg{
+
+.mainReferBg {
   // background-image: url("/crypto/referfriendbg.png");
   background-position: bottom !important;
   background-size: cover !important;
@@ -790,29 +845,35 @@ border-radius: 4px;
   width: 11px !important;
   background: #21355E;
 }
-.swiper-pagination-bullet-active{
-  background:  url("/coin-icon/activebg.png") !important;
+
+.swiper-pagination-bullet-active {
+  background: url("/coin-icon/activebg.png") !important;
   object-fit: contain;
-    height: 18px !important;
-    width: 18px !important;
-    background-position: center;
-    background-size: cover !important;
+  height: 18px !important;
+  width: 18px !important;
+  background-position: center;
+  background-size: cover !important;
 }
+
 .gradient-text {
   background: linear-gradient(to right, #0097FF 2%, #5EB9F8 49%, #2B9AE6 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        
-          display: inline-block
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  display: inline-block
 }
+
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
+  display: none;
+  /* Chrome, Safari, and Opera */
 }
 
 .btn__radius_left {
@@ -922,14 +983,16 @@ border-radius: 4px;
     max-width: 1080px;
   }
 }
+
 @media screen and (max-width: 1024px) {
-  
-  .refferCommonMainBg{
+
+  .refferCommonMainBg {
     background-position: center !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
   }
-  .refferCommonMainBg1{
+
+  .refferCommonMainBg1 {
     background-position: bottom !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -940,8 +1003,9 @@ border-radius: 4px;
   .constrained-width {
     max-width: 100%;
   }
-  .refferCommonMainBg{
- 
+
+  .refferCommonMainBg {
+
     background-position: bottom !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;

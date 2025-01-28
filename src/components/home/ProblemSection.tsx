@@ -147,7 +147,8 @@ const ProblemSection: React.FC = () => {
         {/* Grid View for Medium Screens and Above */}
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-4 gap-1">
           {cardData.map((item, index) => (
-            <div
+            <div className="jsborderprob">
+              <div
               key={index}
               className="cardBorderBgBorder p-2 rounded-lg shadow-md text-center"
             >
@@ -163,6 +164,7 @@ const ProblemSection: React.FC = () => {
               <p className="text-sm text-gray-300 pb-12 font-bold">
                 {item.description}
               </p>
+            </div>
             </div>
           ))}
         </div>
