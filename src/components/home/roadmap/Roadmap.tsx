@@ -83,7 +83,7 @@ const Roadmap = ({id}:{id:string}) => {
       <RoadmapCard activePhaseId={activePhaseId} setActivePhaseId={setActivePhaseId} />
 
       {/* Custom Slider */}
-      <div className="hidden md:block relative w-full mt-4">
+      <div className="hidden lg:block relative w-full mt-4">
         {/* Slider Buttons */}
         <button
           onClick={() => scrollSlider("left")}

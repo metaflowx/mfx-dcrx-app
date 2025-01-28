@@ -91,18 +91,11 @@ const FloatingNavbar = ({
             />
             <img src="/crypto/x.png" alt="X" className="h-[24px] hidden lg:block" />
 
-            {/* Buy Now Button */}
+          
             <ConnectButton />
-            {/* <button
-              style={{
-                background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
-              }}
-              className="text-black w-[237px] hidden sm:block h-[60px] rounded-[13px] text-[21px] font-bold shadow-md hover:opacity-90"
-            >
-              Buy Now
-            </button> */}
+           
 
-            {/* Language Selector */}
+          
             <div className="hidden sm:flex relative  justify-center items-center">
               <div className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] w-[71px] h-[33px] cursor-pointer">
                 <img
@@ -134,7 +127,7 @@ const FloatingNavbar = ({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 right-0 h-screen w-3/4 bg-[#0f1923] z-50 shadow-lg"
+            className="fixed top-0 right-0 h-screen w-full bg-[#0f1923] z-50 shadow-lg"
           >
             {/* Close Button */}
             <div className="flex justify-end py-4 px-1">

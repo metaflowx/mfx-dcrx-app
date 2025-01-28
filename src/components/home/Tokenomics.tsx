@@ -7,7 +7,7 @@ const Tokenomics = ({ id }: { id: string }) => {
   return (
     <div className='bg-[#000] w-full' id={id}>
 
-    <ConstrainedBox classNames='px-4 sm:px-4 md:px-0 lg:px-0'>
+    <ConstrainedBox classNames='px-4 sm:px-4  lg:px-0'>
 
     <div className="bg-black text-white py-12  w-full">
       <div className=" mx-auto flex flex-col lg:flex-row items-center justify-between">
