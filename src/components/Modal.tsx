@@ -6,14 +6,14 @@ const WalletModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
-    // Disable scrolling when the modal is open
+   
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto'; // Restore scrolling when the modal is closed
+      document.body.style.overflow = 'auto'; 
     }
 
-    // Cleanup the style when the component is unmounted or modal is closed
+   
     return () => {
       document.body.style.overflow = 'auto';
     };
