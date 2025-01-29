@@ -13,7 +13,7 @@ const ReferralSection: React.FC = () => {
     { range: "$10k and above", bonus: "10% bonus" },
   ];
   return (
-    <section  className="mainReferBg text-white py-[10px] md:py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full">
+    <section  className="mainReferBg text-white py-[10px] md:py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full pt-10 sm:pt-2">
       <ConstrainedBox>
 
       <div className="w-full">
@@ -21,7 +21,7 @@ const ReferralSection: React.FC = () => {
     {/* Left Section */}
     <div
       style={{ fontFamily: "Geist" }}
-      className="col-span-12 lg:col-span-8 space-y-5 refferFriendInputMainBg py-12 md:py-[120px] px-4 md:px-[20px]"
+      className="col-span-12 xl:col-span-8 space-y-5 refferFriendInputMainBg py-12 md:py-[120px] px-4 md:px-[20px]"
     >
       <h2
         style={{ fontFamily: "Geist", lineHeight: "40px" }}
@@ -89,11 +89,11 @@ const ReferralSection: React.FC = () => {
     </div>
 
     {/* Right Section */}
-    <div className="col-span-12 lg:col-span-4 refferCommonMainBg refferCommonMainBg1 rounded-lg p-6 ">
+    <div className="col-span-12 xl:col-span-4 refferCommonMainBg refferCommonMainBg1 rounded-lg  p-10  xl:p-6 ">
       <div className="flex justify-between items-center pb-12 pt-14">
 
       <h3 style={{fontFamily:"Geist"}} className="text-xl  text-[#2B9AE6] text-[36px] font-bold leading-snug">Our Bonus <br /> Plan:</h3>
-      <CommonButton btnName="Refer Now" width="w-[130px]" />
+      <CommonButton btnName="Refer Now" width=" sm:w-[130px]" />
       </div>
       
       {bonusPlan.map((item, index) => (
