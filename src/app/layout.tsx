@@ -96,7 +96,9 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
     <html lang="en" className={poppins.className}>
       {isDebug ? null : <GoogleAnalytics />}
 
-      <body className={isDebug ? "debug-screens" : ""}>
+      <body 
+      className={isDebug ? "debug-screens" : ""}
+      >
       <ContextProvider cookies={cookies}>
       {isDebug ? <WebVitals /> : null}
         <FloatingNavbar className="app_nav" navItems={navMenus} />
