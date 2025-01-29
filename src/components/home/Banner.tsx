@@ -41,7 +41,7 @@ const Banner = ({ id }: { id: string }) => {
         {/* Right Section */}
         <div className='jsborderBg'>
         <div 
-        className="jscardBorderBgPayment  sm:px-[20px] md:px-[90px] py-[30px] ">
+        className="jscardBorderBgPayment  px-[20px] md:px-[40px] py-[30px] max-sm:w-full md:w-auto ">
           <h2 style={{fontFamily: "Geist, serif"}} className="text-[39px] md:text-[49px] font-bold mb-4 text-center">Buy DCRX</h2>
           <div className="grid grid-cols-4 text-center mb-4">
             <div className='timerBg'>
@@ -76,28 +76,28 @@ const Banner = ({ id }: { id: string }) => {
             
             <p className="mt-2 coinBgValue p-[20px]">$1 DCRX = $0.0206</p>
           </div>
-          <div className="flex justify-center gap-2 mt-4">
+          <div className="flex justify-center max-sm:flex-wrap gap-2 mt-4">
             <button onClick={()=>setCoinType("ETH")} className={`${coinType==="ETH" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>ETH</button>
             <button onClick={()=>setCoinType("USDT")} className={`${coinType==="USDT" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>USDT</button>
             <button onClick={()=>setCoinType("USDC")} className={`${coinType==="USDC" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>USDC</button>
             <button onClick={()=>setCoinType("DAI")} className={`${coinType==="DAI" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>DAI</button>
           </div>
           <p className='text-white text-[15px] pt-4'>{`${coinType} you pay`}</p>
-          <div className="mt-2 flex items-center justify-between">
+          <div className="mt-2  items-center flex-wrap sm:flex justify-between">
 
-           <div className='input___border'>
+           <div className='input___border w-full sm:w-auto'>
            <input
               type="text"
               placeholder="0"
-              className=" h-[38px] inputBg text-white px-4 py-2"
+              className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
             />
            </div>
 
-           <div className='input___border'>
+           <div className='input___border w-full sm:w-auto mt-1 sm:mt-0' >
            <input
               type="text"
               placeholder="0"
-              className=" h-[38px] inputBg text-white px-4 py-2 "
+              className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
             />
            </div>
             

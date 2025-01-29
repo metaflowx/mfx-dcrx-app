@@ -790,7 +790,7 @@ h6 {
 }
 
 .refferCommonMainBg {
-  background-image: url("/crypto/refercommonbg.png") !important;
+  background-image: url("/refer/refercardbg.png") !important;
   background-position: center !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
@@ -822,11 +822,10 @@ h6 {
 }
 
 .mainReferBg {
-  // background-image: url("/crypto/referfriendbg.png");
-  background-position: bottom !important;
+  background-image: url("/refer/bgrefermain.jpg");
   background-size: cover !important;
   background-repeat: no-repeat !important;
-  background: #000 !important;
+  // background: #000 !important;
 }
 
 .swiper-pagination {
