@@ -12,7 +12,7 @@ interface CardProps {
 
 const RefferalCard: React.FC<CardProps> = ({ title, value, subValues, hasButton,symbol ,earnsymbol}) => {
   return (
-    <div style={{fontFamily:"Geist"}} className="refferCommonMainBg rounded-lg py-[40px] px-[40px] shadow-md text-white">
+    <div style={{fontFamily:"Geist"}} className="refferCommonMainBg rounded-lg py-[90px] px-[40px] shadow-md text-white">
       <h3 style={{fontFamily:"Geist"}} className="text-blueAccent text-[21px] font-bold text-[#2B9AE6]">{title}</h3>
       <div className="flex items-center justify-between mt-3">
         <p style={{fontFamily:"Gemunu Libre"}} className="text-[80px] font-bold">{value}
