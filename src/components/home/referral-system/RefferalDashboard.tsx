@@ -38,7 +38,7 @@ const RefferalDashboard = () => {
 
   return (
     <div className="w-full py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 w-full p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 w-full">
         {data.map((item, index) => (
           <RefferalCard
             key={index}

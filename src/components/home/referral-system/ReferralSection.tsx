@@ -4,6 +4,7 @@ import React from "react";
 import RefferalDashboard from "./RefferalDashboard";
 import ConstrainedBox from "@/components/core/constrained-box";
 import CommonButton from "@/components/common/CommonButton";
+import TransactionHistory from "./TransactionHistory";
 
 const ReferralSection: React.FC = () => {
   const bonusPlan = [
@@ -90,9 +91,9 @@ const ReferralSection: React.FC = () => {
 
     {/* Right Section */}
     <div className="col-span-12 xl:col-span-4 refferCommonMainBg refferCommonMainBg1 rounded-lg  p-10  xl:p-6 ">
-      <div className="flex justify-between items-center pb-12 pt-14">
+      <div className="flex justify-between items-center pb-12 pt-14 2xl:pt-[118px]">
 
-      <h3 style={{fontFamily:"Geist"}} className="text-xl  text-[#2B9AE6] text-[36px] font-bold leading-snug">Our Bonus <br /> Plan:</h3>
+      <h3 style={{fontFamily:"Geist"}} className="text-xl  text-[#2B9AE6] xl:text-[36px] font-bold leading-snug">Our Bonus <br /> Plan:</h3>
       <CommonButton btnName="Refer Now" width=" sm:w-[130px]" />
       </div>
       
@@ -109,6 +110,7 @@ const ReferralSection: React.FC = () => {
 </div>
 
       <RefferalDashboard />
+      <TransactionHistory />
       </ConstrainedBox>
     </section>
   );

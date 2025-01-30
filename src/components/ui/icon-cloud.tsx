@@ -19,14 +19,14 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   const [angle, setAngle] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sphereSize = 250; // Increase sphere size
 
   // Generate initial icon positions on a sphere
   useEffect(() => {
     const items = icons || images || [];
     const newIcons: Icon[] = [];
-    const numIcons = items.length || 20;
+    const numIcons = items.length || 30; // Increased icons for a fuller sphere
 
-    // Fibonacci sphere parameters
     const offset = 2 / numIcons;
     const increment = Math.PI * (3 - Math.sqrt(5));
 
@@ -39,9 +39,9 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const z = Math.sin(phi) * r;
 
       newIcons.push({
-        x: x * 150, // Increase sphere size
-        y: y * 150,
-        z: z * 150,
+        x: x * sphereSize,
+        y: y * sphereSize,
+        z: z * sphereSize,
         id: i,
       });
     }
@@ -53,11 +53,11 @@ export function IconCloud({ icons, images }: IconCloudProps) {
     const interval = setInterval(() => {
       if (!isHovering) {
         setAngle((prev) => ({
-          x: (prev.x + 0.01) % (2 * Math.PI), // Auto-rotation X
-          y: (prev.y + 0.01) % (2 * Math.PI), // Auto-rotation Y
+          x: prev.x + 0.02, // Slow auto-rotation X
+          y: prev.y + 0.02, // Slow auto-rotation Y
         }));
       }
-    }, 30); // Adjust interval for smooth rotation
+    }, 30);
     return () => clearInterval(interval);
   }, [isHovering]);
 
@@ -68,9 +68,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const mouseX = e.clientX - rect.left - rect.width / 2;
       const mouseY = e.clientY - rect.top - rect.height / 2;
 
+      // Increase sensitivity for a faster rotation effect
       setAngle({
-        x: mouseY * 0.0005, // Scale rotation speed based on mouse movement
-        y: -mouseX * 0.0005,
+        x: mouseY * 0.002, // Faster Y-axis rotation
+        y: -mouseX * 0.002, // Faster X-axis rotation
       });
     }
   };
@@ -80,11 +81,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       ref={containerRef}
       style={{
         width: "800px",
-      
         position: "relative",
-        perspective: "1000px",
+        perspective: "1200px",
       }}
-      className="h-[381px] md:h-[800px]"
+      className="h-[500px] md:h-[900px]" // Increased height for a bigger sphere
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
@@ -107,13 +107,13 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             key={icon.id}
             style={{
               position: "absolute",
-              width: "50px", // Increased icon size
-              height: "50px",
+              width: "60px", // Larger icon size
+              height: "60px",
               left: "50%",
               top: "50%",
               transform: `translate(-50%, -50%) 
                           translate3d(${rotatedX}px, ${rotatedY}px, ${finalZ}px)`,
-              transition: isHovering ? "transform 0.05s ease" : undefined,
+              transition: isHovering ? "transform 0.02s ease-out" : undefined,
             }}
           >
             {icons ? (
@@ -140,6 +140,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
                   justifyContent: "center",
                   alignItems: "center",
                   color: "white",
+                  fontWeight: "bold",
                 }}
               >
                 {index + 1}

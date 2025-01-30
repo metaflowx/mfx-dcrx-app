@@ -886,6 +886,9 @@ h6 {
 .small__btn {
   padding: 0.45rem 0.9rem;
 }
+.bg-custom-gradient {
+  background: linear-gradient(to top right, #1B429A, #000);
+}
 
 @keyframes animate {
   0% {
