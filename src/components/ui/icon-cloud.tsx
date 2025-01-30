@@ -19,13 +19,30 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   const [angle, setAngle] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const sphereSize = 250; // Increase sphere size
+  const [sphereSize, setSphereSize] = useState(250); // Default sphere size
+
+  // Adjust sphere size based on screen width
+  useEffect(() => {
+    const updateSize = () => {
+      if (window.innerWidth < 640) {
+        setSphereSize(150); // Smaller size for mobile
+      } else if (window.innerWidth < 1024) {
+        setSphereSize(200); // Medium size for tablets
+      } else {
+        setSphereSize(250); // Default size for larger screens
+      }
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   // Generate initial icon positions on a sphere
   useEffect(() => {
     const items = icons || images || [];
     const newIcons: Icon[] = [];
-    const numIcons = items.length || 30; // Increased icons for a fuller sphere
+    const numIcons = items.length || 30;
 
     const offset = 2 / numIcons;
     const increment = Math.PI * (3 - Math.sqrt(5));
@@ -46,15 +63,15 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       });
     }
     setIconPositions(newIcons);
-  }, [icons, images]);
+  }, [icons, images, sphereSize]);
 
   // Auto-rotation effect
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isHovering) {
         setAngle((prev) => ({
-          x: prev.x + 0.02, // Slow auto-rotation X
-          y: prev.y + 0.02, // Slow auto-rotation Y
+          x: prev.x + 0.015, // Adjusted auto-rotation for smoothness
+          y: prev.y + 0.015,
         }));
       }
     }, 30);
@@ -68,10 +85,9 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const mouseX = e.clientX - rect.left - rect.width / 2;
       const mouseY = e.clientY - rect.top - rect.height / 2;
 
-      // Increase sensitivity for a faster rotation effect
       setAngle({
-        x: mouseY * 0.002, // Faster Y-axis rotation
-        y: -mouseX * 0.002, // Faster X-axis rotation
+        x: mouseY * 0.0025, // Faster Y-axis rotation
+        y: -mouseX * 0.0025, // Faster X-axis rotation
       });
     }
   };
@@ -79,24 +95,18 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   return (
     <div
       ref={containerRef}
-      style={{
-        width: "800px",
-        position: "relative",
-        perspective: "1200px",
-      }}
-      className="h-[500px] md:h-[900px]" // Increased height for a bigger sphere
+      className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] mx-auto"
+      style={{ perspective: "800px" }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
     >
       {iconPositions.map((icon, index) => {
-        // Rotate each icon in 3D space using updated angles
         const cosX = Math.cos(angle.x);
         const sinX = Math.sin(angle.x);
         const cosY = Math.cos(angle.y);
         const sinY = Math.sin(angle.y);
 
-        // 3D rotation math
         const rotatedX = icon.x * cosY + icon.z * sinY;
         const rotatedZ = -icon.x * sinY + icon.z * cosY;
         const rotatedY = icon.y * cosX - rotatedZ * sinX;
@@ -105,10 +115,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
         return (
           <div
             key={icon.id}
+            className="absolute w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[60px] md:h-[60px]"
             style={{
-              position: "absolute",
-              width: "60px", // Larger icon size
-              height: "60px",
               left: "50%",
               top: "50%",
               transform: `translate(-50%, -50%) 
@@ -122,27 +130,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
               <img
                 src={images[index]}
                 alt={`icon-${index}`}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
+                className="w-full h-full rounded-full object-cover"
               />
             ) : (
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "50%",
-                  backgroundColor: "#4444ff",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  color: "white",
-                  fontWeight: "bold",
-                }}
-              >
+              <div className="w-full h-full rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
                 {index + 1}
               </div>
             )}

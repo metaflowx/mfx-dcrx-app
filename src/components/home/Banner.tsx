@@ -15,7 +15,7 @@ const Banner = ({ id }: { id: string }) => {
     <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg   text-white flex items-center justify-center px-4">
         <ConstrainedBox >
 
-      <div className=" flex flex-col lg:flex-row items-center sm:mt-[85px] ">
+      <div className=" flex flex-col lg:flex-row items-center mt-[100px] sm:mt-[85px] ">
      
         <div className="text-center lg:text-left">
           <h1 className="sm:text-[40px] md:text-[60px] lg:text-[80px] font-bold">Join Decryptox:</h1>
@@ -46,19 +46,19 @@ const Banner = ({ id }: { id: string }) => {
           <div className="grid grid-cols-4 text-center mb-4">
             <div className='timerBg'>
               <p style={{fontFamily: "Gemunu Libre, serif",lineHeight:"62px"}} className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]">09</p>
-              <p style={{fontFamily: "Geist, serif"}} className='text-[20px]'>Days</p>
+              <p style={{fontFamily: "Geist, serif"}} className='text-[13px] sm:text-[20px]'>Days</p>
             </div>
             <div className='timerBg '>
               <p style={{fontFamily: "Gemunu Libre, serif",lineHeight:"62px"}} className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]">59</p>
-              <p style={{fontFamily: "Geist, serif"}} className='text-[20px]'>Hours</p>
+              <p style={{fontFamily: "Geist, serif"}} className='text-[13px] sm:text-[20px]'>Hours</p>
             </div>
             <div className='timerBg '>
               <p style={{fontFamily: "Gemunu Libre, serif",lineHeight:"62px"}} className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]">20</p>
-              <p style={{fontFamily: "Geist, serif"}} className='text-[20px]'>Minutes</p>
+              <p style={{fontFamily: "Geist, serif"}} className='text-[13px] sm:text-[20px]'>Minutes</p>
             </div>
             <div className='timerBg '>
               <p style={{fontFamily: "Gemunu Libre, serif",lineHeight:"62px"}} className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]">30</p>
-              <p style={{fontFamily: "Geist, serif"}} className='text-[20px]'>Seconds</p>
+              <p style={{fontFamily: "Geist, serif"}} className='text-[13px] sm:text-[20px]'>Seconds</p>
             </div>
           </div>
           <img src="/card/progress.png" className='w-[505px] pb-4' />

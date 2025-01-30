@@ -21,7 +21,7 @@ const PageBox = dynamic(() => import("@/components/core/PageBox"));
 const Home = () => {
   return (
     <PageBox>
-      <WalletModal />
+      {/* <WalletModal /> */}
       <Banner id="about" />
       <FeaturedIn />
       <DecryptoXLanding id="howtobuy" />
