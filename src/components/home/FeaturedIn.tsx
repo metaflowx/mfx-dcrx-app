@@ -27,7 +27,7 @@ const FeaturedIn: React.FC = () => {
 
   return (
     <div className="bg-black text-white py-10 w-full">
-      <h2 style={{ fontFamily: "Geist" }} className="text-center text-[39px] md:text-[59px] font-bold mb-6">
+      <h2 style={{ fontFamily: "Geist" }} className="text-center text-[39px] md:text-[50px] font-bold mb-6">
         Featured In
       </h2>
       <div className="px-6">

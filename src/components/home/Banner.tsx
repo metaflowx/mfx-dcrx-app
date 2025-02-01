@@ -18,7 +18,7 @@ const Banner = ({ id }: { id: string }) => {
       <div className=" flex flex-col lg:flex-row items-center mt-[100px] sm:mt-[85px] ">
      
         <div className="text-center lg:text-left">
-          <h1 className="sm:text-[40px] md:text-[60px] lg:text-[80px] font-bold">Join Decryptox:</h1>
+          <h1 className="sm:text-[40px] md:text-[60px] lg:text-[70px] font-bold">Join Decryptox:</h1>
           <p className="text-[20px] md:text-[30px] text-[#2B9AE6] font-bold mt-2">Be a Part of the Decentralized Revolution!</p>
           <p className="mt-4 font-medium text-[14px] sm:text-[24px]">
             Unlock a world of financial freedom where you own your assets,
@@ -42,7 +42,7 @@ const Banner = ({ id }: { id: string }) => {
         <div className='jsborderBg'>
         <div 
         className="jscardBorderBgPayment  px-[20px] md:px-[40px] py-[30px] max-sm:w-full md:w-auto ">
-          <h2 style={{fontFamily: "Geist, serif"}} className="text-[39px] md:text-[49px] font-bold mb-4 text-center">Buy DCRX</h2>
+          <h2 style={{fontFamily: "Geist, serif"}} className="text-[39px] md:text-[42px] font-bold mb-4 text-center">Buy DCRX</h2>
           <div className="grid grid-cols-4 text-center mb-4">
             <div className='timerBg'>
               <p style={{fontFamily: "Gemunu Libre, serif",lineHeight:"62px"}} className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]">09</p>
@@ -83,7 +83,8 @@ const Banner = ({ id }: { id: string }) => {
             <button onClick={()=>setCoinType("DAI")} className={`${coinType==="DAI" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>DAI</button>
           </div>
           <p className='text-white text-[15px] pt-4'>{`${coinType} you pay`}</p>
-          <div className="mt-2  items-center flex-wrap sm:flex justify-between">
+
+          <div className="mt-2  items-center hidden sm:flex justify-between w-full">
 
            <div className='input___border w-full sm:w-auto'>
            <input
@@ -101,6 +102,23 @@ const Banner = ({ id }: { id: string }) => {
             />
            </div>
             
+          </div>
+          <div className='mt-2  block sm:hidden  w-full'>
+          <div className='input___border w-full sm:w-auto'>
+           <input
+              type="text"
+              placeholder="0"
+              className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
+            />
+           </div>
+
+           <div className='input___border w-full sm:w-auto mt-1 sm:mt-0' >
+           <input
+              type="text"
+              placeholder="0"
+              className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
+            />
+           </div>
           </div>
           {!address ?
                <button onClick={async()=>open()}  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">

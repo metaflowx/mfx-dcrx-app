@@ -81,9 +81,9 @@ const TeamSection = ({ id }: { id: string }) => {
                 <>
                     <div className="flex cursor-pointer justify-center border border-[#1B429A] items-center rounded-tr-[20px] rounded-br-[20px]  teamCardBg">
       <div className="max-w-sm w-full  rounded-lg  text-center ">
-        <h2 style={{fontFamily:"Plus Jakarta Sans"}} className="text-white text-[37px] font-bold">{member?.name}</h2>
+        <h2 style={{fontFamily:"Plus Jakarta Sans"}} className="text-white text-[30px] font-bold">{member?.name}</h2>
         <p style={{fontFamily:"Outfit"}} className="text-[#AEAEAE] text-[26px] mt-1">Founder & CO</p>
-        <p style={{fontFamily:"Geist"}} className="text-white text-[25px] mt-4 text-center font-medium px-6">
+        <p style={{fontFamily:"Geist"}} className="text-white text-[20px] mt-4 text-center font-medium px-6">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
         <div className="flex justify-center gap-4 mt-6">

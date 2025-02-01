@@ -21,8 +21,8 @@ export const FAQRefer = () => {
       <div className="flex relative flex-col py-[10px]  md:py-[80px]  w-full">
         
         <div className="flex relative flex-col items-center px-20 pt-12 pb-1 md:pb-32  max-md:px-5 max-md:max-w-full">
-          <div className="flex flex-col mb-0 w-full max-w-[1517px] max-md:mb-2.5 max-md:max-w-full">
-            <div className="self-center text-6xl font-bold leading-none text-left md:text-center max-md:max-w-full max-md:text-4xl">
+          <div className="flex flex-col mb-0 w-full max-w-[1217px] max-md:mb-2.5 max-md:max-w-full">
+            <div className="self-center text-[50px] font-bold leading-none text-left md:text-center max-md:max-w-full max-md:text-4xl">
               <span className="text-[#2B9AE6]">Referral program FAQs</span> 
             </div>
             

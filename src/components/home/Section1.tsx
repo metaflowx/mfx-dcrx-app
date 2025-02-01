@@ -6,7 +6,7 @@ const HomeSection1= ({ id }: { id: string }) => {
     <div  id={id} className="min-h-screen w-full text-white flex flex-col items-center px-4 py-6">
       {/* Header Section */}
       <div className="text-left md:text-center max-w-xxl pt-3 lg:pt-[150px]">
-        <h1 className="text-[30px] lg:text-[56px]  mb-4 text-[#2B9AE6] leading-snug " style={{fontFamily:"Geist, serif",fontWeight:700}} >Decryptox referral program</h1>
+        <h1 className="text-[30px] lg:text-[50px]  mb-4 text-[#2B9AE6] leading-snug " style={{fontFamily:"Geist, serif",fontWeight:700}} >Decryptox referral program</h1>
         <p className="text-white mt-6 text-[16px] md:text-[22px]">
           Lorem Ipsum has been the industry's standard dummy text ever since
           the 1500s, when an  
@@ -27,7 +27,7 @@ const HomeSection1= ({ id }: { id: string }) => {
       <ConstrainedBox>
 
       <div className="mt-12 w-full ">
-        <h2 className="text-[30px] md:text-[56px] font-bold mb-8 text-[#2B9AE6] text-left md:text-center leading-snug" style={{fontFamily:"Geist, serif",fontWeight:700}} >
+        <h2 className="text-[30px] md:text-[50px] font-bold mb-8 text-[#2B9AE6] text-left md:text-center leading-snug" style={{fontFamily:"Geist, serif",fontWeight:700}} >
           Refer a friend in four easy steps
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-9">

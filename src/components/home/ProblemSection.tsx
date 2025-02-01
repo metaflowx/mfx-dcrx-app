@@ -131,10 +131,10 @@ const ProblemSection: React.FC = () => {
           <CommonHeading heading={"Problem"} fontSize="text-[42px]" />
         </div>
 
-        <h1 className="text-[30px] xl:text-[62px] font-bold">
+        <h1 className="text-[30px] xl:text-[50px] font-bold">
           The existing crypto trading landscape{" "}
         </h1>
-        <p className="text-[30px] xl:text-[62px] font-bold mb-8">
+        <p className="text-[30px] xl:text-[50px] font-bold mb-8">
           is
           <span className="text-[#1B429A] ml-2">fundamentally broken.</span>
         </p>

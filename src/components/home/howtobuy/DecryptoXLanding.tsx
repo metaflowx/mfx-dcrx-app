@@ -3,7 +3,7 @@ import * as React from 'react';
 import { FeatureItem } from './FeatureItem';
 import { StepCard } from './StepCard';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -55,7 +55,7 @@ export const DecryptoXLanding= ({ id }: { id: string }) => {
       <div className="self-center w-full max-w-[1618px] max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">
           <div className="flex flex-col w-[41%] max-md:ml-0 max-md:w-full">
-            <div style={{fontFamily:"Geist",}} className="text-[20px] md:text-6xl font-bold text-white leading-snug md:leading-[65px] max-md:mt-1 max-md:max-w-full">
+            <div style={{fontFamily:"Geist",}} className="text-[20px] md:text-[50px] font-bold text-white leading-snug  max-md:mt-1 max-md:max-w-full">
               <span className="text-sky-500">What is DecryptoX</span>
               <br />
               Home to the most secure, exciting, and innovative web3 projects
@@ -87,11 +87,12 @@ export const DecryptoXLanding= ({ id }: { id: string }) => {
       </div>
       <div className="lg:hidden">
       <Swiper
-      modules={[Navigation, Pagination]}
+      modules={[Navigation, Pagination,Autoplay]}
       spaceBetween={20}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
+      autoplay={{ delay: 1000, disableOnInteraction: false }}
       breakpoints={{
         640: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
@@ -112,7 +113,7 @@ export const DecryptoXLanding= ({ id }: { id: string }) => {
       <div className="hidden lg:flex flex-wrap gap-5 justify-between items-start  max-md:max-w-full absolute right-[30px] bottom-[-165px]">
        
         <div className="flex flex-col self-end   max-md:max-w-full">
-          <div className="self-center text-6xl font-bold leading-none text-sky-500 max-md:text-4xl">
+          <div className="self-center text-[50px] font-bold leading-none text-sky-500 max-md:text-4xl">
             <span style={{fontFamily:"Geist"}} className="text-white">How to</span> Buy?
           </div>
           <div className="mt-16 w-full max-md:mt-10 max-md:max-w-full">
