@@ -23,23 +23,6 @@ export function ImageRotation() {
     "vechain",
     "cosmos",
     "filecoin",
-    "bitcoin",
-    "ethereum",
-    "litecoin",
-    "dogecoin",
-    "ripple",
-    "cardano",
-    "solana",
-    "polkadot",
-    "binance",
-    "tether",
-    "usd-coin",
-    "shiba",
-    "chainlink",
-    "uniswap",
-    "avalanche",
-    "polygon",
-    
   ];
 
   const images = slugs.map(
