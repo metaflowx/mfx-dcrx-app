@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import ConstrainedBox from '../core/constrained-box';
 import { useAppKit, useAppKitAccount } from '@reown/appkit/react';
+import CoinSelector from './CoinSelector';
 
 
 
@@ -76,17 +77,13 @@ const Banner = ({ id }: { id: string }) => {
             
             <p className="mt-2 coinBgValue p-[20px]">$1 DCRX = $0.0206</p>
           </div>
-          <div className="flex justify-center max-sm:flex-wrap gap-2 mt-4">
-            <button onClick={()=>setCoinType("ETH")} className={`${coinType==="ETH" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>ETH</button>
-            <button onClick={()=>setCoinType("USDT")} className={`${coinType==="USDT" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>USDT</button>
-            <button onClick={()=>setCoinType("USDC")} className={`${coinType==="USDC" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>USDC</button>
-            <button onClick={()=>setCoinType("DAI")} className={`${coinType==="DAI" ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}>DAI</button>
-          </div>
+         
+          <CoinSelector setCoinType={setCoinType} coinType={coinType} />
           <p className='text-white text-[15px] pt-4'>{`${coinType} you pay`}</p>
 
           <div className="mt-2  items-center hidden sm:flex justify-between w-full">
 
-           <div className='input___border w-full sm:w-auto'>
+           <div className='input___border w-full sm:w-auto mr-1'>
            <input
               type="text"
               placeholder="0"
