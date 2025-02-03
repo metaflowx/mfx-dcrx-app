@@ -1,6 +1,7 @@
+
 import "./globals.scss";
 import { Poppins } from "next/font/google";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { navMenus } from "@/data/navMenus";
@@ -27,6 +28,8 @@ const poppins = Poppins({
     "Droid Sans",
   ],
 });
+
+
 
 export const metadata: Metadata = {
   title: "Decrypto",
@@ -90,6 +93,9 @@ const ScrollToTop = dynamic(() => import("@/components/common/ScrollToTop"));
 const isDebug = process.env.NODE_ENV === "development";
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
+
+  
+
   const headersObj =  headers();
   const cookies = headersObj.get('cookie')
   return (
@@ -99,6 +105,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
       <body 
       className={isDebug ? "debug-screens" : ""}
       >
+        <div id="google_translate_element" style={{ display: "none" }}></div>
       <ContextProvider cookies={cookies}>
       {isDebug ? <WebVitals /> : null}
         <FloatingNavbar className="app_nav" navItems={navMenus} />

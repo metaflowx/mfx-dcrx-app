@@ -1,7 +1,7 @@
 "use client"; // Ensure you're using this in Next.js components with React hooks or Swiper
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -18,11 +18,12 @@ interface CommonSliderProps {
 const CommonSlider: React.FC<CommonSliderProps> = ({ cardData }) => {
   return (
     <Swiper
-      modules={[Navigation, Pagination]}
+      modules={[Navigation, Pagination,Autoplay]}
       spaceBetween={20}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
+      autoplay={{ delay: 1000, disableOnInteraction: false }}
       breakpoints={{
         640: { slidesPerView: 1 },
         768: { slidesPerView: 2 },

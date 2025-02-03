@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination,Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination,Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -23,7 +23,7 @@ const OfferSection: React.FC = () => {
     <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
       <ConstrainedBox classNames="p-4">
         <div className="max-w-8xl mx-auto text-left md:text-center">
-          <h2 className="text-[39px] md:text-[59px] font-bold mb-4">
+          <h2 className="text-[39px] md:text-[50px] font-bold mb-4">
             What We Offer at <span className="text-[#2B9AE6]">DecryptoX</span>
           </h2>
           <p className="text-white text-left md:text-center  font-medium text-[18px] md:text-[22px]">
@@ -46,18 +46,19 @@ const OfferSection: React.FC = () => {
       </ConstrainedBox>
       <div  className="w-full mx-auto px-6 text-center ">
          <Swiper
-            modules={[Navigation, Pagination]}
+            modules={[Navigation, Pagination,Autoplay]}
             spaceBetween={1}
             slidesPerView={1}
             navigation={false}
             pagination={{ clickable: true }}
+            autoplay={{ delay: 1000, disableOnInteraction: false }}
             breakpoints={{
               640: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
               1280: { slidesPerView: 5 },
             }}
-            style={{ overflow: "hidden" }} // Ensure no scrollbars
+            style={{ overflow: "hidden" }} 
             className="mt-8"
           >
             {cardData.map((item, idx) => (

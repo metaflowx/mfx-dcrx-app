@@ -12,7 +12,7 @@ const HomeSection2 = () => {
       </div>
       <ConstrainedBox >
         <div>
-          <h1 style={{fontFamily:"Geist"}} className="text-left md:text-center text-xl md:text-2xl lg:text-[52px] font-semibold leading-snug text-[#38b6ff] mb-8">
+          <h1 style={{fontFamily:"Geist"}} className="text-left md:text-center text-xl md:text-2xl lg:text-[46px] font-semibold leading-snug text-[#38b6ff] mb-8">
             How can you benefit from Decryptox referral program?
           </h1>
           <div className="grid grid-cols-12 gap-0 md:gap-10 items-center mt-[3rem]">
@@ -31,7 +31,7 @@ const HomeSection2 = () => {
                 "Dummy text of the printing",
               ].map((title, index) => (
                 <div style={{fontFamily:"Geist"}} key={index}>
-                  <h2 className="text-[25px] md:text-[43px]  font-bold text-[#2B9AE6] leading-snug pb-[10px]">
+                  <h2 className="text-[25px] md:text-[40px]  font-bold text-[#2B9AE6] leading-snug pb-[10px]">
                     {title}
                   </h2>
                   <p className="text-[20px] md:text-[27px] font-normal text-white">

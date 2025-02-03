@@ -15,17 +15,17 @@ const Tokenomics = ({ id }: { id: string }) => {
         <div className="lg:w-1/2 ">
         <CommonHeading heading='TOKENOMICS' fontSize="text-[30px] md:text-[40px]" />
           
-          <h3 style={{fontFamily:"Plus Jakarta Sans",}} className="text-[20px] lg:text-[40px] leading-snug font-bold mt-4">
+          <h3 style={{fontFamily:"Plus Jakarta Sans",}} className="text-[20px] lg:text-[35px] leading-snug font-bold mt-4">
             Revolutionizing Decentralized Finance with Purpose-Driven Utility
           </h3>
           <div style={{fontFamily:"Plus Jakarta Sans"}} className="mt-6">
-            <p className="text-3xl lg:text-[40px] font-bold">
-              <span className="text-[30px] md:text-[40px] font-bold">Symbol:</span> $DCRX
+            <p className="text-3xl lg:text-[35px] font-bold">
+              <span className="text-[30px] md:text-[35px] font-bold">Symbol:</span> $DCRX
             </p>
-            <p className="text-[25px] md:text-[40px] font-bold mt-[40px]">
+            <p className="text-[25px] md:text-[35px] font-bold mt-[40px]">
               Initial Value:
             </p>
-            <p className="text-[20px] md:text-[40px] font-bold mt-[10px]">
+            <p className="text-[20px] md:text-[35px] font-bold mt-[10px]">
               1 $DCRX = $0.012
             </p>
             <p className="text-[25] md:text-[28px] font-bold mt-[10px]">

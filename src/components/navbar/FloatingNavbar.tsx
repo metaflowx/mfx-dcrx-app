@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/cn";
@@ -23,6 +23,40 @@ const FloatingNavbar = ({
 }) => {
   const pathname = usePathname(); // Get current pathname
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  useEffect(() => {
+    const addGoogleTranslate = () => {
+      if (typeof window !== "undefined") {
+        window.googleTranslateElementInit = () => {
+          new window.google.translate.TranslateElement(
+            { pageLanguage: "en", autoDisplay: false },
+            "google_translate_element"
+          );
+        };
+
+        const script = document.createElement("script");
+        script.src =
+          "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.async = true;
+        console.log(">>>>>>>>>>>>>>>script",script);
+        
+        document.body.appendChild(script);
+      }
+    };
+
+    addGoogleTranslate();
+  }, [selectedLanguage]);
+  const changeLanguage = (lang: string) => {
+    setSelectedLanguage(lang);
+    const selectElement = document.querySelector(
+      ".goog-te-combo"
+    ) as HTMLSelectElement;
+    if (selectElement) {
+      selectElement.value = lang;
+      selectElement.dispatchEvent(new Event("change"));
+    }
+  };
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -73,7 +107,7 @@ const FloatingNavbar = ({
                 key={idx}
                 href={navItem.link}
                 className={cn(
-                  "text-white text-[12px]  tracking-wider hover:text-[#2b9ae6] transition",
+                  "text-white text-[12px] 2xl:text-[15px]  tracking-wider hover:text-[#2b9ae6] transition",
                   pathname === navItem.link && "text-[#2b9ae6]"
                 )}
               >
@@ -93,10 +127,34 @@ const FloatingNavbar = ({
 
           
             <ConnectButton />
+
+
+            <div className="language-selector relative">
+  <select
+    value={selectedLanguage}
+    onChange={(e) => changeLanguage(e.target.value)}
+    className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
+  >
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+    <option value="fr">French</option>
+    <option value="es">Spanish</option>
+    <option value="de">German</option>
+    <option value="ar">Arabic</option>
+  </select>
+  <img
+    src="/crypto/downarrow.png"
+    alt="Language Selector"
+    className="absolute right-2 top-1/2 transform -translate-y-1/2"
+  />
+</div>
+
+     
+      
            
 
           
-            <div className="hidden sm:flex relative  justify-center items-center">
+            {/* <div className="hidden sm:flex relative  justify-center items-center">
               <div className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] w-[71px] h-[33px] cursor-pointer">
                 <img
                   src="/crypto/american.png"
@@ -105,7 +163,7 @@ const FloatingNavbar = ({
                 />
                 <img src="/crypto/downarrow.png" alt="lan" className="ml-1" />
               </div>
-            </div>
+            </div> */}
             <button
               onClick={toggleDrawer}
               className="block xl:hidden text-white text-xl focus:outline-none"

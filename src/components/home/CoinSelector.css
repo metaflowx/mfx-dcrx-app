@@ -1,0 +1,10 @@
+.swiper-button-prev, .swiper-button-next {
+    width: 24px !important;  /* Reduce button width */
+    height: 24px !important; /* Reduce button height */
+    top: 74% !important;
+  }
+  
+  .swiper-button-prev::after, .swiper-button-next::after {
+    font-size: 16px !important; /* Reduce icon size */
+  }
+  

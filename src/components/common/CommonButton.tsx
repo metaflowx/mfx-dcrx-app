@@ -1,8 +1,13 @@
 import React from 'react'
 
-export default function CommonButton({btnName,width}:{btnName:string,width?:string}) {
+export default function CommonButton({btnName,width,onClick}:{btnName:string,width?:string,onClick?:any}) {
   return (
     <button
+    onClick={()=>{
+      if(onClick){
+        onClick()
+      }
+    }}
     style={{
       background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
     }}

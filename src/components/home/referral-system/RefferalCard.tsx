@@ -1,4 +1,5 @@
 import CommonButton from "@/components/common/CommonButton";
+import { useRouter } from 'next/navigation';
 import React from "react";
 
 interface CardProps {
@@ -11,6 +12,7 @@ interface CardProps {
 }
 
 const RefferalCard: React.FC<CardProps> = ({ title, value, subValues, hasButton,symbol ,earnsymbol}) => {
+  const router = useRouter()
   return (
     <div style={{fontFamily:"Geist"}} className="refferCommonMainBg rounded-lg py-[90px] px-[40px] shadow-md text-white">
       <h3 style={{fontFamily:"Geist"}} className="text-blueAccent text-[21px] font-bold text-[#2B9AE6]">{title}</h3>
@@ -27,7 +29,7 @@ const RefferalCard: React.FC<CardProps> = ({ title, value, subValues, hasButton,
         </div>
         )}
       </div>
-      <div className="mt-4 space-y-2 text-sm">
+      {/* <div className="mt-4 space-y-2 text-sm">
         {subValues.map((item, index) => (
           <div  key={index} className="flex justify-between font-bold text-[21px]">
            <div className="flex items-center">
@@ -37,9 +39,9 @@ const RefferalCard: React.FC<CardProps> = ({ title, value, subValues, hasButton,
             <span  style={{fontFamily:"Gemunu Libre"}}>{item.value}</span>
           </div>
         ))}
-      </div>
+      </div> */}
       {hasButton && (
-       <CommonButton btnName="Buy Now" width="w-full" />
+       <CommonButton btnName="Buy Now" width="w-full" onClick={()=>router.back()} />
       )}
     </div>
   );
