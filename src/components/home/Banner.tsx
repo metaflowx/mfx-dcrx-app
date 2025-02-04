@@ -62,8 +62,7 @@ const Banner = ({ id }: { id: string }) => {
           <h1 className="sm:text-[40px] md:text-[60px] lg:text-[70px] font-bold">Join Decryptox:</h1>
           <p className="text-[20px] md:text-[30px] text-[#2B9AE6] font-bold mt-2">Be a Part of the Decentralized Revolution!</p>
           <p className="mt-4 font-medium text-[14px] sm:text-[24px]">
-            Unlock a world of financial freedom where you own your assets,
-            control your data, and trade with confidence.
+          Redefine Trading with the World’s Most Advanced Decentralized Platform—Secure, Seamless, and Built for You
           </p>
           <div className="block md:flex gap-4 mt-6 justify-center lg:justify-start">
             <button

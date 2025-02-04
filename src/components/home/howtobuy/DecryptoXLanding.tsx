@@ -114,7 +114,11 @@ export const DecryptoXLanding= ({ id }: { id: string }) => {
        
         <div className="flex flex-col self-end   max-md:max-w-full">
           <div className="self-center text-[50px] font-bold leading-none text-sky-500 max-md:text-4xl">
-            <span style={{fontFamily:"Geist"}} className="text-white">How to</span> Buy?
+            <span style={{fontFamily:"Geist"}} className="text-white">How to Buy DecryptoX ($DCRX)</span> 
+            <p>
+            – Your Gateway to the Future of Trading
+            ?
+            </p>
           </div>
           <div className="mt-16 w-full max-md:mt-10 max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col">

@@ -15,12 +15,10 @@ const SolutionSection: React.FC = () => {
          
           <h1 style={{lineHeight:"59px"}} className="text-[39px] md:text-[59px] text-left md:text-center font-bold mb-4">DecryptoX</h1>
           <p className="text-white text-left md:text-center text-[18px] md:text-[24px] font-medium">
-            Powered by state channel technology to enable real-time cross-
+          Transforming Crypto for Everyone
+
           </p>
-          <p className="text-white text-left md:text-center text-[18px] md:text-[24px] font-medium">
-          chain
-          trading without the need for brokers to bridge assets.
-          </p>
+        
         </div>
 
         {/* Grid Layout */}
@@ -28,7 +26,20 @@ const SolutionSection: React.FC = () => {
           {/* Left Section - Cards */}
           <div className="md:col-span-12 lg:col-span-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {Array.from({ length: 4 }).map((_, index) => (
+              {[
+                
+                {
+                title:"Privacy First with Decentralized Identity (DID)",
+                description:"Take control of your personal data with DID and verifiable credentials, offering enhanced privacy without compromising compliance—your data, your rules."
+              },
+              {title:"AI-Driven Simplicity",
+              description:"Harness the power of cutting-edge AI tools to simplify complex trading strategies, making crypto accessible and intuitive for beginners and experts alike."},
+              {title:"A Unified Financial Powerhouse",
+                description:"From staking to lending and cross-chain solutions, DecryptoX merges diverse DeFi opportunities into a single, seamless platform—everything you need in one place."},
+                {title:"Borderless Trading with Regulatory Harmony",
+                  description:"By leveraging decentralized infrastructure, DecryptoX provides global access while addressing compliance with innovative, forward-thinking solutions."}
+            
+            ].map((item, index) => (
                 <div
                   key={index}
                   className="cardBorderWithoutBg p-6 rounded-xl shadow-lg hover:scale-105 transition transform duration-200"
@@ -41,10 +52,10 @@ const SolutionSection: React.FC = () => {
                     </div>
                   </div>
                   <h3 style={{fontFamily:"Geist"}} className="text-[20px] text-center font-bold mb-2">
-                    Dummy text printing
+                   {item?.title}
                   </h3>
                   <p style={{fontFamily:"Geist"}} className="text-[18px] text-white text-center pb-10 pt-3">
-                    Lorem Ipsum has been the industry's standard dummy.
+                   {item.description}
                   </p>
                 </div>
               ))}
