@@ -1,16 +1,56 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ConstrainedBox from '../core/constrained-box';
 import { useAppKit, useAppKitAccount } from '@reown/appkit/react';
 import CoinSelector from './CoinSelector';
-
-
-
+import { useReadContract, useWriteContract } from 'wagmi';
+import { formatUnits, parseUnits } from "viem";
+import BuyToken from "@/app/ABI/TokenSupply.json"
+import BuyICO from "@/app/ABI/IcoToken.json"
+import { parseEther } from "viem";
+import { contractAddress, ICOContract } from '@/constants/contract';
 const Banner = ({ id }: { id: string }) => {
-  const[coinType,setCoinType]=useState("ETH")
-
+  const[coinType,setCoinType]=useState({
+    tokenname:"ETH",
+    address:""
+  })
+  const [totalSupply, setTotalSupply] = useState<string>("");
   const { address, isConnected, } = useAppKitAccount()
+  const [saleType, setSaleType] = useState(0); 
+ 
+  const [amount, setAmount] = useState(""); 
+  const [referrer, setReferrer] = useState("0xReferrerAddress");
+  const { writeContract, isPending, isSuccess, isError } = useWriteContract();
   const { open, close } = useAppKit()
+
+  const { data, isLoading } = useReadContract({
+    address: contractAddress,
+    abi: BuyToken,
+    functionName: "totalSupply",
+  });
+
+  useEffect(() => {
+    if (data) {
+      setTotalSupply(formatUnits(BigInt(data.toString()), 18)); // Adjust decimals based on your token
+    }
+  }, [data]);
+ console.log(">>>>>>>>>>totalSupply",isError,isLoading);
+
+ const handleBuy = async () => {
+  try {
+    const formattedAmount = parseUnits(amount, 18);
+    const tokenAddress =coinType?.address
+    const res = await writeContract({
+      address: ICOContract,
+      abi: BuyICO,
+      functionName: "buy",
+      args: [saleType, tokenAddress, formattedAmount, referrer],
+      value: parseEther("0.1"), // Adjust ETH amount if needed
+    });
+  } catch (error) {
+    console.error("Transaction failed:", error);
+  }
+};
  
   return (
     <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg   text-white flex items-center justify-center px-4">
@@ -79,21 +119,22 @@ const Banner = ({ id }: { id: string }) => {
           </div>
          
           <CoinSelector setCoinType={setCoinType} coinType={coinType} />
-          <p className='text-white text-[15px] pt-4'>{`${coinType} you pay`}</p>
+          <p className='text-white text-[15px] pt-4'>{`${coinType?.tokenname} you pay`}</p>
 
           <div className="mt-2  items-center hidden sm:flex justify-between w-full">
 
            <div className='input___border w-full sm:w-auto mr-1'>
            <input
-              type="text"
+              type="number"
               placeholder="0"
               className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
+              onChange={(e)=>setAmount(e.target.value)}
             />
            </div>
 
            <div className='input___border w-full sm:w-auto mt-1 sm:mt-0' >
            <input
-              type="text"
+             type="number"
               placeholder="0"
               className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
             />
@@ -122,8 +163,8 @@ const Banner = ({ id }: { id: string }) => {
                Connect Wallet
              </button>
              :
-             <button onClick={async()=>{}}  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">
-             Buy Now
+             <button onClick={()=>handleBuy()}  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">
+           {isPending ? "Buying":"Buy Now"}  
            </button>
           }
 
