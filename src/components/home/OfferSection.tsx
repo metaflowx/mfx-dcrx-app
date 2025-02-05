@@ -13,13 +13,13 @@ import CommonSlider from "./CommonSlider";
 const OfferSection: React.FC = () => {
   const cardData = [
     {
-      title: "Spot Trading",
-    description: "Trade with precision in real-time! Enjoy seamless crypto trading with advanced order types, minimal slippage, and a user-friendly interface that’s designed for both novice traders and seasoned professionals. Your trading experience, streamlined and efficient!",
+      title: "Dummy text printing",
+    description: "Lorem Ipsum has been the industry's standard dummy.",
     image: "/crypto/dollarsymbol.png",
     },
     {
       title: "Margin Trading",
-    description: "Unlock more buying power! Amplify your trades with up to 10x leverage, giving you the flexibility to maximize your profits. Integrated risk management tools and real-time portfolio tracking ensure you’re always in control while trading with power.",
+    description: "Lorem Ipsum has been the industry's standard dummy.",
     image: "/crypto/dollarsymbol.png",
     },
     {
@@ -43,6 +43,66 @@ const OfferSection: React.FC = () => {
     image: "/crypto/dollarsymbol.png",
     },
   ];
+
+  // const cardData = [
+  //   {
+  //     title: "Spot Trading",
+  //   description: "Trade with precision in real-time! Enjoy seamless crypto trading with advanced order types, minimal slippage, and a user-friendly interface that’s designed for both novice traders and seasoned professionals. Your trading experience, streamlined and efficient!",
+  //   image: "/crypto/dollarsymbol.png",
+  //   },
+  //   {
+  //     title: "Margin Trading",
+  //   description: "Unlock more buying power! Amplify your trades with up to 10x leverage, giving you the flexibility to maximize your profits. Integrated risk management tools and real-time portfolio tracking ensure you’re always in control while trading with power.",
+  //   image: "/crypto/dollarsymbol.png",
+  //   },
+  //   {
+  //     title: "Futures & Options Trading",
+  //   description: "Master risk, master profits! Take your trading strategies to the next level by hedging risks or speculating on price movements with diverse futures contracts and options. Access robust tools that allow for dynamic and flexible trading decisions in real-time.",
+  //   image: "/crypto/dollarsymbol.png",
+  //   },
+  //   {
+  //     title: "P2P Trading",
+  //   description: "Trade directly with the community! Engage in decentralized peer-to-peer trading, where you can set your own terms. Enjoy the security of escrow services and fiat-to-crypto conversion for a seamless, frictionless trading experience, all within the DecryptoX ecosystem.",
+  //   image: "/crypto/dollarsymbol.png",
+  //   },
+  //   {
+  //     title: "Automated Trading Solutions",
+  //   description: "Let AI work for you! Harness the power of AI-driven grid bots, algorithmic trading, and copy trading features to automate your strategies, ensuring optimized trades around the clock. No need to worry about missing opportunities—let the technology do the work!",
+  //   image: "/crypto/dollarsymbol.png",
+  //   },
+  //   {
+  //     title: "Staking & Yield Generation",
+  //   description: "Put your crypto to work! Earn passive income effortlessly through fixed or flexible staking options, dual-token rewards, and enhanced APYs. Maximize your returns by making the most of your $DCRX holdings!",
+  //   image: "/crypto/dollarsymbol.png",
+  //   },
+  //   {
+  //     title:"DeFi Integration",
+  //     description:"Unlock limitless earning potential! Dive into a wide range of DeFi features including collateralized loans, liquidity mining, NFT-backed loans, DeFi Insurance and decentralized liquidity pools. DecryptoX offers a complete suite of DeFi tools to help you earn like never before.",
+  //     image: "/crypto/dollarsymbol.png",
+
+  //   },
+  //   {
+  //     title:"Identity & Security",
+  //     description:"Your assets, securely protected! Keep your personal data safe and your funds secure with decentralized identity (DID) solutions, multi-signature wallets, hardware wallet compatibility, and anti-front-running mechanisms. Enjoy peace of mind with industry-leading security protocols.",
+  //     image: "/crypto/dollarsymbol.png",
+
+  //   },
+
+  //   {
+  //     title:"Governance & Community Engagement",
+  //     description:"Shape the future of DecryptoX! Be a part of the DecryptoX revolution by actively participating in DAO governance. Propose new features, vote on platform decisions, and earn rewards through active community involvement. The power is in your hands!",
+  //     image: "/crypto/dollarsymbol.png",
+
+  //   },
+
+  //   {
+  //     title:"Cross-Chain Functionality",
+  //     description:"Breaking down blockchain barriers! Enjoy seamless trading, liquidity provision, and asset transfers across multiple blockchains. Cross-chain swaps, bridges, and interoperable liquidity pools ensure you never miss an opportunity to capitalize on diverse crypto assets.",
+  //     image: "/crypto/dollarsymbol.png",
+
+  //   }
+
+  // ];
 
  
 
