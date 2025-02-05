@@ -11,11 +11,38 @@ import ConstrainedBox from "../core/constrained-box";
 import CommonSlider from "./CommonSlider";
 
 const OfferSection: React.FC = () => {
-  const cardData = Array(8).fill({
-    title: "Dummy text printing",
+  const cardData = [
+    {
+      title: "Spot Trading",
+    description: "Trade with precision in real-time! Enjoy seamless crypto trading with advanced order types, minimal slippage, and a user-friendly interface that’s designed for both novice traders and seasoned professionals. Your trading experience, streamlined and efficient!",
+    image: "/crypto/dollarsymbol.png",
+    },
+    {
+      title: "Margin Trading",
+    description: "Unlock more buying power! Amplify your trades with up to 10x leverage, giving you the flexibility to maximize your profits. Integrated risk management tools and real-time portfolio tracking ensure you’re always in control while trading with power.",
+    image: "/crypto/dollarsymbol.png",
+    },
+    {
+      title: "Dummy text printing",
     description: "Lorem Ipsum has been the industry's standard dummy.",
     image: "/crypto/dollarsymbol.png",
-  });
+    },
+    {
+      title: "Dummy text printing",
+    description: "Lorem Ipsum has been the industry's standard dummy.",
+    image: "/crypto/dollarsymbol.png",
+    },
+    {
+      title: "Dummy text printing",
+    description: "Lorem Ipsum has been the industry's standard dummy.",
+    image: "/crypto/dollarsymbol.png",
+    },
+    {
+      title: "Dummy text printing",
+    description: "Lorem Ipsum has been the industry's standard dummy.",
+    image: "/crypto/dollarsymbol.png",
+    },
+  ];
 
  
 

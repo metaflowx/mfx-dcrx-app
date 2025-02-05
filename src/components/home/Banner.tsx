@@ -3,16 +3,18 @@ import React, { useEffect, useState } from 'react'
 import ConstrainedBox from '../core/constrained-box';
 import { useAppKit, useAppKitAccount } from '@reown/appkit/react';
 import CoinSelector from './CoinSelector';
-import { useReadContract, useWriteContract } from 'wagmi';
-import { formatUnits, parseUnits } from "viem";
-import BuyToken from "@/app/ABI/TokenSupply.json"
+import { useAccount, useReadContract, useToken, useWriteContract } from 'wagmi';
+import { erc20Abi, formatUnits, parseUnits } from "viem";
+import TokenSupply from "@/app/ABI/TokenSupply.json"
 import BuyICO from "@/app/ABI/IcoToken.json"
 import { parseEther } from "viem";
+
+
 import { contractAddress, ICOContract } from '@/constants/contract';
 const Banner = ({ id }: { id: string }) => {
   const[coinType,setCoinType]=useState({
     tokenname:"ETH",
-    address:""
+    address:"0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e"
   })
   const [totalSupply, setTotalSupply] = useState<string>("");
   const { address, isConnected, } = useAppKitAccount()
@@ -22,24 +24,38 @@ const Banner = ({ id }: { id: string }) => {
   const [referrer, setReferrer] = useState("0xReferrerAddress");
   const { writeContract, isPending, isSuccess, isError } = useWriteContract();
   const { open, close } = useAppKit()
+  const { address:WalletAddress } = useAccount()
 
-  const { data, isLoading } = useReadContract({
-    address: contractAddress,
-    abi: BuyToken,
-    functionName: "totalSupply",
-  });
+  // const { data, error } = useReadContract({
+  //   address: contractAddress,
+  //   abi: erc20Abi,
+  //   functionName: "totalSupply",
+  // });
+  const  {data} =useToken({
+      address: contractAddress,
+     formatUnits: "ether",
+  })
 
   useEffect(() => {
+    console.log(">>>>>>>>>>totalSupply",{data});
     if (data) {
+
       setTotalSupply(formatUnits(BigInt(data.toString()), 18)); // Adjust decimals based on your token
     }
-  }, [data]);
- console.log(">>>>>>>>>>totalSupply",isError,isLoading);
+  }, []);
+//  console.log(">>>>>>>>>>totalSupply",{data});
+
+
 
  const handleBuy = async () => {
+  console.log(">>>>>>>>> coinType:", coinType);
+
   try {
     const formattedAmount = parseUnits(amount, 18);
-    const tokenAddress =coinType?.address
+    const tokenAddress = coinType?.address;
+
+    console.log(">>>>>>>>>>>> Checking:", saleType, tokenAddress, formattedAmount, referrer);
+
     const res = await writeContract({
       address: ICOContract,
       abi: BuyICO,
@@ -47,10 +63,30 @@ const Banner = ({ id }: { id: string }) => {
       args: [saleType, tokenAddress, formattedAmount, referrer],
       value: parseEther("0.1"), // Adjust ETH amount if needed
     });
-  } catch (error) {
+
+   
+
+    console.log("Transaction successful:", res);
+  } catch (error:any) {
     console.error("Transaction failed:", error);
+
+    if (error.code === "ACTION_REJECTED") {
+      console.error("User rejected the transaction.");
+    } else if (error.code === "INSUFFICIENT_FUNDS") {
+      console.error("Insufficient funds for transaction or gas fees.");
+    } else if (error.message?.includes("revert")) {
+      console.error("Contract reverted the transaction. Possible reasons:");
+      console.error("- Sale type or token address is incorrect.");
+      console.error("- User is not eligible for the sale.");
+      console.error("- Hard-coded contract conditions were not met.");
+    } else if (error.code === "NETWORK_ERROR") {
+      console.error("Network error. Check your RPC endpoint or internet connection.");
+    } else {
+      console.error("Unhandled error:", error.message);
+    }
   }
 };
+
  
   return (
     <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg   text-white flex items-center justify-center px-4">

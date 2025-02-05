@@ -8,4 +8,5 @@ export interface FeatureItemProps {
     iconSrc: string;
     description: string;
     arrowSrc: string;
+    title:string
   }

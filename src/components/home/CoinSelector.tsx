@@ -70,8 +70,8 @@ const CoinSelector: React.FC<CoinSelectorProps> = ({ coinType, setCoinType }) =>
         }}
         className="py-4"
       >
-        {coinList.map((coin) => (
-          <SwiperSlide key={coin} className="flex justify-center">
+        {coinList.map((coin,index) => (
+          <SwiperSlide key={index+1} className="flex justify-center">
             <button
               onClick={() => setCoinType({address:coin?.address,tokenname:coin.tokenname})}
 

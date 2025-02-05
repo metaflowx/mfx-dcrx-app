@@ -8,41 +8,16 @@ import {
 } from "./AccordianData"
 
 
-const faqs = [
-  {
-    question: "What is Lorem Ipsum?",
-    answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  },
-  {
-    question: "Why do we use it?",
-    answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  },
-  {
-    question: "Where does it come from?",
-    answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  },
-  {
-    question: "Where can I get some?",
-    answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  },
-  {
-    question: "Is it free to use?",
-    answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  },
-  {
-    question: "How can I implement it?",
-    answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  }
-]
 
-export default function AccordianList() {
+
+export default function AccordianList({faqs}:{faqs?:any}) {
   return (
     <div style={{fontFamily:"Geist"}} className=" text-white">
       <div className="mt-10">
         
 
         <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq, index) => (
+          {faqs.map((faq:any, index:any) => (
             <div
               key={index}
               className="group accordianBg rounded-lg border border-blue-800/30 bg-blue-950/20 backdrop-blur-sm  transition-all duration-200"
@@ -54,6 +29,40 @@ export default function AccordianList() {
                 </AccordionTrigger>
                 <AccordionContent style={{lineHeight:"30px"}}  className="px-6 pb-4 text-white text-lg  sm:text-[20px]">
                   {faq.answer}
+                  {faq.detail ?(
+                    <>
+                    <h2 className="mt-2">For News Bar</h2>
+                    <ul>
+                      <li>
+                      Empower Your Crypto Journey—Trade Securely with DecryptoX Today!  
+
+                      </li>
+                      <li>
+                      Snag $DCRX at Just $0.012—Phase 1 Early Bird Rewards Won’t Last!  
+
+                      </li>
+                      <li>
+                      Phase 2 Kicks Off at $0.015—Prices Rise Every 2 Days. Act Fast!  
+
+                      </li>
+                      <li>
+                      Over $750,000 Raised and Climbing—Join the DeFi Revolution Now!  
+
+                      </li>
+                      <li>
+                      Win Big with Our 1 Million $DCRX Giveaway—Follow, Share & Claim Your Prize!  
+ 
+
+                      </li>
+                      <li>
+                      Early Investors Reap Exclusive Rewards—Limited Tokens, Lifetime Benefits!  
+                      </li>
+                      <li>
+                      Shape DeFi’s Future—Invest in $DCRX and Lead the Charge!  
+                      </li>
+                    </ul>
+                    </>
+                  ):""}
                 </AccordionContent>
               </AccordionItem>
             </div>
