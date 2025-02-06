@@ -18,18 +18,19 @@ export default function HomeSection3() {
         {/* Left Content Section */}
         <div className="flex-1 space-y-8">
           <h1 className="text-2xl md:text-5xl font-bold leading-snug text-[#0EA5E9]">
-            Referral program <br /> agreement
+         
+          Turn Your Network into  <br /> Rewards!
           </h1>
           
-          <p className="text-lg text-gray-300">
+          {/* <p className="text-lg text-gray-300">
             Lorem Ipsum has been the industry&apos;s standard dummy
-          </p>
+          </p> */}
           
           <div className="space-y-6">
             {[
-              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-              "Lorem Ipsum has been the industry's standard.",
-              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+              "Instant Commissions – Earn a percentage of every successful referral’s purchase.",
+              "Tiered Bonuses – Unlock higher rewards as more friends join through your link.",
+              "Passive Income – Keep earning as your referrals continue to invest and trade."
             ].map((text, index) => (
               <div key={index} className="flex items-start gap-3">
                 <div className="mt-1">

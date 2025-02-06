@@ -13,7 +13,7 @@ const HomeSection2 = () => {
       <ConstrainedBox >
         <div>
           <h1 style={{fontFamily:"Geist"}} className="text-left md:text-center text-xl md:text-2xl lg:text-[46px] font-semibold leading-snug text-[#38b6ff] mb-8">
-            How can you benefit from Decryptox referral program?
+          Unlock Exclusive Rewards with Our Referral Program!
           </h1>
           <div className="grid grid-cols-12 gap-0 md:gap-10 items-center mt-[3rem]">
             {/* Left Section: Image */}
@@ -26,17 +26,16 @@ const HomeSection2 = () => {
             {/* Right Section: Text Content */}
             <div className="col-span-12 lg:col-span-7 text-white space-y-6">
               {[
-                "Dummy text of the printing",
-                "Dummy text of the printing",
-                "Dummy text of the printing",
+                {title:"Earn More, Effortlessly ",des:"Get rewarded in $DCRX for every friend who joins and invests."},
+                {title:"Unlimited Referrals, Unlimited Rewards",des:"The more you refer, the more you earn—no limits!"},
+                {title:"Early Investor Perks",des:" Enjoy exclusive bonuses as an early supporter."}
               ].map((title, index) => (
                 <div style={{fontFamily:"Geist"}} key={index}>
                   <h2 className="text-[25px] md:text-[40px]  font-bold text-[#2B9AE6] leading-snug pb-[10px]">
-                    {title}
+                    {title.title}
                   </h2>
                   <p className="text-[20px] md:text-[27px] font-normal text-white">
-                    Lorem Ipsum has been the industry's standard dummy text
-                    ever since the 1500s.
+                   {title?.des}
                   </p>
                 </div>
               ))}
