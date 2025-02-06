@@ -1,8 +1,15 @@
 'use client';
 
 import React from 'react';
+import { formatEther } from 'viem';
 
-const TransactionHistory = () => {
+const TransactionHistory = ({historyTable}:{historyTable?:any}) => {
+  const dateTime = (timestamp:any)=>{
+    const numericTimestamp = Number(timestamp);
+    const date = new Date(numericTimestamp * 1000)
+    const formattedDate = date.toLocaleString();
+    return formattedDate
+  }
   return (
     <div className="bg-custom-gradient p-6 rounded-xl shadow-md border border-gray-700 w-full">
       <h2 className="text-xl font-semibold text-blue-400 mb-4">Transaction History</h2>
@@ -19,13 +26,29 @@ const TransactionHistory = () => {
           </thead>
           <tbody>
             {/* Placeholder for data rows */}
-            <tr className="border-b border-gray-700">
-              <td className="px-4 py-2">--</td>
-              <td className="px-4 py-2">--</td>
-              <td className="px-4 py-2">--</td>
-              <td className="px-4 py-2">--</td>
+            {historyTable && historyTable?.map((item:any,index:number)=>{
+              return(
+                <>
+                 <tr key={index+1} className="border-b border-gray-700">
+              <td className="px-4 py-2">{dateTime(item?.at) || "--"}</td>
+              <td className="px-4 py-2">{item?.coin || "--"}</td>
+              <td className="px-4 py-2">{item?.user || "--"}</td>
+              <td className="px-4 py-2">
+                <p>
+                {Number(formatEther(BigInt(item?.amount))).toFixed(6) || "--"}
+                </p>
+                <p>
+                {Number(formatEther(BigInt(item?.volume))).toFixed(4) || "--"}
+                </p>
+                
+                
+                 </td>
               <td className="px-4 py-2">--</td>
             </tr>
+                </>
+              )
+            })}
+           
           </tbody>
         </table>
       </div>

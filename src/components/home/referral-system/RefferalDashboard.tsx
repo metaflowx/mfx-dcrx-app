@@ -1,8 +1,19 @@
+import { useAccount, useReadContract } from "wagmi";
 import RefferalCard from "./RefferalCard";
+import { tokenConfig } from "@/constants/contract";
+import { Address, formatEther, parseUnits } from "viem";
 
 const RefferalDashboard = ({result}:{result?:any}) => {
   // console.log(">>>>>>>>>result",result[0]?.result.toString());
+   const { address } = useAccount();
+  const { data:tokenbalance, isLoading } = useReadContract({
+   ...tokenConfig,
+    functionName: "balanceOf",
+    args: [address as Address],
+  });
 
+  console.log(">>>>>>>>>>.tokenbalance15",tokenbalance);
+  
   const data = [
     {
       title: "Total Referrals",
@@ -29,7 +40,7 @@ const RefferalDashboard = ({result}:{result?:any}) => {
     },
     {
       title: "Your Wallet Balance",
-      value: "00",
+      value:tokenbalance ? Number(formatEther(BigInt(tokenbalance))).toFixed(4):0,
       symbol:"$DCRX",
       earn:"",
       subValues: [],

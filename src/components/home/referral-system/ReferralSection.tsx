@@ -206,7 +206,7 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
 )}
 
      
-      <TransactionHistory />
+      <TransactionHistory historyTable={historyTable && historyTable.data && historyTable.data} />
       </ConstrainedBox>
     </section>
   );
