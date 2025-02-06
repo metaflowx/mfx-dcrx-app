@@ -1,9 +1,12 @@
+"use client"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./CoinSelector.css"; // Import your CSS file
-import { zeroAddress } from "viem";
+import { erc20Abi, zeroAddress } from "viem";
+import { useReadContract } from "wagmi";
+import { useEffect, useMemo, useState } from "react";
 
 const coinList: any[] = [
   {
@@ -54,9 +57,24 @@ const coinList: any[] = [
 interface CoinSelectorProps {
   coinType?: any;
   setCoinType: any;
+  tokenlist?:any
 }
 
-const CoinSelector: React.FC<CoinSelectorProps> = ({ coinType, setCoinType }) => {
+const CoinSelector: React.FC<CoinSelectorProps> = ({ coinType, setCoinType,tokenlist }) => {
+ 
+const tokenAddrss = useMemo(() => {
+if(tokenlist && tokenlist?.length>0){
+
+  const mergeArray = [...tokenlist,zeroAddress]
+  console.log(">>>>>>>>>>>>.mergeArray",mergeArray);
+  return mergeArray
+  
+}
+}
+  , [tokenlist])
+  
+
+
   return (
     <div className="w-[500px]">
       <Swiper
@@ -71,15 +89,9 @@ const CoinSelector: React.FC<CoinSelectorProps> = ({ coinType, setCoinType }) =>
         }}
         className="py-4"
       >
-        {coinList.map((coin,index) => (
+        {tokenAddrss?.map((coin:any,index:any) => (
           <SwiperSlide key={index+1} className="flex justify-center">
-            <button
-              onClick={() => setCoinType({address:coin?.address,tokenname:coin.tokenname})}
-
-             className={`${coinType?.tokenname===coin?.tokenname ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}
-            >
-              {coin?.tokenname}
-            </button>
+           <TokenData coin={coin} index={index} setCoinType={setCoinType} coinType={coinType} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -88,3 +100,25 @@ const CoinSelector: React.FC<CoinSelectorProps> = ({ coinType, setCoinType }) =>
 };
 
 export default CoinSelector;
+
+const TokenData=({coin,index,setCoinType,coinType}:{coin:any,index:any,setCoinType:any,coinType:any})=>{
+  const { data: symbol } =  useReadContract({
+    abi: erc20Abi,
+    address: coin,
+    functionName: 'symbol',
+    query: {
+      enabled: coin!==zeroAddress
+    }
+  });
+  console.log(">>>>>>>>>>>data",symbol);
+  
+  return(
+    <button
+    onClick={() => setCoinType({address:coin,tokenname: coin===zeroAddress ? "BNB" :symbol})}
+
+   className={`${coinType?.tokenname===(coin===zeroAddress ? "BNB" :symbol)  ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}
+  >
+    {coin===zeroAddress ? "BNB" :symbol}
+  </button>
+  )
+}

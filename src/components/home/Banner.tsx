@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ConstrainedBox from "../core/constrained-box";
 import {
   useAppKit,
@@ -16,7 +16,7 @@ import {
   useToken,
   useWriteContract,
 } from "wagmi";
-import { Address, erc20Abi, formatUnits, parseUnits, zeroAddress } from "viem";
+import { Address, erc20Abi, formatEther, formatUnits, parseUnits, zeroAddress } from "viem";
 import TokenSupply from "@/app/ABI/TokenSupply.json";
 
 import { parseEther } from "viem";
@@ -129,6 +129,21 @@ const Banner = ({ id }: { id: string }) => {
     }
   };
 
+  const calciulatedToken =  useMemo(() => {
+    if(result && result?.data || amount  ){
+      const dividedVa=  result?.data?(Number(formatEther(BigInt(result?.data[0]?.result??0)))>0?Number(formatEther(BigInt(result?.data[0]?.result??0))):Number(amount))/Number(formatEther(BigInt(result?.data[1]?.result??0))):0
+      console.log(">>>>>>>.dividedVa",dividedVa,amount);
+
+      return dividedVa?.toFixed(4)
+      
+    }
+
+  }
+    , [result,amount])
+
+  
+  
+
   return (
     <div
       id={id}
@@ -213,16 +228,17 @@ const Banner = ({ id }: { id: string }) => {
                 </p>
               </div>
               <div className="text-center">
-                <p className="mt-2 coinBgValue p-[20px]">$1 DCRX = $0.0206</p>
+                <p className="mt-2 coinBgValue p-[20px]">$1 DCRX = ${result && result?.data && formatEther(BigInt(result?.data[1]?.result??0))}</p>
               </div>
 
-              <CoinSelector setCoinType={setCoinType} coinType={coinType} />
+              <CoinSelector setCoinType={setCoinType} coinType={coinType} tokenlist={result && result.data && result.data && result.data[2]?.result && result.data[2]?.result && result.data[2]?.result} />
               <p className="text-white text-[15px] pt-4">{`${coinType?.tokenname} you pay`}</p>
 
               <div className="mt-2  items-center hidden sm:flex justify-between w-full">
                 <div className="input___border w-full sm:w-auto mr-1">
                   <input
                     type="number"
+
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                     onChange={(e) => setAmount(e.target.value)}
@@ -233,6 +249,9 @@ const Banner = ({ id }: { id: string }) => {
                   <input
                     type="number"
                     placeholder="0"
+                    value={
+                      calciulatedToken
+                    }
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
                 </div>
@@ -240,7 +259,8 @@ const Banner = ({ id }: { id: string }) => {
               <div className="mt-2  block sm:hidden  w-full">
                 <div className="input___border w-full sm:w-auto">
                   <input
-                    type="text"
+                    type="number"
+                    
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
@@ -248,8 +268,12 @@ const Banner = ({ id }: { id: string }) => {
 
                 <div className="input___border w-full sm:w-auto mt-1 sm:mt-0">
                   <input
-                    type="text"
+                    type="number"
                     placeholder="0"
+                    value={
+                      calciulatedToken
+                    }
+                    disabled
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
                 </div>
