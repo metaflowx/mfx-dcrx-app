@@ -3,6 +3,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./CoinSelector.css"; // Import your CSS file
+import { zeroAddress } from "viem";
 
 const coinList: any[] = [
   {
@@ -15,7 +16,7 @@ const coinList: any[] = [
   },
   {
      tokenname:"BNB",
-    address:"0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE"
+    address:zeroAddress
   },
   {
      tokenname:"XRP",

@@ -1,47 +1,96 @@
 import { socialIcons } from "@/components/footer/Footer";
 import { SocialIcon } from "@/components/footer/SocialIcon";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RefferalDashboard from "./RefferalDashboard";
 import ConstrainedBox from "@/components/core/constrained-box";
 import CommonButton from "@/components/common/CommonButton";
 import TransactionHistory from "./TransactionHistory";
-import { useAccount, useReadContract, useWriteContract } from "wagmi";
-import { contractConfig } from "@/constants/contract";
-import { parseEther } from "viem";
+import { useAccount, useReadContract, useReadContracts, useWriteContract } from "wagmi";
+import { contractConfig, iocConfig } from "@/constants/contract";
+import { Address, parseEther } from "viem";
+import { usePathname, useRouter } from 'next/navigation'
+import { IcoABI } from "@/app/ABI/IcoABI";
 
 const ReferralSection: React.FC = () => {
+  const pathname = usePathname()
+  console.log(">>>>>>>>>>router",pathname);
+  const [url, setUrl] = useState("");
    const { writeContract, isPending, isSuccess, isError } = useWriteContract();
   const { address } = useAccount();
   const [referrer, setReferrer] = useState("");
+  const [copied, setCopied] = useState(false);
   const bonusPlan = [
     { range: "$100 - $1k", bonus: "2% bonus" },
     { range: "$1k - $5k", bonus: "4% bonus" },
     { range: "$5k - $10k", bonus: "8% bonus" },
     { range: "$10k and above", bonus: "10% bonus" },
   ];
-  const { data: rewards, refetch } = useReadContract({
-    ...contractConfig,
-    functionName: "getReferralRewards",
-    args: [address],
-  });
 
-  console.log(">>>>>>>>>>>rewards",rewards);
 
  
 
  
-  const addReferral = async () => {
-    try {
-      
-      const res = await writeContract({
-        ...contractConfig,
-        functionName: "addReferral",
-        args: [address, referrer],
-        value: parseEther("0.1"), // Adjust ETH amount if needed
-      });
-    } catch (error) {
-      console.error("Transaction failed:", error);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setUrl(`${window.location.href}?${address}`);
     }
+  }, [address]);
+
+  
+  
+ 
+
+
+  const result = useReadContracts({
+    contracts: [
+     
+      {
+        ...contractConfig,
+        functionName: "getReferralRewards",
+        args: [address as Address ],
+      },
+      {
+        ...contractConfig,
+        functionName: 'getReferralsCount',
+        args: [address as Address ],
+      },
+      {
+        ...contractConfig,
+        functionName: 'getReferrer',
+        args: [address as Address ],
+      },
+      {
+        ...contractConfig,
+        functionName: 'totalReferralBonusReward',
+      },
+      {
+        ...iocConfig,
+        functionName: "totalContributorLengthForUser",
+        args:[address as Address,0]
+      },
+     
+    ],
+  })
+
+
+const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?.data?.[4]?.result.toString()
+  const historyTable = useReadContract({
+    ...iocConfig,
+    functionName: "user2SaleType2ContributorList",
+    args: [
+      address as Address,             
+      0,                    
+      BigInt(0),            
+      BigInt(totalLength || 0) 
+    ]
+  });
+  console.log(">>>>>>>>>result",historyTable);
+  
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000); // Hide toast after 3 seconds
+    });
   };
   
   return (
@@ -73,17 +122,19 @@ const ReferralSection: React.FC = () => {
           >
             <img src="/crypto/link.png" className="pr-2" />
             <input
+            value={url || ""}
               type="text"
+              disabled
               placeholder="Generate Link"
               className="bg-[#09090B] flex-1 text-sm focus:outline-none text-white"
             />
-            <button className="ml-3 bg-[#2B9AE6] w-[60px] h-[48px] flex justify-center items-center text-sm absolute right-0 top-0 bottom-0">
+            <button onClick={copyToClipboard} className="ml-3 bg-[#2B9AE6] w-[60px] h-[48px] flex justify-center items-center text-sm absolute right-0 top-0 bottom-0">
               <img src="/crypto/copyicon.png" />
             </button>
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <h6 className="text-white text-[20px] sm:text-[24px] font-normal">
             Referral Code
           </h6>
@@ -101,8 +152,15 @@ const ReferralSection: React.FC = () => {
               <img src="/crypto/copyicon.png" />
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
+
+
+      {copied && (
+        <div style={{background:"linear-gradient(rgb(160, 219, 246) 0%, rgb(43, 154, 230) 100%)"}} className="fixed top-5 left-1/2 transform -translate-x-1/2  text-white px-4 py-2 rounded-lg shadow-md animate-slideIn z-[9999]">
+          ✅ Referral link copied!
+        </div>
+      )}
 
       <h6 className="text-white text-[24px] sm:text-[27px] font-bold">
         Share your referral link
@@ -139,8 +197,15 @@ const ReferralSection: React.FC = () => {
     </div>
   </div>
 </div>
+{result &&result?.data && result?.data?.length>0 ? (
+ <RefferalDashboard result={result && result?.data && result?.data} />
+):(
+  <div>
+    <p>No data found</p>
+  </div>
+)}
 
-      <RefferalDashboard />
+     
       <TransactionHistory />
       </ConstrainedBox>
     </section>

@@ -1,10 +1,12 @@
 import RefferalCard from "./RefferalCard";
 
-const RefferalDashboard = () => {
+const RefferalDashboard = ({result}:{result?:any}) => {
+  // console.log(">>>>>>>>>result",result[0]?.result.toString());
+
   const data = [
     {
       title: "Total Referrals",
-      value: "00",
+      value: result[1]?.result.toString(),
       symbol:"",
       earn:"/refer/earn.png",
       subValues: [
@@ -16,7 +18,7 @@ const RefferalDashboard = () => {
     },
     {
       title: "Total Earnings",
-      value: "00",
+      value:  result[0]?.result.toString(),
       symbol:"$DCRX",
       earn:"/refer/earn.png",
       subValues: [

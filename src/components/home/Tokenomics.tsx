@@ -2,6 +2,7 @@
 import React from 'react';
 import ConstrainedBox from '../core/constrained-box';
 import CommonHeading from '../common/CommonHeading';
+import { downloadPdf } from '@/utils';
 
 const Tokenomics = ({ id }: { id: string }) => {
   return (
@@ -43,10 +44,13 @@ const Tokenomics = ({ id }: { id: string }) => {
              style={{
               background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
             }}
+            onClick={()=>  downloadPdf("/docs/whitepaper.pdf", "whitePaper.pdf")}
             className="w-full md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black">
               White Paper
             </button>
-            <button style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-full md:w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
+            <button 
+             onClick={()=>  downloadPdf("/docs/lightpaper.pdf", "whitePaper.pdf")}
+            style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-full md:w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
               Light Paper
             </button>
           </div>

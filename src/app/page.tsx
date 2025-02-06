@@ -26,11 +26,11 @@ declare global {
 }
 
 const Home = () => {
- 
+   const [isOpen, setIsOpen] = useState(false);
   return (
     <PageBox>
       
-      <WalletModal />
+      <WalletModal setIsOpen={setIsOpen} isOpen={isOpen} />
       <Banner id="about" />
       <FeaturedIn />
       <DecryptoXLanding id="howtobuy" />

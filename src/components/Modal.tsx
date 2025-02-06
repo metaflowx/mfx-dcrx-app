@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import CommonButton from './common/CommonButton';
 
-const WalletModal: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const WalletModal = ({isOpen,setIsOpen}:{isOpen?:boolean;setIsOpen?:any}) => {
+  
 
   useEffect(() => {
     // Check if MetaMask is installed

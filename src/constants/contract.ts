@@ -1,9 +1,16 @@
-import contractABI from "@/app/ABI/RewardToken.json"
-export const contractAddress = "0xB68038cD28202F9fcbc087602923BAcf3Bd1bfE6"; 
-export const ICOContract ="0x5872891D9B0352c95B43e9C71Fd186B8aE6C8d77"
-export const ReferralContract="0x176D7A9F3d291475F9bf79CEc38ad25FEd099496"
+import { IcoABI } from "@/app/ABI/IcoABI";
+import { RefferABI } from "@/app/ABI/RewardToken";
+export const TokenContractAddress = "0xB68038cD28202F9fcbc087602923BAcf3Bd1bfE6"; 
+export const ICOContractAddress ="0x34fb5B808d29E75d43947164d7E6120a4Ff37284"
+export const ReferralContractAddress="0x7A5816ABdaE8f26fEBAfE020c720e39a81179948"
 
 export const contractConfig = {
-    address: ReferralContract as `0x${string}`,
-    abi: contractABI,
+    address: ReferralContractAddress as `0x${string}`,
+    abi: RefferABI,
+  };
+
+  export const iocConfig = {
+    address: ICOContractAddress as `0x${string}`,
+    abi: IcoABI,
+    
   };
