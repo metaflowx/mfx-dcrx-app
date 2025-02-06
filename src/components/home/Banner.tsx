@@ -1,16 +1,81 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ConstrainedBox from '../core/constrained-box';
-import { useAppKit, useAppKitAccount } from '@reown/appkit/react';
+import { useAppKit, useAppKitAccount, useAppKitNetwork } from '@reown/appkit/react';
 import CoinSelector from './CoinSelector';
+import { useAccount, useBlockNumber, useChainId, useReadContract, useToken, useWriteContract } from 'wagmi';
+import { erc20Abi, formatUnits, parseUnits } from "viem";
+import TokenSupply from "@/app/ABI/TokenSupply.json"
+import BuyICO from "@/app/ABI/IcoToken.json"
+import { parseEther } from "viem";
 
 
-
+import { TokenContractAddress, ICOContractAddress } from '@/constants/contract';
 const Banner = ({ id }: { id: string }) => {
-  const[coinType,setCoinType]=useState("ETH")
-
-  const { address, isConnected, } = useAppKitAccount()
+  const { address } = useAccount()
+  const { chainId } = useAppKitNetwork()
+  const[coinType,setCoinType]=useState({
+    tokenname:"ETH",
+    address:"0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e"
+  })
+  const [totalSupply, setTotalSupply] = useState<string>("");
+  const [saleType, setSaleType] = useState(0); 
+ 
+  const [amount, setAmount] = useState(""); 
+  const [referrer, setReferrer] = useState("0xReferrerAddress");
+  const { data: blockNumber } = useBlockNumber({ watch: true, })
+  const { writeContractAsync, isPending, isSuccess, isError } = useWriteContract();
   const { open, close } = useAppKit()
+
+  const result = useReadContract({
+    abi:erc20Abi,
+    address: TokenContractAddress,
+    functionName: 'totalSupply',
+    chainId: Number(chainId)
+  })
+console.log({result});
+
+
+ const handleBuy = async () => {
+  console.log(">>>>>>>>> coinType:", coinType);
+
+  try {
+    const formattedAmount = parseUnits(amount, 18);
+    const tokenAddress = coinType?.address;
+
+    console.log(">>>>>>>>>>>> Checking:", saleType, tokenAddress, formattedAmount, referrer);
+
+    const res = await writeContractAsync({
+      address: ICOContractAddress,
+      abi: BuyICO,
+      functionName: "buy",
+      args: [saleType, tokenAddress, formattedAmount, referrer],
+      value: parseEther("0.1"), // Adjust ETH amount if needed
+    });
+
+   
+
+    console.log("Transaction successful:", res);
+  } catch (error:any) {
+    console.error("Transaction failed:", error);
+
+    if (error.code === "ACTION_REJECTED") {
+      console.error("User rejected the transaction.");
+    } else if (error.code === "INSUFFICIENT_FUNDS") {
+      console.error("Insufficient funds for transaction or gas fees.");
+    } else if (error.message?.includes("revert")) {
+      console.error("Contract reverted the transaction. Possible reasons:");
+      console.error("- Sale type or token address is incorrect.");
+      console.error("- User is not eligible for the sale.");
+      console.error("- Hard-coded contract conditions were not met.");
+    } else if (error.code === "NETWORK_ERROR") {
+      console.error("Network error. Check your RPC endpoint or internet connection.");
+    } else {
+      console.error("Unhandled error:", error.message);
+    }
+  }
+};
+
  
   return (
     <div id={id} style={{fontFamily:"Geist"}} className="min-h-screen bannerBg   text-white flex items-center justify-center px-4">
@@ -22,8 +87,7 @@ const Banner = ({ id }: { id: string }) => {
           <h1 className="sm:text-[40px] md:text-[60px] lg:text-[70px] font-bold">Join Decryptox:</h1>
           <p className="text-[20px] md:text-[30px] text-[#2B9AE6] font-bold mt-2">Be a Part of the Decentralized Revolution!</p>
           <p className="mt-4 font-medium text-[14px] sm:text-[24px]">
-            Unlock a world of financial freedom where you own your assets,
-            control your data, and trade with confidence.
+          Redefine Trading with the World’s Most Advanced Decentralized Platform—Secure, Seamless, and Built for You
           </p>
           <div className="block md:flex gap-4 mt-6 justify-center lg:justify-start">
             <button
@@ -79,21 +143,22 @@ const Banner = ({ id }: { id: string }) => {
           </div>
          
           <CoinSelector setCoinType={setCoinType} coinType={coinType} />
-          <p className='text-white text-[15px] pt-4'>{`${coinType} you pay`}</p>
+          <p className='text-white text-[15px] pt-4'>{`${coinType?.tokenname} you pay`}</p>
 
           <div className="mt-2  items-center hidden sm:flex justify-between w-full">
 
            <div className='input___border w-full sm:w-auto mr-1'>
            <input
-              type="text"
+              type="number"
               placeholder="0"
               className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
+              onChange={(e)=>setAmount(e.target.value)}
             />
            </div>
 
            <div className='input___border w-full sm:w-auto mt-1 sm:mt-0' >
            <input
-              type="text"
+             type="number"
               placeholder="0"
               className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
             />
@@ -122,8 +187,8 @@ const Banner = ({ id }: { id: string }) => {
                Connect Wallet
              </button>
              :
-             <button onClick={async()=>{}}  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">
-             Buy Now
+             <button onClick={()=>handleBuy()}  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold">
+           {isPending ? "Buying":"Buy Now"}  
            </button>
           }
 

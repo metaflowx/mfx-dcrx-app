@@ -16,27 +16,31 @@ const features = [
 
 const steps = [
   {
+    title:"Connect Your Wallet & Choose Your Network",
     number: "/crypto/01.png",
     iconSrc: "/crypto/dollarsymbol.png",
-    description: "AI-Driven Trading Bots Utilize advanced AI algorithms for automated trading strategies, including grid trading and yield optimization.",
+    description: "Get started by connecting your wallet! Use trusted wallets like MetaMask or Trust Wallet, and link them to the DecryptoX platform. Choose your preferred blockchain – BNB or ETH – and you're good to go!",
     arrowSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5"
   },
   {
+    title:"Fund Your Wallet with Crypto Prepare your wallet for action!",
     number: "/crypto/02.png",
     iconSrc: "/crypto/dollarsymbol.png",
-    description: "AI-Driven Trading Bots Utilize advanced AI algorithms for automated trading strategies, including grid trading and yield optimization.",
+    description: "Add ETH or BNB or any supported coin to your wallet to make sure you're ready to purchase $DCRX tokens. Have a smooth and seamless transaction with the crypto you already own.",
     arrowSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5"
   },
   {
+    title:"Purchase $DCRX Tokens Ready to own $DCRX?",
     number: "/crypto/03.png",
     iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/9c3b6430341b9773c3890ad92f958279b5194a5ea2a067692f435ded238db0dc?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    description: "AI-Driven Trading Bots Utilize advanced AI algorithms for automated trading strategies, including grid trading and yield optimization.",
+    description: "Head to the token sale page, enter the desired amount of $DCRX, and complete your purchase using your connected wallet. Once done, check the Your Purchased $DCRX tab on the form to view your newly acquired tokens. Simple, intuitive, and ready to empower your trading journey!",
     arrowSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5"
   },
   {
+    title:"Claim Your $DCRX & Earn More! Unlock extra rewards!",
     number: "/crypto/04.png",
     iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/9c3b6430341b9773c3890ad92f958279b5194a5ea2a067692f435ded238db0dc?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    description: "AI-Driven Trading Bots Utilize advanced AI algorithms for automated trading strategies, including grid trading and yield optimization.",
+    description: "After your purchase, claim your $DCRX tokens and dive into our Refer and Earn Program or participate in exciting giveaways to unlock even more rewards. The journey doesn't stop here – the more you engage, the more you earn!",
     arrowSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5"
   }
 ];
@@ -114,7 +118,11 @@ export const DecryptoXLanding= ({ id }: { id: string }) => {
        
         <div className="flex flex-col self-end   max-md:max-w-full">
           <div className="self-center text-[50px] font-bold leading-none text-sky-500 max-md:text-4xl">
-            <span style={{fontFamily:"Geist"}} className="text-white">How to</span> Buy?
+            <span style={{fontFamily:"Geist"}} className="text-white">How to Buy DecryptoX ($DCRX)</span> 
+            <p>
+            – Your Gateway to the Future of Trading
+            ?
+            </p>
           </div>
           <div className="mt-16 w-full max-md:mt-10 max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col">

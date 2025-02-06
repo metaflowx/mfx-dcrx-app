@@ -1,78 +1,4 @@
-// // components/ProblemSection.tsx
-// import React from "react";
-// import CommonHeading from "../common/CommonHeading";
 
-// const ProblemSection: React.FC = () => {
-//   return (
-//     <section className="bg-black text-white py-12 w-full">
-//       <div style={{fontFamily:"Geist",
-         
-
-
-//         }} className="max-w-7xl mx-auto px-6 text-center pt-[180px]">
-//           <div className="mb-4">
-//             <CommonHeading heading={"Problem"} fontSize="text-[42px]" />
-//           </div>
-       
-//         <h1 className="text-[62px] font-bold ">
-//           The existing crypto trading landscape {" "}
-         
-//         </h1>
-//         <p className="text-[62px] font-bold mb-8">
-//         is 
-//         <span className="text-[#1B429A] ml-2">fundamentally broken.</span>
-//         </p>
-//         <div className="grid grid-cols-1 md:grid-cols-4 gap-1">
-//           {[
-//             {
-//               title: "Counterparty Risks",
-//               description:
-//                 "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-//             },
-//             {
-//               title: "Decentralization",
-//               description:
-//                 "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-//             },
-//             {
-//               title: "Liquidity",
-//               description:
-//                 "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-//             },
-//             {
-//               title: "Capital Efficiency",
-//               description:
-//                 "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
-//             },
-//           ].map((item, index) => (
-//             <div
-//               key={index}
-//               className="cardBorderBgBorder p-2  rounded-lg shadow-md text-center"
-//             >
-//               <div className="flex justify-center items-center mb-4 mt-4">
-//                 <img src="/crypto/dollarsymbol.png" style={{width:"89px",height:"92px"}} />
-//               </div>
-//               <h3 className="text-xl gradient-text font-bold py-6">{item.title}</h3>
-//               <p className="text-sm text-gray-300 pb-12 font-bold">{item.description}</p>
-//             </div>
-//           ))}
-//         </div>
-//         <div className="borderBg mt-12 p-[45px]">
-//           <p className="text-white text-[20px] text-center font-medium">
-//             By design, DecryptoX solves the problem of liquidity fragmentation
-//             and introduces a 
-//           </p>
-//           <p className="text-white text-[20px] text-center font-medium">
-//             truly decentralized, efficient trading
-//             infrastructure.
-//           </p>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default ProblemSection;
 import React from "react";
 import Slider from "react-slick";
 import CommonHeading from "../common/CommonHeading";
@@ -100,22 +26,22 @@ const ProblemSection: React.FC = () => {
     {
       title: "Counterparty Risks",
       description:
-        "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+        "Eroded Privacy and User Control: Centralized exchanges rely on outdated KYC systems for systems that expose sensitive user data to potential breaches, leaving privacy and autonomy at risk.",
     },
     {
       title: "Decentralization",
       description:
-        "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+        "Compliance vs. Accessibility Dilemma: Striking the right balance between regulatory compliance and user empowerment has created barriers, limiting global access and seamless adoption.",
     },
     {
       title: "Liquidity",
       description:
-        "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+        "Overwhelmingly Complex Platforms: Cryptocurrency platforms often feature convoluted interfaces that deter beginners and frustrate seasoned traders, holding back the potential for widespread adoption.",
     },
     {
       title: "Capital Efficiency",
       description:
-        "Despite the rise of DEXs, true decentralization remains elusive. Many platforms still rely on centralized components, compromising user autonomy and asset control.",
+        "Fragmented and Isolated Ecosystems: The lack of cross-chain compatibility restricts liquidity and financial opportunities, creating bottlenecks in a space that should thrive on interconnectivity.",
     },
   ];
 
@@ -128,15 +54,15 @@ const ProblemSection: React.FC = () => {
         className="max-w-7xl mx-auto px-6 text-left md:text-center pt-[10px] md:pt-[180px]"
       >
         <div className="mb-4">
-          <CommonHeading heading={"Problem"} fontSize="text-[42px]" />
+          <CommonHeading heading={"The Problem"} fontSize="text-[42px]" />
         </div>
 
         <h1 className="text-[30px] xl:text-[50px] font-bold">
-          The existing crypto trading landscape{" "}
+        Challenges in Today’s {" "}
         </h1>
         <p className="text-[30px] xl:text-[50px] font-bold mb-8">
-          is
-          <span className="text-[#1B429A] ml-2">fundamentally broken.</span>
+          
+          <span className="text-[#1B429A] ml-2">Crypto Landscape</span>
         </p>
 
         {/* Slick Slider */}

@@ -129,7 +129,7 @@ const FloatingNavbar = ({
             <ConnectButton />
 
 
-            <div className="language-selector relative">
+            {/* <div className="language-selector relative">
   <select
     value={selectedLanguage}
     onChange={(e) => changeLanguage(e.target.value)}
@@ -147,14 +147,14 @@ const FloatingNavbar = ({
     alt="Language Selector"
     className="absolute right-2 top-1/2 transform -translate-y-1/2"
   />
-</div>
+</div> */}
 
      
       
            
 
           
-            {/* <div className="hidden sm:flex relative  justify-center items-center">
+            <div className="hidden sm:flex relative  justify-center items-center">
               <div className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] w-[71px] h-[33px] cursor-pointer">
                 <img
                   src="/crypto/american.png"
@@ -163,7 +163,7 @@ const FloatingNavbar = ({
                 />
                 <img src="/crypto/downarrow.png" alt="lan" className="ml-1" />
               </div>
-            </div> */}
+            </div>
             <button
               onClick={toggleDrawer}
               className="block xl:hidden text-white text-xl focus:outline-none"

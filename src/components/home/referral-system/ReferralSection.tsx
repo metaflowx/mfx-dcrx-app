@@ -1,18 +1,49 @@
 import { socialIcons } from "@/components/footer/Footer";
 import { SocialIcon } from "@/components/footer/SocialIcon";
-import React from "react";
+import React, { useState } from "react";
 import RefferalDashboard from "./RefferalDashboard";
 import ConstrainedBox from "@/components/core/constrained-box";
 import CommonButton from "@/components/common/CommonButton";
 import TransactionHistory from "./TransactionHistory";
+import { useAccount, useReadContract, useWriteContract } from "wagmi";
+import { contractConfig } from "@/constants/contract";
+import { parseEther } from "viem";
 
 const ReferralSection: React.FC = () => {
+   const { writeContract, isPending, isSuccess, isError } = useWriteContract();
+  const { address } = useAccount();
+  const [referrer, setReferrer] = useState("");
   const bonusPlan = [
     { range: "$100 - $1k", bonus: "2% bonus" },
     { range: "$1k - $5k", bonus: "4% bonus" },
     { range: "$5k - $10k", bonus: "8% bonus" },
     { range: "$10k and above", bonus: "10% bonus" },
   ];
+  const { data: rewards, refetch } = useReadContract({
+    ...contractConfig,
+    functionName: "getReferralRewards",
+    args: [address],
+  });
+
+  console.log(">>>>>>>>>>>rewards",rewards);
+
+ 
+
+ 
+  const addReferral = async () => {
+    try {
+      
+      const res = await writeContract({
+        ...contractConfig,
+        functionName: "addReferral",
+        args: [address, referrer],
+        value: parseEther("0.1"), // Adjust ETH amount if needed
+      });
+    } catch (error) {
+      console.error("Transaction failed:", error);
+    }
+  };
+  
   return (
     <section  className="mainReferBg text-white py-[10px] md:py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full pt-10 sm:pt-2">
       <ConstrainedBox>
