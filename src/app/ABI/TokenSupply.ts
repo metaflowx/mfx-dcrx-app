@@ -1,4 +1,4 @@
-[
+export const TokenABI =[
   { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
   {
     "inputs": [
@@ -230,4 +230,4 @@
     "stateMutability": "nonpayable",
     "type": "function"
   }
-]
+] as const

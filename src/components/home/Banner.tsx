@@ -6,9 +6,12 @@ import {
   useAppKitAccount,
   useAppKitNetwork,
 } from "@reown/appkit/react";
+import {  toast } from 'react-toastify';
 import CoinSelector from "./CoinSelector";
+
 import {
   useAccount,
+  useBalance,
   useBlockNumber,
   useChainId,
   useReadContract,
@@ -16,8 +19,15 @@ import {
   useToken,
   useWriteContract,
 } from "wagmi";
-import { Address, erc20Abi, formatEther, formatUnits, parseUnits, zeroAddress } from "viem";
-import TokenSupply from "@/app/ABI/TokenSupply.json";
+import {
+  Address,
+  erc20Abi,
+  formatEther,
+  formatUnits,
+  parseUnits,
+  zeroAddress,
+} from "viem";
+
 
 import { parseEther } from "viem";
 
@@ -25,6 +35,7 @@ import {
   TokenContractAddress,
   ICOContractAddress,
   iocConfig,
+  tokenConfig,
 } from "@/constants/contract";
 import { IcoABI } from "@/app/ABI/IcoABI";
 import CountdownTimer from "./Counter";
@@ -33,14 +44,20 @@ import { downloadPdf } from "@/utils";
 const Banner = ({ id }: { id: string }) => {
   const { address } = useAccount();
   const { chainId } = useAppKitNetwork();
+
   const [isOpen, setIsOpen] = useState(false);
   const [coinType, setCoinType] = useState({
-    tokenname: "ETH",
-    address: "0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e",
+    tokenname: "BNB",
+    address: zeroAddress,
   });
+  const { data: Balance } = useBalance({
+    address: address,
+  });
+  console.log(">>>>>>>>useAccount()", Number(Balance?.formatted));
+
   const [totalSupply, setTotalSupply] = useState<string>("");
   const [saleType, setSaleType] = useState(0);
-
+  const [isAproveERC20, setIsApprovedERC20] = useState(true);
   const [amount, setAmount] = useState("");
   const [referrer, setReferrer] = useState(zeroAddress);
   const { data: blockNumber } = useBlockNumber({ watch: true });
@@ -49,7 +66,7 @@ const Banner = ({ id }: { id: string }) => {
   const { open, close } = useAppKit();
   const tokenAddress =
     coinType.tokenname === "BNB" ? zeroAddress : coinType.address;
-  const result = useReadContracts({
+  const calculationresult = useReadContracts({
     contracts: [
       {
         ...iocConfig,
@@ -57,23 +74,35 @@ const Banner = ({ id }: { id: string }) => {
         args: [tokenAddress as Address, parseEther(amount)],
         chainId: Number(chainId),
       },
+    ],
+  });
+  const result = useReadContracts({
+    contracts: [
       {
         ...iocConfig,
         functionName: "getSaleTokenPrice",
         args: [0],
         chainId: Number(chainId),
       },
-      {
-        ...iocConfig,
-        functionName: "getAcceptedTokenList",
-        chainId: Number(chainId),
-      },
+
       {
         ...iocConfig,
         functionName: "saleType2IcoDetail",
         args: [0],
         chainId: Number(chainId),
       },
+      // {
+      //   ...iocConfig,
+      //   functionName: "totalContributor",
+      //   args: [0],
+      //   chainId: Number(chainId),
+      // },
+      // {
+      //   ...iocConfig,
+      //   functionName: "totalContributorLengthForUser",
+      //   args: [address as Address,0],
+      //   chainId: Number(chainId),
+      // },
     ],
   });
   console.log("checkig", result);
@@ -108,19 +137,19 @@ const Banner = ({ id }: { id: string }) => {
 
       console.log("Transaction successful:", res);
     } catch (error: any) {
-      console.error("Transaction failed:", error);
+     
 
-      if (error.code === "ACTION_REJECTED") {
-        console.error("User rejected the transaction.");
+      if (error.message.includes("rejected")) {
+        toast.error("User rejected the transaction.");
       } else if (error.code === "INSUFFICIENT_FUNDS") {
-        console.error("Insufficient funds for transaction or gas fees.");
+        toast.error("Insufficient funds for transaction or gas fees.");
       } else if (error.message?.includes("revert")) {
-        console.error("Contract reverted the transaction. Possible reasons:");
-        console.error("- Sale type or token address is incorrect.");
-        console.error("- User is not eligible for the sale.");
-        console.error("- Hard-coded contract conditions were not met.");
+        toast.error("Contract reverted the transaction. Possible reasons:");
+        toast.error("- Sale type or token address is incorrect.");
+        toast.error("- User is not eligible for the sale.");
+        toast.error("- Hard-coded contract conditions were not met.");
       } else if (error.code === "NETWORK_ERROR") {
-        console.error(
+        toast.error(
           "Network error. Check your RPC endpoint or internet connection."
         );
       } else {
@@ -129,20 +158,61 @@ const Banner = ({ id }: { id: string }) => {
     }
   };
 
-  const calciulatedToken =  useMemo(() => {
-    if(result && result?.data || amount  ){
-      const dividedVa=  result?.data?(Number(formatEther(BigInt(result?.data[0]?.result??0)))>0?Number(formatEther(BigInt(result?.data[0]?.result??0))):Number(amount))/Number(formatEther(BigInt(result?.data[1]?.result??0))):0
-      console.log(">>>>>>>.dividedVa",dividedVa,amount);
-
-      return dividedVa?.toFixed(4)
-      
-    }
-
+  const approveToken = async()=>{
+    try {
+      const formattedAmount = parseUnits(amount, 18);
+   const res= await writeContractAsync({
+     ...tokenConfig,
+      functionName: 'approve',
+      args: [
+        tokenAddress as Address,
+        formattedAmount
+      ],
+      account: address
+  })
+  if(res){
+    handleBuy()
   }
-    , [result,amount])
+      
+    } catch (error: any) {
+    console.log(">>>>>>>>>>>>..error",error.message);
+    
 
-  
-  
+      if (error.message.includes("rejected")) {
+        toast.error("User rejected the transaction.");
+      } else if (error.code === "INSUFFICIENT_FUNDS") {
+        toast.error("Insufficient funds for transaction or gas fees.");
+      } else if (error.message?.includes("revert")) {
+        toast.error("Contract reverted the transaction. Possible reasons:");
+        toast.error("- Sale type or token address is incorrect.");
+        toast.error("- User is not eligible for the sale.");
+        toast.error("- Hard-coded contract conditions were not met.");
+      } else if (error.code === "NETWORK_ERROR") {
+        toast.error(
+          "Network error. Check your RPC endpoint or internet connection."
+        );
+      } else {
+        console.error("Unhandled error:", error.message);
+      }
+    }
+  }
+
+  const calciulatedToken = useMemo(() => {
+    if ((result && result?.data) || amount || calculationresult) {
+      const tokenPrice = result?.data && result?.data[0]?.result;
+      const dividedVa = calculationresult?.data
+        ? (Number(
+            formatEther(BigInt(calculationresult?.data[0]?.result ?? 0))
+          ) > 0
+            ? Number(
+                formatEther(BigInt(calculationresult?.data[0]?.result ?? 0))
+              )
+            : Number(amount)) / Number(formatEther(BigInt(tokenPrice ?? 0)))
+        : 0;
+
+      return dividedVa?.toFixed(4);
+    }
+  }, [result, amount, calculationresult]);
 
   return (
     <div
@@ -169,14 +239,18 @@ const Banner = ({ id }: { id: string }) => {
                   background:
                     "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
                 }}
-                onClick={()=>  downloadPdf("/docs/whitepaper.pdf", "whitePaper.pdf")}
+                onClick={() =>
+                  downloadPdf("/docs/whitepaper.pdf", "whitePaper.pdf")
+                }
                 className="mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black"
               >
                 White Paper
               </button>
               <button
                 style={{ border: "1px solid #2B9AE6" }}
-                onClick={()=>  downloadPdf("/docs/lightpaper.pdf", "whitePaper.pdf")}
+                onClick={() =>
+                  downloadPdf("/docs/lightpaper.pdf", "whitePaper.pdf")
+                }
                 className="border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold"
               >
                 Light Paper
@@ -194,8 +268,17 @@ const Banner = ({ id }: { id: string }) => {
                 Buy DCRX
               </h2>
               <div className="grid grid-cols-4 text-center mb-4">
-                
-                <CountdownTimer label="Sale Starts In" targetTime={result && result.data && result.data && result.data[3]?.result && result.data[3]?.result && result.data[3]?.result?.endAt} />
+                <CountdownTimer
+                  label="Sale Starts In"
+                  targetTime={
+                    result &&
+                    result.data &&
+                    result.data &&
+                    result.data[1]?.result &&
+                    result.data[1]?.result &&
+                    result.data[1]?.result?.endAt
+                  }
+                />
               </div>
               <img src="/card/progress.png" className="w-[505px] pb-4" />
 
@@ -228,17 +311,21 @@ const Banner = ({ id }: { id: string }) => {
                 </p>
               </div>
               <div className="text-center">
-                <p className="mt-2 coinBgValue p-[20px]">$1 DCRX = ${result && result?.data && formatEther(BigInt(result?.data[1]?.result??0))}</p>
+                <p className="mt-2 coinBgValue p-[20px]">
+                  $1 DCRX = $
+                  {result &&
+                    result?.data &&
+                    formatEther(BigInt(result?.data[0]?.result ?? 0))}
+                </p>
               </div>
 
-              <CoinSelector setCoinType={setCoinType} coinType={coinType} tokenlist={result && result.data && result.data && result.data[2]?.result && result.data[2]?.result && result.data[2]?.result} />
+              <CoinSelector setCoinType={setCoinType} coinType={coinType} />
               <p className="text-white text-[15px] pt-4">{`${coinType?.tokenname} you pay`}</p>
 
               <div className="mt-2  items-center hidden sm:flex justify-between w-full">
                 <div className="input___border w-full sm:w-auto mr-1">
                   <input
                     type="number"
-
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                     onChange={(e) => setAmount(e.target.value)}
@@ -249,9 +336,7 @@ const Banner = ({ id }: { id: string }) => {
                   <input
                     type="number"
                     placeholder="0"
-                    value={
-                      calciulatedToken
-                    }
+                    value={calciulatedToken}
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
                 </div>
@@ -260,7 +345,6 @@ const Banner = ({ id }: { id: string }) => {
                 <div className="input___border w-full sm:w-auto">
                   <input
                     type="number"
-                    
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
@@ -270,9 +354,7 @@ const Banner = ({ id }: { id: string }) => {
                   <input
                     type="number"
                     placeholder="0"
-                    value={
-                      calciulatedToken
-                    }
+                    value={calciulatedToken}
                     disabled
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
@@ -287,25 +369,59 @@ const Banner = ({ id }: { id: string }) => {
                 </button>
               ) : (
                 <button
-                  onClick={() => handleBuy()}
-                  className="w-full bg-[#2B9AE6] mt-4 h-[55px] rounded-lg text-lg font-semibold"
+                  disabled={
+                    isPending ||
+                    Number(amount) <= 0 ||
+                    amount === "" ||
+                    Number(Balance?.formatted) < Number(amount) ||
+                    Number(Balance?.formatted) == 0
+                  }
+                  onClick={() => {
+                    if(coinType?.tokenname === "BNB"){
+                      handleBuy()
+                    }else{
+                      approveToken()
+                    }
+                    
+                  
+                  }}
+                  className={`w-full ${
+                    amount === ""
+                      ? "bg-orange-400"
+                      : Number(amount) <= 0 ||
+                        Number(Balance?.formatted) < Number(amount) ||
+                        Number(Balance?.formatted) == 0
+                      ? "bg-red-500"
+                      : "bg-[#2B9AE6]"
+                  }  mt-4 h-[55px] rounded-lg text-lg font-semibold`}
                 >
-                  {isPending ? "Buying" : "Buy Now"}
+                  {isPending
+                    ? coinType?.tokenname === "BNB"? "Buying...":"Approving..."
+                    : amount === ""
+                    ? "Please enter amount"
+                    : Number(amount) <= 0
+                    ? "Please enter correct amount"
+                    : Number(Balance?.formatted) < Number(amount) ||
+                      Number(Balance?.formatted) == 0
+                    ? "Insufficient funds"
+                    :coinType?.tokenname === "BNB"? "Buy Now":"Approve"}
                 </button>
               )}
 
-              {address ? "" :(
-               <p className="text-center text-[#2B9AE6] text-[16px] mt-4 cursor-pointer " onClick={()=>setIsOpen(true)}>
-               Don’t have a wallet?
-             </p>
+              {address ? (
+                ""
+              ) : (
+                <p
+                  className="text-center text-[#2B9AE6] text-[16px] mt-4 cursor-pointer "
+                  onClick={() => setIsOpen(true)}
+                >
+                  Don’t have a wallet?
+                </p>
               )}
 
-              
-      <WalletModal setIsOpen={setIsOpen} isOpen={isOpen} />
-
+              <WalletModal setIsOpen={setIsOpen} isOpen={isOpen} />
             </div>
           </div>
-          
         </div>
       </ConstrainedBox>
     </div>

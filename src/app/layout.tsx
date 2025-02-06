@@ -10,6 +10,8 @@ import { headers } from "next/headers";
 import ContextProvider from "./context";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ToastContainer } from "react-toastify";
+
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
@@ -112,6 +114,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
         <main>{children}</main>
         <Footer />
         <ScrollToTop />
+        <ToastContainer />
       </ContextProvider>
        
       </body>

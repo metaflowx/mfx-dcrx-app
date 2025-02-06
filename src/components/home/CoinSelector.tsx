@@ -5,64 +5,35 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./CoinSelector.css"; // Import your CSS file
 import { erc20Abi, zeroAddress } from "viem";
-import { useReadContract } from "wagmi";
+import { useReadContract, useReadContracts } from "wagmi";
 import { useEffect, useMemo, useState } from "react";
+import { iocConfig } from "@/constants/contract";
+import { useAppKitNetwork } from "@reown/appkit/react";
 
-const coinList: any[] = [
-  {
-    tokenname:"BTC",
-    address:"0x264990fbd0A4796A3E3d8E37C4d5F87a3aCa5Ebf"
-  },
-  {
-     tokenname:"ETH",
-    address:"0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e"
-  },
-  {
-     tokenname:"BNB",
-    address:zeroAddress
-  },
-  {
-     tokenname:"XRP",
-    address:"0x93A67D414896A280bF8FFB3b389fE3686E014fda"
-  },
-  {
-     tokenname:"USDT",
-    address:"0xB97Ad0E74fa7d920791E90258A6E2085088b4320"
-  },
-  {
-     tokenname:"USDC",
-    address:"0x51597f405303C4377E36123cBc172b13269EA163"
-  },
-  {
-     tokenname:"SOL",
-    address:"0x0E8a53DD9c13589df6382F13dA6B3Ec8F919B323"
-  },
-  {
-    tokenname:"DOGE",
-   address:"0x3AB0A0d137D4F946fBB19eecc6e92E64660231C8"
- },
-  {
-     tokenname:"DAI",
-    address:"0x132d3C0B1D2cEa0BC552588063bdBb210FDeecfA"
-  },
-  {
-     tokenname:"FDUSD",
-    address:"0x390180e80058A8499930F0c13963AD3E0d86Bfc9"
-  },
- 
- 
 
-];
 
 interface CoinSelectorProps {
   coinType?: any;
   setCoinType: any;
-  tokenlist?:any
+ 
 }
 
-const CoinSelector: React.FC<CoinSelectorProps> = ({ coinType, setCoinType,tokenlist }) => {
+const CoinSelector: React.FC<CoinSelectorProps> = ({ coinType, setCoinType }) => {
+ const { chainId } = useAppKitNetwork();
+  const result = useReadContracts({
+      contracts: [
+       
+        {
+          ...iocConfig,
+          functionName: "getAcceptedTokenList",
+          chainId: Number(chainId),
+        },
+        
+      ],
+    });
  
 const tokenAddrss = useMemo(() => {
+  const tokenlist=result && result.data && result.data && result.data[0]?.result
 if(tokenlist && tokenlist?.length>0){
 
   const mergeArray = [...tokenlist,zeroAddress]
@@ -71,7 +42,7 @@ if(tokenlist && tokenlist?.length>0){
   
 }
 }
-  , [tokenlist])
+  , [result])
   
 
 

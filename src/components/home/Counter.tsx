@@ -11,7 +11,7 @@ const CountdownTimer = ({
     const now = Math.floor(Date.now() / 1000); // Current time in Unix seconds
     const difference = Number(targetTime) - now;
 
-    if (difference <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    if (difference <= 0 || difference===undefined) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
     return {
       days: Math.floor(difference / (24 * 3600)),
