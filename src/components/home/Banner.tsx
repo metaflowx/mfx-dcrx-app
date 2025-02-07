@@ -91,6 +91,11 @@ const Banner = ({ id }: { id: string }) => {
         args: [0],
         chainId: Number(chainId),
       },
+      {
+        ...tokenConfig,
+        functionName: "totalSupply",
+        chainId: Number(chainId),
+      },
       // {
       //   ...iocConfig,
       //   functionName: "totalContributor",
@@ -293,7 +298,7 @@ const Banner = ({ id }: { id: string }) => {
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                  $0 / $0 DCRX
+                  $0 / ${result && result?.data  && result?.data[2]?.result && (formatEther(BigInt(result?.data[2]?.result)))} DCRX
                 </p>
               </div>
               <div className="flex justify-between items-center">

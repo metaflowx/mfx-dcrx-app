@@ -17,7 +17,7 @@ const RefferalDashboard = ({result}:{result?:any}) => {
   const data = [
     {
       title: "Total Referrals",
-      value: result[1]?.result.toString(),
+      value: formatEther(BigInt(result[1]?.result)),
       symbol:"",
       earn:"/refer/earn.png",
       subValues: [
@@ -29,7 +29,7 @@ const RefferalDashboard = ({result}:{result?:any}) => {
     },
     {
       title: "Total Earnings",
-      value:  result[0]?.result.toString(),
+      value:  formatEther(BigInt(result[0]?.result)),
       symbol:"$DCRX",
       earn:"/refer/earn.png",
       subValues: [
