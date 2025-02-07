@@ -258,7 +258,7 @@ console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
       className="min-h-screen bannerBg   text-white flex items-center justify-center px-4"
     >
       <ConstrainedBox>
-        <div className=" flex flex-col lg:flex-row items-center mt-[100px] sm:mt-[85px] ">
+        <div className=" flex flex-col lg:flex-row items-center mt-[120px] sm:mt-[85px] ">
           <div className="text-center lg:text-left">
             <h1 className="sm:text-[40px] md:text-[60px] lg:text-[70px] font-bold">
               Join Decryptox:
@@ -319,7 +319,7 @@ console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
               </div>
               <img src="/card/progress.png" className="w-[505px] pb-4" />
 
-              <div className="flex justify-between items-center">
+              <div className="block sm:flex justify-between items-center">
                 <p
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
@@ -330,7 +330,7 @@ console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                  ${calciulatedToken?.totalSale} / $ {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
+                  ${calciulatedToken?.totalSale || 0} / $ {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
                 </p>
               </div>
               {address && (

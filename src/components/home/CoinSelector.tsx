@@ -47,21 +47,21 @@ if(tokenlist && tokenlist?.length>0){
 
 
   return (
-    <div className="w-[500px]">
+    <div className="w-auto">
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}
         slidesPerView={4}
         navigation
         breakpoints={{
-          640: { slidesPerView: 4, spaceBetween: 15 },
-          768: { slidesPerView: 4, spaceBetween: 20 },
+          640: { slidesPerView: 2, spaceBetween: 15 },
+          768: { slidesPerView: 3, spaceBetween: 20 },
           1024: { slidesPerView: 4, spaceBetween: 25 },
         }}
         className="py-4"
       >
         {tokenAddrss?.map((coin:any,index:any) => (
-          <SwiperSlide key={index+1} className="flex justify-center">
+          <SwiperSlide style={{width:"106px"}} key={index+1} className="flex justify-center w-[106px] ">
            <TokenData chainId={chainId} coin={coin} index={index} setCoinType={setCoinType} coinType={coinType} />
           </SwiperSlide>
         ))}
@@ -88,7 +88,7 @@ const TokenData=({coin,chainId,index,setCoinType,coinType}:{coin:any,chainId:any
     <button
     onClick={() => setCoinType({address:coin,tokenname: coin===zeroAddress ? "BNB" :symbol})}
 
-   className={`${coinType?.tokenname===(coin===zeroAddress ? "BNB" :symbol)  ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " w-[121px] h-[50px]  text-sm"`}
+   className={`${coinType?.tokenname===(coin===zeroAddress ? "BNB" :symbol)  ? "bg-[#2B9AE6] rounded-md": "coinBgBtn"} " min-w-[121px] h-[50px]  text-sm"`}
   >
     {coin===zeroAddress ? "BNB" :symbol}
   </button>
