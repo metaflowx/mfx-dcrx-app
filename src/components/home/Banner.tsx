@@ -6,7 +6,7 @@ import {
   useAppKitAccount,
   useAppKitNetwork,
 } from "@reown/appkit/react";
-import {  toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import CoinSelector from "./CoinSelector";
 
 import {
@@ -28,7 +28,6 @@ import {
   zeroAddress,
 } from "viem";
 
-
 import { parseEther } from "viem";
 
 import {
@@ -44,13 +43,11 @@ import { downloadPdf } from "@/utils";
 import useCheckAllowance from "@/hooks/useCheckAllowance";
 import { useQueryClient } from "@tanstack/react-query";
 import { extractDetailsFromError } from "@/utils/extractDetailsFromError";
-import {  useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 const Banner = ({ id }: { id: string }) => {
   const { address } = useAccount();
   const { chainId } = useAppKitNetwork();
-const searchparm= useSearchParams()
-
-
+  const searchparm = useSearchParams();
 
   const [isOpen, setIsOpen] = useState(false);
   const [coinType, setCoinType] = useState({
@@ -60,14 +57,15 @@ const searchparm= useSearchParams()
   const { data: Balance } = useBalance({
     address: address,
   });
-  console.log(">>>>>>>>useAccount()", Number(Balance?.formatted));
 
   const [totalSupply, setTotalSupply] = useState<string>("");
   const [saleType, setSaleType] = useState(0);
   const [isAproveERC20, setIsApprovedERC20] = useState(true);
   const [amount, setAmount] = useState("");
-  const [referrer, setReferrer] = useState( searchparm.get("ref") || zeroAddress);
-  const queryClient = useQueryClient()
+  const [referrer, setReferrer] = useState(
+    searchparm.get("ref") || zeroAddress
+  );
+  const queryClient = useQueryClient();
   const { data: blockNumber } = useBlockNumber({ watch: true });
   const { writeContractAsync, isPending, isSuccess, isError } =
     useWriteContract();
@@ -75,22 +73,19 @@ const searchparm= useSearchParams()
 
   const resultOfCheckAllowance = useCheckAllowance({
     spenderAddress: ICOContractAddress,
-    token: TokenContractAddress
-})
+    token: TokenContractAddress,
+  });
 
-const {data:resultOfTokenBalance} = useReadContract({
-  abi: erc20Abi,
-  address: coinType.address,
-  functionName: 'balanceOf',
-  args: [address as Address],
-  account: address,
-  query:{
-    enabled: coinType.tokenname==="BNB" ? false :true,
-  }
-})
-
-
-
+  const { data: resultOfTokenBalance } = useReadContract({
+    abi: erc20Abi,
+    address: coinType.address,
+    functionName: "balanceOf",
+    args: [address as Address],
+    account: address,
+    query: {
+      enabled: coinType.tokenname === "BNB" ? false : true,
+    },
+  });
 
   const tokenAddress =
     coinType.tokenname === "BNB" ? zeroAddress : coinType.address;
@@ -110,25 +105,25 @@ const {data:resultOfTokenBalance} = useReadContract({
         ...iocConfig,
         functionName: "getSaleTokenPrice",
         args: [0],
-        chainId: Number(chainId)??97,
+        chainId: Number(chainId) ?? 97,
       },
 
       {
         ...iocConfig,
         functionName: "saleType2IcoDetail",
         args: [0],
-        chainId: Number(chainId)??97,
+        chainId: Number(chainId) ?? 97,
       },
       {
         ...tokenConfig,
         functionName: "totalSupply",
-        chainId: Number(chainId)??97,
+        chainId: Number(chainId) ?? 97,
       },
       {
         ...iocConfig,
         functionName: "user2SaleType2Contributor",
-        args: [address as Address,0],
-        chainId: Number(chainId)??97,
+        args: [address as Address, 0],
+        chainId: Number(chainId) ?? 97,
       },
       {
         ...iocConfig,
@@ -136,21 +131,10 @@ const {data:resultOfTokenBalance} = useReadContract({
         args: [0],
         chainId: Number(chainId),
       },
-      // {
-      //   ...iocConfig,
-      //   functionName: "totalContributorLengthForUser",
-      //   args: [address as Address,0],
-      //   chainId: Number(chainId),
-      // },
     ],
   });
 
-  console.log(">>>>>>>>>>>>>result",result);
-  
-
-
   const handleBuy = async () => {
-
     try {
       const formattedAmount = parseUnits(amount, 18);
       const tokenAddress = coinType?.address;
@@ -166,37 +150,38 @@ const {data:resultOfTokenBalance} = useReadContract({
         ],
         value: coinType?.tokenname === "BNB" ? parseEther(amount) : BigInt(0),
       });
-      if(res){
-        toast.success("Transaction completed")
-        setAmount("")
+      if (res) {
+        toast.success("Transaction completed");
+        setAmount("");
       }
     } catch (error: any) {
-      toast.error(extractDetailsFromError(error.message as string) as string)
+      toast.error(extractDetailsFromError(error.message as string) as string);
     }
   };
 
-  const approveToken = async()=>{
+  const approveToken = async () => {
     try {
-      const formattedAmount =  Number?.(amount) > 0 ? parseEther?.(amount) : parseEther?.(BigInt((Number.MAX_SAFE_INTEGER ** 1.3)?.toString())?.toString())
-   const res = await writeContractAsync({
-     ...tokenConfig,
-      functionName: 'approve',
-      args: [
-        ICOContractAddress,
-        formattedAmount
-      ],
-      account: address
-  })
-  if(res){
-    setIsApprovedERC20(true)
-    setAmount('')
-    toast.success("Token approved successfully")
-  }
-      
+      const formattedAmount =
+        Number?.(amount) > 0
+          ? parseEther?.(amount)
+          : parseEther?.(
+              BigInt((Number.MAX_SAFE_INTEGER ** 1.3)?.toString())?.toString()
+            );
+      const res = await writeContractAsync({
+        ...tokenConfig,
+        functionName: "approve",
+        args: [ICOContractAddress, formattedAmount],
+        account: address,
+      });
+      if (res) {
+        setIsApprovedERC20(true);
+        setAmount("");
+        toast.success("Token approved successfully");
+      }
     } catch (error: any) {
-      toast.error(extractDetailsFromError(error.message as string) as string)
+      toast.error(extractDetailsFromError(error.message as string) as string);
     }
-  }
+  };
 
   const calciulatedToken = useMemo(() => {
     if ((result && result?.data) || amount || calculationresult) {
@@ -210,44 +195,67 @@ const {data:resultOfTokenBalance} = useReadContract({
               )
             : Number(amount)) / Number(formatEther(BigInt(tokenPrice ?? 0)))
         : 0;
-        const purchaseToken = result && result?.data  && result?.data[3]?.result && formatEther(BigInt(result?.data[3]?.result?.volume))
-        const tokeninUSD = result && result?.data ? Number(formatEther(BigInt(result?.data[0]?.result ?? 0))):0
-        const totalTokenSupply = result && result?.data  && result?.data[2]?.result && (formatEther(BigInt(result?.data[2]?.result)))
-        const totalTokenQty = result && result?.data  && result?.data[4]?.result && (formatEther(BigInt(result?.data[4]?.result?.saleQuantity)))
+      const purchaseToken =
+        result &&
+        result?.data &&
+        result?.data[3]?.result &&
+        formatEther(BigInt(result?.data[3]?.result?.volume));
+      const tokeninUSD =
+        result && result?.data
+          ? Number(formatEther(BigInt(result?.data[0]?.result ?? 0)))
+          : 0;
+      const totalTokenSupply =
+        result &&
+        result?.data &&
+        result?.data[2]?.result &&
+        formatEther(BigInt(result?.data[2]?.result));
+      const totalTokenQty =
+        result &&
+        result?.data &&
+        result?.data[4]?.result &&
+        formatEther(BigInt(result?.data[4]?.result?.saleQuantity));
 
-        const totalTokenSale = result && result?.data  && result?.data[4]?.result && (formatEther(BigInt(result?.data[4]?.result?.saleTokenAmount)))
+      const totalTokenSale =
+        result &&
+        result?.data &&
+        result?.data[4]?.result &&
+        formatEther(BigInt(result?.data[4]?.result?.saleTokenAmount));
 
+      const purchaseTokenUSD = Number(purchaseToken) * Number(tokeninUSD);
+      const totalTokenSupplyUSD = Number(totalTokenSupply) * Number(tokeninUSD);
 
-        const purchaseTokenUSD = Number(purchaseToken)*Number(tokeninUSD)
-        const totalTokenSupplyUSD = Number(totalTokenSupply)*Number(tokeninUSD)
-        
-        const totalSoldToken =Number(totalTokenSale) - Number( totalTokenQty)
-        const totalSaleTokenUSD = Number(totalSoldToken)*Number(tokeninUSD)
+      const totalSoldToken = Number(totalTokenSale) - Number(totalTokenQty);
+      const totalSaleTokenUSD = Number(totalSoldToken) * Number(tokeninUSD);
 
-
-      return {getToken:dividedVa?.toFixed(2),purchaseTokenUSD:purchaseTokenUSD.toFixed(2),totalTokenSupplyUSD:totalTokenSupplyUSD,totalSale:totalSaleTokenUSD.toFixed(2)};
+      return {
+        getToken: dividedVa?.toFixed(2),
+        purchaseTokenUSD: purchaseTokenUSD.toFixed(2),
+        totalTokenSupplyUSD: totalTokenSupplyUSD,
+        totalSale: totalSaleTokenUSD.toFixed(2),
+      };
     }
   }, [result, amount, calculationresult]);
 
-
   useEffect(() => {
     if (resultOfCheckAllowance && address) {
-        const price = parseFloat(amount === "" ? "0" : amount)
-        const allowance = parseFloat(formatEther?.(resultOfCheckAllowance.data ?? BigInt(0)))
-        if (allowance >= price) {
-            setIsApprovedERC20(true)
-        } else {
-            setIsApprovedERC20(false)
-        }
+      const price = parseFloat(amount === "" ? "0" : amount);
+      const allowance = parseFloat(
+        formatEther?.(resultOfCheckAllowance.data ?? BigInt(0))
+      );
+      if (allowance >= price) {
+        setIsApprovedERC20(true);
+      } else {
+        setIsApprovedERC20(false);
+      }
     }
-}, [resultOfCheckAllowance, address, amount]);
+  }, [resultOfCheckAllowance, address, amount]);
 
-// use to refetch
-useEffect(() => {
-    queryClient.invalidateQueries({ queryKey: resultOfCheckAllowance.queryKey })
-}, [blockNumber, queryClient, resultOfCheckAllowance])
-
-console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
+  // use to refetch
+  useEffect(() => {
+    queryClient.invalidateQueries({
+      queryKey: resultOfCheckAllowance.queryKey,
+    });
+  }, [blockNumber, queryClient, resultOfCheckAllowance]);
 
   
 
@@ -330,24 +338,25 @@ console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                  ${calciulatedToken?.totalSale || 0} / $ {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
+                  ${calciulatedToken?.totalSale || 0} / ${" "}
+                  {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
                 </p>
               </div>
               {address && (
                 <div className="flex justify-between items-center">
-                <p
-                  style={{ fontFamily: "Geist, serif" }}
-                  className="text-[#FFFFFF] text-[18px] font-bold"
-                >
-                  Your purchased $DCRX:{" "}
-                </p>
-                <p
-                  style={{ fontFamily: "Geist, serif" }}
-                  className="text-[#FFFFFF] text-[18px] font-bold"
-                >
-                 ${calciulatedToken?.purchaseTokenUSD || 0}
-                </p>
-              </div>
+                  <p
+                    style={{ fontFamily: "Geist, serif" }}
+                    className="text-[#FFFFFF] text-[18px] font-bold"
+                  >
+                    Your purchased $DCRX:{" "}
+                  </p>
+                  <p
+                    style={{ fontFamily: "Geist, serif" }}
+                    className="text-[#FFFFFF] text-[18px] font-bold"
+                  >
+                    ${calciulatedToken?.purchaseTokenUSD || 0}
+                  </p>
+                </div>
               )}
               <div className="text-center">
                 <p className="mt-2 coinBgValue p-[20px]">
@@ -408,48 +417,60 @@ console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
                 </button>
               ) : (
                 <button
-                disabled={
-                  isPending || 
-                  amount === "" || 
-                  Number(amount) <= 0 || 
-                  (coinType?.tokenname === "BNB"
-                    ? Number(Balance?.formatted) < Number(amount) || Number(Balance?.formatted) === 0
-                    : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) < Number(amount))
-                }
-                onClick={() => {
-                  if (coinType?.tokenname === "BNB") {
-                    handleBuy();
-                  } else {
-                    !isAproveERC20 ? approveToken() : handleBuy();
+                  disabled={
+                    isPending ||
+                    amount === "" ||
+                    Number(amount) <= 0 ||
+                    (coinType?.tokenname === "BNB"
+                      ? Number(Balance?.formatted) < Number(amount) ||
+                        Number(Balance?.formatted) === 0
+                      : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) <
+                        Number(amount))
                   }
-                }}
-                className={`w-full mt-4 h-[55px] rounded-lg text-lg font-semibold
-                  ${amount === "" || Number(amount) <= 0
-                    ? "bg-gray-400"  // Invalid amount -> Gray
-                    : (coinType?.tokenname === "BNB"
-                        ? Number(Balance?.formatted) < Number(amount) || Number(Balance?.formatted) === 0
-                        : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) < Number(amount))
-                    ? "bg-red-500"  // Insufficient balance -> Red
-                    : "bg-[#2B9AE6]"  // Valid input -> Blue
+                  onClick={() => {
+                    if (coinType?.tokenname === "BNB") {
+                      handleBuy();
+                    } else {
+                      !isAproveERC20 ? approveToken() : handleBuy();
+                    }
+                  }}
+                  className={`w-full mt-4 h-[55px] rounded-lg text-lg font-semibold
+                  ${
+                    amount === "" || Number(amount) <= 0
+                      ? "bg-gray-400" // Invalid amount -> Gray
+                      : (
+                          coinType?.tokenname === "BNB"
+                            ? Number(Balance?.formatted) < Number(amount) ||
+                              Number(Balance?.formatted) === 0
+                            : Number(
+                                formatEther(BigInt(resultOfTokenBalance ?? 0))
+                              ) < Number(amount)
+                        )
+                      ? "bg-red-500" // Insufficient balance -> Red
+                      : "bg-[#2B9AE6]" // Valid input -> Blue
                   }`}
-              >
-                {isPending
-                  ? coinType?.tokenname === "BNB" || isAproveERC20
-                    ? "Buying..."
-                    : "Approving..."
-                  : amount === ""
-                  ? "Please enter amount"
-                  : Number(amount) <= 0
-                  ? "Please enter correct amount"
-                  : (coinType?.tokenname === "BNB"
-                    ? Number(Balance?.formatted) < Number(amount) || Number(Balance?.formatted) === 0
-                    : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) < Number(amount))
-                  ? "Insufficient funds"
-                  : coinType?.tokenname === "BNB" || isAproveERC20
-                  ? "Buy Now"
-                  : "Approve"}
-              </button>
-              
+                >
+                  {isPending
+                    ? coinType?.tokenname === "BNB" || isAproveERC20
+                      ? "Buying..."
+                      : "Approving..."
+                    : amount === ""
+                    ? "Please enter amount"
+                    : Number(amount) <= 0
+                    ? "Please enter correct amount"
+                    : (
+                        coinType?.tokenname === "BNB"
+                          ? Number(Balance?.formatted) < Number(amount) ||
+                            Number(Balance?.formatted) === 0
+                          : Number(
+                              formatEther(BigInt(resultOfTokenBalance ?? 0))
+                            ) < Number(amount)
+                      )
+                    ? "Insufficient funds"
+                    : coinType?.tokenname === "BNB" || isAproveERC20
+                    ? "Buy Now"
+                    : "Approve"}
+                </button>
               )}
 
               {address ? (
