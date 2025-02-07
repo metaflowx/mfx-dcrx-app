@@ -41,6 +41,9 @@ import { IcoABI } from "@/app/ABI/IcoABI";
 import CountdownTimer from "./Counter";
 import WalletModal from "../Modal";
 import { downloadPdf } from "@/utils";
+import useCheckAllowance from "@/hooks/useCheckAllowance";
+import { useQueryClient } from "@tanstack/react-query";
+import { extractDetailsFromError } from "@/utils/extractDetailsFromError";
 const Banner = ({ id }: { id: string }) => {
   const { address } = useAccount();
   const { chainId } = useAppKitNetwork();
@@ -60,10 +63,25 @@ const Banner = ({ id }: { id: string }) => {
   const [isAproveERC20, setIsApprovedERC20] = useState(true);
   const [amount, setAmount] = useState("");
   const [referrer, setReferrer] = useState(zeroAddress);
+  const queryClient = useQueryClient()
   const { data: blockNumber } = useBlockNumber({ watch: true });
   const { writeContractAsync, isPending, isSuccess, isError } =
     useWriteContract();
   const { open, close } = useAppKit();
+
+  const resultOfCheckAllowance = useCheckAllowance({
+    spenderAddress: ICOContractAddress,
+    token: TokenContractAddress
+})
+
+const resultOfTokenBalance = useReadContract({
+  abi: erc20Abi,
+  address: TokenContractAddress,
+  functionName: 'balanceOf',
+  args: [address as Address],
+  account: address
+})
+
   const tokenAddress =
     coinType.tokenname === "BNB" ? zeroAddress : coinType.address;
   const calculationresult = useReadContracts({
@@ -72,7 +90,7 @@ const Banner = ({ id }: { id: string }) => {
         ...iocConfig,
         functionName: "calculateUSDAmount",
         args: [tokenAddress as Address, parseEther(amount)],
-        // chainId: Number(chainId),
+        chainId: Number(chainId),
       },
     ],
   });
@@ -82,31 +100,31 @@ const Banner = ({ id }: { id: string }) => {
         ...iocConfig,
         functionName: "getSaleTokenPrice",
         args: [0],
-        // chainId: Number(chainId),
+        chainId: Number(chainId)??97,
       },
 
       {
         ...iocConfig,
         functionName: "saleType2IcoDetail",
         args: [0],
-        // chainId: Number(chainId),
+        chainId: Number(chainId)??97,
       },
       {
         ...tokenConfig,
         functionName: "totalSupply",
-        // chainId: Number(chainId),
+        chainId: Number(chainId)??97,
       },
       {
         ...iocConfig,
         functionName: "user2SaleType2Contributor",
         args: [address as Address,0],
-        // chainId: Number(chainId),
+        chainId: Number(chainId)??97,
       },
       // {
       //   ...iocConfig,
       //   functionName: "totalContributor",
       //   args: [0],
-      //   chainId: Number(chainId),
+        // chainId: Number(chainId),
       // },
       // {
       //   ...iocConfig,
@@ -116,24 +134,13 @@ const Banner = ({ id }: { id: string }) => {
       // },
     ],
   });
-  console.log("checkig", result);
 
 
   const handleBuy = async () => {
-    console.log(">>>>>>>>> coinType:", coinType);
 
     try {
       const formattedAmount = parseUnits(amount, 18);
       const tokenAddress = coinType?.address;
-
-      console.log(
-        ">>>>>>>>>>>> Checking:",
-        saleType,
-        tokenAddress,
-        formattedAmount,
-        referrer
-      );
-
       const res = await writeContractAsync({
         address: ICOContractAddress,
         abi: IcoABI,
@@ -150,66 +157,31 @@ const Banner = ({ id }: { id: string }) => {
         toast.success("Transaction completed")
         setAmount("")
       }
-
-      console.log("Transaction successful:", res);
     } catch (error: any) {
-     
-
-      if (error.message.includes("rejected")) {
-        toast.error("User rejected the transaction.");
-      } else if (error.code === "INSUFFICIENT_FUNDS") {
-        toast.error("Insufficient funds for transaction or gas fees.");
-      } else if (error.message?.includes("revert")) {
-        toast.error("Contract reverted the transaction. Possible reasons:");
-        toast.error("- Sale type or token address is incorrect.");
-        toast.error("- User is not eligible for the sale.");
-        toast.error("- Hard-coded contract conditions were not met.");
-      } else if (error.code === "NETWORK_ERROR") {
-        toast.error(
-          "Network error. Check your RPC endpoint or internet connection."
-        );
-      } else {
-        console.error("Unhandled error:", error.message);
-      }
+      toast.error(extractDetailsFromError(error.message as string) as string)
     }
   };
 
   const approveToken = async()=>{
     try {
-      const formattedAmount = parseUnits(amount, 18);
-   const res= await writeContractAsync({
+      const formattedAmount =  Number?.(amount) > 0 ? parseEther?.(amount) : parseEther?.(BigInt((Number.MAX_SAFE_INTEGER ** 1.3)?.toString())?.toString())
+   const res = await writeContractAsync({
      ...tokenConfig,
       functionName: 'approve',
       args: [
-        tokenAddress as Address,
+        ICOContractAddress,
         formattedAmount
       ],
       account: address
   })
   if(res){
-    handleBuy()
+    setIsApprovedERC20(true)
+    setAmount('')
+    toast.success("Token approved successfully")
   }
       
     } catch (error: any) {
-    console.log(">>>>>>>>>>>>..error",error.message);
-    
-
-      if (error.message.includes("rejected")) {
-        toast.error("User rejected the transaction.");
-      } else if (error.code === "INSUFFICIENT_FUNDS") {
-        toast.error("Insufficient funds for transaction or gas fees.");
-      } else if (error.message?.includes("revert")) {
-        toast.error("Contract reverted the transaction. Possible reasons:");
-        toast.error("- Sale type or token address is incorrect.");
-        toast.error("- User is not eligible for the sale.");
-        toast.error("- Hard-coded contract conditions were not met.");
-      } else if (error.code === "NETWORK_ERROR") {
-        toast.error(
-          "Network error. Check your RPC endpoint or internet connection."
-        );
-      } else {
-        console.error("Unhandled error:", error.message);
-      }
+      toast.error(extractDetailsFromError(error.message as string) as string)
     }
   }
 
@@ -237,6 +209,26 @@ const Banner = ({ id }: { id: string }) => {
       return {getToken:dividedVa?.toFixed(4),purchaseTokenUSD:purchaseTokenUSD.toFixed(4),totalTokenSupplyUSD:totalTokenSupplyUSD};
     }
   }, [result, amount, calculationresult]);
+
+
+  useEffect(() => {
+    if (resultOfCheckAllowance && address) {
+        const price = parseFloat(amount === "" ? "0" : amount)
+        const allowance = parseFloat(formatEther?.(resultOfCheckAllowance.data ?? BigInt(0)))
+        if (allowance >= price) {
+            setIsApprovedERC20(true)
+        } else {
+            setIsApprovedERC20(false)
+        }
+    }
+}, [resultOfCheckAllowance, address, amount]);
+
+// use to refetch
+useEffect(() => {
+    queryClient.invalidateQueries({ queryKey: resultOfCheckAllowance.queryKey })
+}, [blockNumber, queryClient, resultOfCheckAllowance])
+
+console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
 
   
 
@@ -400,15 +392,15 @@ const Banner = ({ id }: { id: string }) => {
                   disabled={
                     isPending ||
                     Number(amount) <= 0 ||
-                    amount === "" ||
-                    Number(Balance?.formatted) < Number(amount) ||
-                    Number(Balance?.formatted) == 0
+                    amount === "" 
+                    // Number(Balance?.formatted) < Number(amount) ||
+                    // Number(Balance?.formatted) == 0
                   }
                   onClick={() => {
                     if(coinType?.tokenname === "BNB"){
                       handleBuy()
                     }else{
-                      approveToken()
+                      !isAproveERC20 ? approveToken(): handleBuy()
                     }
                     
                   
@@ -417,22 +409,22 @@ const Banner = ({ id }: { id: string }) => {
                     amount === ""
                       ? "bg-orange-400"
                       : Number(amount) <= 0 ||
-                        Number(Balance?.formatted) < Number(amount) ||
-                        Number(Balance?.formatted) == 0
+                      coinType?.tokenname === "BNB" && (Number(Balance?.formatted) < Number(amount) ||
+                      Number(Balance?.formatted) == 0)
                       ? "bg-red-500"
                       : "bg-[#2B9AE6]"
                   }  mt-4 h-[55px] rounded-lg text-lg font-semibold`}
                 >
                   {isPending
-                    ? coinType?.tokenname === "BNB"? "Buying...":"Approving..."
+                    ? (coinType?.tokenname === "BNB" || isAproveERC20)? "Buying...":"Approving..."
                     : amount === ""
                     ? "Please enter amount"
                     : Number(amount) <= 0
                     ? "Please enter correct amount"
-                    : Number(Balance?.formatted) < Number(amount) ||
-                      Number(Balance?.formatted) == 0
+                    : coinType?.tokenname === "BNB" && (Number(Balance?.formatted) < Number(amount) ||
+                      Number(Balance?.formatted) == 0)
                     ? "Insufficient funds"
-                    :coinType?.tokenname === "BNB"? "Buy Now":"Approve"}
+                    :(coinType?.tokenname === "BNB" || isAproveERC20)? "Buy Now":"Approve"}
                 </button>
               )}
 

@@ -2,17 +2,18 @@ import { useAccount, useReadContract } from "wagmi";
 import RefferalCard from "./RefferalCard";
 import { tokenConfig } from "@/constants/contract";
 import { Address, formatEther, parseUnits } from "viem";
+import { useAppKitNetwork } from "@reown/appkit/react";
 
 const RefferalDashboard = ({result}:{result?:any}) => {
-  // console.log(">>>>>>>>>result",result[0]?.result.toString());
+  const {chainId}=useAppKitNetwork();
    const { address } = useAccount();
   const { data:tokenbalance, isLoading } = useReadContract({
    ...tokenConfig,
     functionName: "balanceOf",
     args: [address as Address],
+    chainId: Number(chainId)??97
   });
 
-  console.log(">>>>>>>>>>.tokenbalance15",tokenbalance);
   
   const data = [
     {

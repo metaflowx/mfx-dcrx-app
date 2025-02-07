@@ -62,7 +62,7 @@ if(tokenlist && tokenlist?.length>0){
       >
         {tokenAddrss?.map((coin:any,index:any) => (
           <SwiperSlide key={index+1} className="flex justify-center">
-           <TokenData coin={coin} index={index} setCoinType={setCoinType} coinType={coinType} />
+           <TokenData chainId={chainId} coin={coin} index={index} setCoinType={setCoinType} coinType={coinType} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -72,14 +72,15 @@ if(tokenlist && tokenlist?.length>0){
 
 export default CoinSelector;
 
-const TokenData=({coin,index,setCoinType,coinType}:{coin:any,index:any,setCoinType:any,coinType:any})=>{
+const TokenData=({coin,chainId,index,setCoinType,coinType}:{coin:any,chainId:any,index:any,setCoinType:any,coinType:any})=>{
   const { data: symbol } =  useReadContract({
     abi: erc20Abi,
     address: coin,
     functionName: 'symbol',
     query: {
       enabled: coin!==zeroAddress
-    }
+    },
+    chainId: Number(chainId),
   });
   console.log(">>>>>>>>>>>data",symbol);
   

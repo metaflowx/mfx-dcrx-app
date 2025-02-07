@@ -12,7 +12,7 @@ if (!projectId) {
   throw new Error('Project ID is not defined')
 }
 
-export const networks = [bsc,bscTestnet] as [AppKitNetwork, ...AppKitNetwork[]]
+export const networks = [bscTestnet,bsc] as [AppKitNetwork, ...AppKitNetwork[]]
 
 //Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
@@ -21,7 +21,10 @@ export const wagmiAdapter = new WagmiAdapter({
   }),
   ssr: true,
   projectId,
-  networks
+  networks,
+  transports: {
+    [bscTestnet.id]: http('https://bsc-testnet-rpc.publicnode.com')
+  },
 })
 
 export const config = wagmiAdapter.wagmiConfig

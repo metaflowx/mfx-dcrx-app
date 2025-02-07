@@ -10,6 +10,7 @@ import { contractConfig, iocConfig } from "@/constants/contract";
 import { Address, parseEther } from "viem";
 import { usePathname, useRouter } from 'next/navigation'
 import { IcoABI } from "@/app/ABI/IcoABI";
+import { useAppKitNetwork } from "@reown/appkit/react";
 
 const ReferralSection: React.FC = () => {
   const pathname = usePathname()
@@ -17,6 +18,7 @@ const ReferralSection: React.FC = () => {
   const [url, setUrl] = useState("");
    const { writeContract, isPending, isSuccess, isError } = useWriteContract();
   const { address } = useAccount();
+  const {chainId} = useAppKitNetwork()
   const [referrer, setReferrer] = useState("");
   const [copied, setCopied] = useState(false);
   const bonusPlan = [
@@ -48,25 +50,31 @@ const ReferralSection: React.FC = () => {
         ...contractConfig,
         functionName: "getReferralRewards",
         args: [address as Address ],
+        chainId: Number(chainId)??97
       },
       {
         ...contractConfig,
         functionName: 'getReferralsCount',
         args: [address as Address ],
+        chainId: Number(chainId)??97
+        
       },
       {
         ...contractConfig,
         functionName: 'getReferrer',
         args: [address as Address ],
+        chainId: Number(chainId)??97
       },
       {
         ...contractConfig,
         functionName: 'totalReferralBonusReward',
+        chainId: Number(chainId)??97
       },
       {
         ...iocConfig,
         functionName: "totalContributorLengthForUser",
-        args:[address as Address,0]
+        args:[address as Address,0],
+        chainId: Number(chainId)??97
       },
      
     ],
@@ -82,9 +90,10 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
       0,                    
       BigInt(0),            
       BigInt(totalLength || 0) 
-    ]
+    ],
+    chainId: Number(chainId)??97
   });
-  console.log(">>>>>>>>>result",historyTable);
+
   
   const copyToClipboard = () => {
     navigator.clipboard.writeText(url).then(() => {
