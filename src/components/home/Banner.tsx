@@ -44,9 +44,13 @@ import { downloadPdf } from "@/utils";
 import useCheckAllowance from "@/hooks/useCheckAllowance";
 import { useQueryClient } from "@tanstack/react-query";
 import { extractDetailsFromError } from "@/utils/extractDetailsFromError";
+import {  useSearchParams } from "next/navigation";
 const Banner = ({ id }: { id: string }) => {
   const { address } = useAccount();
   const { chainId } = useAppKitNetwork();
+const searchparm= useSearchParams()
+
+
 
   const [isOpen, setIsOpen] = useState(false);
   const [coinType, setCoinType] = useState({
@@ -62,7 +66,7 @@ const Banner = ({ id }: { id: string }) => {
   const [saleType, setSaleType] = useState(0);
   const [isAproveERC20, setIsApprovedERC20] = useState(true);
   const [amount, setAmount] = useState("");
-  const [referrer, setReferrer] = useState(zeroAddress);
+  const [referrer, setReferrer] = useState( searchparm.get("ref") || zeroAddress);
   const queryClient = useQueryClient()
   const { data: blockNumber } = useBlockNumber({ watch: true });
   const { writeContractAsync, isPending, isSuccess, isError } =
@@ -74,13 +78,19 @@ const Banner = ({ id }: { id: string }) => {
     token: TokenContractAddress
 })
 
-const resultOfTokenBalance = useReadContract({
+const {data:resultOfTokenBalance} = useReadContract({
   abi: erc20Abi,
-  address: TokenContractAddress,
+  address: coinType.address,
   functionName: 'balanceOf',
   args: [address as Address],
-  account: address
+  account: address,
+  query:{
+    enabled: coinType.tokenname==="BNB" ? false :true,
+  }
 })
+
+
+
 
   const tokenAddress =
     coinType.tokenname === "BNB" ? zeroAddress : coinType.address;
@@ -389,43 +399,48 @@ console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
                 </button>
               ) : (
                 <button
-                  disabled={
-                    isPending ||
-                    Number(amount) <= 0 ||
-                    amount === "" 
-                    // Number(Balance?.formatted) < Number(amount) ||
-                    // Number(Balance?.formatted) == 0
+                disabled={
+                  isPending || 
+                  amount === "" || 
+                  Number(amount) <= 0 || 
+                  (coinType?.tokenname === "BNB"
+                    ? Number(Balance?.formatted) < Number(amount) || Number(Balance?.formatted) === 0
+                    : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) < Number(amount))
+                }
+                onClick={() => {
+                  if (coinType?.tokenname === "BNB") {
+                    handleBuy();
+                  } else {
+                    !isAproveERC20 ? approveToken() : handleBuy();
                   }
-                  onClick={() => {
-                    if(coinType?.tokenname === "BNB"){
-                      handleBuy()
-                    }else{
-                      !isAproveERC20 ? approveToken(): handleBuy()
-                    }
-                    
-                  
-                  }}
-                  className={`w-full ${
-                    amount === ""
-                      ? "bg-orange-400"
-                      : Number(amount) <= 0 ||
-                      coinType?.tokenname === "BNB" && (Number(Balance?.formatted) < Number(amount) ||
-                      Number(Balance?.formatted) == 0)
-                      ? "bg-red-500"
-                      : "bg-[#2B9AE6]"
-                  }  mt-4 h-[55px] rounded-lg text-lg font-semibold`}
-                >
-                  {isPending
-                    ? (coinType?.tokenname === "BNB" || isAproveERC20)? "Buying...":"Approving..."
-                    : amount === ""
-                    ? "Please enter amount"
-                    : Number(amount) <= 0
-                    ? "Please enter correct amount"
-                    : coinType?.tokenname === "BNB" && (Number(Balance?.formatted) < Number(amount) ||
-                      Number(Balance?.formatted) == 0)
-                    ? "Insufficient funds"
-                    :(coinType?.tokenname === "BNB" || isAproveERC20)? "Buy Now":"Approve"}
-                </button>
+                }}
+                className={`w-full mt-4 h-[55px] rounded-lg text-lg font-semibold
+                  ${amount === "" || Number(amount) <= 0
+                    ? "bg-gray-400"  // Invalid amount -> Gray
+                    : (coinType?.tokenname === "BNB"
+                        ? Number(Balance?.formatted) < Number(amount) || Number(Balance?.formatted) === 0
+                        : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) < Number(amount))
+                    ? "bg-red-500"  // Insufficient balance -> Red
+                    : "bg-[#2B9AE6]"  // Valid input -> Blue
+                  }`}
+              >
+                {isPending
+                  ? coinType?.tokenname === "BNB" || isAproveERC20
+                    ? "Buying..."
+                    : "Approving..."
+                  : amount === ""
+                  ? "Please enter amount"
+                  : Number(amount) <= 0
+                  ? "Please enter correct amount"
+                  : (coinType?.tokenname === "BNB"
+                    ? Number(Balance?.formatted) < Number(amount) || Number(Balance?.formatted) === 0
+                    : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) < Number(amount))
+                  ? "Insufficient funds"
+                  : coinType?.tokenname === "BNB" || isAproveERC20
+                  ? "Buy Now"
+                  : "Approve"}
+              </button>
+              
               )}
 
               {address ? (

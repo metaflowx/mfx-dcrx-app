@@ -33,8 +33,10 @@ const ReferralSection: React.FC = () => {
 
  
   useEffect(() => {
+    console.log(">>>>>>>>>window.location.href",window.location);
+    
     if (typeof window !== "undefined") {
-      setUrl(`${window.location.href}?${address}`);
+      setUrl(`${window.location.host}/?ref=${address}`);
     }
   }, [address]);
 

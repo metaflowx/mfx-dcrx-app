@@ -14,11 +14,14 @@ const RefferalDashboard = ({result}:{result?:any}) => {
     chainId: Number(chainId)??97
   });
 
+  console.log(">>>>>>>>>>>>>result17",result);
+  
+
   
   const data = [
     {
       title: "Total Referrals",
-      value: formatEther(BigInt(result[1]?.result)),
+      value:Number(result[1]?.result),
       symbol:"",
       earn:"/refer/earn.png",
       subValues: [
@@ -30,7 +33,7 @@ const RefferalDashboard = ({result}:{result?:any}) => {
     },
     {
       title: "Total Earnings",
-      value:  formatEther(BigInt(result[0]?.result)),
+      value:  Number(formatEther(BigInt(result[0]?.result))).toFixed(2),
       symbol:"$DCRX",
       earn:"/refer/earn.png",
       subValues: [
@@ -41,7 +44,7 @@ const RefferalDashboard = ({result}:{result?:any}) => {
     },
     {
       title: "Your Wallet Balance",
-      value:tokenbalance ? Number(formatEther(BigInt(tokenbalance))).toFixed(4):0,
+      value:tokenbalance ? Number(formatEther(BigInt(tokenbalance))).toFixed(2):0,
       symbol:"$DCRX",
       earn:"",
       subValues: [],
