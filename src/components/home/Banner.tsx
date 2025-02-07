@@ -96,6 +96,12 @@ const Banner = ({ id }: { id: string }) => {
         functionName: "totalSupply",
         chainId: Number(chainId),
       },
+      {
+        ...iocConfig,
+        functionName: "user2SaleType2Contributor",
+        args: [address as Address,0],
+        chainId: Number(chainId),
+      },
       // {
       //   ...iocConfig,
       //   functionName: "totalContributor",
@@ -111,6 +117,7 @@ const Banner = ({ id }: { id: string }) => {
     ],
   });
   console.log("checkig", result);
+
 
   const handleBuy = async () => {
     console.log(">>>>>>>>> coinType:", coinType);
@@ -139,6 +146,10 @@ const Banner = ({ id }: { id: string }) => {
         ],
         value: coinType?.tokenname === "BNB" ? parseEther(amount) : BigInt(0),
       });
+      if(res){
+        toast.success("Transaction completed")
+        setAmount("")
+      }
 
       console.log("Transaction successful:", res);
     } catch (error: any) {
@@ -214,10 +225,20 @@ const Banner = ({ id }: { id: string }) => {
               )
             : Number(amount)) / Number(formatEther(BigInt(tokenPrice ?? 0)))
         : 0;
+        const purchaseToken = result && result?.data  && result?.data[3]?.result && formatEther(BigInt(result?.data[3]?.result?.volume))
+        const tokeninUSD = result && result?.data ? Number(formatEther(BigInt(result?.data[0]?.result ?? 0))):0
+        const totalTokenSupply = result && result?.data  && result?.data[2]?.result && (formatEther(BigInt(result?.data[2]?.result)))
 
-      return dividedVa?.toFixed(4);
+        const purchaseTokenUSD = Number(purchaseToken)*Number(tokeninUSD)
+        const totalTokenSupplyUSD = Number(totalTokenSupply)*Number(tokeninUSD)
+
+
+
+      return {getToken:dividedVa?.toFixed(4),purchaseTokenUSD:purchaseTokenUSD.toFixed(4),totalTokenSupplyUSD:totalTokenSupplyUSD};
     }
   }, [result, amount, calculationresult]);
+
+  
 
   return (
     <div
@@ -298,7 +319,7 @@ const Banner = ({ id }: { id: string }) => {
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                  $0 / ${result && result?.data  && result?.data[2]?.result && (formatEther(BigInt(result?.data[2]?.result)))} DCRX
+                  $0 / $ {calciulatedToken?.totalTokenSupplyUSD} DCRX
                 </p>
               </div>
               <div className="flex justify-between items-center">
@@ -312,7 +333,7 @@ const Banner = ({ id }: { id: string }) => {
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                  00
+                 ${calciulatedToken?.purchaseTokenUSD}
                 </p>
               </div>
               <div className="text-center">
@@ -341,7 +362,7 @@ const Banner = ({ id }: { id: string }) => {
                   <input
                     type="number"
                     placeholder="0"
-                    value={calciulatedToken}
+                    value={calciulatedToken?.getToken}
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
                 </div>
@@ -359,7 +380,7 @@ const Banner = ({ id }: { id: string }) => {
                   <input
                     type="number"
                     placeholder="0"
-                    value={calciulatedToken}
+                    value={calciulatedToken?.getToken}
                     disabled
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
