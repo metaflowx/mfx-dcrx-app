@@ -31,6 +31,9 @@ const CountdownTimer = ({
     return () => clearInterval(timer);
   }, [targetTime]);
 
+  console.log(">>>>>>>>timeLeft",timeLeft);
+  
+
   return (
     <>
       <div className="timerBg">
@@ -41,7 +44,7 @@ const CountdownTimer = ({
           }}
           className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
-          {timeLeft.days}
+          {timeLeft.days ||0}
         </p>
         <p
           style={{ fontFamily: "Geist, serif" }}
@@ -58,7 +61,7 @@ const CountdownTimer = ({
           }}
           className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
-          {timeLeft.hours}
+          {timeLeft.hours || 0}
         </p>
         <p
           style={{ fontFamily: "Geist, serif" }}
@@ -75,7 +78,7 @@ const CountdownTimer = ({
           }}
           className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
-          {timeLeft.minutes}
+          {timeLeft.minutes || 0}
         </p>
         <p
           style={{ fontFamily: "Geist, serif" }}
@@ -92,7 +95,7 @@ const CountdownTimer = ({
           }}
           className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
-          {timeLeft.seconds}
+          {timeLeft.seconds || 0}
         </p>
         <p
           style={{ fontFamily: "Geist, serif" }}
