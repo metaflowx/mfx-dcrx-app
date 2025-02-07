@@ -15,8 +15,8 @@ const nextConfig = {
 };
 
 module.exports = withSentryConfig(nextConfig, {
-  org: "nixlab-technologies",
-  project: "portfolio-nextjs",
+  org: "DCRX",
+  project: "DCRX ICO",
   authToken: process.env.SENTRY_AUTH_TOKEN,
   silent: false,
 });

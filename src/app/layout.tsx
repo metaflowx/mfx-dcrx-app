@@ -11,7 +11,7 @@ import ContextProvider from "./context";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from "react-toastify";
-import MarqueHeader from "@/components/ui/MarqueHeader";
+
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -51,25 +51,25 @@ export const metadata: Metadata = {
   },
   icons: [
     {
-      url: "/favicon-16x16.ico",
+      url: "/logo.png",
       rel: "icon",
       sizes: "16x16",
       type: "image/x-icon",
     },
     {
-      url: "/favicon-32x32.ico",
+      url: "/logo.png",
       rel: "icon",
       sizes: "32x32",
       type: "image/x-icon",
     },
     {
-      url: "/favicon-48x48.ico",
+      url: "/logo.png",
       rel: "icon",
       sizes: "48x48",
       type: "image/x-icon",
     },
     {
-      url: "/favicon-64x64.ico",
+      url: "/logo.png",
       rel: "icon",
       sizes: "64x64",
       type: "image/x-icon",
