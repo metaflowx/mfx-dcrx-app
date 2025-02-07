@@ -130,12 +130,12 @@ const {data:resultOfTokenBalance} = useReadContract({
         args: [address as Address,0],
         chainId: Number(chainId)??97,
       },
-      // {
-      //   ...iocConfig,
-      //   functionName: "totalContributor",
-      //   args: [0],
-        // chainId: Number(chainId),
-      // },
+      {
+        ...iocConfig,
+        functionName: "saleType2IcoDetail",
+        args: [0],
+        chainId: Number(chainId),
+      },
       // {
       //   ...iocConfig,
       //   functionName: "totalContributorLengthForUser",
@@ -144,6 +144,9 @@ const {data:resultOfTokenBalance} = useReadContract({
       // },
     ],
   });
+
+  console.log(">>>>>>>>>>>>>result",result);
+  
 
 
   const handleBuy = async () => {
@@ -210,13 +213,19 @@ const {data:resultOfTokenBalance} = useReadContract({
         const purchaseToken = result && result?.data  && result?.data[3]?.result && formatEther(BigInt(result?.data[3]?.result?.volume))
         const tokeninUSD = result && result?.data ? Number(formatEther(BigInt(result?.data[0]?.result ?? 0))):0
         const totalTokenSupply = result && result?.data  && result?.data[2]?.result && (formatEther(BigInt(result?.data[2]?.result)))
+        const totalTokenQty = result && result?.data  && result?.data[4]?.result && (formatEther(BigInt(result?.data[4]?.result?.saleQuantity)))
+
+        const totalTokenSale = result && result?.data  && result?.data[4]?.result && (formatEther(BigInt(result?.data[4]?.result?.saleTokenAmount)))
+
 
         const purchaseTokenUSD = Number(purchaseToken)*Number(tokeninUSD)
         const totalTokenSupplyUSD = Number(totalTokenSupply)*Number(tokeninUSD)
+        
+        const totalSoldToken =Number(totalTokenSale) - Number( totalTokenQty)
+        const totalSaleTokenUSD = Number(totalSoldToken)*Number(tokeninUSD)
 
 
-
-      return {getToken:dividedVa?.toFixed(4),purchaseTokenUSD:purchaseTokenUSD.toFixed(4),totalTokenSupplyUSD:totalTokenSupplyUSD};
+      return {getToken:dividedVa?.toFixed(2),purchaseTokenUSD:purchaseTokenUSD.toFixed(2),totalTokenSupplyUSD:totalTokenSupplyUSD,totalSale:totalSaleTokenUSD.toFixed(2)};
     }
   }, [result, amount, calculationresult]);
 
@@ -321,7 +330,7 @@ console.log(">>>>isAproveERC20",resultOfCheckAllowance,isAproveERC20);
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                  $0 / $ {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
+                  ${calciulatedToken?.totalSale} / $ {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
                 </p>
               </div>
               {address && (
