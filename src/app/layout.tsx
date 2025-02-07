@@ -11,6 +11,7 @@ import ContextProvider from "./context";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from "react-toastify";
+import MarqueHeader from "@/components/ui/MarqueHeader";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -109,6 +110,8 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
       >
         <div id="google_translate_element" style={{ display: "none" }}></div>
       <ContextProvider cookies={cookies}>
+
+        
       {isDebug ? <WebVitals /> : null}
         <FloatingNavbar className="app_nav" navItems={navMenus} />
         <main>{children}</main>

@@ -72,7 +72,7 @@ const Banner = ({ id }: { id: string }) => {
         ...iocConfig,
         functionName: "calculateUSDAmount",
         args: [tokenAddress as Address, parseEther(amount)],
-        chainId: Number(chainId),
+        // chainId: Number(chainId),
       },
     ],
   });
@@ -82,25 +82,25 @@ const Banner = ({ id }: { id: string }) => {
         ...iocConfig,
         functionName: "getSaleTokenPrice",
         args: [0],
-        chainId: Number(chainId),
+        // chainId: Number(chainId),
       },
 
       {
         ...iocConfig,
         functionName: "saleType2IcoDetail",
         args: [0],
-        chainId: Number(chainId),
+        // chainId: Number(chainId),
       },
       {
         ...tokenConfig,
         functionName: "totalSupply",
-        chainId: Number(chainId),
+        // chainId: Number(chainId),
       },
       {
         ...iocConfig,
         functionName: "user2SaleType2Contributor",
         args: [address as Address,0],
-        chainId: Number(chainId),
+        // chainId: Number(chainId),
       },
       // {
       //   ...iocConfig,
@@ -319,10 +319,11 @@ const Banner = ({ id }: { id: string }) => {
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                  $0 / $ {calciulatedToken?.totalTokenSupplyUSD} DCRX
+                  $0 / $ {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
                 </p>
               </div>
-              <div className="flex justify-between items-center">
+              {address && (
+                <div className="flex justify-between items-center">
                 <p
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
@@ -333,9 +334,10 @@ const Banner = ({ id }: { id: string }) => {
                   style={{ fontFamily: "Geist, serif" }}
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
-                 ${calciulatedToken?.purchaseTokenUSD}
+                 ${calciulatedToken?.purchaseTokenUSD || 0}
                 </p>
               </div>
+              )}
               <div className="text-center">
                 <p className="mt-2 coinBgValue p-[20px]">
                   $1 DCRX = $

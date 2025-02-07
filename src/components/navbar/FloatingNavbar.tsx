@@ -8,6 +8,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ConnectButton from "../ConnectWallet";
+import MarqueHeader from "../ui/MarqueHeader";
 
 interface INavItem {
   name: string;
@@ -65,6 +66,7 @@ const FloatingNavbar = ({
   return (
     <>
       <AnimatePresence mode="wait">
+     
         <motion.div
           initial={{
             opacity: 1,
@@ -78,11 +80,16 @@ const FloatingNavbar = ({
             duration: 0.2,
           }}
           className={cn(
-            "flex w-full fixed top-0 left-0 bg-[#0f1923] z-50 items-center justify-between px-8 py-3 shadow-md h-[70px]",
+            " w-full fixed top-0 left-0  z-50  pb-3 shadow-md h-auto",
             className
           )}
         >
+ <MarqueHeader />
+
+        
           {/* Logo Section */}
+          <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 shadow-md">
+
           <div
             className="flex items-center space-x-4 cursor-pointer"
           >
@@ -174,6 +181,9 @@ const FloatingNavbar = ({
               />
             </button>
           </div>
+
+          </div>
+          
         </motion.div>
       </AnimatePresence>
 

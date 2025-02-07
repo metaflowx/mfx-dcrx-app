@@ -9,6 +9,6 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({ iconSrc, text }) => (
       alt=""
       className="object-contain shrink-0 self-start aspect-square w-[26px]"
     />
-    <div style={{fontFamily:"Geist",}} className="flex-auto font-bold text-[20px]">{text}</div>
+    <div style={{fontFamily:"Geist",}} className="flex-auto font-bold text-[16px]">{text}</div>
   </div>
 );

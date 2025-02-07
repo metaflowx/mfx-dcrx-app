@@ -796,6 +796,20 @@ h6 {
   background: linear-gradient(to top right, #1B429A, #000);
 }
 
+.custom-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #21355E;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #0be1db;
+  opacity: 1;
+}
+
 @keyframes animate {
   0% {
     transform: rotate(0deg);
