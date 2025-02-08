@@ -122,17 +122,17 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
                 your financial journey.
                 <br />
               </div>
-              <div className="grid grid-cols-2 gap-10 items-start mt-10 w-full max-md:mr-2.5 max-md:max-w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-start mt-10 w-full max-md:mr-2.5 max-md:max-w-full">
                 {features.slice(0, 2).map((feature, index) => (
                   <FeatureItem key={index} {...feature} />
                 ))}
               </div>
-              <div className="grid grid-cols-2 gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2  gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
                 {features.slice(2, 4).map((feature, index) => (
                   <FeatureItem key={index + 2} {...feature} />
                 ))}
               </div>
-              <div className="grid grid-cols-2 gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2  gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
                 {features.slice(4, 6).map((feature, index) => (
                   <FeatureItem key={index + 2} {...feature} />
                 ))}
@@ -146,8 +146,9 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={20}
           slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
+          navigation={false}
+          loop={true}
+          pagination={{ clickable: true, el: ".custom-pagination" }}
           autoplay={{ delay: 1000, disableOnInteraction: false }}
           breakpoints={{
             640: { slidesPerView: 1 },

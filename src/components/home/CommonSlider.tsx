@@ -17,12 +17,15 @@ interface CommonSliderProps {
 
 const CommonSlider: React.FC<CommonSliderProps> = ({ cardData }) => {
   return (
+    <div className="relative">
+
     <Swiper
       modules={[Navigation, Pagination,Autoplay]}
       spaceBetween={20}
       slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
+      navigation={false}
+      loop={true}
+      pagination={{ clickable: true, el: ".custom-pagination" }}
       autoplay={{ delay: 1000, disableOnInteraction: false }}
       breakpoints={{
         640: { slidesPerView: 1 },
@@ -47,6 +50,8 @@ const CommonSlider: React.FC<CommonSliderProps> = ({ cardData }) => {
         </SwiperSlide>
       ))}
     </Swiper>
+   
+    </div>
   );
 };
 
