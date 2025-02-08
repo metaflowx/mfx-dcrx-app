@@ -294,7 +294,7 @@ const Banner = ({ id }: { id: string }) => {
               <button
                 style={{ border: "1px solid #2B9AE6" }}
                 onClick={() =>
-                  downloadPdf("/docs/lightpaper.pdf", "whitePaper.pdf")
+                  downloadPdf("/docs/lightpaper.pdf", "litepaper.pdf")
                 }
                 className="border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold"
               >

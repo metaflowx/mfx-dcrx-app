@@ -3,10 +3,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const newsItems = [
-  "🚀 New Feature Launched!",
-  "📢 Upcoming Event: Don't Miss Out!",
-  "💰 Special Offer: 50% Discount Available!",
-  "🌍 Breaking News: Stay Updated!"
+  "Empower Your Crypto Journey—Trade Securely with DecryptoX Today! ",
+  "Snag $DCRX at Just $0.012—Phase 1 Early Bird Rewards Won’t Last!  ",
+  "Phase 2 Kicks Off at $0.015—Prices Rise Every 2 Days. Act Fast!  ",
+  " Over $750,000 Raised and Climbing—Join the DeFi Revolution Now! ",
+  " Win Big with Our 1 Million $DCRX Giveaway—Follow, Share & Claim Your Prize!",
+  "Early Investors Reap Exclusive Rewards—Limited Tokens, Lifetime Benefits!",
+  " Shape DeFi’s Future—Invest in $DCRX and Lead the Charge!"
 ];
 
 const MarqueHeader: React.FC = () => {

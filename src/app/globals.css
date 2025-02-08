@@ -810,6 +810,23 @@ h6 {
   opacity: 1;
 }
 
+/* Remove all transitions from Swiper pagination bullets */
+.custom-pagination .swiper-pagination-bullet {
+  transition: none !important;
+  opacity: 1 !important;
+}
+
+/* Remove active state transition */
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: white !important;
+  transition: none !important;
+}
+
+/* Force Swiper to remove all pagination animations */
+.swiper-pagination {
+  transition: none !important;
+}
+
 @keyframes animate {
   0% {
     transform: rotate(0deg);

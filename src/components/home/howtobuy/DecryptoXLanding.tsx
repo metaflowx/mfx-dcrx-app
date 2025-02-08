@@ -11,32 +11,32 @@ const features = [
   {
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/a60c2bb3dcf452cfbf4fbf6bbda5ddefebb4bc3dc08468890f29e65741f61e81?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    text: "True Decentralization: Take back control of your assets with a platform designed to put power in your hands. No intermediaries, no gatekeepers—just seamless, user-first trading.",
+    text: "True Decentralization: Trade with full control—no intermediaries, no restrictions.",
   },
   {
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/5d01415a31ee4a7ef77f3c3ecbdd4b31565e40b58dc8f33c69fbdc4d49fa0ca8?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    text: "Smart Trading, Simplified: Experience the intelligence of AI-powered tools that rival centralized exchanges, while enjoying the freedom of decentralization. ",
+    text: "Smart Trading, Simplified: AI-powered tools bring intelligent trading to decentralized finance. ",
   },
   {
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/e5d7800417b1dfb9f5f965e820a3e7f0e2a9011b385a31598c7dbd5ee9c5950c?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    text: "Next-Gen Security: Forget traditional KYC hassles. DecryptoX employs Decentralized Identifiers (DIDs) and Verifiable Credentials (VCs) for secure, private, and hassle-free user authentication.",
+    text: "Next-Gen Security: Secure, private authentication with Decentralized Identifiers (DIDs) and Verifiable Credentials (VCs).",
   },
   {
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/5d01415a31ee4a7ef77f3c3ecbdd4b31565e40b58dc8f33c69fbdc4d49fa0ca8?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    text: "Beyond Trading—A Financial Ecosystem: DecryptoX isn’t just a DEX; it’s your gateway to DeFi innovation, offering tools to diversify, grow, and maximize your investments—all in one place. ",
+    text: "Beyond Trading: A complete DeFi ecosystem to stake, invest, and grow your assets.",
   },
   {
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/5d01415a31ee4a7ef77f3c3ecbdd4b31565e40b58dc8f33c69fbdc4d49fa0ca8?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    text: "Built by the Community, for the Community: Guided by DAO governance, DecryptoX ensures that every decision reflects the needs and voices of its users, making it truly community-centric.  ",
+    text: "Community-Driven: Governed by a DAO, ensuring users shape the platform’s future. ",
   },
   {
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/5d01415a31ee4a7ef77f3c3ecbdd4b31565e40b58dc8f33c69fbdc4d49fa0ca8?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
-    text: "Borderless Trading with Cross-Chain Power: Break free from blockchain silos. DecryptoX’s cross-chain compatibility lets you move and trade assets seamlessly across networks, redefining accessibility.",
+    text: "Borderless Trading: Seamless cross-chain compatibility for unrestricted asset movement.",
   },
 ];
 
@@ -122,17 +122,17 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
                 your financial journey.
                 <br />
               </div>
-              <div className="flex flex-wrap gap-10 items-start mt-10 w-full max-md:mr-2.5 max-md:max-w-full">
+              <div className="grid grid-cols-2 gap-10 items-start mt-10 w-full max-md:mr-2.5 max-md:max-w-full">
                 {features.slice(0, 2).map((feature, index) => (
                   <FeatureItem key={index} {...feature} />
                 ))}
               </div>
-              <div className="flex flex-wrap gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
+              <div className="grid grid-cols-2 gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
                 {features.slice(2, 4).map((feature, index) => (
                   <FeatureItem key={index + 2} {...feature} />
                 ))}
               </div>
-              <div className="flex flex-wrap gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
+              <div className="grid grid-cols-2 gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
                 {features.slice(4, 6).map((feature, index) => (
                   <FeatureItem key={index + 2} {...feature} />
                 ))}

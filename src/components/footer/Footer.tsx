@@ -1,14 +1,14 @@
 
 import { SocialIcon } from "./SocialIcon";
 import { QuickLink } from "./QuickLink";
-
+import { useRouter } from 'next/navigation';
 const quickLinks = [
-  { text: "Resource Center" },
-  { text: "tokenomics" },
-  { text: "Roadmap" },
-  { text: "White Paper" },
-  { text: "Light Paper" },
-  { text: "Refer & Earn" }
+  { text: "Resource Center" ,href:false},
+  { text: "tokenomics",href:false },
+  { text: "Roadmap",href:false },
+  { text: "White Paper",href:false },
+  { text: "Light Paper",href:false },
+  { text: "Refer & Earn" ,href:true}
 ];
 
 export const socialIcons = [
@@ -21,6 +21,7 @@ export const socialIcons = [
 ];
 
 export const Footer: React.FC = () => {
+  
   return (
     <div className="flex flex-col">
       <div className="flex flex-col items-center px-20 pt-3 md:pt-14 pb-7 w-full bg-black max-md:px-5 max-md:max-w-full">

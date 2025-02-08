@@ -53,7 +53,7 @@ const ProblemSection: React.FC = () => {
         }}
         className="max-w-7xl mx-auto px-6 text-left md:text-center pt-[10px] md:pt-[180px]"
       >
-        <div className="mb-4">
+        <div className="mb-1">
           <CommonHeading heading={"The Problem"} fontSize="text-[42px]" />
         </div>
 

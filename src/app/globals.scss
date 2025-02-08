@@ -906,6 +906,9 @@ h6 {
   background-color: #21355E;
   opacity: 0.6;
   transition: all 0.3s ease;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .custom-pagination .swiper-pagination-bullet-active {
@@ -913,6 +916,25 @@ h6 {
   opacity: 1;
   // transform: scale(0.5) !important;
 }
+
+/* Remove all transitions from Swiper pagination bullets */
+.custom-pagination .swiper-pagination-bullet {
+  transition: none !important;
+  opacity: 1 !important;
+ 
+}
+
+/* Remove active state transition */
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: white !important;
+  transition: none !important;
+}
+
+/* Force Swiper to remove all pagination animations */
+.swiper-pagination {
+  transition: none !important;
+}
+
 
 @keyframes animate {
   0% {

@@ -29,40 +29,7 @@ export default function AccordianList({faqs}:{faqs?:any}) {
                 </AccordionTrigger>
                 <AccordionContent style={{lineHeight:"30px"}}  className="px-6 pb-4 text-white text-lg  sm:text-[20px]">
                   {faq.answer}
-                  {faq.detail ?(
-                    <>
-                    <h2 className="mt-2">For News Bar</h2>
-                    <ul>
-                      <li>
-                      Empower Your Crypto Journey—Trade Securely with DecryptoX Today!  
-
-                      </li>
-                      <li>
-                      Snag $DCRX at Just $0.012—Phase 1 Early Bird Rewards Won’t Last!  
-
-                      </li>
-                      <li>
-                      Phase 2 Kicks Off at $0.015—Prices Rise Every 2 Days. Act Fast!  
-
-                      </li>
-                      <li>
-                      Over $750,000 Raised and Climbing—Join the DeFi Revolution Now!  
-
-                      </li>
-                      <li>
-                      Win Big with Our 1 Million $DCRX Giveaway—Follow, Share & Claim Your Prize!  
- 
-
-                      </li>
-                      <li>
-                      Early Investors Reap Exclusive Rewards—Limited Tokens, Lifetime Benefits!  
-                      </li>
-                      <li>
-                      Shape DeFi’s Future—Invest in $DCRX and Lead the Charge!  
-                      </li>
-                    </ul>
-                    </>
-                  ):""}
+                 
                 </AccordionContent>
               </AccordionItem>
             </div>

@@ -76,7 +76,7 @@ const Roadmap = ({id}:{id:string}) => {
       {/* Vision Section */}
       <div style={{fontFamily:"Plus Jakarta Sans"}} className="text-left md:text-center mb-[15px] md:mb-16 px-4">
         <h2  className="text-[37px] font-bold text-[#2B9AE6]">Our Vision</h2>
-        <p className="text-[20px] md:text-[30px] mt-4 font-bold leading-snug">
+        <p className="text-[20px] md:text-[20px] mt-4 font-bold leading-snug">
         DecryptoX is not just a platform—it's an evolving ecosystem. <br /> We’re here to empower users by offering an ever-growing suite of <br /> tools and options that cater to traders, lenders, borrowers, and <br /> investors alike
         </p>
       </div>
