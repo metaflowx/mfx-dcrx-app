@@ -134,7 +134,7 @@ const RoadmapCard = ({
           {/* Phase */}
           <h4 className="text-[#2B9AE6] text-[20px] font-bold">{item.title}</h4>
           {/* Title */}
-          <h3 className="text-white font-bold text-[25px] mt-2">
+          <h3 className="text-white font-bold text-[20px] mt-2">
             {item.title1}
           </h3>
           {/* Description */}
