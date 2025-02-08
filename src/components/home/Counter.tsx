@@ -31,7 +31,7 @@ const CountdownTimer = ({
     return () => clearInterval(timer);
   }, [targetTime]);
 
-  console.log(">>>>>>>>timeLeft",timeLeft);
+
   
 
   return (
@@ -110,14 +110,4 @@ const CountdownTimer = ({
 
 export default CountdownTimer;
 
-// export default function SaleCountdown() {
-//   const startAt = 1738846021; // Replace with your actual startAt timestamp
-//   const endAt = 1739105087; // Replace with your actual endAt timestamp
 
-//   return (
-//     <div className="flex flex-col items-center gap-4 bg-gray-900 p-4 rounded-lg text-center">
-//       <CountdownTimer label="Sale Starts In" targetTime={startAt} />
-//       <CountdownTimer label="Sale Ends In" targetTime={endAt} />
-//     </div>
-//   );
-// }
