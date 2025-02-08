@@ -39,7 +39,7 @@ import {
 import { IcoABI } from "@/app/ABI/IcoABI";
 import CountdownTimer from "./Counter";
 import WalletModal from "../Modal";
-import { downloadPdf } from "@/utils";
+import { downloadPdf, handleNegativeValue } from "@/utils";
 import useCheckAllowance from "@/hooks/useCheckAllowance";
 import { useQueryClient } from "@tanstack/react-query";
 import { extractDetailsFromError } from "@/utils/extractDetailsFromError";
@@ -374,6 +374,10 @@ const Banner = ({ id }: { id: string }) => {
                 <div className="input___border w-full sm:w-auto mr-1">
                   <input
                     type="number"
+                    onKeyDown={(e) => {
+                      handleNegativeValue(e);
+                    }}
+                    value={amount}
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                     onChange={(e) => setAmount(e.target.value)}
@@ -392,7 +396,12 @@ const Banner = ({ id }: { id: string }) => {
               <div className="mt-2  block sm:hidden  w-full">
                 <div className="input___border w-full sm:w-auto">
                   <input
+                   onKeyDown={(e) => {
+                    handleNegativeValue(e);
+                  }}
+                  onChange={(e) => setAmount(e.target.value)}
                     type="number"
+                    value={amount}
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
