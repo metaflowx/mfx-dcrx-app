@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import ConstrainedBox from "../core/constrained-box";
 
 const OfferSection: React.FC = () => {
-  const cardData = [
+  const initialData = [
     {
       title: "Spot Trading",
       description: "Trade crypto in real-time with advanced order types and minimal slippage.",
@@ -42,6 +42,34 @@ const OfferSection: React.FC = () => {
       image: "/crypto/dollarsymbol.png",
     },
   ];
+  const [cardData, setCardData] = useState(initialData);
+
+  const loadMoreSlides = () => {
+    const moreData = [
+      {
+        title: "Automated Trading Solutions",
+        description: "Leverage AI-driven bots and algorithmic trading for optimized performance.",
+        image: "/crypto/dollarsymbol.png",
+      },
+      {
+        title: "Staking & Yield Generation",
+        description: "Earn passive income through staking, dual-token rewards, and high APYs.",
+        image: "/crypto/dollarsymbol.png",
+      },
+      {
+        title: "DeFi Integration",
+        description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
+        image: "/crypto/dollarsymbol.png",
+      },
+      {
+        title: "Identity & Security",
+        description: "Protect assets with decentralized identity, multi-sign wallets, and top-tier security",
+        image: "/crypto/dollarsymbol.png",
+      },
+    ];
+
+    setCardData((prev) => [...prev, ...moreData]);
+  };
 
   return (
     <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
@@ -72,6 +100,34 @@ const OfferSection: React.FC = () => {
             pagination={{ clickable: true, el: ".custom-pagination" }}
             autoplay={{ delay: 2000, disableOnInteraction: false }} // Auto slide to the right
             loop={true}
+            onSlideChange={(swiper) => {
+              if (swiper.isEnd) {
+                setCardData((prev) => {
+                  const moreData = [
+                    {
+                      title: "DeFi Integration",
+                      description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
+                      image: "/crypto/dollarsymbol.png",
+                    },
+                    {
+                      title: "Identity & Security",
+                      description: "Protect assets with decentralized identity, multi-sign wallets, and top-tier security.",
+                      image: "/crypto/dollarsymbol.png",
+                    },
+                  ];
+            
+                  const updatedSlides = [...prev, ...moreData]; // Add new slides
+                  return updatedSlides.slice(moreData.length); // Remove older slides from the start
+                });
+            
+                // Instantly shift back to the previous position to create an infinite effect
+                setTimeout(() => {
+                  swiper.slideTo(swiper.slides.length - 1, 0); // Instantly shift to last slide
+                }, 50);
+              }
+            }}
+            
+            
            
             breakpoints={{
               640: { slidesPerView: 1 },
