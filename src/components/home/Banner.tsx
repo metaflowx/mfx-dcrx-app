@@ -340,7 +340,7 @@ const Banner = ({ id }: { id: string }) => {
                   className="text-[#FFFFFF] text-[18px] font-bold"
                 >
                   ${calciulatedToken?.totalSale || 0} / ${" "}
-                  {calciulatedToken?.totalTokenSupplyUSD || 0} DCRX
+                  {calciulatedToken?.totalTokenSupplyUSD || 0}
                 </p>
               </div>
               {address && (
@@ -361,12 +361,12 @@ const Banner = ({ id }: { id: string }) => {
                   </p>
                     
 
-                  <p
+{/*                   <p
                     style={{ fontFamily: "Geist, serif" }}
                     className="text-[#FFFFFF] text-[12px] font-bold"
                   >
                     ${calciulatedToken?.purchaseTokenUSD || 0}
-                  </p>
+                  </p> */}
 
                   </div>
                  
