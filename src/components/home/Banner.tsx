@@ -44,6 +44,7 @@ import useCheckAllowance from "@/hooks/useCheckAllowance";
 import { useQueryClient } from "@tanstack/react-query";
 import { extractDetailsFromError } from "@/utils/extractDetailsFromError";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 const Banner = ({ id }: { id: string }) => {
   const { address } = useAccount();
   const { chainId } = useAppKitNetwork();
@@ -280,18 +281,17 @@ const Banner = ({ id }: { id: string }) => {
               Platform—Secure, Seamless, and Built for You
             </p>
             <div className="block md:flex gap-4 mt-6 justify-center lg:justify-start">
-              <button
+              <Link
+              
                 style={{
                   background:
                     "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
                 }}
-                onClick={() =>
-                  downloadPdf("/docs/whitepaper.pdf", "whitePaper.pdf")
-                }
+              href={"docs/whitepaper.pdf"} target="_blank"
                 className="mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black"
               >
                 White Paper
-              </button>
+              </Link>
               <button
                 style={{ border: "1px solid #2B9AE6" }}
                 onClick={() =>
