@@ -399,7 +399,6 @@ const Banner = ({ id }: { id: string }) => {
                       onChange={(e) => setAmount(e.target.value)}
                     />
                   </div>
-                  
                 </div>
 
                 <div>
@@ -413,7 +412,7 @@ const Banner = ({ id }: { id: string }) => {
                   </div>
                 </div>
               </div>
-             
+
               <div className="mt-2  block sm:hidden  w-full">
                 <div className="input___border w-full sm:w-auto">
                   <input
@@ -426,12 +425,6 @@ const Banner = ({ id }: { id: string }) => {
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
-                  <p>
-                    Min :
-                    {(result?.data?.[4]?.result &&
-                      formatEther(BigInt(result?.data[4]?.result?.minBuy))) ||
-                      0}
-                  </p>
                 </div>
 
                 <div className="input___border w-full sm:w-auto mt-1 sm:mt-0">
@@ -442,28 +435,26 @@ const Banner = ({ id }: { id: string }) => {
                     disabled
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
-                  <p>
-                    Max :
-                    {(result?.data?.[4]?.result &&
-                      formatEther(BigInt(result?.data[4]?.result?.maxBuy))) ||
-                      0}
-                  </p>
                 </div>
               </div>
-              
-              {amount   ? (
-                    <>
-                      {Number(amount) < minBuy && (
-                        <p className="pt-1" style={{ color: "red" }}>Min: {minBuy}</p>
-                      )}
 
-                      {Number(amount) > maxBuy && (
-                        <p  className="pt-1" style={{ color: "red" }}>Max: {maxBuy}</p>
-                      )}
-                    </>
-                  ) : (
-                    <p style={{ color: "red" }}></p>
+              {amount ? (
+                <>
+                  {Number(amount) < minBuy && (
+                    <p className="pt-1" style={{ color: "red" }}>
+                      Min: {minBuy}
+                    </p>
                   )}
+
+                  {Number(amount) > maxBuy && (
+                    <p className="pt-1" style={{ color: "red" }}>
+                      Max: {maxBuy}
+                    </p>
+                  )}
+                </>
+              ) : (
+                <p style={{ color: "red" }}></p>
+              )}
               {!address ? (
                 <button
                   onClick={async () => open()}
@@ -474,7 +465,8 @@ const Banner = ({ id }: { id: string }) => {
               ) : (
                 <button
                   disabled={
-                    Number(amount) < minBuy|| Number(amount) > maxBuy||
+                    Number(amount) < minBuy ||
+                    Number(amount) > maxBuy ||
                     isPending ||
                     amount === "" ||
                     Number(amount) <= 0 ||
