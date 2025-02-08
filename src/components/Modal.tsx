@@ -65,7 +65,9 @@ const WalletModal = ({isOpen,setIsOpen}:{isOpen?:boolean;setIsOpen?:any}) => {
             <p className="mb-4 sm:mb-6 text-sm sm:text-base">
               Already installed the Best Wallet app? Hit the button below to connect.
             </p>
-            <CommonButton btnName="Connect Wallet" width="w-full" />
+            <CommonButton btnName="Connect Wallet" width="w-full"
+             onClick={() => setIsOpen(false)}  
+            />
           </div>
         </div>
       )}
