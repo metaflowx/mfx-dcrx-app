@@ -30,42 +30,48 @@ const Roadmap = ({id}:{id:string}) => {
     {
       id: 1,
       title: "Phase 1",
-      description: "New office in California",
+      description: "Conceptualization &",
+      description1:"Initial Developmen",
       icon: "/coin-icon/edit.png",
       position: "top",
     },
     {
       id: 2,
       title: "Phase 2",
-      description: "First Product Launch",
+      description: "Pre-ICO Development &",
+      description1:"Token Sale Preparations",
       icon: "/coin-icon/dollar.png",
       position: "bottom",
     },
     {
       id: 3,
       title: "Phase 3",
-      description: "Entering Stock Market",
+      description: "Platform MVP Launch & ",
+      description1:"Core Feature Rollout",
       icon: "/coin-icon/phase3.png",
       position: "top",
     },
     {
       id: 4,
       title: "Phase 4",
-      description: "New office in California",
+      description: "Full Platform Rollout &",
+      description1:"Feature Expansion",
       icon: "/coin-icon/rocket.png",
       position: "bottom",
     },
     {
       id: 5,
       title: "Phase 5",
-      description: "First Product Launch",
+      description: "Community Governance & ",
+      description1:"Ecosystem Scaling",
       icon: "/coin-icon/edit.png",
       position: "top",
     },
     {
       id: 6,
       title: "Phase 6",
-      description: "Entering Stock Market",
+      description: "Long-Term Growth &",
+      description1:"Sustainability Initiatives",
       icon: "/coin-icon/rocket.png",
       position: "bottom",
     },
@@ -136,7 +142,9 @@ const Roadmap = ({id}:{id:string}) => {
                 >
                    <div style={{fontFamily:"Outfit"}} className={`text-center absolute ${ phase.position === "top"?" bottom-[-80px]":"top-[-80px]"} right-4 w-full text-[#2B9AE6] font-bold text-[20px]`}>
                   <h3 className=" font-bold whitespace-pre">{phase.title}</h3>
-                  <h3 className="whitespace-pre">{phase.description}</h3>
+                  <h3 className="whitespace-pre text-[16px]">{phase.description}</h3>
+                  <h3 className="whitespace-pre text-[16px]">{phase.description1}</h3>
+
                 </div>
                 </div>
 
