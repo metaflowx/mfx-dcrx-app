@@ -21,7 +21,7 @@ export const StepCard: React.FC<StepCardProps> = ({ number, iconSrc, description
      
     </div>
     <div className="mt-5 text-lg text-white w-[289px] max-md:mt-10">
-        <h4 style={{fontFamily:"Geist"}} className='text-[24px] pb-2 font-semibold'>{title}</h4>
+        <h4 style={{fontFamily:"Geist"}} className='text-[20px] pb-2 font-semibold'>{title}</h4>
      <h6 style={{fontFamily:"Geist"}} className='font-normal text-[16px]'> {description}</h6>
     </div>
     <img
