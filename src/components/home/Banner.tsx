@@ -232,6 +232,7 @@ const Banner = ({ id }: { id: string }) => {
         purchaseTokenUSD: purchaseTokenUSD.toFixed(2),
         totalTokenSupplyUSD: totalTokenSupplyUSD,
         totalSale: totalSaleTokenUSD.toFixed(2),
+        purchaseToken:Number(purchaseToken).toFixed(2)
       };
     }
   }, [result, amount, calculationresult]);
@@ -350,12 +351,25 @@ const Banner = ({ id }: { id: string }) => {
                   >
                     Your purchased $DCRX:{" "}
                   </p>
+                  <div>
+
                   <p
                     style={{ fontFamily: "Geist, serif" }}
                     className="text-[#FFFFFF] text-[18px] font-bold"
                   >
+                    {calciulatedToken?.purchaseToken || 0}
+                  </p>
+                    
+
+                  <p
+                    style={{ fontFamily: "Geist, serif" }}
+                    className="text-[#FFFFFF] text-[12px] font-bold"
+                  >
                     ${calciulatedToken?.purchaseTokenUSD || 0}
                   </p>
+
+                  </div>
+                 
                 </div>
               )}
               <div className="text-center">
