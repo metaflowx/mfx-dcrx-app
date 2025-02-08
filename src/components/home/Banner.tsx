@@ -76,7 +76,6 @@ const Banner = ({ id }: { id: string }) => {
     token: coinType.address,
   });
 
-  
   const { data: resultOfTokenBalance } = useReadContract({
     abi: erc20Abi,
     address: coinType.address,
@@ -169,11 +168,11 @@ const Banner = ({ id }: { id: string }) => {
               BigInt((Number.MAX_SAFE_INTEGER ** 1.3)?.toString())?.toString()
             );
       const res = await writeContractAsync({
-        abi:erc20Abi,
+        abi: erc20Abi,
         address: coinType.address,
         functionName: "approve",
         args: [ICOContractAddress, formattedAmount],
-        account: address
+        account: address,
       });
       if (res) {
         setIsApprovedERC20(true);
@@ -233,7 +232,7 @@ const Banner = ({ id }: { id: string }) => {
         purchaseTokenUSD: purchaseTokenUSD.toFixed(2),
         totalTokenSupplyUSD: totalTokenSupplyUSD,
         totalSale: totalSaleTokenUSD.toFixed(2),
-        purchaseToken:Number(purchaseToken).toFixed(2)
+        purchaseToken: Number(purchaseToken).toFixed(2),
       };
     }
   }, [result, amount, calculationresult]);
@@ -259,7 +258,14 @@ const Banner = ({ id }: { id: string }) => {
     });
   }, [blockNumber, queryClient, resultOfCheckAllowance]);
 
-  
+  console.log(">>>>>>>>>>>>>>>>..result", isAproveERC20, result);
+
+  const minBuy = result?.data?.[4]?.result?.minBuy
+    ? Number(formatEther(BigInt(result.data[4].result.minBuy)))
+    : 0;
+  const maxBuy = result?.data?.[4]?.result?.maxBuy
+    ? Number(formatEther(BigInt(result.data[4].result.maxBuy)))
+    : 0;
 
   return (
     <div
@@ -282,25 +288,24 @@ const Banner = ({ id }: { id: string }) => {
             </p>
             <div className="block md:flex gap-4 mt-6 justify-center lg:justify-start">
               <Link
-              
                 style={{
                   background:
                     "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
                 }}
-              href={"docs/whitepaper.pdf"} target="_blank"
-                className="mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black"
+                href={"docs/whitepaper.pdf"}
+                target="_blank"
+                className="flex justify-center items-center mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black"
               >
                 White Paper
               </Link>
-              <button
+              <Link
                 style={{ border: "1px solid #2B9AE6" }}
-                onClick={() =>
-                  downloadPdf("/docs/lightpaper.pdf", "litepaper.pdf")
-                }
-                className="border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold"
+                href={"/docs/lightpaper.pdf"}
+                target="_blank"
+                className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold"
               >
                 Light Paper
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -352,24 +357,20 @@ const Banner = ({ id }: { id: string }) => {
                     Your purchased $DCRX:{" "}
                   </p>
                   <div>
+                    <p
+                      style={{ fontFamily: "Geist, serif" }}
+                      className="text-[#FFFFFF] text-[18px] font-bold"
+                    >
+                      {calciulatedToken?.purchaseToken || 0}
+                    </p>
 
-                  <p
-                    style={{ fontFamily: "Geist, serif" }}
-                    className="text-[#FFFFFF] text-[18px] font-bold"
-                  >
-                    {calciulatedToken?.purchaseToken || 0}
-                  </p>
-                    
-
-{/*                   <p
+                    {/*                   <p
                     style={{ fontFamily: "Geist, serif" }}
                     className="text-[#FFFFFF] text-[12px] font-bold"
                   >
                     ${calciulatedToken?.purchaseTokenUSD || 0}
                   </p> */}
-
                   </div>
-                 
                 </div>
               )}
               <div className="text-center">
@@ -385,40 +386,52 @@ const Banner = ({ id }: { id: string }) => {
               <p className="text-white text-[15px] pt-4">{`${coinType?.tokenname} you pay`}</p>
 
               <div className="mt-2  items-center hidden sm:flex justify-between w-full">
-                <div className="input___border w-full sm:w-auto mr-1">
-                  <input
-                    type="number"
-                    onKeyDown={(e) => {
-                      handleNegativeValue(e);
-                    }}
-                    value={amount}
-                    placeholder="0"
-                    className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
-                    onChange={(e) => setAmount(e.target.value)}
-                  />
+                <div>
+                  <div className="input___border w-full sm:w-auto mr-1">
+                    <input
+                      type="number"
+                      onKeyDown={(e) => {
+                        handleNegativeValue(e);
+                      }}
+                      value={amount}
+                      placeholder="0"
+                      className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
+                      onChange={(e) => setAmount(e.target.value)}
+                    />
+                  </div>
+                  
                 </div>
 
-                <div className="input___border w-full sm:w-auto mt-1 sm:mt-0">
-                  <input
-                    type="number"
-                    placeholder="0"
-                    value={calciulatedToken?.getToken}
-                    className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
-                  />
+                <div>
+                  <div className="input___border w-full sm:w-auto mt-1 sm:mt-0">
+                    <input
+                      type="number"
+                      placeholder="0"
+                      value={calciulatedToken?.getToken}
+                      className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
+                    />
+                  </div>
                 </div>
               </div>
+             
               <div className="mt-2  block sm:hidden  w-full">
                 <div className="input___border w-full sm:w-auto">
                   <input
-                   onKeyDown={(e) => {
-                    handleNegativeValue(e);
-                  }}
-                  onChange={(e) => setAmount(e.target.value)}
+                    onKeyDown={(e) => {
+                      handleNegativeValue(e);
+                    }}
+                    onChange={(e) => setAmount(e.target.value)}
                     type="number"
                     value={amount}
                     placeholder="0"
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
+                  <p>
+                    Min :
+                    {(result?.data?.[4]?.result &&
+                      formatEther(BigInt(result?.data[4]?.result?.minBuy))) ||
+                      0}
+                  </p>
                 </div>
 
                 <div className="input___border w-full sm:w-auto mt-1 sm:mt-0">
@@ -429,8 +442,28 @@ const Banner = ({ id }: { id: string }) => {
                     disabled
                     className=" h-[38px] inputBg text-white px-4 py-2 w-full sm:w-auto"
                   />
+                  <p>
+                    Max :
+                    {(result?.data?.[4]?.result &&
+                      formatEther(BigInt(result?.data[4]?.result?.maxBuy))) ||
+                      0}
+                  </p>
                 </div>
               </div>
+              
+              {amount   ? (
+                    <>
+                      {Number(amount) < minBuy && (
+                        <p className="pt-1" style={{ color: "red" }}>Min: {minBuy}</p>
+                      )}
+
+                      {Number(amount) > maxBuy && (
+                        <p  className="pt-1" style={{ color: "red" }}>Max: {maxBuy}</p>
+                      )}
+                    </>
+                  ) : (
+                    <p style={{ color: "red" }}></p>
+                  )}
               {!address ? (
                 <button
                   onClick={async () => open()}
@@ -441,6 +474,7 @@ const Banner = ({ id }: { id: string }) => {
               ) : (
                 <button
                   disabled={
+                    Number(amount) < minBuy|| Number(amount) > maxBuy||
                     isPending ||
                     amount === "" ||
                     Number(amount) <= 0 ||
@@ -477,9 +511,9 @@ const Banner = ({ id }: { id: string }) => {
                     ? coinType?.tokenname === "BNB" || isAproveERC20
                       ? "Buying..."
                       : "Approving..."
-                    : amount === ""
+                    : coinType?.tokenname === "BNB" && amount === ""
                     ? "Please enter amount"
-                    : Number(amount) <= 0
+                    : coinType?.tokenname === "BNB" && Number(amount) <= 0
                     ? "Please enter correct amount"
                     : (
                         coinType?.tokenname === "BNB"
