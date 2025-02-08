@@ -19,7 +19,7 @@ const faqData: FAQData = {
 const faqs = [
   {
     question: "What is DecryptoX ($DCRX)?",
-    answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typeDecryptoX ($DCRX) is the next-gen decentralized exchange (DEX) designed to revolutionize trading. It’s more than just a platform—it’s an ecosystem where you can trade, invest, and govern securely. With no intermediaries and a focus on user privacy, DecryptoX empowers you to own your financial journey."
+    answer: "DecryptoX ($DCRX) is the next-gen decentralized exchange (DEX) designed to revolutionize trading. It’s more than just a platform—it’s an ecosystem where you can trade, invest, and govern securely. With no intermediaries and a focus on user privacy, DecryptoX empowers you to own your financial journey."
   },
   {
     question: "What’s the purpose of the DecryptoX ICO?",
@@ -60,10 +60,10 @@ export const FAQ = ({ id }: { id: string }) => {
         
         <div className="flex relative flex-col items-center  pt-4 pb-32   max-md:pb-24 max-md:max-w-full">
           <div className="flex flex-col mb-0 w-full max-w-[1217px] max-md:mb-2.5 max-md:max-w-full">
-            <div className="self-center text-[50px] font-bold leading-none text-center max-md:max-w-full max-md:text-2xl">
+            <div className="self-center text-[40px] font-bold leading-none text-center max-md:max-w-full max-md:text-2xl">
               <span className="text-sky-500">Frequently</span> Asked Questions
             </div>
-            <div className="self-center mt-8 text-2xl lg:text-5xl font-bold leading-none text-center max-md:max-w-full">
+            <div className="self-center mt-8 text-2xl lg:text-[40px] font-bold leading-none text-center max-md:max-w-full">
               {faqData.subtitle}
             </div>
            <AccordianList faqs={faqs} />

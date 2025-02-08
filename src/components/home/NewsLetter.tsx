@@ -7,7 +7,7 @@ const Newsletter: React.FC = () => {
         Stay up to date with <br /> our Newsletter
       </h2> */}
       <h2
-  className="text-white text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[57px] font-bold mb-6 leading-snug"
+  className="text-white text-[20rem] sm:text-[25rem] md:text-[30rem] lg:text-[40px] font-bold mb-6 leading-snug"
 >
   Stay up to date with <br /> our Newsletter
 </h2>

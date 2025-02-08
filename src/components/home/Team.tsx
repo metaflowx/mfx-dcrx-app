@@ -20,7 +20,7 @@ const TeamSection = ({ id }: { id: string }) => {
       role: " Founder & CEO",
       description:
         "With over 10 years of experience in blockchain and fintech, Aryan is the visionary leader behind DecryptoX. As an entrepreneur he blends innovation with a passion for inclusivity and decentralization.",
-        imgSrc: "/card/nathaniel.png",
+        imgSrc: "/card/01-01.png",
       bgColor: "bg-black",
     },
     {
@@ -29,7 +29,7 @@ const TeamSection = ({ id }: { id: string }) => {
       description:
         "Sophia, a tech visionary, brings unparalleled expertise in distributed ledger technology and Web3 protocols to DecryptoX. She has been pivotal in scaling decentralized applications to the users and ensuring robust security for cutting-edge projects.",
      
-      imgSrc: "/card/micheal.png", 
+      imgSrc: "/card/02-01.png", 
       bgColor: "bg-black",
     },
     {
@@ -37,7 +37,7 @@ const TeamSection = ({ id }: { id: string }) => {
       role: "Community Manager",
       description:
         "John is a master of crypto community engagement and user adoption strategies. His focus is on creating a dynamic, globally connected community for DecryptoX, ensuring that each user feels heard and valued.",
-      imgSrc: "/card/david.png",
+      imgSrc: "/card/03-01.png",
       bgColor: "bg-black",
     },
     {
@@ -45,7 +45,7 @@ const TeamSection = ({ id }: { id: string }) => {
       role: "Chief Marketing Officer (CMO)",
       description:
         "Mohamed, an experienced marketer, specializes in driving crypto adoption across emerging markets. His expertise has fueled campaigns and played a key role in boosting blockchain worldwide.",
-        imgSrc: "/card/nathaniel.png",
+        imgSrc: "/card/04-01.png",
       bgColor: "bg-black",
     },
     {
@@ -53,7 +53,7 @@ const TeamSection = ({ id }: { id: string }) => {
       role: "Lead Blockchain Developer",
       description:
         "Kin, a blockchain prodigy, is an expert in Solidity, Ethereum Layer 2 solutions, and security audits. Her meticulous work in deploying high-transaction smart contracts ensures that DecryptoX remains secure, scalable, and decentralized.",
-      imgSrc: "/card/robert.png",
+      imgSrc: "/card/05-01.png",
       bgColor: "bg-black",
     },
     {
@@ -61,7 +61,7 @@ const TeamSection = ({ id }: { id: string }) => {
       role: "Blockchain Advisor",
       description:
         "Susan, a distinguished blockchain expert, brings invaluable knowledge in decentralized governance and ecosystems. Her strategic guidance shapes the direction of DecryptoX, steering it toward a more inclusive and transparent digital economy.",
-      imgSrc: "/card/micheal.png",
+      imgSrc: "/card/06-01.png",
       bgColor: "bg-black",
     },
   ];
@@ -75,12 +75,7 @@ const TeamSection = ({ id }: { id: string }) => {
         {/* Section Header */}
         <CommonHeading heading="Our Team" fontSize={"text-[40px] "} />
 
-        <p className="text-center mt-2 text-white sm:text-[25px] md:text-[40px] font-bold leading-snug">
-          Lorem Ipsum is simply dummy text of the
-        </p>
-        <p className="text-center  text-white sm:text-[25px] md:text-[40px] font-bold leading-snug">
-          printing and typesetting industry.
-        </p>
+        
 
         {/* Team Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-10">
@@ -99,17 +94,17 @@ const TeamSection = ({ id }: { id: string }) => {
                         </h2>
                         <p
                           style={{ fontFamily: "Outfit" }}
-                          className="text-[#AEAEAE] text-[26px] mt-1"
+                          className="text-[#AEAEAE] text-[22px] mt-1"
                         >
                           {selectedMember?.role}
                         </p>
                         <p
                           style={{ fontFamily: "Geist" }}
-                          className="text-white text-[20px] mt-4 text-center font-medium px-6"
+                          className="text-white text-[16px] mt-4 text-center font-medium px-6"
                         >
                           {selectedMember.description}
                         </p>
-                        <div className="flex justify-center gap-4 mt-6">
+                        {/* <div className="flex justify-center gap-4 mt-6">
                           <img
                             src="/crypto/facebook.png"
                             alt="facebook"
@@ -126,14 +121,14 @@ const TeamSection = ({ id }: { id: string }) => {
                             alt="insta"
                             className="w-[38px] h-[38px]"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </>
                 ) : (
                   <div
                     key={index}
-                    className={`p-6  pt-[70px] pb-[30px] border border-[#1B429A] bg-[#09090B]  transition cursor-pointer ${
+                    className={`p-6  pt-[40px] pb-[30px] border border-[#1B429A] bg-[#09090B]  transition cursor-pointer ${
                       index === 0
                         ? "rounded-tl-[20px] rounded-bl-[20px]"
                         : index === 2
@@ -188,17 +183,17 @@ const TeamSection = ({ id }: { id: string }) => {
                         </h2>
                         <p
                           style={{ fontFamily: "Outfit" }}
-                          className="text-[#AEAEAE] text-[26px] mt-1"
+                          className="text-[#AEAEAE] text-[22px] mt-1"
                         >
                           {selectedMember?.role}
                         </p>
                         <p
                           style={{ fontFamily: "Geist" }}
-                          className="text-white text-[20px] mt-4 text-center font-medium px-6"
+                          className="text-white text-[16px] mt-4 text-center font-medium px-6"
                         >
                           {selectedMember.description}
                         </p>
-                        <div className="flex justify-center gap-4 mt-6">
+                        {/* <div className="flex justify-center gap-4 mt-6">
                           <img
                             src="/crypto/facebook.png"
                             alt="facebook"
@@ -215,14 +210,14 @@ const TeamSection = ({ id }: { id: string }) => {
                             alt="insta"
                             className="w-[38px] h-[38px]"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </>
                 ) : (
                   <div
                     key={index}
-                    className={`p-6 pt-[70px] pb-[30px] border border-[#1B429A] bg-[#09090B]  transition cursor-pointer ${
+                    className={`p-6 pt-[40px] pb-[30px] border border-[#1B429A] bg-[#09090B]  transition cursor-pointer ${
                       index === 0
                         ? "rounded-tl-[20px] rounded-bl-[20px]"
                         : index === 2
