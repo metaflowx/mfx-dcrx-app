@@ -13,7 +13,7 @@ const SolutionSection: React.FC = () => {
        
             <CommonHeading heading={" THE SOLUTION"} fontSize="text-[42px] text-left md:text-center w-full " />
          
-          <h1 style={{lineHeight:"59px"}} className="text-[39px] md:text-[59px] text-left md:text-center font-bold mb-4">DecryptoX</h1>
+          <h1  className="text-[39px] md:text-[40px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX</h1>
           <p className="text-white text-left md:text-center text-[18px] md:text-[24px] font-medium">
           Transforming Crypto for Everyone
 
@@ -29,14 +29,17 @@ const SolutionSection: React.FC = () => {
               {[
                 
                 {
+                  logo:"1",
                 title:"Privacy First with Decentralized Identity (DID)",
                 description:"Take control of your personal data with DID and verifiable credentials, offering enhanced privacy without compromising compliance—your data, your rules."
               },
-              {title:"AI-Driven Simplicity",
+              {
+                logo:"2",
+                title:"AI-Driven Simplicity",
               description:"Harness the power of cutting-edge AI tools to simplify complex trading strategies, making crypto accessible and intuitive for beginners and experts alike."},
-              {title:"A Unified Financial Powerhouse",
+              {logo:"3", title:"A Unified Financial Powerhouse",
                 description:"From staking to lending and cross-chain solutions, DecryptoX merges diverse DeFi opportunities into a single, seamless platform—everything you need in one place."},
-                {title:"Borderless Trading with Regulatory Harmony",
+                {logo:"4",title:"Borderless Trading with Regulatory Harmony",
                   description:"By leveraging decentralized infrastructure, DecryptoX provides global access while addressing compliance with innovative, forward-thinking solutions."}
             
             ].map((item, index) => (
@@ -47,7 +50,10 @@ const SolutionSection: React.FC = () => {
                   <div className="flex justify-center ">
                     <div className="bg-textPrimary p-3 rounded-full">
                     <div className="flex justify-center items-center  mt-4">
-                <img src="/crypto/dollarsymbol.png" style={{width:"83px",height:"85px"}} />
+                    <img
+                  src={`/problem/${item.logo}.png`}
+                  style={{ width: "89px", height: "92px" }}
+                />
               </div>
                     </div>
                   </div>

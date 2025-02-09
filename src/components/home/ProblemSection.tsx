@@ -24,21 +24,25 @@ const ProblemSection: React.FC = () => {
 
   const cardData = [
     {
+      logo:"compliance",
       title: "Counterparty Risks",
       description:
         "Eroded Privacy and User Control: Centralized exchanges rely on outdated KYC systems for systems that expose sensitive user data to potential breaches, leaving privacy and autonomy at risk.",
     },
     {
+      logo:"2",
       title: "Decentralization",
       description:
         "Compliance vs. Accessibility Dilemma: Striking the right balance between regulatory compliance and user empowerment has created barriers, limiting global access and seamless adoption.",
     },
     {
+      logo:"3",
       title: "Liquidity",
       description:
         "Overwhelmingly Complex Platforms: Cryptocurrency platforms often feature convoluted interfaces that deter beginners and frustrate seasoned traders, holding back the potential for widespread adoption.",
     },
     {
+      logo:"4",
       title: "Capital Efficiency",
       description:
         "Fragmented and Isolated Ecosystems: The lack of cross-chain compatibility restricts liquidity and financial opportunities, creating bottlenecks in a space that should thrive on interconnectivity.",
@@ -53,34 +57,35 @@ const ProblemSection: React.FC = () => {
         }}
         className="max-w-7xl mx-auto px-6 text-left md:text-center pt-[10px] md:pt-[180px]"
       >
-        <div className="mb-1">
-          <CommonHeading heading={"The Problem"} fontSize="text-[42px]" />
+        <div>
+          <CommonHeading heading={"The Problem"} fontSize="text-[45px]" />
         </div>
 
-        <h1 className="text-[30px] xl:text-[50px] font-bold">
+        <h1 className="text-[30px] xl:text-[35px] font-bold">
         Challenges in Today’s {" "}
         </h1>
-        <p className="text-[30px] xl:text-[50px] font-bold mb-8">
+        <p className="text-[30px] xl:text-[35px] font-bold mb-8">
           
           <span className="text-[#1B429A] ml-2">Crypto Landscape</span>
         </p>
 
         {/* Slick Slider */}
-        <div className="lg:hidden">
+        <div className="xl:hidden">
          <CommonSlider cardData={cardData} />
         </div>
 
         {/* Grid View for Medium Screens and Above */}
-        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-4 gap-1">
+        <div className="hidden xl:grid grid-cols-1 lg:grid-cols-4 gap-1">
           {cardData.map((item, index) => (
-            <div className="jsborderprob">
+            <div className="jsborderprob h-auto">
               <div
               key={index}
-              className="cardBorderBgBorder p-2 rounded-lg shadow-md text-center"
+              className="cardBorderBgBorder p-2 rounded-lg shadow-md text-center h-auto"
             >
               <div className="flex justify-center items-center mb-4 mt-4">
+             
                 <img
-                  src="/crypto/dollarsymbol.png"
+                  src={`/problem/${item.logo}.png`}
                   style={{ width: "89px", height: "92px" }}
                 />
               </div>

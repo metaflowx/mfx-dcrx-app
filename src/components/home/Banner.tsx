@@ -6,6 +6,7 @@ import {
   useAppKitAccount,
   useAppKitNetwork,
 } from "@reown/appkit/react";
+import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import CoinSelector from "./CoinSelector";
 
@@ -49,6 +50,7 @@ const Banner = ({ id }: { id: string }) => {
   const { address } = useAccount();
   const { chainId } = useAppKitNetwork();
   const searchparm = useSearchParams();
+  const [progress, setProgress] = useState(30);
 
   const [isOpen, setIsOpen] = useState(false);
   const [coinType, setCoinType] = useState({
@@ -267,6 +269,9 @@ const Banner = ({ id }: { id: string }) => {
     ? Number(formatEther(BigInt(result.data[4].result.maxBuy)))
     : 0;
 
+    const max = 100;
+    const progressWidth = (Number(calciulatedToken?.totalSale) / Number(calciulatedToken?.totalTokenSupplyUSD)) * 100;
+
   return (
     <div
       id={id}
@@ -274,39 +279,42 @@ const Banner = ({ id }: { id: string }) => {
       className="min-h-screen bannerBg   text-white flex items-center justify-center px-4"
     >
       <ConstrainedBox>
-        <div className=" flex flex-col lg:flex-row items-center mt-[120px] sm:mt-[85px] ">
-          <div className="text-center lg:text-left">
+        <div className=" flex flex-col lg:flex-row items-center mt-[120px] sm:mt-[85px] w-full">
+          <div className="text-center lg:text-left w-full pl-[10px]">
             <h1 className="sm:text-[40px] md:text-[60px] lg:text-[70px] font-bold">
               Join Decryptox:
             </h1>
             <p className="text-[20px] md:text-[30px] text-[#2B9AE6] font-bold mt-2">
               Be a Part of the Decentralized Revolution!
             </p>
-            <p className="mt-4 font-medium text-[14px] sm:text-[24px]">
+            <p className="mt-4 font-medium text-[14px] sm:text-[24px] max-w-xl">
               Redefine Trading with the World’s Most Advanced Decentralized
               Platform—Secure, Seamless, and Built for You
             </p>
             <div className="block md:flex gap-4 mt-6 justify-center lg:justify-start">
-              <Link
-                style={{
-                  background:
-                    "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
-                }}
-                href={"docs/whitepaper.pdf"}
-                target="_blank"
-                className="flex justify-center items-center mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black"
-              >
-                White Paper
-              </Link>
-              <Link
-                style={{ border: "1px solid #2B9AE6" }}
-                href={"/docs/lightpaper.pdf"}
-                target="_blank"
-                className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold"
-              >
-                Light Paper
-              </Link>
-            </div>
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link
+          style={{
+            background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%)",
+          }}
+          href={"/docs/whitepaper.pdf"}
+          target="_blank"
+          className="flex justify-center items-center mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black transition-all duration-300"
+        >
+          White Paper
+        </Link>
+      </motion.div>
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link
+          style={{ border: "1px solid #2B9AE6" }}
+          href={"/docs/lightpaper.pdf"}
+          target="_blank"
+          className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
+        >
+          Light Paper
+        </Link>
+      </motion.div>
+    </div>
           </div>
 
           {/* Right Section */}
@@ -331,7 +339,25 @@ const Banner = ({ id }: { id: string }) => {
                   }
                 />
               </div>
-              <img src="/card/progress.png" className="w-[505px] pb-4" />
+              {/* <img src="/card/progress.png" className="w-[505px] pb-4" /> */}
+              <div
+            style={{
+              background:
+                "linear-gradient(90deg, #2B9AE6 0%, #000000 100%)",
+              border: "1px solid #2B9AE6",
+            }}
+            className="w-full h-[10px] rounded-full mb-6"
+          >
+            <div
+              style={{
+                width: `${progressWidth}%`, // Dynamically set width
+                background:
+                  "#2B9AE6",
+                border: "1px solid #2B9AE6",
+              }}
+              className="h-full rounded-full transition-all duration-300 ease-in-out"
+            ></div>
+          </div>
 
               <div className="block sm:flex justify-between items-center">
                 <p

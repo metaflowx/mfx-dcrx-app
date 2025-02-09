@@ -75,19 +75,11 @@ const OfferSection: React.FC = () => {
     <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
       <ConstrainedBox classNames="p-4">
         <div className="max-w-8xl mx-auto text-left md:text-center">
-          <h2 className="text-[25px] md:text-[50px] font-bold mb-4">Core Features of DecryptoX</h2>
-          <h2 className="text-[25px] md:text-[50px] font-bold mb-4">
+          <h2 className="text-[25px] md:text-[40px] font-bold ">Core Features of DecryptoX</h2>
+          <h2 className="text-[25px] md:text-[35px] font-bold ">
             <span className="text-[#2B9AE6]">Revolutionizing Your Crypto Experience</span>
           </h2>
-          <p className="text-white text-left md:text-center font-medium text-[18px] md:text-[22px]">
-            We’re creating an ecosystem where users can truly own their trading experience without intermediaries.
-          </p>
-          <p className="text-white font-medium text-[18px] md:text-[22px]">
-            Powered by blockchain, DecryptoX delivers all the advantages of centralized platforms but with the freedom
-          </p>
-          <p className="text-white font-medium text-[18px] md:text-[22px]">
-            and security that only decentralization can provide.
-          </p>
+         
         </div>
       </ConstrainedBox>
       <div className="w-full mx-auto px-6 text-center py-10 relative">
