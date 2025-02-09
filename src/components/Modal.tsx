@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import CommonButton from './common/CommonButton';
+import { Cross } from 'lucide-react';
 
 const WalletModal = ({isOpen,setIsOpen}:{isOpen?:boolean;setIsOpen?:any}) => {
   
@@ -28,18 +29,20 @@ const WalletModal = ({isOpen,setIsOpen}:{isOpen?:boolean;setIsOpen?:any}) => {
     <>
       {isOpen && (
         <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center p-4 z-10 backdrop-blur-[7px]">
-          <div className="bg-[#111827] px-6 sm:px-12 p-6 sm:p-8 shadow-lg text-center max-w-sm sm:max-w-xl w-full rounded-[22px]">
+          <div className="bg-[#111827] px-6 sm:px-12 p-6 sm:p-8 shadow-lg relative text-center max-w-sm sm:max-w-xl w-full rounded-[22px]">
             {/* Close Button */}
-            <div className="w-full flex justify-end">
+            <div className="w-full flex justify-end  absolute top-10 right-4">
               <img 
                 src="/images/cross.png" 
                 className="w-5 h-5 sm:w-[18px] sm:h-[18px] cursor-pointer" 
                 onClick={() => setIsOpen(false)}  
               />
+
+              {/* <Cross  onClick={() => setIsOpen(false)}   /> */}
             </div>
 
             {/* Header */}
-            <h1 className="text-lg sm:text-2xl font-bold mb-4">
+            <h1 className="text-lg sm:text-2xl font-bold mb-4 mt-5">
               Need a <span className="text-[#2B9AE6]">Wallet</span>? Try Best Wallet
             </h1>
 
