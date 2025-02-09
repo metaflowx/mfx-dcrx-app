@@ -61,11 +61,11 @@ export const FAQ = ({ id }: { id: string }) => {
         <div className="flex relative flex-col items-center  pt-4 pb-32   max-md:pb-24 max-md:max-w-full">
           <div className="flex flex-col mb-0 w-full max-w-[1217px] max-md:mb-2.5 max-md:max-w-full">
             <div className="self-center text-[40px] font-bold leading-none text-center max-md:max-w-full max-md:text-2xl">
-              <span className="text-sky-500">Frequently</span> Asked Questions
+              <span className="text-sky-500">FAQs for </span> DecryptoX
             </div>
-            <div className="self-center mt-8 text-2xl lg:text-[40px] font-bold leading-none text-center max-md:max-w-full">
+            {/* <div className="self-center mt-8 text-2xl lg:text-[40px] font-bold leading-none text-center max-md:max-w-full">
               {faqData.subtitle}
-            </div>
+            </div> */}
            <AccordianList faqs={faqs} />
           
            

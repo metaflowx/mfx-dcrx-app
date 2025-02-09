@@ -29,7 +29,7 @@ const SolutionSection: React.FC = () => {
               {[
                 
                 {
-                  logo:"1",
+                  logo:"4",
                 title:"Privacy First with Decentralized Identity (DID)",
                 description:"Take control of your personal data with DID and verifiable credentials, offering enhanced privacy without compromising compliance—your data, your rules."
               },
@@ -37,9 +37,9 @@ const SolutionSection: React.FC = () => {
                 logo:"2",
                 title:"AI-Driven Simplicity",
               description:"Harness the power of cutting-edge AI tools to simplify complex trading strategies, making crypto accessible and intuitive for beginners and experts alike."},
-              {logo:"3", title:"A Unified Financial Powerhouse",
+              {logo:"1", title:"A Unified Financial Powerhouse",
                 description:"From staking to lending and cross-chain solutions, DecryptoX merges diverse DeFi opportunities into a single, seamless platform—everything you need in one place."},
-                {logo:"4",title:"Borderless Trading with Regulatory Harmony",
+                {logo:"3",title:"Borderless Trading with Regulatory Harmony",
                   description:"By leveraging decentralized infrastructure, DecryptoX provides global access while addressing compliance with innovative, forward-thinking solutions."}
             
             ].map((item, index) => (
@@ -51,7 +51,7 @@ const SolutionSection: React.FC = () => {
                     <div className="bg-textPrimary p-3 rounded-full">
                     <div className="flex justify-center items-center  mt-4">
                     <img
-                  src={`/problem/${item.logo}.png`}
+                  src={`/solution/${item.logo}.png`}
                   style={{ width: "89px", height: "92px" }}
                 />
               </div>

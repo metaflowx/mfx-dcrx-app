@@ -12,12 +12,12 @@ const quickLinks = [
 ];
 
 export const socialIcons = [
-  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/080206190345f632fbd2fd0d0026a09eccff7a5ed9ee28fada45fa7896214cda?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 1", className: "aspect-square w-[17px] stroke-[0.426px] stroke-white" },
-  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/ed64a4448b4ee9f0042cc3876441e4e3f78a9c50818e2873f1662623bb34c6bb?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 2", className: "aspect-[0.57] w-[13px]" },
-  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/1a12f6cb982e41d362806b61ceacdd46c33f92a070702cffe27dd03185dd0763?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 3", className: "aspect-[1.29] w-[22px]" },
-  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/df963f7454a62e496f0f0e6ecdad1ac1df951b94157300ae64b92d899d7ae7ea?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 4", className: "aspect-[1.05] w-[22px]" },
-  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/a50a9e28dae9607cabb7a4576543b548142be10152bc1405e7e3b9f46ef24360?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 5", className: "aspect-[1.37] w-[26px]" },
-  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/46223b88762e3d223247869ed28a649ecf36cf0cd50d410e4b9c187637bd1a5c?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 6", className: "aspect-[1.32] w-[25px]" }
+  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/080206190345f632fbd2fd0d0026a09eccff7a5ed9ee28fada45fa7896214cda?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 1", className: "aspect-square w-[17px] stroke-[0.426px] stroke-white",url:"https://x.com/_DecryptoX" },
+  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/ed64a4448b4ee9f0042cc3876441e4e3f78a9c50818e2873f1662623bb34c6bb?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 2", className: "aspect-[0.57] w-[13px]",url:"https://www.facebook.com/officialdecryptox" },
+  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/1a12f6cb982e41d362806b61ceacdd46c33f92a070702cffe27dd03185dd0763?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 3", className: "aspect-[1.29] w-[22px]",url:"" },
+  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/df963f7454a62e496f0f0e6ecdad1ac1df951b94157300ae64b92d899d7ae7ea?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 4", className: "aspect-[1.05] w-[22px]",url:"https://www.instagram.com/_decryptox/" },
+  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/a50a9e28dae9607cabb7a4576543b548142be10152bc1405e7e3b9f46ef24360?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 5", className: "aspect-[1.37] w-[26px]",url:"https://www.youtube.com/@officialDecryptoX" },
+  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/46223b88762e3d223247869ed28a649ecf36cf0cd50d410e4b9c187637bd1a5c?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 6", className: "aspect-[1.32] w-[25px]",url:" https://www.linkedin.com/company/official-decryptox/ " }
 ];
 
 export const Footer: React.FC = () => {
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
                     alt="Company Logo"
                     className="object-contain max-w-full aspect-[4.33] w-[325px]"
                   />
-                  <div className="mt-3.5 ml-2.5">
+                  <div className="mt-3.5 ml-2.5 text-[18px]">
                     contact us: <span>support@decryptox.com</span>
                   </div>
                 </div>
@@ -70,17 +70,11 @@ export const Footer: React.FC = () => {
             className="object-contain mt-6 w-full aspect-[1000] stroke-[1px] stroke-white max-md:max-w-full"
           />
           <div className="flex flex-wrap gap-10 mt-7 ml-2.5 text-base text-white max-md:mr-1.5 max-md:max-w-full">
-            <div className="grow shrink text-lg w-[332px]">
-              Recommend our services and get rewarded – a win-win situation for both of us.
+           
+            <div className="grow shrink text-center w-[611px] max-md:max-w-full text-[#1a1a1a]">
+            Disclaimer:Crypto investments are high-risk and not for everyone. Do your research and seek advice before investing. DecryptoX complies with laws but operates in evolving DeFi regulations.
             </div>
-            <div className="grow shrink text-center w-[611px] max-md:max-w-full">
-              Disclaimer: DecryptoX is more than just a decentralized exchange—it's a platform designed.
-              <br />
-              to empower users with control, privacy, and advanced trading capabilities.
-            </div>
-            <div className="grow shrink self-start font-semibold w-[211px]">
-              Privacy Policy | Terms & Conditions
-            </div>
+            
           </div>
           <img
             loading="lazy"
@@ -88,8 +82,8 @@ export const Footer: React.FC = () => {
             alt=""
             className="object-contain mt-20 w-full aspect-[1000] stroke-[1px] stroke-white max-md:mt-10 max-md:max-w-full"
           />
-          <div className="self-center mt-4 ml-2.5 text-base font-semibold text-center text-white">
-            @copyright | Privacy Policy | Terms & Conditions
+          <div className="self-center mt-4 ml-2.5 text-base font-semibold text-center ">
+           <span className="#1a1a1a">@copyright 2025</span>  | <span style={{color:"#1a1a1a"}}>Privacy Policy</span>  | <span style={{color:"#1a1a1a"}} >Terms & Conditions</span>
           </div>
         </div>
       </div>

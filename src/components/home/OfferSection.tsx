@@ -14,62 +14,58 @@ const OfferSection: React.FC = () => {
     {
       title: "Spot Trading",
       description: "Trade crypto in real-time with advanced order types and minimal slippage.",
-      image: "/crypto/dollarsymbol.png",
+      image: "/offer/SpotTrading.png",
     },
     {
       title: "Margin Trading",
       description: "Amplify your trades with up to 10x leverage and built-in risk management.",
-      image: "/crypto/dollarsymbol.png",
+      image: "/offer/MarginTrading.png",
     },
+    {
+      title: "DeFi Integration",
+      description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
+      image: "/offer/DeFiIntegration.png",
+    },
+    {
+      title: "Identity & Security",
+      description: "Protect assets with decentralized identity, multi-sign wallets, and top-tier security.",
+      image: "/offer/IdentitySecurity.png",
+    },
+    {
+      title: " Governance & Community Engagement",
+      description: "Shape the platform’s future through DAO governance and voting.",
+      image: "/offer/GovernanceCommunityEngagement.png",
+    },
+    {
+      title: "Cross-Chain Functionality",
+      description: "Seamlessly trade and transfer assets across multiple blockchain networks.",
+      image: "/offer/Cross-ChainFunctionality.png",
+    },
+   
     {
       title: "Futures & Options Trading",
       description: "Hedge risks or speculate with flexible futures and options contracts.",
-      image: "/crypto/dollarsymbol.png",
+      image: "/offer/FuturesOptionsTrading.png",
     },
     {
       title: "P2P Trading",
       description: "Trade directly with peers using secure escrow services and fiat conversion.",
-      image: "/crypto/dollarsymbol.png",
+      image: "/offer/P2PTrading.png",
     },
     {
       title: "Automated Trading Solutions",
       description: "Leverage AI-driven bots and algorithmic trading for optimized performance.",
-      image: "/crypto/dollarsymbol.png",
+      image: "/offer/AutomatedTradingSolutions.png",
     },
     {
       title: "Staking & Yield Generation",
       description: "Earn passive income through staking, dual-token rewards, and high APYs.",
-      image: "/crypto/dollarsymbol.png",
+      image: "/offer/StakingYieldGeneration.png",
     },
   ];
   const [cardData, setCardData] = useState(initialData);
 
-  const loadMoreSlides = () => {
-    const moreData = [
-      {
-        title: "Automated Trading Solutions",
-        description: "Leverage AI-driven bots and algorithmic trading for optimized performance.",
-        image: "/crypto/dollarsymbol.png",
-      },
-      {
-        title: "Staking & Yield Generation",
-        description: "Earn passive income through staking, dual-token rewards, and high APYs.",
-        image: "/crypto/dollarsymbol.png",
-      },
-      {
-        title: "DeFi Integration",
-        description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
-        image: "/crypto/dollarsymbol.png",
-      },
-      {
-        title: "Identity & Security",
-        description: "Protect assets with decentralized identity, multi-sign wallets, and top-tier security",
-        image: "/crypto/dollarsymbol.png",
-      },
-    ];
-
-    setCardData((prev) => [...prev, ...moreData]);
-  };
+ 
 
   return (
     <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
@@ -99,12 +95,12 @@ const OfferSection: React.FC = () => {
                     {
                       title: "DeFi Integration",
                       description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
-                      image: "/crypto/dollarsymbol.png",
+                      image: "/offer/DeFiIntegration.png",
                     },
                     {
                       title: "Identity & Security",
                       description: "Protect assets with decentralized identity, multi-sign wallets, and top-tier security.",
-                      image: "/crypto/dollarsymbol.png",
+                      image: "/offer/IdentitySecurity.png",
                     },
                   ];
             

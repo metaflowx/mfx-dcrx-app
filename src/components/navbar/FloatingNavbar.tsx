@@ -130,7 +130,9 @@ const FloatingNavbar = ({
               alt="Telegram"
               className="h-[24px] hidden lg:block"
             />
-            <img src="/crypto/x.png" alt="X" className="h-[24px] hidden lg:block" />
+            <Link href={"https://x.com/_DecryptoX"} target="_blank">
+            <img src="/crypto/x.png"  alt="X" className="h-[24px] hidden lg:block" />
+            </Link>
 
           
             <ConnectButton />
