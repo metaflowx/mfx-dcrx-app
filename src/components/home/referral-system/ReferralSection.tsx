@@ -105,7 +105,7 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
   };
   
   return (
-    <section  className="mainReferBg text-white py-[10px] md:py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full pt-10 sm:pt-2">
+    <section  className="mainReferBg text-white py-[10px] md:py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full pt-20 sm:pt-2">
       <ConstrainedBox>
 
       <div className="w-full">
@@ -193,12 +193,12 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
     <div className="col-span-12 xl:col-span-4 refferCommonMainBg refferCommonMainBg1 rounded-lg  p-10  xl:p-6 ">
       <div className="flex justify-between items-center pb-12 pt-14 2xl:pt-[118px]">
 
-      <h3 style={{fontFamily:"Geist"}} className="text-xl  text-[#2B9AE6] xl:text-[36px] font-bold leading-snug">Our Bonus <br /> Plan:</h3>
+      <h3 style={{fontFamily:"Geist"}} className="text-[20px]  text-[#2B9AE6] xl:text-[30px] font-bold leading-snug">Our Bonus <br /> Plan:</h3>
       <CommonButton btnName="Refer Now" width=" sm:w-[130px]" />
       </div>
       
       {bonusPlan.map((item, index) => (
-    <div  style={{ fontFamily: "Geist" }} key={index} className="flex justify-between items-center text-[28px] ">
+    <div  style={{ fontFamily: "Geist" }} key={index} className="flex justify-between items-center text-[20px] ">
      <p className="font-bold leading-snug"> {item.range}</p>
       
        <p className="font-bold leading-snug">{item.bonus}</p>

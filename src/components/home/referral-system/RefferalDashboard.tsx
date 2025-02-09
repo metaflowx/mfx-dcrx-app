@@ -33,7 +33,7 @@ const RefferalDashboard = ({result}:{result?:any}) => {
     },
     {
       title: "Total Earnings",
-      value:  Number(formatEther(BigInt(result[0]?.result))).toFixed(2),
+      value: result[0]?.result? Number(formatEther(BigInt(result[0]?.result))).toFixed(2) : 0,
       symbol:"$DCRX",
       earn:"/refer/earn.png",
       subValues: [
