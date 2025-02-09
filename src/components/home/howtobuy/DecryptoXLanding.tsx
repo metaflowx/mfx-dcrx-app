@@ -42,40 +42,40 @@ const features = [
 
 const steps = [
   {
-    title: "Connect Your Wallet & Choose Your Network",
+    title: "Connect Your Wallet",
     number: "/crypto/01.png",
     iconSrc: "/crypto/dollarsymbol.png",
     description:
-      "Get started by connecting your wallet! Use trusted wallets like MetaMask or Trust Wallet, and link them to the DecryptoX platform. Choose your preferred blockchain – BNB or ETH – and you're good to go!",
+      "Use trusted wallets like MetaMask or Trust Wallet, and link them to the DecryptoX platform. ",
     arrowSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
   },
   {
-    title: "Fund Your Wallet with Crypto Prepare your wallet for action!",
+    title: "Fund Your Wallet with Crypto",
     number: "/crypto/02.png",
     iconSrc: "/crypto/dollarsymbol.png",
     description:
-      "Add ETH or BNB or any supported coin to your wallet to make sure you're ready to purchase $DCRX tokens. Have a smooth and seamless transaction with the crypto you already own.",
+      "Add BNB or any supported coin to your wallet to make sure you're ready to purchase $DCRX tokens.",
     arrowSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
   },
   {
-    title: "Purchase $DCRX Tokens Ready to own $DCRX?",
+    title: "Purchase $DCRX Tokens",
     number: "/crypto/03.png",
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/9c3b6430341b9773c3890ad92f958279b5194a5ea2a067692f435ded238db0dc?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
     description:
-      "Head to the token sale page, enter the desired amount of $DCRX, and complete your purchase using your connected wallet. Once done, check the Your Purchased $DCRX tab on the form to view your newly acquired tokens. Simple, intuitive, and ready to empower your trading journey!",
+      "Head to the token sale page, enter the desired amount of $DCRX, and complete your purchase using your connected wallet.",
     arrowSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
   },
   {
-    title: "Claim Your $DCRX & Earn More! Unlock extra rewards!",
+    title: "Claim Your $DCRX & Earn More!",
     number: "/crypto/04.png",
     iconSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/9c3b6430341b9773c3890ad92f958279b5194a5ea2a067692f435ded238db0dc?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
     description:
-      "After your purchase, claim your $DCRX tokens and dive into our Refer and Earn Program or participate in exciting giveaways to unlock even more rewards. The journey doesn't stop here – the more you engage, the more you earn!",
+      "After your purchase, claim your $DCRX tokens and dive into our Refer and Earn Program. ",
     arrowSrc:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/dffc8191ec9005bd6788ceea652815f4f0d0030ad3fae4e0e138296f442a85db?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5",
   },

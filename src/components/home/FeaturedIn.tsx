@@ -19,6 +19,7 @@ const FeaturedIn: React.FC = () => {
     arrows: false,
     dots: false,
     pauseOnHover: false,
+    
     responsive: [
       { breakpoint: 768, settings: { slidesToShow: 2 } },
       { breakpoint: 480, settings: { slidesToShow: 1 } },
@@ -32,9 +33,9 @@ const FeaturedIn: React.FC = () => {
       </h2>
       <div className="px-6">
         <SlickSlider {...settings}>
-          {["linear", "utify", "bitrise", "hopin", "pendo"].map((logo, index) => (
+          {["Bloomberg", "CoinDesk", "CoinMarketCap", "CryptoRank", "Decrypt","Forbes","ICObench","icoHotlist","Nasdaq","techcrunch","telegraph","yahoofinance"].map((logo, index) => (
             <div key={index} className="flex justify-center">
-              <img src={`/coin-icon/${logo}.png`} alt={logo} className="w-[280px] h-[80px] object-contain" />
+              <img src={`/coin-icon/${logo}.jpg`} alt={logo} className="w-[200px] xl:w-[280px] h-[80px] object-contain" />
             </div>
           ))}
         </SlickSlider>

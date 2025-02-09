@@ -2,6 +2,7 @@ export interface SocialIconProps {
     src: string;
     alt: string;
     className: string;
+    url:string
   }
   
   export interface QuickLinkProps {

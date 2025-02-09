@@ -29,6 +29,7 @@ const Roadmap = ({id}:{id:string}) => {
   const phases = [
     {
       id: 1,
+      qtr:"Q4 2024 ",
       title: "Phase 1",
       description: "Conceptualization &",
       description1:"Initial Developmen",
@@ -37,6 +38,7 @@ const Roadmap = ({id}:{id:string}) => {
     },
     {
       id: 2,
+      qtr:"Q1-Q2 2025 ",
       title: "Phase 2",
       description: "Pre-ICO Development &",
       description1:"Token Sale Preparations",
@@ -45,6 +47,7 @@ const Roadmap = ({id}:{id:string}) => {
     },
     {
       id: 3,
+      qtr:"Q4 2025 ",
       title: "Phase 3",
       description: "Platform MVP Launch & ",
       description1:"Core Feature Rollout",
@@ -53,6 +56,7 @@ const Roadmap = ({id}:{id:string}) => {
     },
     {
       id: 4,
+      qtr:" Q1-Q2 2026 ",
       title: "Phase 4",
       description: "Full Platform Rollout &",
       description1:"Feature Expansion",
@@ -61,6 +65,7 @@ const Roadmap = ({id}:{id:string}) => {
     },
     {
       id: 5,
+      qtr:" Q3-Q4 2026 ",
       title: "Phase 5",
       description: "Community Governance & ",
       description1:"Ecosystem Scaling",
@@ -69,6 +74,7 @@ const Roadmap = ({id}:{id:string}) => {
     },
     {
       id: 6,
+      qtr:" Q1-Q2 2027+ ",
       title: "Phase 6",
       description: "Long-Term Growth &",
       description1:"Sustainability Initiatives",
@@ -130,7 +136,7 @@ const Roadmap = ({id}:{id:string}) => {
                  <img src= {phase.icon}  alt="icon" className="w-[31px] h-[28px]" />
                   </div>
 
-                 <h5 style={{fontFamily:"Outfit"}} className="text-[22px] font-bold whitespace-pre pl-2">Dummy text printing</h5>
+                 <h5 style={{fontFamily:"Outfit"}} className="text-[22px] font-bold whitespace-pre pl-2">{phase?.qtr}</h5>
                 </div>
 
                 {/* Line to Curve */}

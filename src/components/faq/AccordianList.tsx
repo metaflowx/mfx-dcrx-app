@@ -22,7 +22,7 @@ export default function AccordianList({faqs}:{faqs?:any}) {
               key={index}
               className="group accordianBg rounded-lg border border-blue-800/30 bg-blue-950/20 backdrop-blur-sm  transition-all duration-200"
             >
-              <AccordionItem value={`item-${index}`}>
+              <AccordionItem value={`item-${index}`} className="px-4">
                 <AccordionTrigger className="flex w-full items-center justify-between px-6 py-6 text-left">
                   <span className="text-lg sm:text-[25px]   font-medium">{faq.question}</span>
                
