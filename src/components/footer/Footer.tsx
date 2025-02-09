@@ -52,10 +52,8 @@ export const Footer: React.FC = () => {
                 </div>
               </div>
               <div className="flex flex-col ml-5 w-[17%] max-md:ml-0 max-md:w-full">
-                <div className="flex flex-col mt-2 w-full max-md:mt-10">
-                  <button className="self-end px-10 py-4 text-xl font-bold text-black rounded-xl max-md:px-5">
-                    connect wallet
-                  </button>
+                <div className="flex flex-col mt-2 w-full max-md:mt-1">
+                 
                   <div className="flex gap-6 items-center mt-9 max-md:mr-1">
                     {socialIcons.map((icon, index) => (
                       <SocialIcon key={index} {...icon} />
