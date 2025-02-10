@@ -43,7 +43,7 @@ const HomeSection1= ({ id }: { id: string }) => {
       <ConstrainedBox>
 
       <div className="mt-12 w-full ">
-        <h2 className="text-[30px] md:text-[40px] font-bold mb-8 text-[#2B9AE6] text-left md:text-center leading-snug" style={{fontFamily:"Geist, serif",fontWeight:700}} >
+        <h2 className="text-[30px] md:text-[30px] font-bold mb-8 text-[#2B9AE6] text-left md:text-center leading-snug" style={{fontFamily:"Geist, serif",fontWeight:700}} >
         Refer a Friend in 4 Easy Steps & Earn Rewards!
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-9">
@@ -53,9 +53,9 @@ const HomeSection1= ({ id }: { id: string }) => {
               key={index}
               className="cardBorderWithoutBg p-6 rounded-md text-center"
             >
-              <h3 style={{fontFamily:"Geist"}} className="text-[90px] font-bold mb-1 text-[#2B9AE6]">{`0${index + 1}.`}</h3>
-              <h4 style={{fontFamily:"Outfit"}} className="text-[28px] font-bold mb-2">{item?.title}</h4>
-              <p style={{fontFamily:"Geist"}} className="text-white text-[18px] font-semibold text-center">
+              <h3 style={{fontFamily:"Geist"}} className="text-[70px] font-bold mb-1 text-[#2B9AE6]">{`0${index + 1}.`}</h3>
+              <h4 style={{fontFamily:"Outfit"}} className="text-[22px] font-bold mb-2">{item?.title}</h4>
+              <p style={{fontFamily:"Geist"}} className="text-white text-[15px] font-semibold text-center">
              {item?.description}
               </p>
             </div>

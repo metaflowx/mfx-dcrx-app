@@ -9,7 +9,7 @@ export default function HomeSection4() {
 
       {/* Content */}
       <div style={{fontFamily:"Geist"}} className="relative z-10 flex flex-col items-center justify-center  text-center ">
-        <h1 className="text-2xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+        <h1 className="text-2xl md:text-5xl font-bold text-white mb-6 tracking-tight">
      
           Let&apos;s Grow Together!
         </h1>
