@@ -319,9 +319,23 @@ const Banner = ({ id }: { id: string }) => {
                   style={{ border: "1px solid #2B9AE6" }}
                   href={"/docs/lightpaper.pdf"}
                   target="_blank"
-                  className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
+                  className="flex justify-center items-center mb-[10px] sm:mb-[0px] border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
                 >
                   Light Paper
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  style={{ border: "1px solid #2B9AE6" }}
+                  href={"/docs/lightpaper.pdf"}
+                  target="_blank"
+                  className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
+                >
+                  Audit Report 
                 </Link>
               </motion.div>
             </div>
