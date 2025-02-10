@@ -934,4 +934,7 @@ h6 {
   .refferFriendInputMainBg {
     background-position: bottom !important;
   }
+  .timerBg {
+    padding: 27px;
+  }
 }/*# sourceMappingURL=globals.css.map */
