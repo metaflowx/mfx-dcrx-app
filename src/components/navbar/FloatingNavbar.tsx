@@ -80,7 +80,7 @@ const FloatingNavbar = ({
             duration: 0.2,
           }}
           className={cn(
-            " w-full fixed top-0 left-0  z-50  pb-3 shadow-md h-auto",
+            " w-full fixed top-0 left-0  z-50  pb-3  h-auto",
             className
           )}
         >
@@ -88,7 +88,7 @@ const FloatingNavbar = ({
 
         
           {/* Logo Section */}
-          <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 shadow-md">
+          <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 ">
 
           <div
             className="flex items-center space-x-4 cursor-pointer"
