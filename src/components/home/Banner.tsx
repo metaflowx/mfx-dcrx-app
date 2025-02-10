@@ -269,8 +269,11 @@ const Banner = ({ id }: { id: string }) => {
     ? Number(formatEther(BigInt(result.data[4].result.maxBuy)))
     : 0;
 
-    const max = 100;
-    const progressWidth = (Number(calciulatedToken?.totalSale) / Number(calciulatedToken?.totalTokenSupplyUSD)) * 100;
+  const max = 100;
+  const progressWidth =
+    (Number(calciulatedToken?.totalSale) /
+      Number(calciulatedToken?.totalTokenSupplyUSD)) *
+    100;
 
   return (
     <div
@@ -292,29 +295,50 @@ const Banner = ({ id }: { id: string }) => {
               Platform—Secure, Seamless, and Built for You
             </p>
             <div className="block md:flex gap-4 mt-6 justify-center lg:justify-start">
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <Link
-          style={{
-            background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%)",
-          }}
-          href={"/docs/whitepaper.pdf"}
-          target="_blank"
-          className="flex justify-center items-center mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black transition-all duration-300"
-        >
-          White Paper
-        </Link>
-      </motion.div>
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <Link
-          style={{ border: "1px solid #2B9AE6" }}
-          href={"/docs/lightpaper.pdf"}
-          target="_blank"
-          className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
-        >
-          Light Paper
-        </Link>
-      </motion.div>
-    </div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%)",
+                  }}
+                  href={"/docs/whitepaper.pdf"}
+                  target="_blank"
+                  className="flex justify-center items-center mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black transition-all duration-300"
+                >
+                  White Paper
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  style={{ border: "1px solid #2B9AE6" }}
+                  href={"/docs/lightpaper.pdf"}
+                  target="_blank"
+                  className="flex justify-center items-center mb-[10px] sm:mb-[0px] border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
+                >
+                  Light Paper
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  style={{ border: "1px solid #2B9AE6" }}
+                  href={"/docs/lightpaper.pdf"}
+                  target="_blank"
+                  className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
+                >
+                  Audit Report 
+                </Link>
+              </motion.div>
+            </div>
           </div>
 
           {/* Right Section */}
@@ -341,23 +365,22 @@ const Banner = ({ id }: { id: string }) => {
               </div>
               {/* <img src="/card/progress.png" className="w-[505px] pb-4" /> */}
               <div
-            style={{
-              background:
-                "linear-gradient(90deg, #2B9AE6 0%, #000000 100%)",
-              border: "1px solid #2B9AE6",
-            }}
-            className="w-full h-[10px] rounded-full mb-6"
-          >
-            <div
-              style={{
-                width: `${progressWidth}%`, // Dynamically set width
-                background:
-                  "#2B9AE6",
-                border: "1px solid #2B9AE6",
-              }}
-              className="h-full rounded-full transition-all duration-300 ease-in-out"
-            ></div>
-          </div>
+                style={{
+                  background:
+                    "#000",
+                  border: "1px solid #2B9AE6",
+                }}
+                className="w-full h-[10px] rounded-full mb-6"
+              >
+                <div
+                  style={{
+                    width: `${progressWidth}%`, // Dynamically set width
+                    background: "linear-gradient(90deg, #2B9AE6 0%, #000000 100%)",
+                    border: "1px solid #2B9AE6",
+                  }}
+                  className="h-full rounded-full transition-all duration-300 ease-in-out"
+                ></div>
+              </div>
 
               <div className="block sm:flex justify-between items-center">
                 <p

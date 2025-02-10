@@ -17,9 +17,9 @@ export default function HomeSection3() {
       <div className=" flex flex-col md:flex-row items-center justify-between gap-12 w-full">
         {/* Left Content Section */}
         <div className="flex-1 space-y-8">
-          <h1 className="text-2xl md:text-5xl font-bold leading-snug text-[#0EA5E9]">
+          <h1 className="text-2xl md:text-4xl font-bold leading-snug text-[#0EA5E9]">
          
-          Turn Your Network into  <br /> Rewards!
+          Turn Your Network into Rewards!
           </h1>
           
           {/* <p className="text-lg text-gray-300">

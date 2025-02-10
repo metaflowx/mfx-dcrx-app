@@ -31,13 +31,13 @@ const Home = () => {
     <PageBox>
       
       <WalletModal setIsOpen={setIsOpen} isOpen={isOpen} />
-      <Banner id="about" />
+      <Banner id="home" />
       <FeaturedIn />
       <DecryptoXLanding id="howtobuy" />
      
       <ProblemSection />
       <SolutionSection />
-      <OfferSection />
+      <OfferSection id="features" />
       <Tokenomics id="tokenomics" />
       <Roadmap id="roadmap" />
       <TeamSection id="team" />

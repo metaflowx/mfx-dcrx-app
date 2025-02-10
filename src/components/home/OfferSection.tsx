@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 import ConstrainedBox from "../core/constrained-box";
 
-const OfferSection: React.FC = () => {
+const OfferSection = ({id}:{id:string}) => {
   const initialData = [
     {
       title: "Spot Trading",
@@ -68,7 +68,7 @@ const OfferSection: React.FC = () => {
  
 
   return (
-    <section style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
+    <section id={id} style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
       <ConstrainedBox classNames="p-4">
         <div className="max-w-8xl mx-auto text-left md:text-center">
           <h2 className="text-[25px] md:text-[40px] font-bold ">Core Features of DecryptoX</h2>
@@ -88,32 +88,32 @@ const OfferSection: React.FC = () => {
             pagination={{ clickable: true, el: ".custom-pagination" }}
             autoplay={{ delay: 2000, disableOnInteraction: false }} // Auto slide to the right
             loop={true}
-            onSlideChange={(swiper) => {
-              if (swiper.isEnd) {
-                setCardData((prev) => {
-                  const moreData = [
-                    {
-                      title: "DeFi Integration",
-                      description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
-                      image: "/offer/DeFiIntegration.png",
-                    },
-                    {
-                      title: "Identity & Security",
-                      description: "Protect assets with decentralized identity, multi-sign wallets, and top-tier security.",
-                      image: "/offer/IdentitySecurity.png",
-                    },
-                  ];
+            // onSlideChange={(swiper) => {
+            //   if (swiper.isEnd) {
+            //     setCardData((prev) => {
+            //       const moreData = [
+            //         {
+            //           title: "DeFi Integration",
+            //           description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
+            //           image: "/offer/DeFiIntegration.png",
+            //         },
+            //         {
+            //           title: "Identity & Security",
+            //           description: "Protect assets with decentralized identity, multi-sign wallets, and top-tier security.",
+            //           image: "/offer/IdentitySecurity.png",
+            //         },
+            //       ];
             
-                  const updatedSlides = [...prev, ...moreData]; // Add new slides
-                  return updatedSlides.slice(moreData.length); // Remove older slides from the start
-                });
+            //       const updatedSlides = [...prev, ...moreData]; // Add new slides
+            //       return updatedSlides.slice(moreData.length); // Remove older slides from the start
+            //     });
             
-                // Instantly shift back to the previous position to create an infinite effect
-                setTimeout(() => {
-                  swiper.slideTo(swiper.slides.length - 1, 0); // Instantly shift to last slide
-                }, 50);
-              }
-            }}
+            //     // Instantly shift back to the previous position to create an infinite effect
+            //     setTimeout(() => {
+            //       swiper.slideTo(swiper.slides.length - 1, 0); // Instantly shift to last slide
+            //     }, 50);
+            //   }
+            // }}
             
             
            

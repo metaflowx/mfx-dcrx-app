@@ -80,7 +80,7 @@ const FloatingNavbar = ({
             duration: 0.2,
           }}
           className={cn(
-            " w-full fixed top-0 left-0  z-50  pb-3 shadow-md h-auto",
+            " w-full fixed top-0 left-0  z-50  pb-3  h-auto",
             className
           )}
         >
@@ -88,7 +88,7 @@ const FloatingNavbar = ({
 
         
           {/* Logo Section */}
-          <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 shadow-md">
+          <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 ">
 
           <div
             className="flex items-center space-x-4 cursor-pointer"
@@ -125,11 +125,14 @@ const FloatingNavbar = ({
 
           {/* Right Section */}
           <div className="flex items-center space-x-4">
+            <Link href={"https://t.me/Official_DecryptoX"} target="_blank">
+
             <img
               src="/crypto/telegram.png"
               alt="Telegram"
               className="h-[24px] hidden lg:block"
             />
+            </Link>
             <Link href={"https://x.com/_DecryptoX"} target="_blank">
             <img src="/crypto/x.png"  alt="X" className="h-[24px] hidden lg:block" />
             </Link>

@@ -4,8 +4,25 @@ import ConstrainedBox from '../core/constrained-box';
 import CommonHeading from '../common/CommonHeading';
 import { downloadPdf } from '@/utils';
 import Link from 'next/link';
+import { useReadContracts } from 'wagmi';
+import { tokenConfig } from '@/constants/contract';
+import { useAppKitNetwork } from '@reown/appkit/react';
+import { formatEther } from 'viem';
 
 const Tokenomics = ({ id }: { id: string }) => {
+   const { chainId } = useAppKitNetwork();
+    const result = useReadContracts({
+      contracts: [
+       
+        {
+          ...tokenConfig,
+          functionName: "totalSupply",
+          chainId: Number(chainId) ?? 97,
+        },
+       
+       
+      ],
+    });
   return (
     <div className='bg-[#000] w-full' id={id}>
 
@@ -37,7 +54,10 @@ const Tokenomics = ({ id }: { id: string }) => {
               <span >Network:</span> Ethereum Smart Chain
             </p>
             <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[20px] md:text-[25px] font-normal">
-              <span >Total Supply:</span> 59.9 Billion DCRX
+              <span >Total Supply:</span> { result &&
+                    result?.data &&
+                    result?.data[0]?.result &&
+                    formatEther(BigInt(result?.data[0]?.result))} DCRX
             </p>
           </div>
           <div className="xs:block sm:flex gap-4 mt-8">
@@ -68,7 +88,10 @@ const Tokenomics = ({ id }: { id: string }) => {
            
            <div className="text-center mt-4">
             <p style={{fontFamily:"Plus Jakarta Sans"}} className="text-[#2B9AE6] text-[27px] md:text-[37px] font-bold">Total Supply</p>
-            <p style={{fontFamily:"Plus Jakarta Sans",lineHeight:"37px"}}  className="text-[27px] md:text-[37px] font-bold text-white">59,900,000,000</p>
+            <p style={{fontFamily:"Plus Jakarta Sans",lineHeight:"37px"}}  className="text-[27px] md:text-[37px] font-bold text-white">{ result &&
+                    result?.data &&
+                    result?.data[0]?.result &&
+                    formatEther(BigInt(result?.data[0]?.result))}</p>
           </div>
           </div>
          
