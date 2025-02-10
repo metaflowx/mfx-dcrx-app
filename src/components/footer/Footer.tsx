@@ -1,4 +1,5 @@
 
+"use client"
 import { SocialIcon } from "./SocialIcon";
 import { QuickLink } from "./QuickLink";
 import { useRouter } from 'next/navigation';
@@ -21,6 +22,7 @@ export const socialIcons = [
 ];
 
 export const Footer: React.FC = () => {
+  const router=useRouter()
   
   return (
     <div className="flex flex-col">
@@ -83,7 +85,7 @@ export const Footer: React.FC = () => {
             className="object-contain mt-20 w-full aspect-[1000] stroke-[1px] stroke-white max-md:mt-10 max-md:max-w-full"
           />
           <div className="self-center mt-4 ml-2.5 text-base font-semibold text-center ">
-           <span style={{color:"#1a1a1a"}}>@copyright 2025</span>  | <span style={{color:"#1a1a1a"}}>Privacy Policy</span>  | <span style={{color:"#1a1a1a"}} >Terms & Conditions</span>
+           <span style={{color:"#1a1a1a"}}>@copyright 2025</span>  | <span style={{color:"#1a1a1a",cursor:"pointer"}} onClick={()=>router.push("/privacyandpolicy")}>Privacy Policy</span>  | <span style={{color:"#1a1a1a",cursor:"pointer"}} onClick={()=>router.push("/termandcondition")} >Terms & Conditions</span>
           </div>
         </div>
       </div>
