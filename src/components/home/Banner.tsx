@@ -294,7 +294,7 @@ const Banner = ({ id }: { id: string }) => {
               Redefine Trading with the World’s Most Advanced Decentralized
               Platform—Secure, Seamless, and Built for You
             </p>
-            <div className="block md:flex gap-4 mt-6 justify-center lg:justify-start">
+            <div className="block flex-wrap md:flex xl:flex w-full gap-4 mt-6 justify-center lg:justify-start">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -306,7 +306,7 @@ const Banner = ({ id }: { id: string }) => {
                   }}
                   href={"/docs/whitepaper.pdf"}
                   target="_blank"
-                  className="flex justify-center items-center mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black transition-all duration-300"
+                  className="flex justify-center items-center mb-[10px] md:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black transition-all duration-300"
                 >
                   White Paper
                 </Link>
@@ -319,7 +319,7 @@ const Banner = ({ id }: { id: string }) => {
                   style={{ border: "1px solid #2B9AE6" }}
                   href={"/docs/lightpaper.pdf"}
                   target="_blank"
-                  className="flex justify-center items-center mb-[10px] sm:mb-[0px] border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
+                  className="flex justify-center items-center mb-[10px] md:mb-[0px] border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
                 >
                   Light Paper
                 </Link>
@@ -342,7 +342,7 @@ const Banner = ({ id }: { id: string }) => {
           </div>
 
           {/* Right Section */}
-          <div className="jsborderBg">
+          <div className="jsborderBg w-full md:w-auto">
             <div className="jscardBorderBgPayment  px-[20px] md:px-[40px] py-[30px] max-sm:w-full md:w-auto ">
               <h2
                 style={{ fontFamily: "Geist, serif" }}
