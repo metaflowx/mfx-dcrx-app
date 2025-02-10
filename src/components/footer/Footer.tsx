@@ -17,7 +17,7 @@ export const socialIcons = [
   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/1a12f6cb982e41d362806b61ceacdd46c33f92a070702cffe27dd03185dd0763?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 3", className: "aspect-[1.29] w-[22px]",url:"" },
   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/df963f7454a62e496f0f0e6ecdad1ac1df951b94157300ae64b92d899d7ae7ea?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 4", className: "aspect-[1.05] w-[22px]",url:"https://www.instagram.com/_decryptox/" },
   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/a50a9e28dae9607cabb7a4576543b548142be10152bc1405e7e3b9f46ef24360?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 5", className: "aspect-[1.37] w-[26px]",url:"https://www.youtube.com/@officialDecryptoX" },
-  { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/46223b88762e3d223247869ed28a649ecf36cf0cd50d410e4b9c187637bd1a5c?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5", alt: "Social Media Icon 6", className: "aspect-[1.32] w-[25px]",url:" https://www.linkedin.com/company/official-decryptox/ " }
+  { src: "/footer/linkedin.png", alt: "Social Media Icon 6", className: "aspect-[1.52] w-[25px]",url:" https://www.linkedin.com/company/official-decryptox/ " }
 ];
 
 export const Footer: React.FC = () => {

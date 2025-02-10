@@ -11,6 +11,9 @@ import { Address, parseEther } from "viem";
 import { usePathname, useRouter } from 'next/navigation'
 import { IcoABI } from "@/app/ABI/IcoABI";
 import { useAppKitNetwork } from "@reown/appkit/react";
+import { FaFacebook, FaTelegram, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import ShareReferral from "./ShareReferral";
 
 const ReferralSection: React.FC = () => {
   const pathname = usePathname()
@@ -21,6 +24,7 @@ const ReferralSection: React.FC = () => {
   const {chainId} = useAppKitNetwork()
   const [referrer, setReferrer] = useState("");
   const [copied, setCopied] = useState(false);
+  const[isOpen,setIsOpen]=useState(false)
   const bonusPlan = [
     { range: "$100 - $1k", bonus: "2% bonus" },
     { range: "$1k - $5k", bonus: "4% bonus" },
@@ -103,6 +107,15 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
       setTimeout(() => setCopied(false), 3000); // Hide toast after 3 seconds
     });
   };
+
+  const socialPlatforms = [
+    { name: "Facebook", url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, icon: <FaFacebook className="text-blue-600 text-3xl hover:opacity-75" /> },
+    { name: "Twitter", url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Join%20now%20and%20earn%20rewards!`, icon: <FaXTwitter className="text-blue-400 text-3xl hover:opacity-75" /> },
+    { name: "Telegram", url: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=Join%20now%20and%20earn%20rewards!`, icon: <FaTelegram className="text-blue-500 text-3xl hover:opacity-75" /> },
+    { name: "Instagram", url: `https://www.instagram.com/`, icon: <FaInstagram className="text-pink-500 text-3xl hover:opacity-75" /> }, // Instagram does not support direct URL sharing
+    { name: "YouTube", url: `https://www.youtube.com/`, icon: <FaYoutube className="text-red-500 text-3xl hover:opacity-75" /> }, // YouTube does not support direct URL sharing
+    { name: "LinkedIn", url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, icon: <FaLinkedin className="text-blue-700 text-3xl hover:opacity-75" /> },
+  ];
   
   return (
     <section  className="mainReferBg text-white py-[10px] md:py-10 px-5 sm:px-10 md:px-20 rounded-lg w-full pt-20 sm:pt-2">
@@ -177,15 +190,20 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
         Share your referral link
       </h6>
       <div className="flex space-x-3">
+      {socialPlatforms.map(({ name, url, icon }) => (
+          <a key={name} href={url} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${name}`}>
+            {icon}
+          </a>
+        ))}
         {/* Social Icons */}
-        {socialIcons.map((icon, index) => (
+        {/* {socialIcons.map((icon, index) => (
           <span
             key={index}
             className="w-8 h-8 flex items-center justify-center rounded-full"
           >
             <SocialIcon key={index} {...icon} />
           </span>
-        ))}
+        ))} */}
       </div>
     </div>
 
@@ -194,7 +212,7 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
       <div className="flex justify-between items-center pb-12 pt-14 2xl:pt-[118px]">
 
       <h3 style={{fontFamily:"Geist"}} className="text-[20px]  text-[#2B9AE6] xl:text-[30px] font-bold leading-snug">Our Bonus <br /> Plan:</h3>
-      <CommonButton btnName="Refer Now" width=" sm:w-[130px]" />
+      <CommonButton btnName="Refer Now" width=" sm:w-[130px]" onClick={()=>setIsOpen(true)} />
       </div>
       
       {bonusPlan.map((item, index) => (
@@ -219,6 +237,10 @@ const totalLength=result &&result?.data && result?.data?.[4]?.result &&  result?
      
       <TransactionHistory historyTable={historyTable && historyTable.data && historyTable.data} />
       </ConstrainedBox>
+      {isOpen && (
+
+      <ShareReferral isOpen={isOpen} setIsOpen={setIsOpen} url={url} />
+      )}
     </section>
   );
 };

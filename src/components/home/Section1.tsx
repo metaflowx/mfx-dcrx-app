@@ -1,7 +1,9 @@
 import React from 'react';
 import ConstrainedBox from '../core/constrained-box';
+import { useRouter } from 'next/navigation';
 
 const HomeSection1= ({ id }: { id: string }) => {
+  const router = useRouter()
   const referStep=[
     {
       title:"Sign Up & Get Your Link",
@@ -32,7 +34,7 @@ const HomeSection1= ({ id }: { id: string }) => {
         earns you exclusive bonuses in $DCRX. The more you refer, the more you earn—start building your rewards today!
         </p>
         {/* <CommonButton btnName=" Refer a friend" /> */}
-        <button  style={{
+        <button onClick={()=>router.push("/")}  style={{
       background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
     }} className="px-6 py-3  hover:bg-blue-500  rounded-[13px] shadow-md text-black w-[237px] text-[21px] font-bold">
           Refer a friend
