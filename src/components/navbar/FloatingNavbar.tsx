@@ -125,11 +125,14 @@ const FloatingNavbar = ({
 
           {/* Right Section */}
           <div className="flex items-center space-x-4">
+            <Link href={"https://t.me/Official_DecryptoX"} target="_blank">
+
             <img
               src="/crypto/telegram.png"
               alt="Telegram"
               className="h-[24px] hidden lg:block"
             />
+            </Link>
             <Link href={"https://x.com/_DecryptoX"} target="_blank">
             <img src="/crypto/x.png"  alt="X" className="h-[24px] hidden lg:block" />
             </Link>

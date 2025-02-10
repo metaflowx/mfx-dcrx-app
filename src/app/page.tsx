@@ -31,7 +31,7 @@ const Home = () => {
     <PageBox>
       
       <WalletModal setIsOpen={setIsOpen} isOpen={isOpen} />
-      <Banner id="about" />
+      <Banner id="home" />
       <FeaturedIn />
       <DecryptoXLanding id="howtobuy" />
      
