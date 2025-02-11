@@ -10,6 +10,12 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ConnectButton from "../ConnectWallet";
 import MarqueHeader from "../ui/MarqueHeader";
 
+declare global {
+  interface Window {
+    googleTranslateLoaded?: boolean;
+    googleTranslateElementInit?: () => void;
+  }
+}
 interface INavItem {
   name: string;
   link: string;
@@ -28,7 +34,7 @@ const FloatingNavbar = ({
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   useEffect(() => {
     const addGoogleTranslate = () => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== "undefined" && !window.googleTranslateLoaded) {
         window.googleTranslateElementInit = () => {
           new window.google.translate.TranslateElement(
             { pageLanguage: "en", autoDisplay: false },
@@ -40,28 +46,31 @@ const FloatingNavbar = ({
         script.src =
           "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
         script.async = true;
-        console.log(">>>>>>>>>>>>>>>script",script);
-        
         document.body.appendChild(script);
+        
+        window.googleTranslateLoaded = true; // Ensure it loads only once
       }
     };
 
     addGoogleTranslate();
-  }, [selectedLanguage]);
+  }, []);
+
   const changeLanguage = (lang: string) => {
     setSelectedLanguage(lang);
-    const selectElement = document.querySelector(
-      ".goog-te-combo"
-    ) as HTMLSelectElement;
-    if (selectElement) {
-      selectElement.value = lang;
-      selectElement.dispatchEvent(new Event("change"));
-    }
+    setTimeout(() => {
+      const selectElement = document.querySelector(
+        ".goog-te-combo"
+      ) as HTMLSelectElement;
+      if (selectElement) {
+        selectElement.value = lang;
+        selectElement.dispatchEvent(new Event("change"));
+      }
+    }, 1000); // Delay ensures dropdown is ready
   };
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
-  };
+  }
 
   return (
     <>
@@ -85,7 +94,7 @@ const FloatingNavbar = ({
           )}
         >
  <MarqueHeader />
-
+ <div id="google_translate_element"></div>
         
           {/* Logo Section */}
           <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 ">
