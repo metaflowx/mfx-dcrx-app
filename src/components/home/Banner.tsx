@@ -285,7 +285,7 @@ const Banner = ({ id }: { id: string }) => {
     <div
       id={id}
       style={{ fontFamily: "Geist" }}
-      className="min-h-screen bannerBg   text-white flex items-center justify-center px-4"
+      className="min-h-screen bannerBg   text-white flex items-center justify-center px-4 max-w-xl:pb-10"
     >
       <ConstrainedBox>
         <div className=" flex flex-col lg:flex-row items-center mt-[120px] sm:mt-[85px] w-full">
