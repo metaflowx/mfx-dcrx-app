@@ -41,7 +41,7 @@ const CoinSelector: React.FC<CoinSelectorProps> = ({
   }, [result]);
 
   return (
-    <div className="w-auto">
+    <div className="w-auto md:w-[510px]">
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}
@@ -56,9 +56,9 @@ const CoinSelector: React.FC<CoinSelectorProps> = ({
       >
         {tokenAddrss?.map((coin: any, index: any) => (
           <SwiperSlide
-            style={{ width: "106px" }}
+            style={{ width: "121px" }}
             key={index + 1}
-            className="flex justify-center w-[106px] "
+            className="flex justify-center"
           >
             <TokenData
               chainId={chainId}

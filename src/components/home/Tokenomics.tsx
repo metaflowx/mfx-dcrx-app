@@ -37,6 +37,8 @@ const Tokenomics = ({ id }: { id: string }) => {
           <h3 style={{fontFamily:"Plus Jakarta Sans",}} className="text-[20px] lg:text-[25px] leading-snug font-bold mt-4 max-w-md">
             Revolutionizing Decentralized Finance with Purpose-Driven Utility
           </h3>
+          <h4 style={{fontFamily:"Plus Jakarta Sans",}} className='text-[20px] lg:text-[22px] leading-snug font-bold mt-4 max-w-md'>Powering the Future of DeFi with $DCRX
+          </h4>
           <div style={{fontFamily:"Plus Jakarta Sans"}} className="mt-6">
             <p className="text-3xl lg:text-[25px] font-bold">
               <span className="text-[20px] md:text-[25px] font-bold">Symbol:</span> $DCRX

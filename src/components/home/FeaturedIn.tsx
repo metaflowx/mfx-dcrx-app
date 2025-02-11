@@ -12,12 +12,13 @@ const FeaturedIn: React.FC = () => {
   const settings = {
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 2000,
     speed: 500,
     arrows: false,
     dots: false,
+    
     pauseOnHover: false,
     
     responsive: [
