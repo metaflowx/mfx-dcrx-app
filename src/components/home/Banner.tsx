@@ -356,9 +356,25 @@ const Banner = ({ id }: { id: string }) => {
               >
                 Buy DCRX
               </h2>
-              <div className="grid grid-cols-4 text-center mb-4">
+              <div className="w-full text-center mb-4">
+
+                {Math.floor(Date.now() / 1000) <= Number(result?.data?.[1]?.result?.startAt) ?(
+
+                  <CountdownTimer
+                    label="Sale Starts In"
+                    targetTime={
+                      result &&
+                      result.data &&
+                      result.data &&
+                      result.data[1]?.result &&
+                      result.data[1]?.result &&
+                      result.data[1]?.result?.startAt
+                    }
+                  />
+                ):(
+
                 <CountdownTimer
-                  label="Sale Starts In"
+                  label="Sale Ends In"
                   targetTime={
                     result &&
                     result.data &&
@@ -368,6 +384,9 @@ const Banner = ({ id }: { id: string }) => {
                     result.data[1]?.result?.endAt
                   }
                 />
+                )}
+             
+               
               </div>
               {/* <img src="/card/progress.png" className="w-[505px] pb-4" /> */}
               <div

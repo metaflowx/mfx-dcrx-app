@@ -36,6 +36,9 @@ const CountdownTimer = ({
 
   return (
     <>
+    <p className="text-[18px] font-bold pb-3">{label}</p>
+   <div className="grid grid-cols-4">
+
       <div className="timerBg">
         <p
           style={{
@@ -104,6 +107,7 @@ const CountdownTimer = ({
           Seconds
         </p>
       </div>
+   </div>
     </>
   );
 };
