@@ -29,10 +29,11 @@ const Tokenomics = ({ id }: { id: string }) => {
     <ConstrainedBox classNames='px-4 sm:px-4  lg:px-0'>
 
     <div className="bg-black text-white py-12  w-full">
-      <div className=" mx-auto flex flex-col lg:flex-row items-center justify-between">
+        <CommonHeading heading='TOKENOMICS' fontSize="text-[30px] md:text-[40px] text-center w-full" />
+      <div className=" mx-auto flex flex-col lg:flex-row items-center justify-between mt-4">
         {/* Left Section */}
         <div className="lg:w-1/2 ">
-        <CommonHeading heading='TOKENOMICS' fontSize="text-[30px] md:text-[40px]" />
+        
           
           <h3 style={{fontFamily:"Plus Jakarta Sans",}} className="text-[20px] lg:text-[25px] leading-snug font-bold mt-4 max-w-md">
             Revolutionizing Decentralized Finance with Purpose-Driven Utility
@@ -40,26 +41,26 @@ const Tokenomics = ({ id }: { id: string }) => {
           <h4 style={{fontFamily:"Plus Jakarta Sans",}} className='text-[20px] lg:text-[22px] leading-snug font-bold mt-4 max-w-md'>Powering the Future of DeFi with $DCRX
           </h4>
           <div style={{fontFamily:"Plus Jakarta Sans"}} className="mt-6">
-            <p className="text-3xl lg:text-[25px] font-bold">
-              <span className="text-[20px] md:text-[25px] font-bold">Symbol:</span> $DCRX
+            <p className="text-3xl lg:text-[20px] font-bold">
+              <span className="text-[20px] md:text-[20px] font-bold">Symbol:</span> $DCRX
             </p>
-            <p className="text-[25px] md:text-[25px] font-bold mt-[40px]">
+            <p className=" md:text-[20px] font-bold mt-[10px]">
               Initial Value:
             </p>
-            <p className="text-[20px] md:text-[25px] font-bold mt-[10px]">
+            <p className="text-[20px] md:text-[20px] font-bold mt-[10px]">
               1 $DCRX = $0.012
             </p>
-            <p className="text-[25] md:text-[25px] font-bold mt-[10px]">
+            <p className="text-[20] md:text-[20px] font-bold mt-[10px]">
               <span >Type:</span> Utility Token
             </p>
-            <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[25px] font-normal mt-[20px]">
+            <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[20px] font-normal mt-[20px]">
               <span >Network:</span> Binance Smart Chain (BSC)
             </p>
-            <p style={{fontFamily:"Outfit"}} className="text-[16px] md:text-[25px] font-normal mt-[20px]">
+            <p style={{fontFamily:"Outfit"}} className="text-[14px] md:text-[20px] font-normal mt-[10px]">
               <span >Binance Smart Chain (BEP-20):</span> {TokenContractAddress}
             </p>
-            <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[20px] md:text-[25px] font-normal">
-              <span >Total Supply:</span> 
+            <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[20px] md:text-[20px] font-normal mt-3">
+              <span >Total Supply: </span> 
                     59,900,000,000 DCRX
             </p>
           </div>

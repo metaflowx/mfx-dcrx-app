@@ -29,8 +29,12 @@ const Home = () => {
    const [isOpen, setIsOpen] = useState(false);
   return (
     <PageBox>
-      
+
+      {isOpen && (
+
       <WalletModal setIsOpen={setIsOpen} isOpen={isOpen} />
+      )}
+      
       <Banner id="home" />
       <FeaturedIn />
       <DecryptoXLanding id="howtobuy" />

@@ -298,7 +298,7 @@ const Banner = ({ id }: { id: string }) => {
             </p>
             <p className="mt-4 font-medium text-[14px] sm:text-[24px] max-w-xl">
               Redefine Trading with the World’s Most Advanced Decentralized
-              Platform—Secure, Seamless, and Built for You
+              Platform—Secure, Seamless, and Built for You.
             </p>
             <div className="block flex-wrap md:flex xl:flex w-full gap-4 mt-6 justify-center lg:justify-start">
               <motion.div

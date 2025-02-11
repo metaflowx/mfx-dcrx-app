@@ -87,9 +87,10 @@ const Roadmap = ({id}:{id:string}) => {
     <div className="bg-[#141414] text-white pt-[10px] sm:pt-[50px] mb:pt-[100px] pb-[10px] md:pb-[150px] w-full" id={id}>
       {/* Vision Section */}
       <div style={{fontFamily:"Plus Jakarta Sans"}} className="text-left md:text-center mb-[15px] md:mb-16 px-4">
-        <h2  className="text-[37px] font-bold text-[#2B9AE6]">Our Vision</h2>
+        <h2  className="text-[37px] font-bold text-[#2B9AE6]">DecryptoX Roadmap</h2>
         <p className="text-[20px] md:text-[20px] mt-4 font-bold leading-snug">
-        DecryptoX is not just a platform—it's an evolving ecosystem. <br /> We’re here to empower users by offering an ever-growing suite of <br /> tools and options that cater to traders, lenders, borrowers, and <br /> investors alike
+        Charting a Path to Innovation, Growth, and Ecosystem Evolution
+
         </p>
       </div>
       <RoadmapCard activePhaseId={activePhaseId} setActivePhaseId={setActivePhaseId} />

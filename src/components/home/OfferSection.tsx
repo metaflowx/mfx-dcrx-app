@@ -75,9 +75,9 @@ const OfferSection = ({id}:{id:string}) => {
     <section id={id} style={{ fontFamily: "Geist" }} className="bg-[#000] text-white py-[10px] md:py-16 w-full">
       <ConstrainedBox classNames="p-4">
         <div className="max-w-8xl mx-auto text-left md:text-center">
-          <h2 className="text-[25px] md:text-[40px] font-bold ">Core Features of DecryptoX</h2>
+          <h2 className="text-[25px] md:text-[40px] font-bold  text-[#2B9AE6]">Core Features of DecryptoX:</h2>
           <h2 className="text-[25px] md:text-[35px] font-bold ">
-            <span className="text-[#2B9AE6]">Revolutionizing Your Crypto Experience</span>
+            <span className="text-[#fff]">Revolutionizing Your Crypto Experience</span>
           </h2>
          
         </div>

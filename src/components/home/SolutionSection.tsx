@@ -11,7 +11,7 @@ const SolutionSection: React.FC = () => {
      <div className="px-4">
         <div className=" mb-12">
        
-            <CommonHeading heading={" THE SOLUTION"} fontSize="text-[42px] text-left md:text-center w-full " />
+            <CommonHeading heading={" THE SOLUTION:"} fontSize="text-[42px] text-left md:text-center w-full " />
          
           <h1  className="text-[25px] md:text-[30px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
 

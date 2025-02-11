@@ -8,5 +8,6 @@ export interface SocialIconProps {
   export interface QuickLinkProps {
     text: string;
     className?: string;
-    href?:boolean
+    href?:boolean;
+    link?:string
   }
