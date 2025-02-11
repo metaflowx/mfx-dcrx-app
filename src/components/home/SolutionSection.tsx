@@ -13,11 +13,11 @@ const SolutionSection: React.FC = () => {
        
             <CommonHeading heading={" THE SOLUTION"} fontSize="text-[42px] text-left md:text-center w-full " />
          
-          <h1  className="text-[39px] md:text-[40px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX</h1>
-          <p className="text-white text-left md:text-center text-[18px] md:text-[24px] font-medium">
-          Transforming Crypto for Everyone
+          <h1  className="text-[25px] md:text-[30px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
 
-          </p>
+         
+          </h1>
+         
         
         </div>
 

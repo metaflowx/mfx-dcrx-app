@@ -38,7 +38,7 @@ export default function HomeSection3() {
                    <img src="/crypto/check.png" />
                   </div>
                 </div>
-                <p className="text-gray-300">{text}</p>
+                <p className="text-gray-300 text-[20px] md:text-[23px]">{text}</p>
               </div>
             ))}
           </div>

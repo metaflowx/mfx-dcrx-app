@@ -31,7 +31,7 @@ const HomeSection2 = () => {
                 {title:"Early Investor Perks",des:" Enjoy exclusive bonuses as an early supporter."}
               ].map((title, index) => (
                 <div style={{fontFamily:"Geist"}} key={index}>
-                  <h2 className="text-[25px] md:text-[32px]  font-bold text-[#2B9AE6] leading-snug pb-[10px]">
+                  <h2 className="text-[25px] md:text-[30px]  font-bold text-[#2B9AE6] leading-snug pb-[10px]">
                     {title.title}
                   </h2>
                   <p className="text-[20px] md:text-[23px] font-normal text-white">

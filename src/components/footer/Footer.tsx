@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
           />
           <div className="flex flex-wrap  mt-7 ml-2.5 text-base text-white max-md:mr-1.5 max-md:max-w-full">
            
-            <div className="grow shrink text-center w-[611px] max-md:max-w-full text-[#1a1a1a]">
+            <div className="grow shrink text-center w-[611px] max-md:max-w-full text-[#403d3d]">
             Disclaimer:Crypto investments are high-risk and not for everyone. Do your research and seek advice before investing. DecryptoX complies with laws but operates in evolving DeFi regulations.
             </div>
             
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
             className="object-contain mt-6 w-full aspect-[1000] stroke-[1px] stroke-white max-md:mt-10 max-md:max-w-full"
           />
           <div className="self-center mt-4 ml-2.5 text-base font-semibold text-center ">
-           <span style={{color:"#1a1a1a"}}>@copyright 2025</span>  | <span style={{color:"#1a1a1a",cursor:"pointer"}} onClick={()=>router.push("/privacyandpolicy")}>Privacy Policy</span>  | <span style={{color:"#1a1a1a",cursor:"pointer"}} onClick={()=>router.push("/termandcondition")} >Terms & Conditions</span>
+           <span style={{color:"#403d3d"}}>@copyright 2025</span>  | <span style={{color:"#403d3d",cursor:"pointer"}} onClick={()=>router.push("/privacyandpolicy")}>Privacy Policy</span>  | <span style={{color:"#403d3d",cursor:"pointer"}} onClick={()=>router.push("/termandcondition")} >Terms & Conditions</span>
           </div>
         </div>
       </div>
