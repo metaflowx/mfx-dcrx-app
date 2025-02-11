@@ -151,18 +151,33 @@ const FloatingNavbar = ({
 
 
             <div className="language-selector relative">
-  <select
-    value={selectedLanguage}
-    onChange={(e) => changeLanguage(e.target.value)}
-    className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
-  >
-    <option value="en">English</option>
-    <option value="hi">Hindi</option>
-    <option value="fr">French</option>
-    <option value="es">Spanish</option>
-    <option value="de">German</option>
-    <option value="ar">Arabic</option>
-  </select>
+            <select
+  value={selectedLanguage}
+  onChange={(e) => changeLanguage(e.target.value)}
+  className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
+>
+  <option value="en">English</option>
+  <option value="zh">Chinese</option>
+  <option value="cs">Czech</option>
+  <option value="nl">Dutch</option>
+  <option value="fr">French</option>
+  <option value="de">German</option>
+  <option value="hu">Hungarian</option>
+  <option value="id">Indonesian</option>
+  <option value="it">Italian</option>
+  <option value="ja">Japanese</option>
+  <option value="ko">Korean</option>
+  <option value="pl">Polish</option>
+  <option value="pt">Portuguese</option>
+  <option value="ro">Romanian</option>
+  <option value="ru">Russian</option>
+  <option value="sk">Slovak</option>
+  <option value="es">Spanish</option>
+  <option value="th">Thai</option>
+  <option value="tr">Turkish</option>
+  <option value="vi">Vietnamese</option>
+</select>
+
   <img
     src="/crypto/downarrow.png"
     alt="Language Selector"
