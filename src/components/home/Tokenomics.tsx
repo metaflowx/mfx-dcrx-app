@@ -5,7 +5,7 @@ import CommonHeading from '../common/CommonHeading';
 import { downloadPdf } from '@/utils';
 import Link from 'next/link';
 import { useReadContracts } from 'wagmi';
-import { tokenConfig } from '@/constants/contract';
+import { tokenConfig, TokenContractAddress } from '@/constants/contract';
 import { useAppKitNetwork } from '@reown/appkit/react';
 import { formatEther } from 'viem';
 
@@ -56,13 +56,11 @@ const Tokenomics = ({ id }: { id: string }) => {
               <span >Network:</span> Binance Smart Chain (BSC)
             </p>
             <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[25px] font-normal mt-[20px]">
-              <span >Binance Smart Chain (BEP-20):</span> 0xXXXXXXXXXXXXXXXXXXXXXXXXXX
+              <span >Binance Smart Chain (BEP-20):</span> {TokenContractAddress}
             </p>
             <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[20px] md:text-[25px] font-normal">
-              <span >Total Supply:</span> { result &&
-                    result?.data &&
-                    result?.data[0]?.result &&
-                    formatEther(BigInt(result?.data[0]?.result))} DCRX
+              <span >Total Supply:</span> 
+                    59,900,000,000 DCRX
             </p>
           </div>
           <div className="xs:block sm:flex gap-4 mt-8">

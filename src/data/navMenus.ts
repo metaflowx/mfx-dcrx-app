@@ -18,8 +18,8 @@ export const navMenus: INavItem[] = [
     icon: faUser,
   },
   {
-    name: "HOW TO BUY",
-    link: "/#howtobuy",
+    name: "Problem & Solutution",
+    link: "/#sol",
     icon: faBriefcase,
   },
   {

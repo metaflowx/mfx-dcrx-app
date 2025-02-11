@@ -88,7 +88,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
       id={id}
       className="flex bannerBuyBg h-auto  flex-col pt-[50px] px-10 rounded-none max-md:pt-[14px] max-md:pr-5 relative pb-30"
     >
-      <div className="absolute left-0 bottom-14">
+      <div className="absolute hidden sm:block left-0 bottom-[-2rem] md:bottom-7">
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/deeeb0862e0e005843d75d6c9037124fb10ab600d0f6cf24ebd9cf68c4d78fa3?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5"
@@ -136,7 +136,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
               
             </div>
           
-            <div className="self-center pt-10 text-[20px] md:text-[35px] font-bold leading-none text-sky-500 max-md:text-4xl">
+            <div className="self-center pt-[54px] text-[20px] md:text-[35px] font-bold leading-none text-sky-500 max-md:text-4xl">
             <span style={{ fontFamily: "Geist" }} className="text-sky-500">
               How to Buy DecryptoX ($DCRX)?
             </span>

@@ -66,7 +66,7 @@ const TeamSection = ({ id }: { id: string }) => {
     },
   ];
 
-  console.log(">>>>>>>>>>>>.selectedMember",selectedMember);
+  
   
 
   return (

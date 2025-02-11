@@ -136,6 +136,9 @@ const Banner = ({ id }: { id: string }) => {
     ],
   });
 
+
+  
+
   const handleBuy = async () => {
     try {
       const formattedAmount = parseUnits(amount, 18);
@@ -209,13 +212,14 @@ const Banner = ({ id }: { id: string }) => {
       const totalTokenSupply =
         result &&
         result?.data &&
-        result?.data[2]?.result &&
-        formatEther(BigInt(result?.data[2]?.result));
+        result?.data[4]?.result &&
+        formatEther(BigInt(result?.data[4]?.result?.saleTokenAmount));
       const totalTokenQty =
         result &&
         result?.data &&
         result?.data[4]?.result &&
         formatEther(BigInt(result?.data[4]?.result?.saleQuantity));
+
 
       const totalTokenSale =
         result &&
@@ -258,9 +262,11 @@ const Banner = ({ id }: { id: string }) => {
     queryClient.invalidateQueries({
       queryKey: resultOfCheckAllowance.queryKey,
     });
-  }, [blockNumber, queryClient, resultOfCheckAllowance]);
+    queryClient.invalidateQueries({
+      queryKey: result.queryKey,
+    });
+  }, [blockNumber, queryClient,result, resultOfCheckAllowance]);
 
-  console.log(">>>>>>>>>>>>>>>>..result", isAproveERC20, result);
 
   const minBuy = result?.data?.[4]?.result?.minBuy
     ? Number(formatEther(BigInt(result.data[4].result.minBuy)))
@@ -350,9 +356,25 @@ const Banner = ({ id }: { id: string }) => {
               >
                 Buy DCRX
               </h2>
-              <div className="grid grid-cols-4 text-center mb-4">
+              <div className="w-full text-center mb-4">
+
+                {Math.floor(Date.now() / 1000) <= Number(result?.data?.[1]?.result?.startAt) ?(
+
+                  <CountdownTimer
+                    label="Sale Starts In"
+                    targetTime={
+                      result &&
+                      result.data &&
+                      result.data &&
+                      result.data[1]?.result &&
+                      result.data[1]?.result &&
+                      result.data[1]?.result?.startAt
+                    }
+                  />
+                ):(
+
                 <CountdownTimer
-                  label="Sale Starts In"
+                  label="Sale Ends In"
                   targetTime={
                     result &&
                     result.data &&
@@ -362,6 +384,9 @@ const Banner = ({ id }: { id: string }) => {
                     result.data[1]?.result?.endAt
                   }
                 />
+                )}
+             
+               
               </div>
               {/* <img src="/card/progress.png" className="w-[505px] pb-4" /> */}
               <div

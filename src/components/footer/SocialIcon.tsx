@@ -3,7 +3,7 @@ import { SocialIconProps } from "./types";
 
 
 export const SocialIcon: React.FC<SocialIconProps> = ({ src,url, alt, className }) => {
-  console.log(">>>>>>>>>src",src);
+ 
   
   return(
     <Link href={url} target="_blank" >
