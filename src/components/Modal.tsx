@@ -28,7 +28,7 @@ const WalletModal = ({isOpen,setIsOpen}:{isOpen?:boolean;setIsOpen?:any}) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center p-4 z-10 backdrop-blur-[7px]">
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center p-4 z-[111] backdrop-blur-[7px]">
           <div className="bg-[#111827] px-6 sm:px-12 p-6 sm:p-8 shadow-lg relative text-center max-w-sm sm:max-w-xl w-full rounded-[22px]">
             {/* Close Button */}
             <div className="w-full flex justify-end  absolute top-10 right-4">

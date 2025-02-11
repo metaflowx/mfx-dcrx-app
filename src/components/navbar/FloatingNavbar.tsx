@@ -10,6 +10,12 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ConnectButton from "../ConnectWallet";
 import MarqueHeader from "../ui/MarqueHeader";
 
+declare global {
+  interface Window {
+    googleTranslateLoaded?: boolean;
+    googleTranslateElementInit?: () => void;
+  }
+}
 interface INavItem {
   name: string;
   link: string;
@@ -28,7 +34,7 @@ const FloatingNavbar = ({
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   useEffect(() => {
     const addGoogleTranslate = () => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== "undefined" && !window.googleTranslateLoaded) {
         window.googleTranslateElementInit = () => {
           new window.google.translate.TranslateElement(
             { pageLanguage: "en", autoDisplay: false },
@@ -40,28 +46,31 @@ const FloatingNavbar = ({
         script.src =
           "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
         script.async = true;
-        console.log(">>>>>>>>>>>>>>>script",script);
-        
         document.body.appendChild(script);
+        
+        window.googleTranslateLoaded = true; // Ensure it loads only once
       }
     };
 
     addGoogleTranslate();
-  }, [selectedLanguage]);
+  }, []);
+
   const changeLanguage = (lang: string) => {
     setSelectedLanguage(lang);
-    const selectElement = document.querySelector(
-      ".goog-te-combo"
-    ) as HTMLSelectElement;
-    if (selectElement) {
-      selectElement.value = lang;
-      selectElement.dispatchEvent(new Event("change"));
-    }
+    setTimeout(() => {
+      const selectElement = document.querySelector(
+        ".goog-te-combo"
+      ) as HTMLSelectElement;
+      if (selectElement) {
+        selectElement.value = lang;
+        selectElement.dispatchEvent(new Event("change"));
+      }
+    }, 1000); // Delay ensures dropdown is ready
   };
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
-  };
+  }
 
   return (
     <>
@@ -85,7 +94,7 @@ const FloatingNavbar = ({
           )}
         >
  <MarqueHeader />
-
+ <div id="google_translate_element"></div>
         
           {/* Logo Section */}
           <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 ">
@@ -141,32 +150,47 @@ const FloatingNavbar = ({
             <ConnectButton />
 
 
-            {/* <div className="language-selector relative">
-  <select
-    value={selectedLanguage}
-    onChange={(e) => changeLanguage(e.target.value)}
-    className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
-  >
-    <option value="en">English</option>
-    <option value="hi">Hindi</option>
-    <option value="fr">French</option>
-    <option value="es">Spanish</option>
-    <option value="de">German</option>
-    <option value="ar">Arabic</option>
-  </select>
+            <div className="language-selector relative">
+            <select
+  value={selectedLanguage}
+  onChange={(e) => changeLanguage(e.target.value)}
+  className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
+>
+  <option value="en">English</option>
+  <option value="zh">Chinese</option>
+  <option value="cs">Czech</option>
+  <option value="nl">Dutch</option>
+  <option value="fr">French</option>
+  <option value="de">German</option>
+  <option value="hu">Hungarian</option>
+  <option value="id">Indonesian</option>
+  <option value="it">Italian</option>
+  <option value="ja">Japanese</option>
+  <option value="ko">Korean</option>
+  <option value="pl">Polish</option>
+  <option value="pt">Portuguese</option>
+  <option value="ro">Romanian</option>
+  <option value="ru">Russian</option>
+  <option value="sk">Slovak</option>
+  <option value="es">Spanish</option>
+  <option value="th">Thai</option>
+  <option value="tr">Turkish</option>
+  <option value="vi">Vietnamese</option>
+</select>
+
   <img
     src="/crypto/downarrow.png"
     alt="Language Selector"
     className="absolute right-2 top-1/2 transform -translate-y-1/2"
   />
-</div> */}
+</div>
 
      
       
            
 
           
-            <div className="hidden sm:flex relative  justify-center items-center">
+            {/* <div className="hidden sm:flex relative  justify-center items-center">
               <div className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] w-[71px] h-[33px] cursor-pointer">
                 <img
                   src="/crypto/american.png"
@@ -175,7 +199,7 @@ const FloatingNavbar = ({
                 />
                 <img src="/crypto/downarrow.png" alt="lan" className="ml-1" />
               </div>
-            </div>
+            </div> */}
             <button
               onClick={toggleDrawer}
               className="block xl:hidden text-white text-xl focus:outline-none"

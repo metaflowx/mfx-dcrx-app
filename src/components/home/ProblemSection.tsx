@@ -27,7 +27,7 @@ const ProblemSection: React.FC = () => {
       logo:"compliance",
       title: "Counterparty Risks",
       description:
-        "Eroded Privacy and User Control: Centralized exchanges rely on outdated KYC systems for systems that expose sensitive user data to potential breaches, leaving privacy and autonomy at risk.",
+        "Eroded Privacy and User Control: Centralized exchanges systems rely on outdated KYC systems for systems that expose sensitive user data to potential systems breaches, leaving privacy and autonomy  at risk.",
     },
     {
       logo:"2",
@@ -82,7 +82,7 @@ const ProblemSection: React.FC = () => {
               key={index}
               className="cardBorderBgBorder p-2 rounded-lg shadow-md text-center h-auto"
             >
-              <div className="flex justify-center items-center mb-4 mt-4">
+              <div className="flex justify-center items-center mb-4 mt-4 max-h-[366px]">
              
                 <img
                   src={`/problem/${item.logo}.png`}

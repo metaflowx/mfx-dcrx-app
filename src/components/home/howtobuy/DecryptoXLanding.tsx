@@ -105,6 +105,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
             >
               <span className="text-sky-500">Why DecryptoX?</span>
               <br />
+              <span className="text-[20px] md:text-[30px]">DecryptoX at a Glance</span>
             </div>
           </div>
           <div className="flex flex-col ml-5 w-[59%] max-md:ml-0 max-md:w-full">
