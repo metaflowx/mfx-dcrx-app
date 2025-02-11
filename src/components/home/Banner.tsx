@@ -136,6 +136,9 @@ const Banner = ({ id }: { id: string }) => {
     ],
   });
 
+
+  
+
   const handleBuy = async () => {
     try {
       const formattedAmount = parseUnits(amount, 18);
@@ -209,13 +212,14 @@ const Banner = ({ id }: { id: string }) => {
       const totalTokenSupply =
         result &&
         result?.data &&
-        result?.data[2]?.result &&
-        formatEther(BigInt(result?.data[2]?.result));
+        result?.data[4]?.result &&
+        formatEther(BigInt(result?.data[4]?.result?.saleTokenAmount));
       const totalTokenQty =
         result &&
         result?.data &&
         result?.data[4]?.result &&
         formatEther(BigInt(result?.data[4]?.result?.saleQuantity));
+
 
       const totalTokenSale =
         result &&
@@ -258,9 +262,11 @@ const Banner = ({ id }: { id: string }) => {
     queryClient.invalidateQueries({
       queryKey: resultOfCheckAllowance.queryKey,
     });
-  }, [blockNumber, queryClient, resultOfCheckAllowance]);
+    queryClient.invalidateQueries({
+      queryKey: result.queryKey,
+    });
+  }, [blockNumber, queryClient,result, resultOfCheckAllowance]);
 
-  console.log(">>>>>>>>>>>>>>>>..result", isAproveERC20, result);
 
   const minBuy = result?.data?.[4]?.result?.minBuy
     ? Number(formatEther(BigInt(result.data[4].result.minBuy)))

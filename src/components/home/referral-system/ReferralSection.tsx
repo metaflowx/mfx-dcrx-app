@@ -17,7 +17,7 @@ import ShareReferral from "./ShareReferral";
 
 const ReferralSection: React.FC = () => {
   const pathname = usePathname()
-  console.log(">>>>>>>>>>router",pathname);
+ 
   const [url, setUrl] = useState("");
    const { writeContract, isPending, isSuccess, isError } = useWriteContract();
   const { address } = useAccount();
@@ -37,7 +37,7 @@ const ReferralSection: React.FC = () => {
 
  
   useEffect(() => {
-    console.log(">>>>>>>>>window.location.href",window.location);
+   
     
     if (typeof window !== "undefined") {
       setUrl(`${window.location.host}/?ref=${address}`);

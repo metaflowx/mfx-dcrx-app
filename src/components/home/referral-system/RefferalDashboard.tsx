@@ -14,8 +14,7 @@ const RefferalDashboard = ({result}:{result?:any}) => {
     chainId: Number(chainId)??97
   });
 
-  console.log(">>>>>>>>>>>>>result17",result);
-  
+ 
 
   
   const data = [
