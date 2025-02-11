@@ -5,7 +5,7 @@ const roadmapData = [
     id: 1,
     title: "Phase 1",
     title1:" Conceptualization & Initial Development",
-    description: "Laying the foundation for the future Conducting market research, designing the technical framework, releasing the whitepaper, and developing our branding strategy to kickstart the DecryptoX platform. Engaging with early users to shape the platform from the ground up.",
+    description: "Conducting market research, designing the technical framework, releasing the whitepaper, and developing our branding strategy to kickstart the DecryptoX platform. Engaging with early users to shape the platform from the ground up.",
     icon: "/coin-icon/edit.png",
     position: "top",
   },
@@ -13,7 +13,7 @@ const roadmapData = [
     id: 2,
     title: "Phase 2",
     title1:"Pre-ICO Development & Token Sale Preparations",
-    description: "Building anticipation for the launch Finalizing smart contract development, ramping up marketing efforts, forging strategic partnerships, and preparing for the ICO token sale. Early adopters get exclusive bonuses, users to with exchange listing efforts underway.",
+    description: "Finalizing smart contract development, ramping up marketing efforts, forging strategic partnerships, and preparing for the ICO token sale. Early adopters get exclusive bonuses, with exchange listing efforts underway.",
     icon: "/coin-icon/dollar.png",
     position: "bottom",
   },
@@ -21,7 +21,7 @@ const roadmapData = [
     id: 3,
     title: "Phase 3",
     title1:"Platform MVP Launch & Core Feature Rollout",
-    description: "The launch of our core ecosystem Unveiling the DecryptoX MVP with core features like spot & margin trading, Future & option trading,P2P Trading,DIDs and VCs Integration, Staking and Yeild Generation. Gathering user feedback to refine and enhance the platform, creating a seamless  experience for all traders.",
+    description: "Unveiling the DecryptoX MVP with core features like spot & margin trading, Future & option trading,P2P Trading,DIDs and VCs Integration, Staking and Yeild Generation. Gathering user feedback to refine and enhance the platform, creating a seamless and efficient experience for all traders.",
     icon: "/coin-icon/phase3.png",
     position: "top",
   },
@@ -29,7 +29,7 @@ const roadmapData = [
     id: 4,
     title: "Phase 4",
     title1:"Full Platform Rollout & Feature Expansion",
-    description: "Empowering users with advanced tools Expanding the platform with cutting-edge AI-driven trading bots, decentralized liquidity pools, NFT-backed loans, dual investment products, and robust security features. Enhancing the DecryptoX ecosystem to elevate user engagement and trading performance.",
+    description: "Expanding the platform with cutting-edge AI-driven trading bots, decentralized liquidity pools, NFT-backed loans, dual investment products, and robust security features. Enhancing the DecryptoX ecosystem to elevate user engagement and trading performance.",
     icon: "/coin-icon/rocket.png",
     position: "bottom",
   },
@@ -37,7 +37,7 @@ const roadmapData = [
     id: 5,
     title: "Phase 5",
     title1:"Community Governance & Ecosystem Scaling",
-    description: "Putting the power in your hands Introducing full DAO governance, community treasury, and DEX aggregation to amplify platform participation. Enabling users to contribute to decision-making and scaling DecryptoX’s capabilities, ensuring decentralization at its core.",
+    description: "Introducing full DAO governance, community treasury, and DEX aggregation to amplify platform participation. Enabling users to contribute to decision-making and scaling DecryptoX’s capabilities, ensuring decentralization at its core.",
     icon: "/coin-icon/edit.png",
     position: "top",
   },
@@ -45,7 +45,7 @@ const roadmapData = [
     id: 6,
     title: "Phase 6",
     title1:"Long-Term Growth & Sustainability Initiatives",
-    description: "Securing DecryptoX’s future Focusing on sustainability efforts, multi-chain integration, token burns, and expanding globally. Continuous platform improvements to ensure DecryptoX remains a leading decentralized exchange with long-term success and thriving ecosystem growth.",
+    description: "Focusing on sustainability efforts, multi-chain integration, token burns, and expanding globally. Continuous platform improvements to ensure DecryptoX remains a leading decentralized exchange with long-term success and thriving ecosystem growth.",
     icon: "/coin-icon/rocket.png",
     position: "bottom",
   },
@@ -120,7 +120,7 @@ const RoadmapCard = ({
           key={item.id}
           data-id={item.id} // Add a data attribute to identify cards
           onClick={() => handleCardClick(item.id)} // Handle card click
-          className={`relative flex-shrink-0 w-[394px] h-[100%] rounded-[20px] shadow-lg p-6 cursor-pointer transition-transform duration-300 ${
+          className={`relative flex-shrink-0 w-[394px] h-[100%] min-h-[350px] rounded-[20px] shadow-lg p-6 cursor-pointer transition-transform duration-300 ${
             selectedId === item.id ? "bg-[#09090B]" : "bg-[#1F2937]"
           }`}
         >
