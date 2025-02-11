@@ -55,7 +55,7 @@ const Tokenomics = ({ id }: { id: string }) => {
             <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[25px] font-normal mt-[20px]">
               <span >Network:</span> Binance Smart Chain (BSC)
             </p>
-            <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[25px] font-normal mt-[20px]">
+            <p style={{fontFamily:"Outfit"}} className="text-[16px] md:text-[25px] font-normal mt-[20px]">
               <span >Binance Smart Chain (BEP-20):</span> {TokenContractAddress}
             </p>
             <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[20px] md:text-[25px] font-normal">
@@ -66,7 +66,7 @@ const Tokenomics = ({ id }: { id: string }) => {
           <div className="xs:block sm:flex gap-4 mt-8">
           <button 
              onClick={()=>  window.scroll(0,0)}
-            style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-full md:w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
+            style={{border:"1px solid #2B9AE6"}} className="border mb-[10px] sm:mb-[0px] border-[#2B9AE6] w-full md:w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
              Buy Now
             </button>
           <Link
@@ -76,7 +76,7 @@ const Tokenomics = ({ id }: { id: string }) => {
                     "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
                 }}
               href={"docs/whitepaper.pdf"} target="_blank"
-                className="flex justify-center items-center mb-[10px] sm:mb-[0px] w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black"
+                className="flex justify-center items-center  w-[100%] md:w-[238px] h-[45px] md:h-[60px] rounded-full hover:bg-blue-600 text-[21px] font-bold text-black"
               >
                 White Paper
               </Link>
