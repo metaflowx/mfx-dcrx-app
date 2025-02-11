@@ -147,10 +147,10 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
          
         </div>
       </div>
-      <div className="lg:hidden">
+      <div className="2xl:hidden mt-10">
       
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Navigation, Pagination,Autoplay]}
           spaceBetween={20}
           slidesPerView={1}
           navigation={false}
@@ -160,13 +160,15 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
+            1024: { slidesPerView: 3 },
+            1524: { slidesPerView: 4 },
+
           }}
           className="mySwiper"
         >
           {steps.map((step, index) => (
-            <SwiperSlide key={index}>
-              <div key={index} className="flex flex-col w-full">
+            <SwiperSlide key={index} className="h-[100%]" >
+              <div key={index} className="flex flex-col w-full h-[100%] min-h-[380px]">
                 <StepCard {...step} />
               </div>
             </SwiperSlide>
@@ -174,7 +176,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
         </Swiper>
       </div>
 
-      <div className="hidden lg:flex flex-wrap gap-5 justify-end items-start  max-md:max-w-full relative mb-[-150px]">
+      <div className="hidden 2xl:flex flex-wrap gap-5 justify-end items-start  max-md:max-w-full relative mb-[-150px]">
         <div className="flex flex-col self-end   max-md:max-w-full">
          
           <div className="mt-16 w-full max-md:mt-10 max-md:max-w-full">

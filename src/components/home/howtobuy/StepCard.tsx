@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StepCardProps } from './types';
 
 export const StepCard: React.FC<StepCardProps> = ({ number, iconSrc, description, arrowSrc, title }) => (
-  <div className="flex flex-col stepBgCard items-start pt-5 pb-12 px-6 w-full rounded-2xl max-md:mt-2.5 relative h-[100%]"> 
+  <div className="flex flex-col stepBgCard items-start pt-5 pb-12 px-6 w-full rounded-2xl max-md:mt-2.5 relative h-[100%] min-h-[380px]"> 
     <div className='absolute right-0 top-12'>
       <img
         loading="lazy"
