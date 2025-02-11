@@ -22,6 +22,21 @@ const OfferSection = ({id}:{id:string}) => {
       image: "/offer/MarginTrading.png",
     },
     {
+      title: "Futures & Options Trading",
+      description: "Hedge risks or speculate with flexible futures and options contracts.",
+      image: "/offer/FuturesOptionsTrading.png",
+    },
+    {
+      title: "P2P Trading",
+      description: "Trade directly with peers using secure escrow services and fiat conversion.",
+      image: "/offer/P2PTrading.png",
+    },
+    {
+      title: "Automated Trading Solutions",
+      description: "Leverage AI-driven bots and algorithmic trading for optimized performance.",
+      image: "/offer/AutomatedTradingSolutions.png",
+    },
+    {
       title: "DeFi Integration",
       description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
       image: "/offer/DeFiIntegration.png",
@@ -42,21 +57,9 @@ const OfferSection = ({id}:{id:string}) => {
       image: "/offer/Cross-ChainFunctionality.png",
     },
    
-    {
-      title: "Futures & Options Trading",
-      description: "Hedge risks or speculate with flexible futures and options contracts.",
-      image: "/offer/FuturesOptionsTrading.png",
-    },
-    {
-      title: "P2P Trading",
-      description: "Trade directly with peers using secure escrow services and fiat conversion.",
-      image: "/offer/P2PTrading.png",
-    },
-    {
-      title: "Automated Trading Solutions",
-      description: "Leverage AI-driven bots and algorithmic trading for optimized performance.",
-      image: "/offer/AutomatedTradingSolutions.png",
-    },
+  
+   
+   
     {
       title: "Staking & Yield Generation",
       description: "Earn passive income through staking, dual-token rewards, and high APYs.",

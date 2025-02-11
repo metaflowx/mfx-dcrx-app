@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import CommonHeading from "../common/CommonHeading";
 import CommonSlider from "./CommonSlider";
 
-const ProblemSection: React.FC = () => {
+const ProblemSection = ({id}:{id:string}) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -50,7 +50,7 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-[10px] md:py-12 w-full">
+    <section id={id} className="bg-black text-white py-[10px] md:py-12 w-full">
       <div
         style={{
           fontFamily: "Geist",

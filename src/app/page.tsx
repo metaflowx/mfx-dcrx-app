@@ -35,7 +35,7 @@ const Home = () => {
       <FeaturedIn />
       <DecryptoXLanding id="howtobuy" />
      
-      <ProblemSection />
+      <ProblemSection  id="sol"/>
       <SolutionSection />
       <OfferSection id="features" />
       <Tokenomics id="tokenomics" />

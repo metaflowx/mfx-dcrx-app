@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import CommonButton from './common/CommonButton';
 import { Cross } from 'lucide-react';
+import { useAppKit } from '@reown/appkit/react';
 
 const WalletModal = ({isOpen,setIsOpen}:{isOpen?:boolean;setIsOpen?:any}) => {
-  
+  const { open, close } = useAppKit()
 
   useEffect(() => {
     // Check if MetaMask is installed
@@ -69,7 +70,7 @@ const WalletModal = ({isOpen,setIsOpen}:{isOpen?:boolean;setIsOpen?:any}) => {
               Already installed the Best Wallet app? Hit the button below to connect.
             </p>
             <CommonButton btnName="Connect Wallet" width="w-full"
-             onClick={() => setIsOpen(false)}  
+            onClick={async () => open()}  
             />
           </div>
         </div>

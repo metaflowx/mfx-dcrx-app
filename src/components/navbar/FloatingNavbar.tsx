@@ -47,7 +47,7 @@ const FloatingNavbar = ({
           "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
         script.async = true;
         document.body.appendChild(script);
-        
+
         window.googleTranslateLoaded = true; // Ensure it loads only once
       }
     };
@@ -70,12 +70,11 @@ const FloatingNavbar = ({
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
-  }
+  };
 
   return (
     <>
       <AnimatePresence mode="wait">
-     
         <motion.div
           initial={{
             opacity: 1,
@@ -93,128 +92,105 @@ const FloatingNavbar = ({
             className
           )}
         >
- <MarqueHeader />
- <div id="google_translate_element"></div>
-        
+          <MarqueHeader />
+          <div id="google_translate_element"></div>
+
           {/* Logo Section */}
           <div className="flex w-full bg-[#0f1923] pt-1  items-center justify-between px-8 py-3 ">
-
-          <div
-            className="flex items-center space-x-4 cursor-pointer"
-          >
-            <Link
-
-              href={"/"}
-
-            >
-              <img
-                src="/crypto/logo.png"
-                alt="Logo"
-                className="h-[50px]" // Adjust the logo height as per the design
-              />
-            </Link>
-
-          </div>
-
-          {/* Navigation Items for Large Screens */}
-          <div className="hidden xl:flex space-x-5">
-            {navItems.map((navItem: INavItem, idx: number) => (
-              <Link
-                key={idx}
-                href={navItem.link}
-                className={cn(
-                  "text-white text-[12px] 2xl:text-[15px]  tracking-wider hover:text-[#2b9ae6] transition",
-                  pathname === navItem.link && "text-[#2b9ae6]"
-                )}
-              >
-                {navItem.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Right Section */}
-          <div className="flex items-center space-x-4">
-            <Link href={"https://t.me/Official_DecryptoX"} target="_blank">
-
-            <img
-              src="/crypto/telegram.png"
-              alt="Telegram"
-              className="h-[24px] hidden lg:block"
-            />
-            </Link>
-            <Link href={"https://x.com/_DecryptoX"} target="_blank">
-            <img src="/crypto/x.png"  alt="X" className="h-[24px] hidden lg:block" />
-            </Link>
-
-          
-            <ConnectButton />
-
-
-            <div className="language-selector relative">
-            <select
-  value={selectedLanguage}
-  onChange={(e) => changeLanguage(e.target.value)}
-  className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
->
-  <option value="en">English</option>
-  <option value="ar">Arabic</option>
- 
-  <option value="cs">Czech</option>
-  <option value="nl">Dutch</option>
-  <option value="fr">French</option>
-  <option value="de">German</option>
-  <option value="hu">Hungarian</option>
-  <option value="id">Indonesian</option>
-  <option value="it">Italian</option>
-  <option value="ja">Japanese</option>
-  <option value="ko">Korean</option>
-  <option value="pl">Polish</option>
-  <option value="pt">Portuguese</option>
-  <option value="ro">Romanian</option>
-  <option value="ru">Russian</option>
-  <option value="sk">Slovak</option>
-  <option value="es">Spanish</option>
-  <option value="th">Thai</option>
-  <option value="tr">Turkish</option>
-  <option value="vi">Vietnamese</option>
-  <option value="zh">Chinese</option>
-</select>
-
-  <img
-    src="/crypto/downarrow.png"
-    alt="Language Selector"
-    className="absolute right-2 top-1/2 transform -translate-y-1/2"
-  />
-</div>
-
-     
-      
-           
-
-          
-            {/* <div className="hidden sm:flex relative  justify-center items-center">
-              <div className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] w-[71px] h-[33px] cursor-pointer">
+            <div className="flex items-center space-x-4 cursor-pointer">
+              <Link href={"/"}>
                 <img
-                  src="/crypto/american.png"
-                  alt="lan"
-                  className="w-[24px] h-[12px]"
+                  src="/crypto/logo.png"
+                  alt="Logo"
+                  className="h-[50px]" // Adjust the logo height as per the design
                 />
-                <img src="/crypto/downarrow.png" alt="lan" className="ml-1" />
-              </div>
-            </div> */}
-            <button
-              onClick={toggleDrawer}
-              className="block xl:hidden text-white text-xl focus:outline-none"
-            >
-              <FontAwesomeIcon
-                icon={faBars}
-                className="text-xl/6 font-semibold text-[var(--textColor)]"
-              />
-            </button>
-          </div>
+              </Link>
+            </div>
 
+            {/* Navigation Items for Large Screens */}
+            <div className="hidden xl:flex space-x-5">
+              {navItems.map((navItem: INavItem, idx: number) => (
+                <Link
+                  key={idx}
+                  href={navItem.link}
+                  className={cn(
+                    "text-white text-[12px] 2xl:text-[15px]  tracking-wider hover:text-[#2b9ae6] transition",
+                    pathname === navItem.link && "text-[#2b9ae6]"
+                  )}
+                >
+                  {navItem.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Right Section */}
+            <div className="flex items-center space-x-4">
+              <Link href={"https://t.me/Official_DecryptoX"} target="_blank">
+                <img
+                  src="/crypto/telegram.png"
+                  alt="Telegram"
+                  className="h-[24px] hidden lg:block"
+                />
+              </Link>
+              <Link href={"https://x.com/_DecryptoX"} target="_blank">
+                <img
+                  src="/crypto/x.png"
+                  alt="X"
+                  className="h-[24px] hidden lg:block"
+                />
+              </Link>
+
+              <ConnectButton />
+
+              <div className="hidden xl:flex language-selector relative">
+                <select
+                  value={selectedLanguage}
+                  onChange={(e) => changeLanguage(e.target.value)}
+                  className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
+                >
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+
+                  <option value="cs">Czech</option>
+                  <option value="nl">Dutch</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                  <option value="hu">Hungarian</option>
+                  <option value="id">Indonesian</option>
+                  <option value="it">Italian</option>
+                  <option value="ja">Japanese</option>
+                  <option value="ko">Korean</option>
+                  <option value="pl">Polish</option>
+                  <option value="pt">Portuguese</option>
+                  <option value="ro">Romanian</option>
+                  <option value="ru">Russian</option>
+                  <option value="sk">Slovak</option>
+                  <option value="es">Spanish</option>
+                  <option value="th">Thai</option>
+                  <option value="tr">Turkish</option>
+                  <option value="vi">Vietnamese</option>
+                  <option value="zh">Chinese</option>
+                </select>
+
+                <img
+                  src="/crypto/downarrow.png"
+                  alt="Language Selector"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                />
+              </div>
+
+             
+              <button
+                onClick={toggleDrawer}
+                className="block xl:hidden text-white text-xl focus:outline-none"
+              >
+                <FontAwesomeIcon
+                  icon={faBars}
+                  className="text-xl/6 font-semibold text-[var(--textColor)]"
+                />
+              </button>
+            </div>
           </div>
-          
         </motion.div>
       </AnimatePresence>
 
@@ -254,12 +230,44 @@ const FloatingNavbar = ({
                 </Link>
               ))}
 
-             
-              {/* <div className="flex flex-col space-y-4 mt-8">
-                <ConnectButton />
-               
-              </div> */}
+<div className="language-selector relative">
+                <select
+                  value={selectedLanguage}
+                  onChange={(e) => changeLanguage(e.target.value)}
+                  className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
+                >
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+
+                  <option value="cs">Czech</option>
+                  <option value="nl">Dutch</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                  <option value="hu">Hungarian</option>
+                  <option value="id">Indonesian</option>
+                  <option value="it">Italian</option>
+                  <option value="ja">Japanese</option>
+                  <option value="ko">Korean</option>
+                  <option value="pl">Polish</option>
+                  <option value="pt">Portuguese</option>
+                  <option value="ro">Romanian</option>
+                  <option value="ru">Russian</option>
+                  <option value="sk">Slovak</option>
+                  <option value="es">Spanish</option>
+                  <option value="th">Thai</option>
+                  <option value="tr">Turkish</option>
+                  <option value="vi">Vietnamese</option>
+                  <option value="zh">Chinese</option>
+                </select>
+
+                <img
+                  src="/crypto/downarrow.png"
+                  alt="Language Selector"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                />
+              </div>
             </div>
+
           </motion.div>
         )}
       </AnimatePresence>

@@ -22,7 +22,7 @@ const Newsletter: React.FC = () => {
              style={{
               background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
             }}
-            className="w-[299px] h-[60px]  rounded-full hover:bg-blue-600 text-[14px] lg:text-[21px] font-bold text-black">
+            className="w-[299px] h-[60px]  rounded-full hover:bg-blue-600 text-[12px] font-bold lg:text-[21px]  text-black">
               Subscribe Newsletter
             </button>
         
