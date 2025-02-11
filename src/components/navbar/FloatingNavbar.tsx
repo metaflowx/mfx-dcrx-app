@@ -157,7 +157,8 @@ const FloatingNavbar = ({
   className="bg-[#09090B] flex justify-center items-center text-white text-lg border border-white px-3 rounded-[6px] max-w-fit h-[33px] cursor-pointer appearance-none pl-3 pr-8"
 >
   <option value="en">English</option>
-  <option value="zh">Chinese</option>
+  <option value="ar">Arabic</option>
+ 
   <option value="cs">Czech</option>
   <option value="nl">Dutch</option>
   <option value="fr">French</option>
@@ -176,6 +177,7 @@ const FloatingNavbar = ({
   <option value="th">Thai</option>
   <option value="tr">Turkish</option>
   <option value="vi">Vietnamese</option>
+  <option value="zh">Chinese</option>
 </select>
 
   <img
