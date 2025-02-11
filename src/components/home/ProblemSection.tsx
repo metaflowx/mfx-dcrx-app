@@ -58,11 +58,11 @@ const ProblemSection = ({id}:{id:string}) => {
         className="max-w-7xl mx-auto px-6 text-left md:text-center pt-[10px] md:pt-[180px]"
       >
         <div>
-          <CommonHeading heading={"The Problem"} fontSize="text-[45px]" />
+          <CommonHeading heading={"The Problem:"} fontSize="text-[45px]" />
         </div>
 
         <h1 className="text-[30px] xl:text-[35px] font-bold">
-        Challenges in Today’s {" "} <span className="text-[#1B429A] text-[30px] xl:text-[35px] font-bold mb-8">Crypto Landscape</span>
+        Challenges in Today’s Crypto Landscape
         </h1>
        
 

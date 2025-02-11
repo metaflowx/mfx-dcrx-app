@@ -4,12 +4,12 @@ import { SocialIcon } from "./SocialIcon";
 import { QuickLink } from "./QuickLink";
 import { useRouter } from 'next/navigation';
 const quickLinks = [
-  { text: "Resource Center" ,href:false},
-  { text: "tokenomics",href:false },
-  { text: "Roadmap",href:false },
-  { text: "White Paper",href:false },
-  { text: "Light Paper",href:false },
-  { text: "Refer & Earn" ,href:true}
+  { text: "Resource Center" ,},
+  { text: "Tokenomics",href:false,link:"/#tokenomics" },
+  { text: "Roadmap",href:false,link:"/#roadmap", },
+  { text: "White Paper",href:false,link:"" },
+  { text: "Light Paper",href:false,link:"" },
+  { text: "Refer & Earn" ,href:true,link:""}
 ];
 
 export const socialIcons = [
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap  mt-7 ml-2.5 text-base text-white max-md:mr-1.5 max-md:max-w-full">
            
             <div className="grow shrink text-center w-[611px] max-md:max-w-full text-[#403d3d]">
-            Disclaimer:Crypto investments are high-risk and not for everyone. Do your research and seek advice before investing. DecryptoX complies with laws but operates in evolving DeFi regulations.
+            Disclaimer: Crypto investments are high-risk and not for everyone. Do your research and seek advice before investing. DecryptoX complies with laws but operates in evolving DeFi regulations.
             </div>
             
           </div>

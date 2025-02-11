@@ -35,9 +35,9 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
-  title: "Decrypto",
+  title: "DecryptoX",
   description:
-    "Decrypto",
+    "DecryptoX",
   robots: {
     index: true,
     follow: true,

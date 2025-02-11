@@ -9,11 +9,26 @@ export const QuickLink: React.FC<QuickLinkProps> = ({
   text,
   href,
   className = "",
+  link,
 }) => {
   const router = useRouter();
   return (
     <>
-      {text === "White Paper" ? (
+    {link ? (
+        <Link
+        className={`${className} cursor-pointer text-white`}
+        href={link}
+       
+      >
+        {" "}
+        {text}
+      </Link>
+
+    ):(
+      <>
+
+
+{text === "White Paper" ? (
         <Link
           className={`${className} cursor-pointer text-white`}
           href={"docs/whitepaper.pdf"}
@@ -24,6 +39,7 @@ export const QuickLink: React.FC<QuickLinkProps> = ({
         </Link>
       ) : (
         <>
+        
           {text === "Light Paper" ? (
             <>
               <Link
@@ -55,6 +71,10 @@ export const QuickLink: React.FC<QuickLinkProps> = ({
           )}
         </>
       )}
+      
+      </>
+    )}
+     
     </>
   );
 };
