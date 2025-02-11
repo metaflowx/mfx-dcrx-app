@@ -37,6 +37,11 @@ const OfferSection = ({id}:{id:string}) => {
       image: "/offer/AutomatedTradingSolutions.png",
     },
     {
+      title: "Staking & Yield Generation",
+      description: "Earn passive income through staking, dual-token rewards, and high APYs.",
+      image: "/offer/StakingYieldGeneration.png",
+    },
+    {
       title: "DeFi Integration",
       description: "Access lending, liquidity mining, NFT-backed loans, and decentralized insurance.",
       image: "/offer/DeFiIntegration.png",
@@ -60,11 +65,7 @@ const OfferSection = ({id}:{id:string}) => {
   
    
    
-    {
-      title: "Staking & Yield Generation",
-      description: "Earn passive income through staking, dual-token rewards, and high APYs.",
-      image: "/offer/StakingYieldGeneration.png",
-    },
+   
   ];
   const [cardData, setCardData] = useState(initialData);
 
