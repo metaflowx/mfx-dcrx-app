@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
             alt=""
             className="object-contain mt-6 w-full aspect-[1000] stroke-[1px] stroke-white max-md:max-w-full"
           />
-          <div className="flex flex-wrap gap-10 mt-7 ml-2.5 text-base text-white max-md:mr-1.5 max-md:max-w-full">
+          <div className="flex flex-wrap  mt-7 ml-2.5 text-base text-white max-md:mr-1.5 max-md:max-w-full">
            
             <div className="grow shrink text-center w-[611px] max-md:max-w-full text-[#1a1a1a]">
             Disclaimer:Crypto investments are high-risk and not for everyone. Do your research and seek advice before investing. DecryptoX complies with laws but operates in evolving DeFi regulations.
@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/e2e585acb7950cd58a31de81853bc10acbe7f9926ae9e9997bbb519fa7e8b99e?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5"
             alt=""
-            className="object-contain mt-20 w-full aspect-[1000] stroke-[1px] stroke-white max-md:mt-10 max-md:max-w-full"
+            className="object-contain mt-6 w-full aspect-[1000] stroke-[1px] stroke-white max-md:mt-10 max-md:max-w-full"
           />
           <div className="self-center mt-4 ml-2.5 text-base font-semibold text-center ">
            <span style={{color:"#1a1a1a"}}>@copyright 2025</span>  | <span style={{color:"#1a1a1a",cursor:"pointer"}} onClick={()=>router.push("/privacyandpolicy")}>Privacy Policy</span>  | <span style={{color:"#1a1a1a",cursor:"pointer"}} onClick={()=>router.push("/termandcondition")} >Terms & Conditions</span>
