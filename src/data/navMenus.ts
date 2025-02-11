@@ -18,7 +18,7 @@ export const navMenus: INavItem[] = [
     icon: faUser,
   },
   {
-    name: "Problem & Solutution",
+    name: "PROBLEM & SOLUTION",
     link: "/#sol",
     icon: faBriefcase,
   },
