@@ -99,6 +99,12 @@ const Banner = ({ id }: { id: string }) => {
         args: [tokenAddress as Address, parseEther(amount)],
         chainId: Number(chainId),
       },
+      {
+        ...iocConfig,
+        functionName: "getPaymentOption",
+        args: [tokenAddress as Address],
+        chainId: Number(chainId),
+      },
     ],
   });
   const result = useReadContracts({
@@ -137,7 +143,7 @@ const Banner = ({ id }: { id: string }) => {
   });
 
 
-  
+
 
   const handleBuy = async () => {
     try {
@@ -170,8 +176,8 @@ const Banner = ({ id }: { id: string }) => {
         Number?.(amount) > 0
           ? parseEther?.(amount)
           : parseEther?.(
-              BigInt((Number.MAX_SAFE_INTEGER ** 1.3)?.toString())?.toString()
-            );
+            BigInt((Number.MAX_SAFE_INTEGER ** 1.3)?.toString())?.toString()
+          );
       const res = await writeContractAsync({
         abi: erc20Abi,
         address: coinType.address,
@@ -193,12 +199,12 @@ const Banner = ({ id }: { id: string }) => {
       const tokenPrice = result?.data && result?.data[0]?.result;
       const dividedVa = calculationresult?.data
         ? (Number(
+          formatEther(BigInt(calculationresult?.data[0]?.result ?? 0))
+        ) > 0
+          ? Number(
             formatEther(BigInt(calculationresult?.data[0]?.result ?? 0))
-          ) > 0
-            ? Number(
-                formatEther(BigInt(calculationresult?.data[0]?.result ?? 0))
-              )
-            : Number(amount)) / Number(formatEther(BigInt(tokenPrice ?? 0)))
+          )
+          : Number(amount)) / Number(formatEther(BigInt(tokenPrice ?? 0)))
         : 0;
       const purchaseToken =
         result &&
@@ -265,7 +271,7 @@ const Banner = ({ id }: { id: string }) => {
     queryClient.invalidateQueries({
       queryKey: result.queryKey,
     });
-  }, [blockNumber, queryClient,result, resultOfCheckAllowance]);
+  }, [blockNumber, queryClient, result, resultOfCheckAllowance]);
 
 
   const minBuy = result?.data?.[4]?.result?.minBuy
@@ -275,11 +281,13 @@ const Banner = ({ id }: { id: string }) => {
     ? Number(formatEther(BigInt(result.data[4].result.maxBuy)))
     : 0;
 
-  const max = 100;
+
   const progressWidth =
     (Number(calciulatedToken?.totalSale) /
       Number(calciulatedToken?.totalTokenSupplyUSD)) *
     100;
+
+  console.log(">>>>>>>calculationresult", calculationresult);
 
   return (
     <div
@@ -341,7 +349,7 @@ const Banner = ({ id }: { id: string }) => {
                   target="_blank"
                   className="flex justify-center items-center border border-[#2B9AE6] w-[100%] md:w-[238px] h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full text-[21px] font-bold transition-all duration-300"
                 >
-                  Audit Report 
+                  Audit Report
                 </Link>
               </motion.div>
             </div>
@@ -358,7 +366,7 @@ const Banner = ({ id }: { id: string }) => {
               </h2>
               <div className="w-full text-center mb-4">
 
-                {Math.floor(Date.now() / 1000) <= Number(result?.data?.[1]?.result?.startAt) ?(
+                {Math.floor(Date.now() / 1000) <= Number(result?.data?.[1]?.result?.startAt) ? (
 
                   <CountdownTimer
                     label="Sale Starts In"
@@ -371,22 +379,22 @@ const Banner = ({ id }: { id: string }) => {
                       result.data[1]?.result?.startAt
                     }
                   />
-                ):(
+                ) : (
 
-                <CountdownTimer
-                  label="Sale Ends In"
-                  targetTime={
-                    result &&
-                    result.data &&
-                    result.data &&
-                    result.data[1]?.result &&
-                    result.data[1]?.result &&
-                    result.data[1]?.result?.endAt
-                  }
-                />
+                  <CountdownTimer
+                    label="Sale Ends In"
+                    targetTime={
+                      result &&
+                      result.data &&
+                      result.data &&
+                      result.data[1]?.result &&
+                      result.data[1]?.result &&
+                      result.data[1]?.result?.endAt
+                    }
+                  />
                 )}
-             
-               
+
+
               </div>
               {/* <img src="/card/progress.png" className="w-[505px] pb-4" /> */}
               <div
@@ -512,22 +520,38 @@ const Banner = ({ id }: { id: string }) => {
                 </div>
               </div>
 
-              {amount ? (
+              {amount && (calculationresult?.data?.[0]?.result || calculationresult?.data?.[1]?.result) && (
                 <>
-                  {Number(amount) < minBuy && (
+                  {(calculationresult?.data?.[1]?.result?.isStable && Number(amount) < Number(minBuy)) && (
+
                     <p className="pt-1" style={{ color: "red" }}>
-                      Min: {minBuy}
+                      Min: ${minBuy}
                     </p>
+
                   )}
 
-                  {Number(amount) > maxBuy && (
-                    <p className="pt-1" style={{ color: "red" }}>
-                      Max: {maxBuy}
-                    </p>
+                  {(
+
+                    <>
+
+                      {!calculationresult?.data?.[1]?.result?.isStable && Number(formatEther(BigInt(calculationresult?.data[0]?.result ?? 0))) < Number(minBuy) && (
+                        <p className="pt-1" style={{ color: "red" }}>
+                          Min: ${minBuy}
+                        </p>
+                      )}
+                    </>
+
                   )}
+
+
+                  {/* {Number(
+                    formatEther(BigInt(calculationresult?.data?.[0]?.result ?? 0))
+                  ) > maxBuy && (
+                      <p className="pt-1" style={{ color: "red" }}>
+                        Max: ${maxBuy}
+                      </p>
+                    )} */}
                 </>
-              ) : (
-                <p style={{ color: "red" }}></p>
               )}
               {!address ? (
                 <button
@@ -546,9 +570,9 @@ const Banner = ({ id }: { id: string }) => {
                     Number(amount) <= 0 ||
                     (coinType?.tokenname === "BNB"
                       ? Number(Balance?.formatted) < Number(amount) ||
-                        Number(Balance?.formatted) === 0
+                      Number(Balance?.formatted) === 0
                       : Number(formatEther(BigInt(resultOfTokenBalance ?? 0))) <
-                        Number(amount))
+                      Number(amount))
                   }
                   onClick={() => {
                     if (coinType?.tokenname === "BNB") {
@@ -558,41 +582,40 @@ const Banner = ({ id }: { id: string }) => {
                     }
                   }}
                   className={`w-full mt-4 h-[55px] rounded-lg text-lg font-semibold
-                  ${
-                    amount === "" || Number(amount) <= 0
+                  ${amount === "" || Number(amount) <= 0
                       ? "bg-gray-400" // Invalid amount -> Gray
                       : (
-                          coinType?.tokenname === "BNB"
-                            ? Number(Balance?.formatted) < Number(amount) ||
-                              Number(Balance?.formatted) === 0
-                            : Number(
-                                formatEther(BigInt(resultOfTokenBalance ?? 0))
-                              ) < Number(amount)
-                        )
-                      ? "bg-red-500" // Insufficient balance -> Red
-                      : "bg-[#2B9AE6]" // Valid input -> Blue
-                  }`}
+                        coinType?.tokenname === "BNB"
+                          ? Number(Balance?.formatted) < Number(amount) ||
+                          Number(Balance?.formatted) === 0
+                          : Number(
+                            formatEther(BigInt(resultOfTokenBalance ?? 0))
+                          ) < Number(amount)
+                      )
+                        ? "bg-red-500" // Insufficient balance -> Red
+                        : "bg-[#2B9AE6]" // Valid input -> Blue
+                    }`}
                 >
                   {isPending
                     ? coinType?.tokenname === "BNB" || isAproveERC20
                       ? "Buying..."
                       : "Approving..."
                     : coinType?.tokenname === "BNB" && amount === ""
-                    ? "Please enter amount"
-                    : coinType?.tokenname === "BNB" && Number(amount) <= 0
-                    ? "Please enter correct amount"
-                    : (
-                        coinType?.tokenname === "BNB"
-                          ? Number(Balance?.formatted) < Number(amount) ||
+                      ? "Please enter amount"
+                      : coinType?.tokenname === "BNB" && Number(amount) <= 0
+                        ? "Please enter correct amount"
+                        : (
+                          coinType?.tokenname === "BNB"
+                            ? Number(Balance?.formatted) < Number(amount) ||
                             Number(Balance?.formatted) === 0
-                          : Number(
+                            : Number(
                               formatEther(BigInt(resultOfTokenBalance ?? 0))
                             ) < Number(amount)
-                      )
-                    ? "Insufficient funds"
-                    : coinType?.tokenname === "BNB" || isAproveERC20
-                    ? "Buy Now"
-                    : "Approve"}
+                        )
+                          ? "Insufficient funds"
+                          : coinType?.tokenname === "BNB" || isAproveERC20
+                            ? "Buy Now"
+                            : "Approve"}
                 </button>
               )}
 
