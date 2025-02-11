@@ -37,6 +37,8 @@ const Tokenomics = ({ id }: { id: string }) => {
           <h3 style={{fontFamily:"Plus Jakarta Sans",}} className="text-[20px] lg:text-[25px] leading-snug font-bold mt-4 max-w-md">
             Revolutionizing Decentralized Finance with Purpose-Driven Utility
           </h3>
+          <h4 style={{fontFamily:"Plus Jakarta Sans",}} className='text-[20px] lg:text-[22px] leading-snug font-bold mt-4 max-w-md'>Powering the Future of DeFi with $DCRX
+          </h4>
           <div style={{fontFamily:"Plus Jakarta Sans"}} className="mt-6">
             <p className="text-3xl lg:text-[25px] font-bold">
               <span className="text-[20px] md:text-[25px] font-bold">Symbol:</span> $DCRX
@@ -51,7 +53,10 @@ const Tokenomics = ({ id }: { id: string }) => {
               <span >Type:</span> Utility Token
             </p>
             <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[25px] font-normal mt-[20px]">
-              <span >Network:</span> Ethereum Smart Chain
+              <span >Network:</span> Binance Smart Chain (BSC)
+            </p>
+            <p style={{fontFamily:"Outfit"}} className="text-[20px] md:text-[25px] font-normal mt-[20px]">
+              <span >Binance Smart Chain (BEP-20):</span> 0xXXXXXXXXXXXXXXXXXXXXXXXXXX
             </p>
             <p style={{fontFamily:"Outfit",lineHeight:"25px"}} className="text-[20px] md:text-[25px] font-normal">
               <span >Total Supply:</span> { result &&
@@ -61,6 +66,11 @@ const Tokenomics = ({ id }: { id: string }) => {
             </p>
           </div>
           <div className="xs:block sm:flex gap-4 mt-8">
+          <button 
+             onClick={()=>  window.scroll(0,0)}
+            style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-full md:w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
+             Buy Now
+            </button>
           <Link
               
                 style={{
@@ -72,11 +82,7 @@ const Tokenomics = ({ id }: { id: string }) => {
               >
                 White Paper
               </Link>
-            <button 
-             onClick={()=>  window.scroll(0,0)}
-            style={{border:"1px solid #2B9AE6"}} className="border border-[#2B9AE6] w-full md:w-[238px] mt-2 sm:mt-0 md:mt-0 lg:mt-0 h-[45px] md:h-[60px] text-[#2B9AE6] rounded-full   text-[21px] font-bold">
-             Buy Now
-            </button>
+           
           </div>
           
         </div>
@@ -86,13 +92,13 @@ const Tokenomics = ({ id }: { id: string }) => {
           <div >
            <img src="/crypto/supply.png" alt="supply" />
            
-           <div className="text-center mt-4">
+           {/* <div className="text-center mt-4">
             <p style={{fontFamily:"Plus Jakarta Sans"}} className="text-[#2B9AE6] text-[27px] md:text-[37px] font-bold">Total Supply</p>
             <p style={{fontFamily:"Plus Jakarta Sans",lineHeight:"37px"}}  className="text-[27px] md:text-[37px] font-bold text-white">{ result &&
                     result?.data &&
                     result?.data[0]?.result &&
                     formatEther(BigInt(result?.data[0]?.result))}</p>
-          </div>
+          </div> */}
           </div>
          
         </div>

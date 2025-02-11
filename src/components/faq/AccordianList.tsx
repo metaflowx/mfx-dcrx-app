@@ -24,10 +24,10 @@ export default function AccordianList({faqs}:{faqs?:any}) {
             >
               <AccordionItem value={`item-${index}`} className="px-4">
                 <AccordionTrigger className="flex w-full items-center justify-between px-6 py-6 text-left">
-                  <span className="text-lg sm:text-[25px]   font-medium">{faq.question}</span>
+                  <span className="text-lg sm:text-[23px]   font-medium">{faq.question}</span>
                
                 </AccordionTrigger>
-                <AccordionContent style={{lineHeight:"30px"}}  className="px-6 pb-4 text-white text-lg  sm:text-[20px]">
+                <AccordionContent style={{lineHeight:"30px"}}  className="px-6 pb-4 text-white text-lg  sm:text-[18px]">
                   {faq.answer}
                  
                 </AccordionContent>

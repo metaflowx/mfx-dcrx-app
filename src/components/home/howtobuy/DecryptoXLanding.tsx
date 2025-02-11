@@ -86,7 +86,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
   return (
     <div
       id={id}
-      className="flex bannerBuyBg h-auto  flex-col pt-32 px-10 rounded-none max-md:pt-[14px] max-md:pr-5 relative pb-30"
+      className="flex bannerBuyBg h-auto  flex-col pt-[50px] px-10 rounded-none max-md:pt-[14px] max-md:pr-5 relative pb-30"
     >
       <div className="absolute left-0 bottom-14">
         <img
@@ -98,18 +98,18 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
       </div>
       <div className="self-center w-full max-w-[1618px] max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">
-          <div className="flex flex-col w-[41%] max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col w-full max-md:ml-0 ">
             <div
               style={{ fontFamily: "Geist" }}
-              className="text-[20px] md:text-[50px] font-bold text-white leading-snug  max-md:mt-1 max-md:max-w-full"
+              className="text-[20px] md:text-[50px] font-bold text-white leading-snug  max-md:mt-1 w-full flex justify-center mb-2"
             >
-              <span className="text-sky-500">Why DecryptoX?</span>
+              <span className="text-sky-500 text-center">Why DecryptoX?</span>
               <br />
-              <span className="text-[20px] md:text-[30px]">DecryptoX at a Glance</span>
+              {/* <span className="text-[20px] md:text-[30px]">DecryptoX at a Glance</span> */}
             </div>
-          </div>
-          <div className="flex flex-col ml-5 w-[59%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col mt-0 md:mt-1.5 w-full text-xl font-bold text-white max-md:max-w-full">
+
+           
+            <div className="flex flex-col mt-0 md:mt-1.5 w-full text-xl font-bold text-white">
               <div
                 style={{ fontFamily: "Geist" }}
                 className="text-[16.5px] md:text-[18px]  font-medium leading-snug md:leading-10 max-md:max-w-full "
@@ -123,26 +123,32 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
                 your financial journey.
                 <br />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-start mt-10 w-full max-md:mr-2.5 max-md:max-w-full">
-                {features.slice(0, 2).map((feature, index) => (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 items-start mt-10 w-full max-md:mr-2.5 max-md:max-w-full">
+                {features.slice(0, 3).map((feature, index) => (
                   <FeatureItem key={index} {...feature} />
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2  gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
-                {features.slice(2, 4).map((feature, index) => (
+              <div className="grid grid-cols-1 sm:grid-cols-3  gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
+                {features.slice(3, 6).map((feature, index) => (
                   <FeatureItem key={index + 2} {...feature} />
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2  gap-10 items-start mt-7 w-full max-md:mr-2.5 max-md:max-w-full">
-                {features.slice(4, 6).map((feature, index) => (
-                  <FeatureItem key={index + 2} {...feature} />
-                ))}
-              </div>
+              
             </div>
+          
+            <div className="self-center pt-10 text-[20px] md:text-[35px] font-bold leading-none text-sky-500 max-md:text-4xl">
+            <span style={{ fontFamily: "Geist" }} className="text-sky-500">
+              How to Buy DecryptoX ($DCRX)?
+            </span>
+          
           </div>
+
+          </div>
+         
         </div>
       </div>
       <div className="lg:hidden">
+      
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={20}
@@ -170,12 +176,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
 
       <div className="hidden lg:flex flex-wrap gap-5 justify-end items-start  max-md:max-w-full relative mb-[-150px]">
         <div className="flex flex-col self-end   max-md:max-w-full">
-          <div className="self-center pt-10 text-[20px] md:text-[30px] font-bold leading-none text-sky-500 max-md:text-4xl">
-            <span style={{ fontFamily: "Geist" }} className="text-white">
-              How to Buy DecryptoX ($DCRX)
-            </span>
-          
-          </div>
+         
           <div className="mt-16 w-full max-md:mt-10 max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col">
               {steps.map((step, index) => (

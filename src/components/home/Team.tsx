@@ -66,8 +66,11 @@ const TeamSection = ({ id }: { id: string }) => {
     },
   ];
 
+  console.log(">>>>>>>>>>>>.selectedMember",selectedMember);
+  
+
   return (
-    <section className="bg-black text-white  py-1 md:py-16 w-full" id={id}>
+    <section className="bg-black text-white  py-1 md:py-16 w-full" id={id} onMouseOut={() => setSelectedMember("")} >
       <div
         style={{ fontFamily: "Geist" }}
         className="max-w-6xl mx-auto px-4 text-center"
@@ -78,7 +81,7 @@ const TeamSection = ({ id }: { id: string }) => {
         
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-10" >
           {teamMembers.slice(0, 3).map((member, index) => {
             return (
               <>
@@ -136,7 +139,9 @@ const TeamSection = ({ id }: { id: string }) => {
                         : ""
                     }`}
                     onMouseEnter={() => setSelectedMember(member)}
-                    onMouseLeave={() => setSelectedMember("")}
+                    onMouseUp={() => setSelectedMember("")}
+                    onMouseLeave={()=> setSelectedMember("")}
+                    onMouseOut={()=>setSelectedMember("")}
                   >
                     <div className="flex flex-col items-center">
                       {/* Image */}
@@ -224,10 +229,13 @@ const TeamSection = ({ id }: { id: string }) => {
                         ? "rounded-tr-[20px] rounded-br-[20px]"
                         : ""
                     }`}
-                    onMouseLeave={() => setSelectedMember("")}
+                    onMouseUp={() => setSelectedMember("")}
                     onMouseEnter={() => {
                       setSelectedMember(member);
                     }}
+                    onMouseLeave={()=> setSelectedMember("")}
+                    onMouseOut={()=>setSelectedMember("")}
+                    
                   >
                     <div className="flex flex-col items-center">
                       {/* Image */}

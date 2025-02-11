@@ -1,13 +1,15 @@
 import React from 'react';
 import ConstrainedBox from '../core/constrained-box';
 import { useRouter } from 'next/navigation';
+import { useAppKit } from '@reown/appkit/react';
 
 const HomeSection1= ({ id }: { id: string }) => {
   const router = useRouter()
+    const { open, close } = useAppKit()
   const referStep=[
     {
-      title:"Sign Up & Get Your Link",
-      description:" Register on the platform and access your unique referral link."
+      title:"Connect Wallet & Get Your Link ",
+      description:"Connect your wallet and access your unique referral link."
     },
     {
       title:"Share with Friends",
@@ -28,13 +30,16 @@ const HomeSection1= ({ id }: { id: string }) => {
       <div className="text-left md:text-center max-w-xxl pt-3 lg:pt-[150px]">
         <h1 className="text-[30px] lg:text-[40px]  mb-4 text-[#2B9AE6] leading-snug " style={{fontFamily:"Geist, serif",fontWeight:700}} >Earn More with the DecryptoX Referral Program!</h1>
         <p className="text-white mt-6 text-[16px] md:text-[20px]">
-        Invite your friends, grow the community, and get rewarded! Share your unique referral link, and every successful signup
+        Grow the community and earn rewards! Invite friends to join our ecosystem and share your unique referral link. 
+        </p>
+        <p className="text-white text-[16px] md:text-[20px]">
+        When your referrals connect their wallet and make a qualifying purchase of $100 or more, you'll earn exclusive 
         </p>
         <p className="text-white mb-6 text-[16px] md:text-[20px]">
-        earns you exclusive bonuses in $DCRX. The more you refer, the more you earn—start building your rewards today!
+        bonuses in $DCRX. The more you refer, the more you earn, so start building your rewards today!
         </p>
         {/* <CommonButton btnName=" Refer a friend" /> */}
-        <button onClick={()=>router.push("/")}  style={{
+        <button onClick={async () => open()}  style={{
       background: "linear-gradient(180deg, #A0DBF6 0%, #2B9AE6 100%",
     }} className="px-6 py-3  hover:bg-blue-500  rounded-[13px] shadow-md text-black w-[237px] text-[21px] font-bold">
           Refer a friend
@@ -53,10 +58,10 @@ const HomeSection1= ({ id }: { id: string }) => {
             return(
               <div
               key={index}
-              className="cardBorderWithoutBg p-6 rounded-md text-center"
+              className="cardBorderWithoutBg p-4 rounded-md text-center"
             >
               <h3 style={{fontFamily:"Geist"}} className="text-[70px] font-bold mb-1 text-[#2B9AE6]">{`0${index + 1}.`}</h3>
-              <h4 style={{fontFamily:"Outfit"}} className="text-[22px] font-bold mb-2">{item?.title}</h4>
+              <h4 style={{fontFamily:"Outfit"}} className="text-[20px] font-bold mb-2">{item?.title}</h4>
               <p style={{fontFamily:"Geist"}} className="text-white text-[15px] font-semibold text-center">
              {item?.description}
               </p>

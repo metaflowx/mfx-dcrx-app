@@ -62,12 +62,9 @@ const ProblemSection: React.FC = () => {
         </div>
 
         <h1 className="text-[30px] xl:text-[35px] font-bold">
-        Challenges in Today’s {" "}
+        Challenges in Today’s {" "} <span className="text-[#1B429A] text-[30px] xl:text-[35px] font-bold mb-8">Crypto Landscape</span>
         </h1>
-        <p className="text-[30px] xl:text-[35px] font-bold mb-8">
-          
-          <span className="text-[#1B429A] ml-2">Crypto Landscape</span>
-        </p>
+       
 
         {/* Slick Slider */}
         <div className="xl:hidden">
