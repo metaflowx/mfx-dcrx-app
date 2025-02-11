@@ -82,7 +82,7 @@ const OfferSection = ({id}:{id:string}) => {
          
         </div>
       </ConstrainedBox>
-      <div className="w-full mx-auto px-6 text-center py-10 relative">
+      <div className="w-full mx-auto px-6 text-center py-1 md:py-10 relative">
         <div className="relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}

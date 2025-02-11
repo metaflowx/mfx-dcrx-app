@@ -86,7 +86,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
   return (
     <div
       id={id}
-      className="flex bannerBuyBg h-auto  flex-col pt-[50px] px-10 rounded-none max-md:pt-[14px] max-md:pr-5 relative pb-30"
+      className="flex bannerBuyBg h-auto  flex-col pt-[50px] px-4 rounded-none max-md:pt-[14px] max-md:pr-5 relative pb-30"
     >
       <div className="absolute hidden sm:block left-0 bottom-[-2rem] md:bottom-7">
         <img
@@ -101,9 +101,9 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
           <div className="flex flex-col w-full max-md:ml-0 ">
             <div
               style={{ fontFamily: "Geist" }}
-              className="text-[20px] md:text-[50px] font-bold text-white leading-snug  max-md:mt-1 w-full flex justify-center mb-2"
+              className="text-[25px] md:text-[50px] font-bold text-white leading-snug  max-md:mt-1 w-full flex justify-start sm:justify-center mb-2"
             >
-              <span className="text-sky-500 text-center">Why DecryptoX?</span>
+              <span className="text-sky-500 text-left sm:text-center">Why DecryptoX?</span>
               <br />
               {/* <span className="text-[20px] md:text-[30px]">DecryptoX at a Glance</span> */}
             </div>
@@ -136,8 +136,8 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
               
             </div>
           
-            <div className="self-center pt-[54px] text-[20px] md:text-[35px] font-bold leading-none text-sky-500 max-md:text-4xl">
-            <span style={{ fontFamily: "Geist" }} className="text-sky-500">
+            <div className="self-center pt-[10px] md:pt-[54px] text-[20px] md:text-[35px] font-bold leading-none text-sky-500 max-md:text-4xl">
+            <span style={{ fontFamily: "Geist" }} className="text-sky-500 text-[22px] md:text-[35px]">
               How to Buy DecryptoX ($DCRX)?
             </span>
           
@@ -147,7 +147,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
          
         </div>
       </div>
-      <div className="2xl:hidden mt-10">
+      <div className="2xl:hidden mt-5">
       
         <Swiper
           modules={[Navigation, Pagination,Autoplay]}
