@@ -63,6 +63,13 @@ const Tokenomics = ({ id }: { id: string }) => {
               <span >Total Supply: </span> 
                     59,900,000,000 DCRX
             </p>
+            <div className="text-[20px] md:text-[20px] font-normal mt-2">
+            Limited Supply. Maximum Utility.
+           
+            </div>
+            <div className="text-[20px] md:text-[20px] font-normal">
+            Join the revolution and be part of the decentralized future today!
+            </div>
           </div>
           <div className="xs:block sm:flex gap-4 mt-8">
           <button 

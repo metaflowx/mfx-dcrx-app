@@ -25,7 +25,7 @@ const SolutionSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* Left Section - Cards */}
           <div className="md:col-span-12 lg:col-span-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 2xl:grid-cols-2 gap-6">
               {[
                 
                 {
