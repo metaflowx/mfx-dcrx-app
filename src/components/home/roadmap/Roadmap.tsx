@@ -121,7 +121,7 @@ const Roadmap = ({id}:{id:string}) => {
               <div
                 key={phase.id}
                 className={`flex flex-col items-center relative  ${
-                  phase.position === "top" ? phase.id==5 ? "mt-[75px]" : "mt-0" : phase.id==4?  "mt-[180px]": phase.id==6?"mt-[200px]" : "mt-20"
+                  phase.position === "top" ? phase.id==5 ? "mt-[75px]" : "mt-0" : phase.id==4?  "mt-[180px]": phase.id==6?"mt-[150px] 2xl:mt-[200px]" : "mt-20"
                 }`}
               >
                 {/* Icon */}
@@ -144,7 +144,7 @@ const Roadmap = ({id}:{id:string}) => {
                 <div
                   style={{ background: "#fff" }}
                   className={`w-[1px] relative ${
-                    phase.position === "top" ? `${phase.id==1? "-mt-2 h-[12rem]":phase.id==3? "-mt-15 h-[12rem]" : "-mt-18 h-[15rem]" }` : phase.id==6 ? "h-[10rem]" :  phase.id==2?  "h-[12rem] ": phase.id==4 ? "h-[15rem]":""
+                    phase.position === "top" ? `${phase.id==1? "-mt-2 h-[12rem]":phase.id==3? "-mt-15 h-[12rem]" : "-mt-18 h-[15rem]" }` : phase.id==6 ? "h-[13rem] 2xl:h-[10rem]" :  phase.id==2?  "h-[12rem] ": phase.id==4 ? "h-[15rem]":""
                   }`}
                 >
                    <div style={{fontFamily:"Outfit"}} className={`text-center absolute ${ phase.position === "top"?" bottom-[-80px]":"top-[-80px]"} right-4 w-full text-[#2B9AE6] font-bold text-[20px]`}>
