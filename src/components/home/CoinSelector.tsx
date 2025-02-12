@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "./CoinSelector.css"; // Import your CSS file
+import "./CoinSelector.css";
 import { erc20Abi, zeroAddress } from "viem";
 import { useReadContract, useReadContracts } from "wagmi";
 import { useEffect, useMemo, useState } from "react";
@@ -20,6 +20,9 @@ const CoinSelector: React.FC<CoinSelectorProps> = ({
   setCoinType,
 }) => {
   const { chainId } = useAppKitNetwork();
+  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
   const result = useReadContracts({
     contracts: [
       {
@@ -35,41 +38,67 @@ const CoinSelector: React.FC<CoinSelectorProps> = ({
       result && result.data && result.data && result.data[0]?.result;
     if (tokenlist && tokenlist?.length > 0) {
       const mergeArray = [...tokenlist, zeroAddress];
-
       return mergeArray;
     }
   }, [result]);
+
+  useEffect(() => {
+    if (swiperInstance && selectedIndex !== null) {
+      swiperInstance.slideTo(selectedIndex, 300); // Slide to selected index with animation
+    }
+  }, [selectedIndex, swiperInstance]);
 
   return (
     <div className="w-auto md:w-[510px]">
       <Swiper
         modules={[Navigation]}
-        spaceBetween={20}
-        slidesPerView={4}
+        slidesPerView="auto"
         navigation
+        onSwiper={setSwiperInstance} // Get Swiper instance
         breakpoints={{
-          640: { slidesPerView: 2, spaceBetween: 15 },
-          768: { slidesPerView: 3, spaceBetween: 20 },
-          1024: { slidesPerView: 4, spaceBetween: 25 },
+          240: { slidesPerView: 2, spaceBetween: 10 },
+          440: { slidesPerView: 2, spaceBetween: 10 },
+          768: { slidesPerView: 3, spaceBetween: 10 },
+          1024: { slidesPerView: 4, spaceBetween: 10 },
+          1624: { slidesPerView: 4, spaceBetween: 10 },
         }}
         className="py-4"
       >
-        {tokenAddrss?.map((coin: any, index: any) => (
+        {tokenAddrss?.map((coin: any, index: number) => (
           <SwiperSlide
-            style={{ width: "121px" }}
-            key={index + 1}
+            style={{ width: "fit-content" }}
+            key={index}
             className="flex justify-center"
           >
             <TokenData
               chainId={chainId}
               coin={coin}
               index={index}
-              setCoinType={setCoinType}
+              setCoinType={(coinData: any) => {
+                setCoinType(coinData);
+                setSelectedIndex(index); // Update selected index
+              }}
               coinType={coinType}
             />
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .swiper-slide {
+              width: fit-content !important;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .swiper-backface-hidden .swiper-slide {
+              transform: none !important;
+            }
+          `,
+        }}
+      /> */}
     </div>
   );
 };
@@ -85,7 +114,7 @@ const TokenData = ({
 }: {
   coin: any;
   chainId: any;
-  index: any;
+  index: number;
   setCoinType: any;
   coinType: any;
 }) => {
@@ -98,7 +127,6 @@ const TokenData = ({
     },
     chainId: Number(chainId),
   });
- 
 
   return (
     <button
@@ -112,7 +140,7 @@ const TokenData = ({
         coinType?.tokenname === (coin === zeroAddress ? "BNB" : symbol)
           ? "bg-[#2B9AE6] rounded-md"
           : "coinBgBtn"
-      } " min-w-[121px] h-[50px]  text-sm"`}
+      } min-w-[110px] h-[50px] text-sm`}
     >
       {coin === zeroAddress ? "BNB" : symbol}
     </button>

@@ -137,7 +137,7 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
             </div>
           
             <div className="self-center pt-[10px] md:pt-[54px] text-[20px] md:text-[35px] font-bold leading-none text-sky-500 max-md:text-4xl">
-            <span style={{ fontFamily: "Geist" }} className="text-sky-500 text-[22px] md:text-[35px]">
+            <span style={{ fontFamily: "Geist" }} className="text-sky-500 text-[18px] md:text-[35px]">
               How to Buy DecryptoX ($DCRX)?
             </span>
           
@@ -150,11 +150,11 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
       <div className="2xl:hidden mt-5">
       
         <Swiper
-          modules={[Navigation, Pagination,Autoplay]}
+          modules={[Navigation, Pagination]}
           spaceBetween={20}
           slidesPerView={1}
           navigation={false}
-          loop={true}
+          loop={false}
           pagination={{ clickable: true, el: ".custom-pagination" }}
           autoplay={{ delay: 1000, disableOnInteraction: false }}
           breakpoints={{

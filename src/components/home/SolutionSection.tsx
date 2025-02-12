@@ -11,9 +11,9 @@ const SolutionSection: React.FC = () => {
      <div className="px-4">
         <div className="mb-4 md:mb-12">
        
-            <CommonHeading heading={" THE SOLUTION:"} fontSize="text-[25px] sm:text-[42px] text-left md:text-center w-full " />
+            <CommonHeading heading={" The Solution:"} fontSize="text-[25px] sm:text-[45px] text-left md:text-center w-full" />
          
-          <h1  className="text-[20px] md:text-[30px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
+          <h1  className="text-[20px] xl:text-[35px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
 
          
           </h1>
@@ -24,8 +24,8 @@ const SolutionSection: React.FC = () => {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* Left Section - Cards */}
-          <div className="md:col-span-12 lg:col-span-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 2xl:grid-cols-2 gap-6">
+          <div className="md:col-span-12 col-span-12 xl:col-span-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 2xl:grid-cols-2 gap-6">
               {[
                 
                 {
@@ -69,7 +69,7 @@ const SolutionSection: React.FC = () => {
           </div>
 
           {/* Right Section - Image */}
-          <div className="md:col-span-12 lg:col-span-6 flex justify-center pb-10 pt-5">
+          <div className="md:col-span-12 col-span-12 xl:col-span-6 flex justify-center pb-10 pt-5">
             <ImageRotation />
            
           </div>
