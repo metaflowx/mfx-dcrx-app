@@ -6,8 +6,8 @@ import { ImageRotation } from "./ui/ImageRotation";
 
 const SolutionSection: React.FC = () => {
   return (
-    <div style={{fontFamily:"Geist"}} className="bg-[#000] text-white py-6 md:py-16 w-full">
-     <ConstrainedBox>
+    <div style={{fontFamily:"Geist"}} className="bg-[#000] text-white py-1 xl:py-8 w-full px-4">
+     <div>
      <div className="px-4">
         <div className="mb-4 md:mb-12">
        
@@ -69,13 +69,13 @@ const SolutionSection: React.FC = () => {
           </div>
 
           {/* Right Section - Image */}
-          <div className="md:col-span-12 col-span-12 xl:col-span-6 flex justify-center pb-10 pt-5">
+          <div className="md:col-span-12 col-span-12 xl:col-span-6 flex justify-center  pt-5">
             <ImageRotation />
            
           </div>
         </div>
       </div>
-     </ConstrainedBox>
+     </div>
     </div>
   );
 };
