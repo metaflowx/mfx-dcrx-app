@@ -457,10 +457,11 @@ const Banner = ({ id }: { id: string }) => {
               </div>
 
               <CoinSelector setCoinType={setCoinType} coinType={coinType} />
-              <p className="text-white text-[15px] pt-4">{`${coinType?.tokenname} you pay`}</p>
+            
 
               <div className="mt-2  items-center hidden sm:flex justify-between w-full">
                 <div>
+                <p className="text-white text-[15px] pt-4">{`${coinType?.tokenname} you pay`}</p>
                   <div className="input___border w-full sm:w-auto mr-1">
                     <input
                       type="number"
@@ -476,6 +477,7 @@ const Banner = ({ id }: { id: string }) => {
                 </div>
 
                 <div>
+                <p className="text-white text-[15px] pt-4">$DCRX you receive</p>
                   <div className="input___border w-full sm:w-auto mt-1 sm:mt-0">
                     <input
                       type="number"
@@ -486,8 +488,10 @@ const Banner = ({ id }: { id: string }) => {
                   </div>
                 </div>
               </div>
-
               <div className="mt-2  block sm:hidden  w-full">
+              <p className="text-white text-[15px] pt-4">{`${coinType?.tokenname} you pay`}</p>
+
+             
                 <div className="input___border w-full sm:w-auto">
                   <input
                     onKeyDown={(e) => {
@@ -501,6 +505,7 @@ const Banner = ({ id }: { id: string }) => {
                   />
                 </div>
 
+                <p className="text-white text-[15px] pt-4">$DCRX you receive</p>
                 <div className="input___border w-full sm:w-auto mt-1 sm:mt-0">
                   <input
                     type="number"

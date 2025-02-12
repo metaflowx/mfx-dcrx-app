@@ -81,13 +81,15 @@ const TeamSection = ({ id }: { id: string }) => {
         
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-10" >
+       
+
+        <div className="hidden lg:grid w-full  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-10" >
           {teamMembers.slice(0, 3).map((member, index) => {
             return (
               <>
                 {selectedMember.name === member?.name ? (
                   <>
-                    <div className="flex cursor-pointer justify-center border border-[#1B429A] items-center rounded-tr-[20px] rounded-br-[20px]  teamCardBg">
+                    <div className="flex cursor-pointer h-[100%] justify-center border border-[#1B429A] items-center rounded-tr-[20px] rounded-br-[20px]  teamCardBg">
                       <div className="max-w-sm w-full  rounded-lg  text-center ">
                         <h2
                           style={{ fontFamily: "Plus Jakarta Sans" }}
@@ -172,13 +174,13 @@ const TeamSection = ({ id }: { id: string }) => {
             );
           })}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-1">
+        <div className=" hidden lg:grid w-full  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-1">
           {teamMembers.slice(3, 6).map((member, index) => {
             return (
               <>
                 {selectedMember.name === member?.name ? (
                   <>
-                    <div className="flex cursor-pointer justify-center border border-[#1B429A] items-center rounded-tr-[20px] rounded-br-[20px]  teamCardBg">
+                    <div className="h-[100%] flex cursor-pointer justify-center border border-[#1B429A] items-center rounded-tr-[20px] rounded-br-[20px]  teamCardBg">
                       <div className="max-w-sm w-full  rounded-lg  text-center ">
                         <h2
                           style={{ fontFamily: "Plus Jakarta Sans" }}
@@ -198,24 +200,7 @@ const TeamSection = ({ id }: { id: string }) => {
                         >
                           {selectedMember.description}
                         </p>
-                        {/* <div className="flex justify-center gap-4 mt-6">
-                          <img
-                            src="/crypto/facebook.png"
-                            alt="facebook"
-                            className="w-[38px] h-[38px]"
-                          />
-                          <img
-                            src="/crypto/telegra.png"
-                            alt="telegram"
-                            className="w-[38px] h-[38px]"
-                          />
-
-                          <img
-                            src="/crypto/instagram.png"
-                            alt="insta"
-                            className="w-[38px] h-[38px]"
-                          />
-                        </div> */}
+                       
                       </div>
                     </div>
                   </>
@@ -266,6 +251,171 @@ const TeamSection = ({ id }: { id: string }) => {
             );
           })}
         </div>
+
+       
+      
+
+        <div className="block lg:hidden w-full">
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-10" >
+          {teamMembers.slice(0, 6).map((member, index) => {
+            return (
+              <>
+                {selectedMember.name === member?.name ? (
+                  <>
+                    <div className="flex h-[100%] cursor-pointer justify-center border border-[#1B429A] items-center rounded-tr-[20px] rounded-br-[20px]  teamCardBg">
+                      <div className="max-w-sm w-full  rounded-lg  text-center ">
+                        <h2
+                          style={{ fontFamily: "Plus Jakarta Sans" }}
+                          className="text-white text-[30px] font-bold"
+                        >
+                          {selectedMember?.name}
+                        </h2>
+                        <p
+                          style={{ fontFamily: "Outfit" }}
+                          className="text-[#AEAEAE] text-[22px] mt-1"
+                        >
+                          {selectedMember?.role}
+                        </p>
+                        <p
+                          style={{ fontFamily: "Geist" }}
+                          className="text-white text-[16px] mt-4 text-center font-medium px-6"
+                        >
+                          {selectedMember.description}
+                        </p>
+                        
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div
+                    key={index}
+                    className={`p-6  pt-[40px] pb-[30px] border border-[#1B429A] bg-[#09090B]  transition cursor-pointer ${
+                      index === 0
+                        ? "rounded-tl-[20px] rounded-bl-[20px]"
+                        : index === 2
+                        ? "rounded-tr-[20px] rounded-br-[20px]"
+                        : ""
+                    }`}
+                    onMouseEnter={() => setSelectedMember(member)}
+                    onClick={()=>setSelectedMember(member)}
+                    onMouseUp={() => setSelectedMember("")}
+                    onMouseLeave={()=> setSelectedMember("")}
+                    onMouseOut={()=>setSelectedMember("")}
+                  >
+                    <div className="flex flex-col items-center">
+                      {/* Image */}
+                      <div
+                        className={` rounded-full  flex items-center justify-center mb-4`}
+                      >
+                        <img
+                          src={member.imgSrc}
+                          alt={member.name}
+                          className="rounded-full w-[234px] h-[234px]"
+                        />
+                      </div>
+                      {/* Name and Role */}
+                      <h3 className="text-center text-[28px] font-semibold">
+                        {member.name}
+                      </h3>
+                      <p className="text-center text-[20px] text-gray-300">
+                        {member.role}
+                      </p>
+                    </div>
+                    {/* Button */}
+                    <div className="mt-4 flex justify-center">
+                      <img src="/card/ad.png" className="w-[44px]" />
+                    </div>
+                  </div>
+                )}
+              </>
+            );
+          })}
+        </div>
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-1">
+          {teamMembers.slice(3, 6).map((member, index) => {
+            return (
+              <>
+                {selectedMember.name === member?.name ? (
+                  <>
+                    <div className="h-[100%] flex cursor-pointer justify-center border border-[#1B429A] items-center rounded-tr-[20px] rounded-br-[20px]  teamCardBg">
+                      <div className="max-w-sm w-full  rounded-lg  text-center ">
+                        <h2
+                          style={{ fontFamily: "Plus Jakarta Sans" }}
+                          className="text-white text-[30px] font-bold"
+                        >
+                          {selectedMember?.name}
+                        </h2>
+                        <p
+                          style={{ fontFamily: "Outfit" }}
+                          className="text-[#AEAEAE] text-[22px] mt-1"
+                        >
+                          {selectedMember?.role}
+                        </p>
+                        <p
+                          style={{ fontFamily: "Geist" }}
+                          className="text-white text-[16px] mt-4 text-center font-medium px-6"
+                        >
+                          {selectedMember.description}
+                        </p>
+                        
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div
+                    key={index}
+                    className={`p-6 pt-[40px] pb-[30px] border border-[#1B429A] bg-[#09090B]  transition cursor-pointer ${
+                      index === 0
+                        ? "rounded-tl-[20px] rounded-bl-[20px]"
+                        : index === 2
+                        ? "rounded-tr-[20px] rounded-br-[20px]"
+                        : ""
+                    }`}
+                    onMouseUp={() => setSelectedMember("")}
+                    onMouseOver={()=>setSelectedMember(member)}
+                    onClick={()=>setSelectedMember(member)}
+                    onMouseEnter={() => {
+                      setSelectedMember(member);
+                    }}
+                    onMouseLeave={()=> setSelectedMember("")}
+                    onMouseOut={()=>setSelectedMember("")}
+                    
+                  >
+                    <div className="flex flex-col items-center">
+                    
+                      <div
+                        className={` rounded-full  flex items-center justify-center mb-4`}
+                      >
+                        <img
+                          src={member.imgSrc}
+                          alt={member.name}
+                          className="rounded-full w-[234px] h-[234px]"
+                        />
+                      </div>
+                   
+                      <h3 className="text-center text-[28px] font-semibold">
+                        {member.name}
+                      </h3>
+                      <p className="text-center text-[20px] text-gray-300">
+                        {member.role}
+                      </p>
+                    </div>
+                  
+                    <div className="mt-4 flex justify-center">
+                      <img src="/card/ad.png" className="w-[44px]" />
+                    </div>
+                  </div>
+                )}
+              </>
+            );
+          })}
+        </div>
+           */}
+
+
+          </div>
       </div>
     </section>
   );

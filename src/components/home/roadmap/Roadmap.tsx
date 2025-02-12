@@ -116,12 +116,12 @@ const Roadmap = ({id}:{id:string}) => {
           <img src="/crypto/curveline.png" className="absolute top-0 left-0 w-full h-96 object-contain" />
 
           {/* Phase Cards */}
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-6 gap-16 max-w-7xl mx-auto mt-20">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-6 gap-8 2xl:gap-16 max-w-7xl mx-auto mt-20">
             {phases.map((phase) => (
               <div
                 key={phase.id}
                 className={`flex flex-col items-center relative  ${
-                  phase.position === "top" ? phase.id==5 ? "mt-[75px]" : "mt-0" : phase.id==4?  "mt-[180px]": phase.id==6?"mt-[150px] 2xl:mt-[200px]" : "mt-20"
+                  phase.position === "top" ? phase.id==5 ? "mt-[75px]" : "mt-0" : phase.id==4?  "mt-[180px]": phase.id==6?"mt-[150px] 2xl:mt-[200px]  " : "mt-20"
                 }`}
               >
                 {/* Icon */}
@@ -137,20 +137,20 @@ const Roadmap = ({id}:{id:string}) => {
                  <img src= {phase.icon}  alt="icon" className="w-[31px] h-[28px]" />
                   </div>
 
-                 <h5 style={{fontFamily:"Outfit"}} className="text-[22px] font-bold whitespace-pre pl-2">{phase?.qtr}</h5>
+                 <h5 style={{fontFamily:"Outfit"}} className="text-[12px] xl:text-[22px] font-bold whitespace-pre pl-2">{phase?.qtr}</h5>
                 </div>
 
                 {/* Line to Curve */}
                 <div
                   style={{ background: "#fff" }}
-                  className={`w-[1px] relative ${
+                  className={`w-[1px] relative 2xl:mr-0 mr-[34px] lg:mr[44px] ${
                     phase.position === "top" ? `${phase.id==1? "-mt-2 h-[12rem]":phase.id==3? "-mt-15 h-[12rem]" : "-mt-18 h-[15rem]" }` : phase.id==6 ? "h-[13rem] 2xl:h-[10rem]" :  phase.id==2?  "h-[12rem] ": phase.id==4 ? "h-[15rem]":""
                   }`}
                 >
                    <div style={{fontFamily:"Outfit"}} className={`text-center absolute ${ phase.position === "top"?" bottom-[-80px]":"top-[-80px]"} right-4 w-full text-[#2B9AE6] font-bold text-[20px]`}>
-                  <h3 className=" font-bold whitespace-pre">{phase.title}</h3>
-                  <h3 className="whitespace-pre text-[16px]">{phase.description}</h3>
-                  <h3 className="whitespace-pre text-[16px]">{phase.description1}</h3>
+                  <h3 className=" font-bold whitespace-pre text-[14px] 2xl:text-[20px]">{phase.title}</h3>
+                  <h3 className="whitespace-pre text-[13px] 2xl:text-[16px]">{phase.description}</h3>
+                  <h3 className="whitespace-pre text-[13px] 2xl:text-[16px]">{phase.description1}</h3>
 
                 </div>
                 </div>
