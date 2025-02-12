@@ -58,7 +58,7 @@ export const Footer: React.FC = () => {
       <div className="flex flex-col items-center px-10 pt-3 md:pt-14 pb-7 w-full bg-black max-md:px-5 max-md:max-w-full">
         <div className="flex flex-col w-full  ">
           <div className="max-md:mr-2.5 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_1.5fr_1fr] gap-6 md:gap-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_3fr_1fr] gap-6 md:gap-10 w-full">
   {/* Logo & Contact */}
   <div className="flex flex-col text-2xl font-semibold text-white items-center md:items-start">
     <img
