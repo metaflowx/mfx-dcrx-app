@@ -11,9 +11,9 @@ const SolutionSection: React.FC = () => {
      <div className="px-4">
         <div className="mb-4 md:mb-12">
        
-            <CommonHeading heading={" THE SOLUTION:"} fontSize="text-[25px] sm:text-[42px] text-left md:text-center w-full " />
+            <CommonHeading heading={" The Solution:"} fontSize="text-[25px] sm:text-[45px] text-left md:text-center w-full" />
          
-          <h1  className="text-[20px] md:text-[30px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
+          <h1  className="text-[20px] xl:text-[35px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
 
          
           </h1>

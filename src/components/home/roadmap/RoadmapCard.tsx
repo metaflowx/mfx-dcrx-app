@@ -113,7 +113,7 @@ const RoadmapCard = ({
     <div
       ref={containerRef}
       style={{ fontFamily: "Outfit" }}
-      className="flex overflow-x-auto scrollbar-hide items-center space-x-[69px] py-8 px-1 h-[100%]"
+      className="flex overflow-x-auto scrollbar-hide items-center space-x-[69px] py-2 sm:py-8 px-1 h-[100%]"
     >
       {roadmapData.map((item, index) => (
         <div

@@ -290,7 +290,7 @@ const Banner = ({ id }: { id: string }) => {
       <ConstrainedBox>
         <div className=" flex flex-col lg:flex-row items-center mt-[120px] sm:mt-[85px] w-full">
           <div className="text-center lg:text-left w-full pl-[10px]">
-            <h1 className="sm:text-[40px] md:text-[60px] lg:text-[70px] font-bold">
+            <h1 className="text-[30px] sm:text-[40px] md:text-[60px] lg:text-[70px] font-bold">
               Join Decryptox:
             </h1>
             <p className="text-[20px] md:text-[30px] text-[#2B9AE6] font-bold mt-2">

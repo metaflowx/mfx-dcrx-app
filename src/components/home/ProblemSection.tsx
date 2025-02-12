@@ -55,7 +55,7 @@ const ProblemSection = ({id}:{id:string}) => {
         style={{
           fontFamily: "Geist",
         }}
-        className="max-w-7xl mx-auto px-6 text-left md:text-center pt-[10px] md:pt-[180px]"
+        className="max-w-7xl mx-auto px-6 text-left md:text-center pt-[10px] 2xl:pt-[180px]"
       >
         <div>
           <CommonHeading heading={"The Problem:"} fontSize="text-[25px] sm:text-[45px]" />

@@ -84,7 +84,7 @@ const Roadmap = ({id}:{id:string}) => {
   ];
 
   return (
-    <div className="bg-[#141414] text-white pt-[10px] sm:pt-[50px] mb:pt-[100px] pb-[10px] md:pb-[150px] w-full" id={id}>
+    <div className="bg-[#141414] text-white pt-[10px] sm:pt-[50px] mb:pt-[100px] pb-[0px] md:pb-[150px] w-full" id={id}>
       {/* Vision Section */}
       <div style={{fontFamily:"Plus Jakarta Sans"}} className="text-left md:text-center mb-[15px] md:mb-16 px-4">
         <h2  className="text-[25px] md:text-[37px] font-bold text-[#2B9AE6]">DecryptoX Roadmap</h2>

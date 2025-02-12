@@ -11,7 +11,7 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ src,url, alt, className 
     loading="lazy"
     src={src}
     alt={alt}
-    className={`object-contain shrink-0 self-stretch my-auto fill-white ${className}`}
+    className={`object-contain  my-auto fill-white ${className}`}
   />
     </Link>
   )
