@@ -24,8 +24,8 @@ const SolutionSection: React.FC = () => {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* Left Section - Cards */}
-          <div className="md:col-span-12 lg:col-span-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 2xl:grid-cols-2 gap-6">
+          <div className="md:col-span-12 col-span-12 xl:col-span-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 2xl:grid-cols-2 gap-6">
               {[
                 
                 {
@@ -69,7 +69,7 @@ const SolutionSection: React.FC = () => {
           </div>
 
           {/* Right Section - Image */}
-          <div className="md:col-span-12 lg:col-span-6 flex justify-center pb-10 pt-5">
+          <div className="md:col-span-12 col-span-12 xl:col-span-6 flex justify-center pb-10 pt-5">
             <ImageRotation />
            
           </div>
