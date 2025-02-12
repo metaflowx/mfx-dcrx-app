@@ -9,11 +9,11 @@ const SolutionSection: React.FC = () => {
     <div style={{fontFamily:"Geist"}} className="bg-[#000] text-white py-6 md:py-16 w-full">
      <ConstrainedBox>
      <div className="px-4">
-        <div className=" mb-12">
+        <div className="mb-4 md:mb-12">
        
-            <CommonHeading heading={" THE SOLUTION:"} fontSize="text-[42px] text-left md:text-center w-full " />
+            <CommonHeading heading={" THE SOLUTION:"} fontSize="text-[25px] sm:text-[42px] text-left md:text-center w-full " />
          
-          <h1  className="text-[25px] md:text-[30px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
+          <h1  className="text-[20px] md:text-[30px] text-left md:text-center leading-snug font-bold mb-2">DecryptoX Transforming Crypto for Everyone
 
          
           </h1>

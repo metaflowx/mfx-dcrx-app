@@ -43,15 +43,15 @@ const CountdownTimer = ({
         <p
           style={{
             fontFamily: "Gemunu Libre, serif",
-            lineHeight: "62px",
+            // lineHeight: "62px",
           }}
-          className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
+          className="text-[42px] leading-[42px] md:leading-[62px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
           {timeLeft.days ||0}
         </p>
         <p
           style={{ fontFamily: "Geist, serif" }}
-          className="text-[13px] sm:text-[20px]"
+          className="text-[13px] sm:text-[20px] text-center"
         >
           Days
         </p>
@@ -60,9 +60,9 @@ const CountdownTimer = ({
         <p
           style={{
             fontFamily: "Gemunu Libre, serif",
-            lineHeight: "62px",
+            // lineHeight: "62px",
           }}
-          className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
+          className="text-[42px] leading-[42px] md:leading-[62px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
           {timeLeft.hours || 0}
         </p>
@@ -77,9 +77,9 @@ const CountdownTimer = ({
         <p
           style={{
             fontFamily: "Gemunu Libre, serif",
-            lineHeight: "62px",
+            // lineHeight: "62px",
           }}
-          className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
+          className="text-[42px] leading-[42px] md:leading-[62px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
           {timeLeft.minutes || 0}
         </p>
@@ -94,15 +94,15 @@ const CountdownTimer = ({
         <p
           style={{
             fontFamily: "Gemunu Libre, serif",
-            lineHeight: "62px",
+            // lineHeight: "62px",
           }}
-          className="text-[42px] md:text-[62px] font-bold text-[#2B9AE6]"
+          className="text-[42px] leading-[42px] md:leading-[62px] md:text-[62px] font-bold text-[#2B9AE6]"
         >
           {timeLeft.seconds || 0}
         </p>
         <p
           style={{ fontFamily: "Geist, serif" }}
-          className="text-[13px] sm:text-[20px]"
+          className="text-[13px] sm:text-[20px] text-center"
         >
           Seconds
         </p>

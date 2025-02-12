@@ -29,7 +29,7 @@ const Tokenomics = ({ id }: { id: string }) => {
     <ConstrainedBox classNames='px-4 sm:px-4  lg:px-0'>
 
     <div className="bg-black text-white py-12  w-full">
-        <CommonHeading heading='TOKENOMICS' fontSize="text-[30px] md:text-[40px] text-center w-full" />
+        <CommonHeading heading='TOKENOMICS' fontSize="text-[25px] md:text-[40px] text-left sm:text-center w-full" />
       <div className=" mx-auto flex flex-col lg:flex-row items-center justify-between mt-4">
         {/* Left Section */}
         <div className="lg:w-1/2 ">
@@ -42,7 +42,7 @@ const Tokenomics = ({ id }: { id: string }) => {
           </h4>
           <div style={{fontFamily:"Plus Jakarta Sans"}} className="mt-6">
             <p className="text-3xl lg:text-[20px] font-bold">
-              <span className="text-[20px] md:text-[20px] font-bold">Symbol:</span> $DCRX
+              <span className="text-[20px] md:text-[20px] font-bold">Symbol: $DCRX</span> 
             </p>
             <p className=" md:text-[20px] font-bold mt-[10px]">
               Initial Value:
