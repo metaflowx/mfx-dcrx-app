@@ -88,12 +88,12 @@ export const DecryptoXLanding = ({ id }: { id: string }) => {
       id={id}
       className="flex bannerBuyBg h-auto  flex-col pt-[50px] px-4 rounded-none max-md:pt-[14px] max-md:pr-5 relative pb-30"
     >
-      <div className="absolute hidden sm:block left-0 bottom-[-2rem] md:bottom-7">
+      <div className="absolute hidden sm:block left-0 bottom-[10px] xl:bottom-[0px]">
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/deeeb0862e0e005843d75d6c9037124fb10ab600d0f6cf24ebd9cf68c4d78fa3?placeholderIfAbsent=true&apiKey=c2126efc2f0a4f0aa81c13e8f4289df5"
           alt=""
-          className="object-contain shrink-0 self-start max-w-full aspect-[0.32] w-[125px]"
+          className="object-contain shrink-0 self-start max-w-full aspect-[0.32] w-[90px] xl:w-[125px]"
         />
       </div>
       <div className="self-center w-full max-w-[1618px] max-md:max-w-full">
