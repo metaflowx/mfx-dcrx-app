@@ -568,8 +568,12 @@ const Banner = ({ id }: { id: string }) => {
               ) : (
                 <button
                   disabled={
-                    Number(amount) < minBuy ||
-                    Number(amount) > maxBuy ||
+                    (
+                      (calculationresult?.data?.[1]?.result?.isStable && Number(amount) < Number(minBuy))||
+                  
+                      !calculationresult?.data?.[1]?.result?.isStable && Number(formatEther(BigInt(calculationresult?.data?.[0]?.result ?? 0))) < Number(minBuy)
+                  ) ||
+
                     isPending ||
                     amount === "" ||
                     Number(amount) <= 0 ||
