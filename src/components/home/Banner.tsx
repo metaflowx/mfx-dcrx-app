@@ -358,7 +358,7 @@ const Banner = ({ id }: { id: string }) => {
               </h2>
               <div className="w-full text-center mb-4">
 
-                {Math.floor(Date.now() / 1000) <= Number(result?.data?.[1]?.result?.startAt) + Number(63120) ?(
+                {Math.floor(Date.now() / 1000) <= Number(result?.data?.[1]?.result?.startAt) ?(
 
                   <CountdownTimer
                     label="Sale Starts In"

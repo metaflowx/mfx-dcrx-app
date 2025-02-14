@@ -7,15 +7,9 @@ const CountdownTimer = ({
   label: string;
   targetTime: any;
 }) => {
- 
-  
   const calculateTimeLeft = () => {
     const now = Math.floor(Date.now() / 1000); // Current time in Unix seconds
-    
-    
-    const difference = Number(targetTime) + Number(63120) - now;
-    
-    
+    const difference = Number(targetTime) - now;
 
     if (difference <= 0 || difference===undefined) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
